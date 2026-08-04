@@ -24,26 +24,30 @@
   },
   "capabilities": {
     "supported": [
-      "View EXIF, IPTC, and XMP photo metadata",
-      "Edit date, GPS, camera, author, copyright, and description fields",
-      "Remove all metadata in one action",
-      "Batch remove / batch edit",
-      "Save cleaned photos as new items in the Photo Library",
-      "History with before/after comparison",
-      "On-device ImageIO processing"
+      "View EXIF, IPTC, GPS, and related photo tags from the Photo Library",
+      "Edit date, GPS/location, camera fields, author, copyright, and description fields",
+      "Remove all metadata in one action (single photo)",
+      "Batch remove and batch edit (Premium)",
+      "Share a stripped temporary copy (Premium)",
+      "Save cleaned or edited photos as new Photo Library items",
+      "History with before/after comparison (up to 50 items)",
+      "On-device PhotoKit + ImageIO processing",
+      "HEIC/HEIF preserved when saving from the library; PNG preserved; other types may export as JPEG"
     ],
     "notSupported": [
-      "Video metadata editing (stub only)",
+      "Video metadata viewing or editing",
+      "XMP as a first-class read/write format",
       "Cloud sync / accounts",
       "Browser ↔ app handoff of files",
-      "ProRAW-specific advanced workflows",
-      "Automatic overwrite of the original library asset"
+      "Automatic overwrite of the original library asset",
+      "Lossless guarantee (JPEG/HEIC rewrite uses ImageIO compression)",
+      "Dark Mode (app uses a light UI)"
     ],
     "metadataCategories": [
       "Date & Time",
       "Location",
       "Camera",
-      "Technical",
+      "Camera Settings",
       "Author & Copyright",
       "Description",
       "Image Information",
@@ -56,26 +60,50 @@
     ]
   },
   "limits": {
-    "freePhotoLimit": 3,
-    "freeBatchLimit": 1,
-    "batchPaywallThreshold": 5,
     "historyMaxItems": 50,
+    "liveFreeTier": [
+      "Single-photo view, edit, and remove are available without Premium in the current UI",
+      "Premium is required for multi-select batch remove/edit",
+      "Premium is required to share a stripped temporary file from the detail screen"
+    ],
+    "unusedOrIncompleteConstants": [
+      "freePhotoLimit=3 exists in code but is not enforced by current UI call sites",
+      "freeBatchLimit and batchPaywallThreshold are unused"
+    ],
     "products": [
-      "exif.metadata.monthly",
-      "exif.premium.annual",
-      "exif.premium.lifetime"
+      {
+        "id": "exif.metadata.monthly",
+        "type": "autoRenewable",
+        "period": "month"
+      },
+      {
+        "id": "exif.premium.annual",
+        "type": "autoRenewable",
+        "period": "year",
+        "intro": "1-week free trial in StoreKit config"
+      },
+      {
+        "id": "exif.premium.lifetime",
+        "type": "nonConsumable"
+      }
     ]
   },
   "claimsPolicy": {
     "prefer": [
-      "Photos are processed on-device in the iOS app",
+      "Photos are processed on-device with PhotoKit/ImageIO",
       "Browser tools process locally in the page (no upload to our servers)",
-      "Cleaned photos are saved as new Photo Library items"
+      "Cleaned/edited photos are saved as new Photo Library items (original kept)",
+      "Say EXIF, IPTC, and GPS — not XMP — unless implementation changes",
+      "Premium for batch multi-select and strip-on-share"
     ],
     "avoid": [
-      "Claiming zero analytics if product analytics may be present",
+      "Claiming zero analytics or that nothing ever leaves the device (Firebase Analytics is present)",
       "Claiming video metadata support",
-      "Claiming automatic original overwrite"
+      "Claiming XMP support",
+      "Claiming automatic original overwrite",
+      "Claiming a hard free removal quota of 3 (not enforced in UI)",
+      "Claiming lossless / never re-encodes",
+      "Claiming Dark Mode"
     ]
   }
 }

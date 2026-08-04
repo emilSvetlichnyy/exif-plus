@@ -13,6 +13,12 @@
     <loc>https://emilsvetlichnyy.github.io/exif-plus/app/features/</loc>
   </url>
   <url>
+    <loc>https://emilsvetlichnyy.github.io/exif-plus/app/free-vs-premium/</loc>
+  </url>
+  <url>
+    <loc>https://emilsvetlichnyy.github.io/exif-plus/app/history/</loc>
+  </url>
+  <url>
     <loc>https://emilsvetlichnyy.github.io/exif-plus/app/privacy/</loc>
   </url>
   <url>
@@ -34,10 +40,25 @@
     <loc>https://emilsvetlichnyy.github.io/exif-plus/exif-viewer/</loc>
   </url>
   <url>
+    <loc>https://emilsvetlichnyy.github.io/exif-plus/heic-metadata/</loc>
+  </url>
+  <url>
     <loc>https://emilsvetlichnyy.github.io/exif-plus/how-to/</loc>
   </url>
   <url>
+    <loc>https://emilsvetlichnyy.github.io/exif-plus/how-to/batch-edit-copyright/</loc>
+  </url>
+  <url>
+    <loc>https://emilsvetlichnyy.github.io/exif-plus/how-to/change-photo-date-iphone/</loc>
+  </url>
+  <url>
+    <loc>https://emilsvetlichnyy.github.io/exif-plus/how-to/edit-gps-on-iphone/</loc>
+  </url>
+  <url>
     <loc>https://emilsvetlichnyy.github.io/exif-plus/how-to/remove-location-from-photos-iphone/</loc>
+  </url>
+  <url>
+    <loc>https://emilsvetlichnyy.github.io/exif-plus/how-to/share-photo-without-metadata/</loc>
   </url>
   <url>
     <loc>https://emilsvetlichnyy.github.io/exif-plus/how-to/strip-metadata-before-sharing/</loc>
@@ -49,7 +70,13 @@
     <loc>https://emilsvetlichnyy.github.io/exif-plus/learn/</loc>
   </url>
   <url>
+    <loc>https://emilsvetlichnyy.github.io/exif-plus/learn/does-cleaning-reduce-quality/</loc>
+  </url>
+  <url>
     <loc>https://emilsvetlichnyy.github.io/exif-plus/learn/does-instagram-remove-exif/</loc>
+  </url>
+  <url>
+    <loc>https://emilsvetlichnyy.github.io/exif-plus/learn/exif-vs-iptc/</loc>
   </url>
   <url>
     <loc>https://emilsvetlichnyy.github.io/exif-plus/learn/glossary/</loc>
@@ -61,10 +88,16 @@
     <loc>https://emilsvetlichnyy.github.io/exif-plus/learn/what-is-gps-metadata/</loc>
   </url>
   <url>
+    <loc>https://emilsvetlichnyy.github.io/exif-plus/learn/why-cleaned-photo-is-a-duplicate/</loc>
+  </url>
+  <url>
     <loc>https://emilsvetlichnyy.github.io/exif-plus/metadata-cleaner/</loc>
   </url>
   <url>
     <loc>https://emilsvetlichnyy.github.io/exif-plus/on-iphone/</loc>
+  </url>
+  <url>
+    <loc>https://emilsvetlichnyy.github.io/exif-plus/remove-camera-data/</loc>
   </url>
   <url>
     <loc>https://emilsvetlichnyy.github.io/exif-plus/remove-exif/</loc>

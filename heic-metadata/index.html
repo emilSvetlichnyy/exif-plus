@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EXIF Tools — Viewer, Remover, GPS Cleaner | EXIF+</title>
-  <meta name="description" content="Free browser EXIF tools: viewer, metadata remover, and GPS cleaner. Local processing, plus the EXIF+ iPhone app.">
-  <link rel="canonical" href="https://emilsvetlichnyy.github.io/exif-plus/tools/">
+  <title>HEIC Metadata Viewer &amp; Cleaner on iPhone | EXIF+</title>
+  <meta name="description" content="View and clean HEIC/HEIF photo metadata on iPhone with EXIF+. Why browser EXIF tools often fail on HEIC and how the app preserves HEIC on save.">
+  <link rel="canonical" href="https://emilsvetlichnyy.github.io/exif-plus/heic-metadata/">
   <meta name="theme-color" content="#3b6ea8">
   <link rel="icon" href="/exif-plus/favicon.ico">
   <link rel="apple-touch-icon" href="/exif-plus/apple-touch-icon.png">
@@ -13,15 +13,15 @@
   <meta name="apple-mobile-web-app-title" content="EXIF+">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EXIF+">
-  <meta property="og:title" content="EXIF Tools — Viewer, Remover, GPS Cleaner | EXIF+">
-  <meta property="og:description" content="Free browser EXIF tools: viewer, metadata remover, and GPS cleaner. Local processing, plus the EXIF+ iPhone app.">
-  <meta property="og:url" content="https://emilsvetlichnyy.github.io/exif-plus/tools/">
+  <meta property="og:title" content="HEIC Metadata Viewer &amp; Cleaner on iPhone | EXIF+">
+  <meta property="og:description" content="View and clean HEIC/HEIF photo metadata on iPhone with EXIF+. Why browser EXIF tools often fail on HEIC and how the app preserves HEIC on save.">
+  <meta property="og:url" content="https://emilsvetlichnyy.github.io/exif-plus/heic-metadata/">
   <meta property="og:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="EXIF Tools — Viewer, Remover, GPS Cleaner | EXIF+">
-  <meta name="twitter:description" content="Free browser EXIF tools: viewer, metadata remover, and GPS cleaner. Local processing, plus the EXIF+ iPhone app.">
+  <meta name="twitter:title" content="HEIC Metadata Viewer &amp; Cleaner on iPhone | EXIF+">
+  <meta name="twitter:description" content="View and clean HEIC/HEIF photo metadata on iPhone with EXIF+. Why browser EXIF tools often fail on HEIC and how the app preserves HEIC on save.">
   <meta name="twitter:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
   <link rel="alternate" type="application/rss+xml" title="EXIF+" href="https://emilsvetlichnyy.github.io/exif-plus/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,6 +68,67 @@
       "position": 2,
       "name": "Tools",
       "item": "https://emilsvetlichnyy.github.io/exif-plus/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "HEIC metadata on iPhone",
+      "item": "https://emilsvetlichnyy.github.io/exif-plus/heic-metadata/"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "HEIC metadata on iPhone",
+  "description": "View and clean HEIC/HEIF photo metadata on iPhone with EXIF+. Why browser EXIF tools often fail on HEIC and how the app preserves HEIC on save.",
+  "author": {
+    "@type": "Person",
+    "name": "Emil Svetlichnyy",
+    "url": "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EXIF+",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://emilsvetlichnyy.github.io/exif-plus/apple-touch-icon.png"
+    }
+  },
+  "mainEntityOfPage": "https://emilsvetlichnyy.github.io/exif-plus/heic-metadata/",
+  "dateModified": "2026-08-04"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I clean HEIC online here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if your browser can decode it. Most people should use the iPhone app for Camera Roll HEIC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does cleaning convert HEIC to JPEG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For HEIC inputs, the app’s save path aims to keep HEIC/HEIF. Non-HEIC/PNG types may export as JPEG."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Live Photos / video?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The app’s library browsing is image-oriented. Video metadata editing is not supported."
+      }
     }
   ]
 }
@@ -85,15 +146,31 @@
         <a href="../app/">App</a>
       </nav>
     </header>
-    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../">Home</a><span class="crumb-sep" aria-hidden="true">›</span><span aria-current="page">Tools</span></nav>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../">Home</a><span class="crumb-sep" aria-hidden="true">›</span><a href="../tools/">Tools</a><span class="crumb-sep" aria-hidden="true">›</span><span aria-current="page">HEIC metadata on iPhone</span></nav>
     <main>
-      <section class="hero">
-        <h1>Tools</h1>
-        <p class="lead">Quick local tools in the browser. Use the iPhone app when you need albums, batch, and field editors.</p>
-      </section>
-      <section class="section">
-        <div class="grid-2"><a class="tile" href="../remove-exif/"><h3>Remove EXIF</h3><p>Strip metadata and download a clean copy.</p></a><a class="tile" href="../exif-viewer/"><h3>EXIF viewer</h3><p>Inspect tags before you share.</p></a><a class="tile" href="../remove-gps/"><h3>Remove GPS</h3><p>Focus on location data.</p></a><a class="tile" href="../metadata-cleaner/"><h3>Metadata cleaner</h3><p>All-in-one clean intent page.</p></a><a class="tile" href="../heic-metadata/"><h3>HEIC metadata</h3><p>Camera Roll HEIC via the iPhone app.</p></a><a class="tile" href="../remove-camera-data/"><h3>Remove camera data</h3><p>Make/model and device tags.</p></a><a class="tile" href="../batch-remove/"><h3>Batch remove</h3><p>Album multi-select on iPhone (Premium).</p></a><a class="tile" href="../edit-exif/"><h3>Edit EXIF</h3><p>Change fields in the iOS app.</p></a></div>
-      </section>
+      <article class="prose">
+        <section class="hero">
+          <h1>HEIC metadata on iPhone</h1>
+          <p class="lead">iPhone photos are often HEIC. Browser tools struggle; EXIF+ works from the Photo Library and can keep HEIC on save.</p>
+        </section>
+        <h2>Why web tools break on HEIC</h2>
+        <p>Many browsers cannot decode HEIC for canvas-based removers. That is a browser limitation, not “missing EXIF.”</p>
+        <h2>What EXIF+ does</h2>
+        <ul>
+          <li>Opens HEIC/HEIF items from your library</li>
+          <li>Shows EXIF/IPTC/GPS-oriented fields</li>
+          <li>Removes or edits metadata on-device</li>
+          <li>Preserves HEIC/HEIF when saving those formats (PNG stays PNG; other types may become JPEG)</li>
+        </ul>
+        <h2>Workflow</h2>
+        <ol>
+          <li>Install EXIF+.</li>
+          <li>Grant Photo Library access.</li>
+          <li>Open a HEIC photo → view tags → remove or edit → save new item.</li>
+        </ol>
+        <p>For a JPEG sitting on a laptop, the <a href="../remove-exif/">browser remover</a> is still handy.</p>
+      </article>
+      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>Can I clean HEIC online here?</summary><p>Only if your browser can decode it. Most people should use the iPhone app for Camera Roll HEIC.</p></details><details><summary>Does cleaning convert HEIC to JPEG?</summary><p>For HEIC inputs, the app’s save path aims to keep HEIC/HEIF. Non-HEIC/PNG types may export as JPEG.</p></details><details><summary>Live Photos / video?</summary><p>The app’s library browsing is image-oriented. Video metadata editing is not supported.</p></details></section>
             <section class="section cta-band">
         <div class="section-head"><h2>Need this on iPhone?</h2></div>
         <p class="lead-sm">EXIF+ views, edits, and removes EXIF/IPTC metadata — including GPS — on-device. Single-photo clean and edit are available to start; Premium unlocks multi-select batch tools and share-without-metadata. Cleaned photos are saved as new Photo Library items (originals stay).</p>

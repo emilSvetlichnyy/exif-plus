@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>What Is EXIF Data? Photo Metadata Explained | EXIF+</title>
-  <meta name="description" content="EXIF is metadata embedded in photos: camera settings, timestamps, software tags, and often GPS. Learn what it is and why it matters for privacy.">
-  <link rel="canonical" href="https://emilsvetlichnyy.github.io/exif-plus/learn/what-is-exif/">
+  <title>Does Removing EXIF Reduce Photo Quality? | EXIF+</title>
+  <meta name="description" content="Honest answer: stripping metadata is not a filter, but saving a cleaned copy re-encodes the image. How EXIF+ and browser tools handle quality.">
+  <link rel="canonical" href="https://emilsvetlichnyy.github.io/exif-plus/learn/does-cleaning-reduce-quality/">
   <meta name="theme-color" content="#3b6ea8">
   <link rel="icon" href="/exif-plus/favicon.ico">
   <link rel="apple-touch-icon" href="/exif-plus/apple-touch-icon.png">
@@ -13,15 +13,15 @@
   <meta name="apple-mobile-web-app-title" content="EXIF+">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EXIF+">
-  <meta property="og:title" content="What Is EXIF Data? Photo Metadata Explained | EXIF+">
-  <meta property="og:description" content="EXIF is metadata embedded in photos: camera settings, timestamps, software tags, and often GPS. Learn what it is and why it matters for privacy.">
-  <meta property="og:url" content="https://emilsvetlichnyy.github.io/exif-plus/learn/what-is-exif/">
+  <meta property="og:title" content="Does Removing EXIF Reduce Photo Quality? | EXIF+">
+  <meta property="og:description" content="Honest answer: stripping metadata is not a filter, but saving a cleaned copy re-encodes the image. How EXIF+ and browser tools handle quality.">
+  <meta property="og:url" content="https://emilsvetlichnyy.github.io/exif-plus/learn/does-cleaning-reduce-quality/">
   <meta property="og:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="What Is EXIF Data? Photo Metadata Explained | EXIF+">
-  <meta name="twitter:description" content="EXIF is metadata embedded in photos: camera settings, timestamps, software tags, and often GPS. Learn what it is and why it matters for privacy.">
+  <meta name="twitter:title" content="Does Removing EXIF Reduce Photo Quality? | EXIF+">
+  <meta name="twitter:description" content="Honest answer: stripping metadata is not a filter, but saving a cleaned copy re-encodes the image. How EXIF+ and browser tools handle quality.">
   <meta name="twitter:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
   <link rel="alternate" type="application/rss+xml" title="EXIF+" href="https://emilsvetlichnyy.github.io/exif-plus/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,8 +72,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "What is EXIF?",
-      "item": "https://emilsvetlichnyy.github.io/exif-plus/learn/what-is-exif/"
+      "name": "Does cleaning reduce quality?",
+      "item": "https://emilsvetlichnyy.github.io/exif-plus/learn/does-cleaning-reduce-quality/"
     }
   ]
 }
@@ -82,8 +82,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "What is EXIF?",
-  "description": "EXIF is metadata embedded in photos: camera settings, timestamps, software tags, and often GPS. Learn what it is and why it matters for privacy.",
+  "headline": "Does cleaning reduce quality?",
+  "description": "Honest answer: stripping metadata is not a filter, but saving a cleaned copy re-encodes the image. How EXIF+ and browser tools handle quality.",
   "author": {
     "@type": "Person",
     "name": "Emil Svetlichnyy",
@@ -97,7 +97,7 @@
       "url": "https://emilsvetlichnyy.github.io/exif-plus/apple-touch-icon.png"
     }
   },
-  "mainEntityOfPage": "https://emilsvetlichnyy.github.io/exif-plus/learn/what-is-exif/",
+  "mainEntityOfPage": "https://emilsvetlichnyy.github.io/exif-plus/learn/does-cleaning-reduce-quality/",
   "dateModified": "2026-08-04"
 }
   </script>
@@ -108,42 +108,34 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is EXIF part of the photo pixels?",
+      "name": "Is EXIF removal lossless?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. It is metadata attached to the file. Removing it does not crop or stylize the image by itself, though saving a cleaned copy usually re-encodes the file."
+        "text": "Not in the absolute sense for typical JPEG/HEIC rewrite workflows. Tags are removed by writing a new file; pixels are re-encoded at high quality."
       }
     },
     {
       "@type": "Question",
-      "name": "Do all apps keep EXIF?",
+      "name": "Does EXIF+ overwrite my original?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Some social networks strip fields on upload; email, messaging as files, cloud links, and marketplaces often keep them."
+        "text": "No. It saves a new Photo Library item. Your original remains unless you delete it yourself."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the difference between EXIF and GPS metadata?",
+      "name": "PNG behavior?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "GPS/location tags are often stored inside or alongside the EXIF structure. People say “remove GPS” when they mainly care about coordinates, and “remove EXIF” when they want a broader wipe."
+        "text": "PNG inputs can be preserved as PNG in the app’s format handling. JPEG/HEIC follow the compressed save path."
       }
     },
     {
       "@type": "Question",
-      "name": "Can iPhone Photos show full EXIF?",
+      "name": "Will people see a quality drop?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Photos shows limited information. EXIF+ surfaces fuller field groups for privacy and editing decisions."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does removing EXIF make a photo anonymous?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It removes embedded tags from that file. It does not remove faces, landmarks, or anything visible in the pixels."
+        "text": "At high quality settings, most people will not notice for social sharing. Professionals archiving masters should keep originals."
       }
     }
   ]
@@ -162,24 +154,27 @@
         <a href="../../app/">App</a>
       </nav>
     </header>
-    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../">Home</a><span class="crumb-sep" aria-hidden="true">›</span><a href="../../learn/">Learn</a><span class="crumb-sep" aria-hidden="true">›</span><span aria-current="page">What is EXIF?</span></nav>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../">Home</a><span class="crumb-sep" aria-hidden="true">›</span><a href="../../learn/">Learn</a><span class="crumb-sep" aria-hidden="true">›</span><span aria-current="page">Does cleaning reduce quality?</span></nav>
     <main>
       <article class="prose">
         <section class="hero">
-          <h1>What is EXIF?</h1>
-          <p class="lead">EXIF (Exchangeable Image File Format) is a common way cameras and phones store technical details inside image files.</p>
+          <h1>Does cleaning reduce quality?</h1>
+          <p class="lead">Removing metadata is not a Instagram-style filter — but creating a cleaned file usually re-encodes pixels. Here is the honest tradeoff.</p>
         </section>
-        <h2>What EXIF usually contains</h2>
-        <p>Typical fields include capture time, camera make and model, lens, exposure settings (ISO, shutter, aperture), orientation, software names, and — if location was enabled — GPS coordinates. Viewers may also show related IPTC labels such as author or copyright when present.</p>
-        <h2>EXIF vs IPTC (and why we mention XMP carefully)</h2>
-        <p>EXIF is strongest for camera/GPS technical tags. IPTC is often used for captions, keywords, and copyright. XMP appears in many desktop editing workflows, but EXIF+’s shipping implementation is documented on the <a href="../exif-vs-iptc/">EXIF vs IPTC</a> page as EXIF/IPTC/GPS-focused — not full XMP parity.</p>
-        <h2>Why people remove it</h2>
-        <p>Sharing an original file can unintentionally publish where you were and which device took the shot. Removing metadata keeps the picture while dropping the hidden context. Remember that creating a cleaned file usually re-encodes pixels — see <a href="../does-cleaning-reduce-quality/">quality notes</a>.</p>
-        <h2>How to inspect a file right now</h2>
-        <p>Use the <a href="../../exif-viewer/">browser EXIF viewer</a> for JPEG/PNG/WebP, or open the photo in EXIF+ on iPhone for Camera Roll / HEIC library items.</p>
-        <p>Related: <a href="../what-is-gps-metadata/">GPS metadata</a>, <a href="../../remove-exif/">remove EXIF online</a>.</p>
+        <h2>Metadata vs pixels</h2>
+        <p>EXIF/IPTC/GPS live beside the image data. Deleting tags does not crop, blur, or recolor the scene by itself.</p>
+        <h2>Why a “clean copy” still re-encodes</h2>
+        <p>Most removers — including this site’s browser tool and EXIF+’s ImageIO save path — write a <strong>new image file</strong>. For JPEG/HEIC that means compression. In EXIF+, strip/edit saves use ImageIO with a high JPEG/HEIC quality setting (about 0.95), then add a new Photo Library item. That is not the same as a guaranteed bit-identical lossless rewrite.</p>
+        <h2>Browser tool</h2>
+        <p>The online remover draws the image to a canvas and exports JPEG/PNG. That is local and convenient, but it is also a re-encode. Prefer the iPhone app for HEIC library items.</p>
+        <h2>Practical advice</h2>
+        <ul>
+          <li>Keep originals in a private album if you need an untouched master.</li>
+          <li>Share the cleaned/edited copy publicly.</li>
+          <li>Do not expect “zero quality change” marketing — expect “metadata gone, high-quality new file.”</li>
+        </ul>
       </article>
-      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>Is EXIF part of the photo pixels?</summary><p>No. It is metadata attached to the file. Removing it does not crop or stylize the image by itself, though saving a cleaned copy usually re-encodes the file.</p></details><details><summary>Do all apps keep EXIF?</summary><p>No. Some social networks strip fields on upload; email, messaging as files, cloud links, and marketplaces often keep them.</p></details><details><summary>What is the difference between EXIF and GPS metadata?</summary><p>GPS/location tags are often stored inside or alongside the EXIF structure. People say “remove GPS” when they mainly care about coordinates, and “remove EXIF” when they want a broader wipe.</p></details><details><summary>Can iPhone Photos show full EXIF?</summary><p>Photos shows limited information. EXIF+ surfaces fuller field groups for privacy and editing decisions.</p></details><details><summary>Does removing EXIF make a photo anonymous?</summary><p>It removes embedded tags from that file. It does not remove faces, landmarks, or anything visible in the pixels.</p></details></section>
+      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>Is EXIF removal lossless?</summary><p>Not in the absolute sense for typical JPEG/HEIC rewrite workflows. Tags are removed by writing a new file; pixels are re-encoded at high quality.</p></details><details><summary>Does EXIF+ overwrite my original?</summary><p>No. It saves a new Photo Library item. Your original remains unless you delete it yourself.</p></details><details><summary>PNG behavior?</summary><p>PNG inputs can be preserved as PNG in the app’s format handling. JPEG/HEIC follow the compressed save path.</p></details><details><summary>Will people see a quality drop?</summary><p>At high quality settings, most people will not notice for social sharing. Professionals archiving masters should keep originals.</p></details></section>
             <section class="section cta-band">
         <div class="section-head"><h2>Need this on iPhone?</h2></div>
         <p class="lead-sm">EXIF+ views, edits, and removes EXIF/IPTC metadata — including GPS — on-device. Single-photo clean and edit are available to start; Premium unlocks multi-select batch tools and share-without-metadata. Cleaned photos are saved as new Photo Library items (originals stay).</p>

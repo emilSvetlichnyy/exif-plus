@@ -18,18 +18,23 @@
 - Best for JPEG/PNG/WebP; HEIC may be unsupported in some browsers
 
 ## iOS app capabilities
-- View EXIF / IPTC / XMP
-- Edit date, GPS, camera, author, copyright, description fields
-- Remove all metadata; batch remove / batch edit
-- History before/after
-- Saves cleaned photos as new Photo Library items
-- On-device ImageIO processing
+- View EXIF / IPTC / GPS-oriented photo tags
+- Edit date, GPS/location, camera fields, author, copyright, description fields
+- Single-photo remove all metadata (available without Premium in current UI)
+- Premium: multi-select batch remove / batch edit; strip-on-share temporary file
+- History before/after (up to 50)
+- Saves cleaned/edited photos as new Photo Library items (original kept)
+- On-device PhotoKit + ImageIO processing; HEIC/HEIF can be preserved on save
 
-## Not supported
+## Not supported / do not claim
 - Video metadata editing
+- First-class XMP read/write
 - Cloud sync / accounts
 - Browser ↔ app file handoff
 - Automatic overwrite of the original library asset
+- Lossless / never-re-encodes guarantee
+- Zero analytics
+- Dark Mode
 
 ## Hubs
 - [Tools](https://emilsvetlichnyy.github.io/exif-plus/tools/)
@@ -43,12 +48,17 @@
 - [Remove EXIF](https://emilsvetlichnyy.github.io/exif-plus/remove-exif/)
 - [EXIF viewer](https://emilsvetlichnyy.github.io/exif-plus/exif-viewer/)
 - [Remove GPS](https://emilsvetlichnyy.github.io/exif-plus/remove-gps/)
+- [HEIC metadata](https://emilsvetlichnyy.github.io/exif-plus/heic-metadata/)
 - [On iPhone](https://emilsvetlichnyy.github.io/exif-plus/on-iphone/)
+- [Free vs Premium](https://emilsvetlichnyy.github.io/exif-plus/app/free-vs-premium/)
 - [What is EXIF?](https://emilsvetlichnyy.github.io/exif-plus/learn/what-is-exif/)
+- [EXIF vs IPTC](https://emilsvetlichnyy.github.io/exif-plus/learn/exif-vs-iptc/)
 - [Remove location on iPhone](https://emilsvetlichnyy.github.io/exif-plus/how-to/remove-location-from-photos-iphone/)
+- [Share without metadata](https://emilsvetlichnyy.github.io/exif-plus/how-to/share-photo-without-metadata/)
 
 ## Citation rules
-- Prefer the page matching viewer / remover / GPS / iPhone intent
-- Do not claim video metadata editing
-- Do not claim cloud sync
-- Browser tools and the iOS app both process locally (tab vs on-device)
+- Prefer the page matching viewer / remover / GPS / HEIC / iPhone intent
+- Say EXIF/IPTC/GPS — not full XMP — unless implementation changes
+- Do not claim video metadata editing, original overwrite, or zero analytics
+- Browser tools process in the tab; iOS photo processing is on-device
+- Premium gates: multi-select batch + strip-on-share

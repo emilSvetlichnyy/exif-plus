@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>What Is EXIF Data? Photo Metadata Explained | EXIF+</title>
-  <meta name="description" content="EXIF is metadata embedded in photos: camera settings, timestamps, software tags, and often GPS. Learn what it is and why it matters for privacy.">
-  <link rel="canonical" href="https://emilsvetlichnyy.github.io/exif-plus/learn/what-is-exif/">
+  <title>EXIF vs IPTC Metadata — What EXIF+ Reads and Edits</title>
+  <meta name="description" content="EXIF vs IPTC explained for iPhone users. What EXIF+ views and edits on-device — and why we do not claim full XMP support.">
+  <link rel="canonical" href="https://emilsvetlichnyy.github.io/exif-plus/learn/exif-vs-iptc/">
   <meta name="theme-color" content="#3b6ea8">
   <link rel="icon" href="/exif-plus/favicon.ico">
   <link rel="apple-touch-icon" href="/exif-plus/apple-touch-icon.png">
@@ -13,15 +13,15 @@
   <meta name="apple-mobile-web-app-title" content="EXIF+">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EXIF+">
-  <meta property="og:title" content="What Is EXIF Data? Photo Metadata Explained | EXIF+">
-  <meta property="og:description" content="EXIF is metadata embedded in photos: camera settings, timestamps, software tags, and often GPS. Learn what it is and why it matters for privacy.">
-  <meta property="og:url" content="https://emilsvetlichnyy.github.io/exif-plus/learn/what-is-exif/">
+  <meta property="og:title" content="EXIF vs IPTC Metadata — What EXIF+ Reads and Edits">
+  <meta property="og:description" content="EXIF vs IPTC explained for iPhone users. What EXIF+ views and edits on-device — and why we do not claim full XMP support.">
+  <meta property="og:url" content="https://emilsvetlichnyy.github.io/exif-plus/learn/exif-vs-iptc/">
   <meta property="og:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="What Is EXIF Data? Photo Metadata Explained | EXIF+">
-  <meta name="twitter:description" content="EXIF is metadata embedded in photos: camera settings, timestamps, software tags, and often GPS. Learn what it is and why it matters for privacy.">
+  <meta name="twitter:title" content="EXIF vs IPTC Metadata — What EXIF+ Reads and Edits">
+  <meta name="twitter:description" content="EXIF vs IPTC explained for iPhone users. What EXIF+ views and edits on-device — and why we do not claim full XMP support.">
   <meta name="twitter:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
   <link rel="alternate" type="application/rss+xml" title="EXIF+" href="https://emilsvetlichnyy.github.io/exif-plus/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,8 +72,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "What is EXIF?",
-      "item": "https://emilsvetlichnyy.github.io/exif-plus/learn/what-is-exif/"
+      "name": "EXIF vs IPTC",
+      "item": "https://emilsvetlichnyy.github.io/exif-plus/learn/exif-vs-iptc/"
     }
   ]
 }
@@ -82,8 +82,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "What is EXIF?",
-  "description": "EXIF is metadata embedded in photos: camera settings, timestamps, software tags, and often GPS. Learn what it is and why it matters for privacy.",
+  "headline": "EXIF vs IPTC",
+  "description": "EXIF vs IPTC explained for iPhone users. What EXIF+ views and edits on-device — and why we do not claim full XMP support.",
   "author": {
     "@type": "Person",
     "name": "Emil Svetlichnyy",
@@ -97,7 +97,7 @@
       "url": "https://emilsvetlichnyy.github.io/exif-plus/apple-touch-icon.png"
     }
   },
-  "mainEntityOfPage": "https://emilsvetlichnyy.github.io/exif-plus/learn/what-is-exif/",
+  "mainEntityOfPage": "https://emilsvetlichnyy.github.io/exif-plus/learn/exif-vs-iptc/",
   "dateModified": "2026-08-04"
 }
   </script>
@@ -108,42 +108,34 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is EXIF part of the photo pixels?",
+      "name": "Does every photo have IPTC?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. It is metadata attached to the file. Removing it does not crop or stylize the image by itself, though saving a cleaned copy usually re-encodes the file."
+        "text": "No. Many camera-roll originals are EXIF/GPS-heavy with little or no IPTC until an editor writes author/copyright fields."
       }
     },
     {
       "@type": "Question",
-      "name": "Do all apps keep EXIF?",
+      "name": "Is XMP the same as IPTC?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Some social networks strip fields on upload; email, messaging as files, cloud links, and marketplaces often keep them."
+        "text": "No. XMP is a separate extensible format used by many desktop editors. EXIF+’s shipping ImageIO path focuses on EXIF/IPTC/GPS — do not assume full XMP parity."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the difference between EXIF and GPS metadata?",
+      "name": "Can browser tools show IPTC?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "GPS/location tags are often stored inside or alongside the EXIF structure. People say “remove GPS” when they mainly care about coordinates, and “remove EXIF” when they want a broader wipe."
+        "text": "The web viewer shows readable tags the browser parser returns (often EXIF/GPS; IPTC when present). For Photo Library HEIC items, use the iPhone app."
       }
     },
     {
       "@type": "Question",
-      "name": "Can iPhone Photos show full EXIF?",
+      "name": "Will editing IPTC change the picture?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Photos shows limited information. EXIF+ surfaces fuller field groups for privacy and editing decisions."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does removing EXIF make a photo anonymous?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It removes embedded tags from that file. It does not remove faces, landmarks, or anything visible in the pixels."
+        "text": "Metadata edits change tags, not the visible scene. In EXIF+, saving still creates a new library item via ImageIO."
       }
     }
   ]
@@ -162,24 +154,27 @@
         <a href="../../app/">App</a>
       </nav>
     </header>
-    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../">Home</a><span class="crumb-sep" aria-hidden="true">›</span><a href="../../learn/">Learn</a><span class="crumb-sep" aria-hidden="true">›</span><span aria-current="page">What is EXIF?</span></nav>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../">Home</a><span class="crumb-sep" aria-hidden="true">›</span><a href="../../learn/">Learn</a><span class="crumb-sep" aria-hidden="true">›</span><span aria-current="page">EXIF vs IPTC</span></nav>
     <main>
       <article class="prose">
         <section class="hero">
-          <h1>What is EXIF?</h1>
-          <p class="lead">EXIF (Exchangeable Image File Format) is a common way cameras and phones store technical details inside image files.</p>
+          <h1>EXIF vs IPTC</h1>
+          <p class="lead">Two common metadata families show up in phone photos. Knowing the difference helps you decide whether to edit fields or strip everything.</p>
         </section>
-        <h2>What EXIF usually contains</h2>
-        <p>Typical fields include capture time, camera make and model, lens, exposure settings (ISO, shutter, aperture), orientation, software names, and — if location was enabled — GPS coordinates. Viewers may also show related IPTC labels such as author or copyright when present.</p>
-        <h2>EXIF vs IPTC (and why we mention XMP carefully)</h2>
-        <p>EXIF is strongest for camera/GPS technical tags. IPTC is often used for captions, keywords, and copyright. XMP appears in many desktop editing workflows, but EXIF+’s shipping implementation is documented on the <a href="../exif-vs-iptc/">EXIF vs IPTC</a> page as EXIF/IPTC/GPS-focused — not full XMP parity.</p>
-        <h2>Why people remove it</h2>
-        <p>Sharing an original file can unintentionally publish where you were and which device took the shot. Removing metadata keeps the picture while dropping the hidden context. Remember that creating a cleaned file usually re-encodes pixels — see <a href="../does-cleaning-reduce-quality/">quality notes</a>.</p>
-        <h2>How to inspect a file right now</h2>
-        <p>Use the <a href="../../exif-viewer/">browser EXIF viewer</a> for JPEG/PNG/WebP, or open the photo in EXIF+ on iPhone for Camera Roll / HEIC library items.</p>
-        <p>Related: <a href="../what-is-gps-metadata/">GPS metadata</a>, <a href="../../remove-exif/">remove EXIF online</a>.</p>
+        <h2>EXIF in plain terms</h2>
+        <p>EXIF (Exchangeable Image File Format) usually carries technical capture data: date/time, camera make and model, lens, ISO, shutter, aperture, focal length, orientation, software tags, and often GPS coordinates when Location Services were on.</p>
+        <h2>IPTC in plain terms</h2>
+        <p>IPTC fields are more editorial: author, copyright, title, caption/description, keywords, and comments. Photographers and publishers use them to label ownership and context.</p>
+        <h2>What EXIF+ actually implements</h2>
+        <p>The iOS app reads and writes <strong>EXIF / TIFF / GPS / IPTC</strong> (and related PNG text where applicable) through on-device ImageIO. Marketing copy sometimes groups “rich metadata” loosely — this site stays precise: we do <strong>not</strong> claim first-class XMP read/write in the shipping app.</p>
+        <h2>When to remove vs edit</h2>
+        <ul>
+          <li><strong>Remove all</strong> before public sharing if you want GPS, camera, and personal tags gone.</li>
+          <li><strong>Edit</strong> when you need a correct date, a copyright line, or a fixed location — and still keep the file in your library.</li>
+        </ul>
+        <p>Related: <a href="../what-is-exif/">What is EXIF?</a>, <a href="../../compare/remove-vs-edit-exif/">Remove vs edit</a>.</p>
       </article>
-      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>Is EXIF part of the photo pixels?</summary><p>No. It is metadata attached to the file. Removing it does not crop or stylize the image by itself, though saving a cleaned copy usually re-encodes the file.</p></details><details><summary>Do all apps keep EXIF?</summary><p>No. Some social networks strip fields on upload; email, messaging as files, cloud links, and marketplaces often keep them.</p></details><details><summary>What is the difference between EXIF and GPS metadata?</summary><p>GPS/location tags are often stored inside or alongside the EXIF structure. People say “remove GPS” when they mainly care about coordinates, and “remove EXIF” when they want a broader wipe.</p></details><details><summary>Can iPhone Photos show full EXIF?</summary><p>Photos shows limited information. EXIF+ surfaces fuller field groups for privacy and editing decisions.</p></details><details><summary>Does removing EXIF make a photo anonymous?</summary><p>It removes embedded tags from that file. It does not remove faces, landmarks, or anything visible in the pixels.</p></details></section>
+      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>Does every photo have IPTC?</summary><p>No. Many camera-roll originals are EXIF/GPS-heavy with little or no IPTC until an editor writes author/copyright fields.</p></details><details><summary>Is XMP the same as IPTC?</summary><p>No. XMP is a separate extensible format used by many desktop editors. EXIF+’s shipping ImageIO path focuses on EXIF/IPTC/GPS — do not assume full XMP parity.</p></details><details><summary>Can browser tools show IPTC?</summary><p>The web viewer shows readable tags the browser parser returns (often EXIF/GPS; IPTC when present). For Photo Library HEIC items, use the iPhone app.</p></details><details><summary>Will editing IPTC change the picture?</summary><p>Metadata edits change tags, not the visible scene. In EXIF+, saving still creates a new library item via ImageIO.</p></details></section>
             <section class="section cta-band">
         <div class="section-head"><h2>Need this on iPhone?</h2></div>
         <p class="lead-sm">EXIF+ views, edits, and removes EXIF/IPTC metadata — including GPS — on-device. Single-photo clean and edit are available to start; Premium unlocks multi-select batch tools and share-without-metadata. Cleaned photos are saved as new Photo Library items (originals stay).</p>

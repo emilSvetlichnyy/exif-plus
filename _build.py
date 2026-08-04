@@ -128,7 +128,7 @@ def org_ld() -> dict:
         "logo": f"{BASE}/apple-touch-icon.png",
         "description": (
             "EXIF+ is a native iOS app to view, edit, and remove photo metadata "
-            "(EXIF, IPTC, XMP, GPS), with free browser tools on this site."
+            "(EXIF, IPTC, GPS), with free browser tools on this site."
         ),
         "sameAs": [APP, DEV],
         "founder": {"@type": "Person", "name": DEV_NAME, "url": DEV},
@@ -144,8 +144,8 @@ def software_ld() -> dict:
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "iOS",
         "description": (
-            "View, edit, and remove EXIF/IPTC/XMP metadata and GPS location from photos on iPhone. "
-            "Processing happens on-device; cleaned photos are saved as new library items."
+            "View, edit, and remove EXIF/IPTC metadata and GPS location from photos on iPhone. "
+            "Processing uses on-device PhotoKit/ImageIO; cleaned photos are saved as new library items."
         ),
         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
         "url": APP,
@@ -201,10 +201,10 @@ def webapp_ld(name: str, description: str, url: str) -> dict:
 def soft_cta(prefix: str) -> str:
     return f"""      <section class="section cta-band">
         <div class="section-head"><h2>Need this on iPhone?</h2></div>
-        <p class="lead-sm">{NAME} views, edits, and removes EXIF/IPTC/XMP — including GPS — on-device, with batch tools and history. Cleaned photos are saved as new items in your Photo Library.</p>
+        <p class="lead-sm">{NAME} views, edits, and removes EXIF/IPTC metadata — including GPS — on-device. Single-photo clean and edit are available to start; Premium unlocks multi-select batch tools and share-without-metadata. Cleaned photos are saved as new Photo Library items (originals stay).</p>
         <div class="actions">
           {appstore_btn()}
-          <a class="btn btn-secondary" href="{prefix}app/">App features</a>
+          <a class="btn btn-secondary" href="{prefix}app/free-vs-premium/">Free vs Premium</a>
         </div>
       </section>"""
 
@@ -364,29 +364,49 @@ def build_home() -> None:
     faqs = [
         (
             "What is EXIF+?",
-            "EXIF+ is a native iPhone app to view, edit, and remove photo metadata (EXIF, IPTC, XMP), including GPS. This site also offers free browser tools that process images locally.",
+            "EXIF+ is a native iPhone/iPad app to view, edit, and remove photo metadata — primarily EXIF, IPTC, and GPS — using on-device PhotoKit and ImageIO. This website also offers free browser tools that inspect/strip images locally in your tab (no upload to our servers).",
         ),
         (
             "Do browser tools upload my photos?",
-            "No. The viewer and remover run in your browser tab. Files are not uploaded to our servers.",
+            "No. The viewer and remover run entirely in your browser tab for the file you select. We do not need you to upload photos to use those tools.",
         ),
         (
             "Does removing EXIF reduce image quality?",
-            "EXIF is metadata, not the picture itself. The browser cleaner re-encodes a copy for download; the iOS app uses on-device ImageIO and saves a new library item.",
+            "Metadata is not a visible filter, but saving a cleaned copy usually re-encodes the image. The browser tool exports via canvas; EXIF+ writes a new library item with ImageIO at high quality. Keep originals if you need an untouched master — see the “Does cleaning reduce quality?” guide.",
         ),
         (
             "Is the app free?",
-            "Yes to start. A small number of free clean/edit actions are included; subscriptions or lifetime unlock more batch work.",
+            "Download is free. In the current UI you can view metadata and run single-photo edit/remove without Premium. Premium unlocks multi-select batch remove/edit and strip-on-share from the detail screen — see Free vs Premium.",
         ),
         (
             "Can I edit metadata, not only delete it?",
-            "Yes in the iOS app — dates, GPS, camera fields, author, copyright, and descriptions. Browser tools focus on inspect and strip.",
+            "Yes in the iOS app — dates, GPS/location, camera fields, author, copyright, titles, descriptions, keywords, and more. Browser tools on this site focus on inspect and strip, not field editors.",
+        ),
+        (
+            "Does EXIF+ overwrite my original photo?",
+            "No. Clean and edit flows save a new Photo Library item (often named like Edited). Your original stays unless you delete it yourself.",
+        ),
+        (
+            "Do you support video metadata?",
+            "No. Library browsing is image-oriented and video metadata editing is not available in the shipping app.",
+        ),
+        (
+            "Do you support HEIC?",
+            "Yes in the iPhone app via the Photo Library; HEIC/HEIF can be preserved on save. Many browsers cannot decode HEIC for the online tools — use the app for Camera Roll HEIC.",
+        ),
+        (
+            "Is XMP fully supported?",
+            "This site does not claim first-class XMP read/write. The shipping app’s ImageIO path focuses on EXIF/IPTC/GPS (and related tags). See the EXIF vs IPTC guide for the honest matrix.",
+        ),
+        (
+            "Are photos processed on-device?",
+            "Photo view/edit/remove processing uses on-device frameworks. That is separate from optional product analytics/telemetry — we do not market “zero analytics.” See the privacy policy for policy detail.",
         ),
     ]
     body = f"""    <main>
       <section class="hero">
         <h1>View, edit, and remove photo metadata</h1>
-        <p class="lead">Free browser EXIF viewer and remover — plus {NAME}, a native iPhone app for GPS cleanup, batch edits, and full EXIF/IPTC/XMP control on-device.</p>
+        <p class="lead">Free browser EXIF viewer and remover — plus {NAME}, a native iPhone app for GPS cleanup, field edits, batch tools, and on-device Photo Library workflows.</p>
         <div class="actions">
           <a class="btn btn-primary" href="{prefix}remove-exif/">Remove EXIF online</a>
           <a class="btn btn-secondary" href="{prefix}exif-viewer/">View EXIF</a>
@@ -394,10 +414,16 @@ def build_home() -> None:
         </div>
         <div class="chip-row">
           <a class="chip" href="{prefix}remove-gps/">Remove GPS</a>
-          <a class="chip" href="{prefix}metadata-cleaner/">Metadata cleaner</a>
+          <a class="chip" href="{prefix}heic-metadata/">HEIC on iPhone</a>
           <a class="chip" href="{prefix}on-iphone/">On iPhone</a>
-          <a class="chip" href="{prefix}how-to/remove-location-from-photos-iphone/">Strip location</a>
+          <a class="chip" href="{prefix}app/free-vs-premium/">Free vs Premium</a>
+          <a class="chip" href="{prefix}how-to/share-photo-without-metadata/">Share clean</a>
         </div>
+      </section>
+
+      <section class="section prose">
+        <h2>What this site is for</h2>
+        <p>People search for practical jobs: <em>remove EXIF</em>, <em>strip GPS</em>, <em>view photo metadata</em>, <em>clean HEIC on iPhone</em>. Each priority page pairs a clear answer with either a local browser tool or an honest iPhone workflow grounded in what {NAME} actually ships.</p>
       </section>
 
       <section class="section">
@@ -410,20 +436,23 @@ def build_home() -> None:
       </section>
 
       <section class="section">
-        <div class="section-head"><h2>Why metadata matters</h2></div>
-        <p class="lead-sm">Phones embed more than pixels: exact GPS, timestamps, camera model, serial-related tags, and editing software. Instagram may strip some fields; email, Telegram as files, marketplaces, and direct shares often keep them.</p>
+        <div class="section-head"><h2>Learn the privacy basics</h2></div>
+        <p class="lead-sm">Phones embed more than pixels: exact GPS, timestamps, camera model, and software tags. Some social apps strip fields on upload; email, “send as file,” marketplaces, and direct shares often keep them.</p>
         <div class="grid-2">
-          <a class="tile" href="{prefix}learn/what-is-exif/"><h3>What is EXIF?</h3><p>A plain-language definition and what typical tags mean.</p></a>
-          <a class="tile" href="{prefix}learn/does-instagram-remove-exif/"><h3>Does Instagram remove EXIF?</h3><p>What platforms strip — and what they don’t.</p></a>
+          <a class="tile" href="{prefix}learn/what-is-exif/"><h3>What is EXIF?</h3><p>Definition, common tags, and why people remove them.</p></a>
+          <a class="tile" href="{prefix}learn/exif-vs-iptc/"><h3>EXIF vs IPTC</h3><p>What {NAME} actually reads and edits.</p></a>
+          <a class="tile" href="{prefix}learn/does-instagram-remove-exif/"><h3>Does Instagram remove EXIF?</h3><p>Platform behavior vs cleaning yourself.</p></a>
+          <a class="tile" href="{prefix}learn/does-cleaning-reduce-quality/"><h3>Quality tradeoffs</h3><p>Re-encode reality without hype.</p></a>
         </div>
       </section>
 
       <section class="section">
         <div class="section-head"><h2>iPhone app</h2></div>
-        <p class="lead-sm">When you need albums, batch clean, field-level edits, and history, use {NAME} on iOS 17+. Photos never need to leave your device for processing.</p>
+        <p class="lead-sm">When you need albums, HEIC from Camera Roll, field-level edits, History, and Premium batch/share tools, use {NAME} on iOS 17+. Photo processing runs on-device; outputs are saved as new library items.</p>
         <div class="actions">
           {appstore_btn()}
           <a class="btn btn-secondary" href="{prefix}app/features/">See features</a>
+          <a class="btn btn-secondary" href="{prefix}app/free-vs-premium/">Free vs Premium</a>
         </div>
       </section>
 
@@ -537,27 +566,42 @@ def build_tool_pages() -> None:
         tool_blurb="Drop a photo to inspect tags, then download a re-encoded copy without EXIF/GPS.",
         sections_html="""      <section class="section prose">
         <h2>What gets removed</h2>
-        <p>Typical smartphone JPEGs can include GPS coordinates, capture time, camera make/model, lens info, software tags, and descriptive IPTC/XMP fields. The browser tool creates a new image file without those metadata blocks.</p>
+        <p>Typical smartphone JPEGs can include GPS coordinates, capture time, camera make/model, lens info, software tags, and descriptive IPTC fields. The browser tool creates a new image file without those metadata blocks by re-encoding in your tab.</p>
         <h2>When to use the iPhone app instead</h2>
         <ul>
-          <li>Clean many photos from albums in one pass</li>
+          <li>Clean many photos from albums in one pass (Premium multi-select)</li>
           <li>Edit fields instead of deleting everything</li>
-          <li>Keep a history of before/after changes</li>
-          <li>Work with the Photo Library without a desktop browser</li>
+          <li>Keep History before/after</li>
+          <li>Work with HEIC items in the Photo Library</li>
+          <li>Share a stripped temporary file (Premium)</li>
         </ul>
+        <h2>Honest limits</h2>
+        <p>This page does not claim video support, original overwrite, or lossless pixel identity. For Camera Roll HEIC, prefer the <a href="../heic-metadata/">HEIC guide</a>.</p>
       </section>""",
         faqs=[
             (
                 "Is this EXIF remover free?",
-                "Yes. The browser tool is free. The iOS app is free to start with limited clean/edit actions.",
+                "Yes. The browser tool is free with no account. The iOS app download is also free; Premium is only required for multi-select batch and strip-on-share in the current UI.",
             ),
             (
                 "Do you store my photos?",
-                "No. Browser processing is local to your tab. The iOS app processes on-device.",
+                "Browser processing is local to your tab — files are not uploaded to our servers for this tool. The iOS app processes with on-device PhotoKit/ImageIO.",
             ),
             (
-                "Does HEIC work?",
-                "Some browsers cannot decode HEIC. Convert to JPEG in Photos first, or use EXIF+ on iPhone which works with the library directly.",
+                "Does HEIC work in the browser?",
+                "Often no — many browsers cannot decode HEIC for canvas export. Use EXIF+ on iPhone for Camera Roll HEIC, or convert to JPEG first.",
+            ),
+            (
+                "Will quality change?",
+                "The download is a re-encoded copy (canvas export). For library workflows, EXIF+ also writes a new file via ImageIO at high quality rather than promising bit-identical lossless output.",
+            ),
+            (
+                "Does remove EXIF also remove GPS?",
+                "Yes — a full strip removes location tags along with other metadata blocks the exporter drops.",
+            ),
+            (
+                "Should I use the app instead?",
+                "Use the app for albums, HEIC, field-level edits, History, and Premium batch/share. Use the browser for a quick single JPEG/PNG/WebP.",
             ),
         ],
         crumbs=[
@@ -585,11 +629,23 @@ def build_tool_pages() -> None:
         faqs=[
             (
                 "Why don’t I see GPS?",
-                "Location services may have been off, the app stripped geotags already, or the platform re-encoded the file without GPS.",
+                "Location services may have been off at capture, tags were already stripped, or another app re-exported the file without GPS.",
             ),
             (
                 "Is viewing EXIF safe?",
-                "Yes — the file is read locally in your browser for display. Nothing is uploaded to our servers.",
+                "The file is read locally in your browser for display. It is not uploaded to our servers for this tool.",
+            ),
+            (
+                "Why are some fields missing compared with desktop apps?",
+                "Parsers differ. This viewer shows common EXIF/IPTC/GPS fields returned in-browser. For fuller Photo Library inspection on iPhone, use EXIF+.",
+            ),
+            (
+                "Can I edit from the viewer?",
+                "Not in the browser tool. Use EXIF+ on iPhone for field editors, or switch to the remover if you want a clean download.",
+            ),
+            (
+                "Does the viewer work offline?",
+                "After the page and script assets load, inspection runs locally on the file you pick. A network drop mid-session may still affect CDN script load on first visit.",
             ),
         ],
         crumbs=[
@@ -617,11 +673,23 @@ def build_tool_pages() -> None:
         faqs=[
             (
                 "Does removing GPS blur the photo?",
-                "No. Location is metadata. The pixels stay; we export a new file without the metadata block.",
+                "No. Location is metadata. We export a new file without those tags; the visible scene is not intentionally blurred or censored.",
             ),
             (
                 "Can I remove only GPS but keep camera EXIF?",
-                "The browser download strips metadata via re-encode. For selective field edits, use EXIF+ on iPhone.",
+                "The browser download path strips broadly via re-encode. For selective location clear while keeping other fields, use EXIF+’s editor on iPhone.",
+            ),
+            (
+                "Is GPS the same as the Photos “Location” album label?",
+                "Related but not identical. Embedded coordinates are file metadata; Moments/Maps features also use library location databases.",
+            ),
+            (
+                "Will AirDrop keep GPS?",
+                "If you send an original with tags, recipients can still read them. Clean first when privacy matters.",
+            ),
+            (
+                "What about screenshots?",
+                "Many screenshots lack camera GPS. Always inspect if the source was a camera original or a re-export.",
             ),
         ],
         crumbs=[
@@ -651,7 +719,15 @@ def build_tool_pages() -> None:
         faqs=[
             (
                 "What metadata standards are involved?",
-                "Photos often mix EXIF (camera/GPS), IPTC (caption/copyright), and XMP (rich descriptive fields).",
+                "Photos often mix EXIF (camera/GPS) and IPTC (caption/copyright). Some desktop tools also use XMP; this site does not claim full XMP support in EXIF+.",
+            ),
+            (
+                "Cleaner vs EXIF+ Premium batch?",
+                "This page’s browser tool is single-file. Album multi-select batch cleaning is an EXIF+ Premium iPhone feature.",
+            ),
+            (
+                "Does cleaning overwrite files on disk?",
+                "The browser downloads a new file. The iOS app saves a new Photo Library item and leaves the original in place.",
             ),
         ],
         crumbs=[
@@ -666,25 +742,36 @@ def build_tool_pages() -> None:
         (
             "edit-exif",
             "Edit EXIF Data on iPhone — Change Photo Metadata | EXIF+",
-            "Edit EXIF metadata on iPhone: dates, GPS, camera fields, author, and copyright with EXIF+. On-device processing, batch edit supported.",
+            "Edit EXIF metadata on iPhone: dates, GPS, camera fields, author, and copyright with EXIF+. On-device processing; batch edit is Premium.",
             "Edit EXIF on iPhone",
             "Change the fields you care about — or clear them — without a desktop catalog app.",
             f"""      <section class="section prose">
         <h2>Fields you can change in {NAME}</h2>
         <ul>
-          <li>Date & time</li>
-          <li>Location / GPS details</li>
-          <li>Camera and technical tags</li>
-          <li>Author, copyright, titles, and descriptions</li>
+          <li>Date Taken / Date Created</li>
+          <li>Location name, latitude, longitude, altitude (+ map picker)</li>
+          <li>Camera make/model, lens, software</li>
+          <li>ISO, shutter, aperture, focal length, exposure, flash, white balance</li>
+          <li>Author, copyright, title, description, comment, keywords</li>
         </ul>
-        <p>Edits are written with on-device ImageIO. Results are saved as new Photo Library items so originals stay untouched.</p>
+        <p>Edits are written with on-device ImageIO. Results are saved as <strong>new</strong> Photo Library items so originals stay unless you delete them. Some viewer fields are informational/read-only (dimensions, file size, serials, etc.).</p>
+        <h2>Batch edit</h2>
+        <p>Multi-select batch edit is <strong>Premium</strong>. Empty fields mean “leave unchanged” for that batch apply.</p>
         <h2>Browser note</h2>
         <p>This website’s live tools focus on view + remove. Field-level editing is in the iOS app.</p>
       </section>""",
             [
                 (
                     "Will editing EXIF change the picture?",
-                    "Metadata edits change tags, not the visible pixels. Export/save still creates a new library item in EXIF+.",
+                    "Metadata edits change tags, not the scene. Saving still re-encodes into a new library item — high quality, not a lossless promise.",
+                ),
+                (
+                    "Is single edit free?",
+                    "Yes in the current UI. Premium is for multi-select batch and strip-on-share.",
+                ),
+                (
+                    "Can I edit GPS only?",
+                    "Yes — see the Edit GPS how-to. Clearing location is also available in batch edit.",
                 ),
             ],
             "edit-exif.png",
@@ -693,22 +780,31 @@ def build_tool_pages() -> None:
         (
             "batch-remove",
             "Batch Remove EXIF from Photos on iPhone | EXIF+",
-            "Batch remove EXIF and GPS from multiple photos on iPhone with EXIF+. Clean albums faster before sharing.",
+            "Batch remove EXIF and GPS from multiple photos on iPhone with EXIF+ Premium. Clean albums faster before sharing.",
             "Batch remove photo metadata",
-            "Multi-select photos, strip metadata in one flow, and keep working from your albums.",
+            "Multi-select photos, strip metadata in one flow, and keep working from your albums — Premium when more than one photo is selected.",
             f"""      <section class="section prose">
         <h2>How batch clean works in {NAME}</h2>
         <ol>
-          <li>Open an album and select multiple photos.</li>
-          <li>Choose remove metadata (or batch edit fields).</li>
-          <li>Save cleaned copies to your Photo Library.</li>
+          <li>Open an album and multi-select photos.</li>
+          <li>If you are not Premium, the app presents the paywall for batch actions.</li>
+          <li>Choose batch remove metadata (or batch edit fields).</li>
+          <li>Each success is saved as a <strong>new</strong> Photo Library item.</li>
         </ol>
-        <p>Free use includes limited actions; Premium unlocks heavier batch work. Video metadata editing is not available yet.</p>
+        <p>Single-photo remove remains available without Premium. Video metadata editing is not available. See <a href="../app/free-vs-premium/">Free vs Premium</a>.</p>
       </section>""",
             [
                 (
                     "Can I batch-clean in the browser?",
                     "The web tools are single-file for simplicity. Use the iPhone app for album multi-select.",
+                ),
+                (
+                    "Is batch remove free?",
+                    "No. Multi-select batch remove/edit requires Premium in the current UI.",
+                ),
+                (
+                    "Does batch delete originals?",
+                    "No. Outputs are new items; originals stay unless you delete them.",
                 ),
             ],
             "batch-remove.png",
@@ -836,11 +932,12 @@ def article_page(
       {faq_html(faqs)}
       {soft_cta(prefix)}
     </main>"""
-    # fix breadcrumbs properly
+    # Breadcrumbs: Home → optional parent hub → page
     parts = slug.strip("/").split("/")
     crumb_ui = [("Home", prefix_for(slug))]
-    if len(parts) > 1:
-        crumb_ui.append((parent[0], prefix_for(slug) + parts[0] + "/"))
+    if parent:
+        parent_rel = parent[1].strip("/")
+        crumb_ui.append((parent[0], prefix_for(slug) + parent_rel + "/"))
     crumb_ui.append((h1, None))
     body = f"""    {crumbs_html(crumb_ui)}
     <main>
@@ -855,8 +952,8 @@ def article_page(
       {soft_cta(prefix)}
     </main>"""
     crumbs_ld = [("Home", f"{BASE}/")]
-    if len(parts) > 1:
-        crumbs_ld.append((parent[0], f"{BASE}/{parts[0]}/"))
+    if parent:
+        crumbs_ld.append((parent[0], f"{BASE}/{parent[1].strip('/')}/"))
     crumbs_ld.append((h1, f"{BASE}/{slug}/"))
     html = page_shell(
         rel=slug,
@@ -888,7 +985,9 @@ def build_hubs_and_articles() -> None:
             ("EXIF viewer", "../exif-viewer/", "Inspect tags before you share."),
             ("Remove GPS", "../remove-gps/", "Focus on location data."),
             ("Metadata cleaner", "../metadata-cleaner/", "All-in-one clean intent page."),
-            ("Batch remove", "../batch-remove/", "Album multi-select on iPhone."),
+            ("HEIC metadata", "../heic-metadata/", "Camera Roll HEIC via the iPhone app."),
+            ("Remove camera data", "../remove-camera-data/", "Make/model and device tags."),
+            ("Batch remove", "../batch-remove/", "Album multi-select on iPhone (Premium)."),
             ("Edit EXIF", "../edit-exif/", "Change fields in the iOS app."),
         ],
         "Tools",
@@ -902,21 +1001,28 @@ def build_hubs_and_articles() -> None:
         [
             ("What is EXIF?", "what-is-exif/", "Definition and common tags."),
             ("What is GPS metadata?", "what-is-gps-metadata/", "Why geotags matter."),
+            ("EXIF vs IPTC", "exif-vs-iptc/", "What the app actually implements."),
             ("Does Instagram remove EXIF?", "does-instagram-remove-exif/", "Platform behavior."),
-            ("Glossary", "glossary/", "EXIF, IPTC, XMP, geotag, and more."),
+            ("Does cleaning reduce quality?", "does-cleaning-reduce-quality/", "Re-encode tradeoffs."),
+            ("Why a duplicate appears", "why-cleaned-photo-is-a-duplicate/", "Save-as-new explained."),
+            ("Glossary", "glossary/", "EXIF, IPTC, geotag, cleaner, HEIC."),
         ],
         "Learn",
     )
     hub_page(
         "how-to",
         "How to Remove EXIF & GPS on iPhone | EXIF+",
-        "Step-by-step guides to view EXIF and remove location data from photos on iPhone.",
+        "Step-by-step guides to view EXIF, edit GPS/dates, share without metadata, and batch-clean on iPhone.",
         "How-to",
-        "Practical iPhone workflows for privacy before sharing.",
+        "Practical iPhone workflows for privacy before sharing — matched to shipping EXIF+ features.",
         [
             ("Remove location on iPhone", "remove-location-from-photos-iphone/", "Strip GPS before you send."),
+            ("Edit GPS on iPhone", "edit-gps-on-iphone/", "Map picker and coordinates."),
+            ("Change photo date", "change-photo-date-iphone/", "Fix Date Taken / Created."),
+            ("Share without metadata", "share-photo-without-metadata/", "Library clean vs Premium share."),
+            ("Batch copyright/author", "batch-edit-copyright/", "Premium batch edit."),
             ("View EXIF on iPhone", "view-exif-on-iphone/", "See hidden tags in EXIF+."),
-            ("Strip metadata before sharing", "strip-metadata-before-sharing/", "A simple pre-share checklist."),
+            ("Strip metadata checklist", "strip-metadata-before-sharing/", "Pre-share checklist."),
         ],
         "How-to",
     )
@@ -935,11 +1041,13 @@ def build_hubs_and_articles() -> None:
     hub_page(
         "app",
         "EXIF+ iPhone App — View, Edit, Remove Metadata",
-        "EXIF+ is a native iOS app to view, edit, and remove EXIF/IPTC/XMP metadata and GPS on-device.",
+        "EXIF+ is a native iOS app to view, edit, and remove EXIF/IPTC metadata and GPS on-device.",
         "EXIF+ app",
         "Native Photo Library tools for people who share photos and care about hidden data.",
         [
             ("Features", "features/", "Viewer, editor, batch, history."),
+            ("Free vs Premium", "free-vs-premium/", "What is actually gated."),
+            ("History", "history/", "Before/after comparisons."),
             ("Privacy", "privacy/", "On-device processing notes."),
             ("On iPhone overview", "../on-iphone/", "Why native matters."),
         ],
@@ -953,20 +1061,34 @@ def build_hubs_and_articles() -> None:
         h1="What is EXIF?",
         lead="EXIF (Exchangeable Image File Format) is a common way cameras and phones store technical details inside image files.",
         prose="""        <h2>What EXIF usually contains</h2>
-        <p>Typical fields include capture time, camera make and model, lens, exposure settings (ISO, shutter, aperture), orientation, software names, and — if location was enabled — GPS coordinates.</p>
-        <h2>EXIF vs IPTC vs XMP</h2>
-        <p>EXIF is strongest for camera/GPS technical tags. IPTC is often used for captions, keywords, and copyright. XMP can carry rich descriptive metadata alongside both. Real files often include more than one.</p>
+        <p>Typical fields include capture time, camera make and model, lens, exposure settings (ISO, shutter, aperture), orientation, software names, and — if location was enabled — GPS coordinates. Viewers may also show related IPTC labels such as author or copyright when present.</p>
+        <h2>EXIF vs IPTC (and why we mention XMP carefully)</h2>
+        <p>EXIF is strongest for camera/GPS technical tags. IPTC is often used for captions, keywords, and copyright. XMP appears in many desktop editing workflows, but EXIF+’s shipping implementation is documented on the <a href="../exif-vs-iptc/">EXIF vs IPTC</a> page as EXIF/IPTC/GPS-focused — not full XMP parity.</p>
         <h2>Why people remove it</h2>
-        <p>Sharing an original file can unintentionally publish where you were and which device took the shot. Removing metadata keeps the picture while dropping the hidden context.</p>
+        <p>Sharing an original file can unintentionally publish where you were and which device took the shot. Removing metadata keeps the picture while dropping the hidden context. Remember that creating a cleaned file usually re-encodes pixels — see <a href="../does-cleaning-reduce-quality/">quality notes</a>.</p>
+        <h2>How to inspect a file right now</h2>
+        <p>Use the <a href="../../exif-viewer/">browser EXIF viewer</a> for JPEG/PNG/WebP, or open the photo in EXIF+ on iPhone for Camera Roll / HEIC library items.</p>
         <p>Related: <a href="../what-is-gps-metadata/">GPS metadata</a>, <a href="../../remove-exif/">remove EXIF online</a>.</p>""",
         faqs=[
             (
                 "Is EXIF part of the photo pixels?",
-                "No. It is metadata attached to the file. Removing it does not crop or filter the image.",
+                "No. It is metadata attached to the file. Removing it does not crop or stylize the image by itself, though saving a cleaned copy usually re-encodes the file.",
             ),
             (
                 "Do all apps keep EXIF?",
-                "No. Some social networks strip fields on upload; many private shares do not.",
+                "No. Some social networks strip fields on upload; email, messaging as files, cloud links, and marketplaces often keep them.",
+            ),
+            (
+                "What is the difference between EXIF and GPS metadata?",
+                "GPS/location tags are often stored inside or alongside the EXIF structure. People say “remove GPS” when they mainly care about coordinates, and “remove EXIF” when they want a broader wipe.",
+            ),
+            (
+                "Can iPhone Photos show full EXIF?",
+                "Photos shows limited information. EXIF+ surfaces fuller field groups for privacy and editing decisions.",
+            ),
+            (
+                "Does removing EXIF make a photo anonymous?",
+                "It removes embedded tags from that file. It does not remove faces, landmarks, or anything visible in the pixels.",
             ),
         ],
         nav="Learn",
@@ -1017,24 +1139,32 @@ def build_hubs_and_articles() -> None:
 
     article_page(
         "learn/glossary",
-        title="Photo Metadata Glossary — EXIF, IPTC, XMP, Geotag | EXIF+",
-        description="Glossary of photo metadata terms: EXIF, IPTC, XMP, geotag, metadata cleaner, and related privacy terms.",
+        title="Photo Metadata Glossary — EXIF, IPTC, Geotag, HEIC | EXIF+",
+        description="Glossary of photo metadata terms: EXIF, IPTC, geotag, metadata cleaner, HEIC, and related privacy terms.",
         h1="Metadata glossary",
-        lead="Quick definitions you can cite when explaining photo metadata.",
+        lead="Quick definitions you can cite when explaining photo metadata — aligned with what this site claims.",
         prose="""        <h2>EXIF</h2>
         <p>Camera-oriented metadata standard commonly storing capture settings, timestamps, and GPS.</p>
         <h2>IPTC</h2>
         <p>Descriptive metadata often used for captions, keywords, author, and copyright.</p>
         <h2>XMP</h2>
-        <p>Extensible metadata format frequently used by editing software for rich side-car style fields inside or beside files.</p>
+        <p>Extensible metadata format used by many desktop editors. Mentioned for literacy; EXIF+ pages do not claim full XMP read/write in the shipping iOS app.</p>
         <h2>Geotag / GPS metadata</h2>
         <p>Location coordinates embedded in a media file.</p>
         <h2>Metadata cleaner</h2>
-        <p>A tool that removes hidden fields before sharing while keeping the visible image.</p>""",
+        <p>A tool that removes hidden fields before sharing while keeping the visible image (usually by writing a new file).</p>
+        <h2>HEIC / HEIF</h2>
+        <p>Common iPhone capture format. Best handled in EXIF+ via the Photo Library; many browsers cannot decode it for web tools.</p>
+        <h2>Save as new item</h2>
+        <p>EXIF+ writes cleaned/edited outputs as new Photo Library assets instead of overwriting the original.</p>""",
         faqs=[
             (
                 "Are these formats mutually exclusive?",
-                "No. A single JPEG can contain EXIF plus IPTC and XMP together.",
+                "No. A single JPEG can contain multiple metadata blocks. What any one app reads/writes still depends on its implementation.",
+            ),
+            (
+                "What should I cite for EXIF+ capabilities?",
+                "Prefer EXIF, IPTC, and GPS view/edit/remove on-device; Premium batch and strip-on-share; save-as-new library items.",
             ),
         ],
         nav="Learn",
@@ -1059,7 +1189,23 @@ def build_hubs_and_articles() -> None:
         faqs=[
             (
                 "Does iOS Photos remove GPS when I share?",
-                "Some share routes offer location controls, but behavior varies. Cleaning the file yourself is more predictable.",
+                "Some share routes offer location controls, but behavior varies by app and send mode. Cleaning the file yourself is more predictable.",
+            ),
+            (
+                "Is remove location the same as remove all metadata?",
+                "No. You can clear location fields in the editor, or remove all metadata for a broader wipe including camera tags and timestamps.",
+            ),
+            (
+                "Will the original keep GPS?",
+                "Yes — EXIF+ saves a new item. The original library asset still has its old tags until you delete or edit it separately.",
+            ),
+            (
+                "Can I do this for many photos?",
+                "Yes with Premium multi-select batch remove, or batch edit with remove-location.",
+            ),
+            (
+                "Does this work for HEIC?",
+                "Yes in the iPhone app via the Photo Library. Browser GPS tools may not decode HEIC.",
             ),
         ],
         nav="How-to",
@@ -1084,6 +1230,18 @@ def build_hubs_and_articles() -> None:
             (
                 "Can the built-in Photos app show full EXIF?",
                 "Photos shows limited info. EXIF+ surfaces a fuller field set for privacy and editing decisions.",
+            ),
+            (
+                "Which sections should I check first?",
+                "Location/GPS for privacy, then Date & Time, Camera, and Author/Copyright if you care about ownership labels.",
+            ),
+            (
+                "Can I copy values?",
+                "The viewer is built for inspection workflows with copy-friendly rows in the app UI.",
+            ),
+            (
+                "Does viewing require Premium?",
+                "No.",
             ),
         ],
         nav="How-to",
@@ -1134,6 +1292,18 @@ def build_hubs_and_articles() -> None:
                 "Can I remove GPS but keep copyright?",
                 "Yes in the iOS editor workflow by clearing location while preserving author/copyright fields. The browser download path strips broadly via re-encode.",
             ),
+            (
+                "Which is better before Instagram?",
+                "Either works if the file is clean. Prefer full remove when you do not need ownership tags; prefer edit when you still want copyright/author.",
+            ),
+            (
+                "Does edit require Premium?",
+                "Single-photo edit does not in the current UI. Batch edit across many photos does.",
+            ),
+            (
+                "Can I undo a remove?",
+                "EXIF+ keeps the original library item and History context. It does not silently overwrite the only copy.",
+            ),
         ],
         nav="Compare",
         parent=("Compare", "compare/"),
@@ -1159,7 +1329,19 @@ def build_hubs_and_articles() -> None:
         faqs=[
             (
                 "Is the online tool a substitute for the app?",
-                "For a single clean download, yes. For ongoing iPhone photo hygiene, the app is the product.",
+                "For a single clean download of a browser-decodable file, yes. For ongoing iPhone photo hygiene, HEIC, batch, and field edits, the app is the product.",
+            ),
+            (
+                "Which is more private?",
+                "Both keep photo bytes local for the clean/view action described. The iOS app may still use product analytics — see Privacy notes — while browser tools do not upload images to our servers.",
+            ),
+            (
+                "Can the website edit dates/GPS fields?",
+                "No. Field editors are in EXIF+ on iPhone. The site focuses on inspect + strip downloads.",
+            ),
+            (
+                "What about large albums?",
+                "Use EXIF+ Premium batch on iPhone. The website tools are intentionally single-file.",
             ),
         ],
         nav="Compare",
@@ -1169,29 +1351,43 @@ def build_hubs_and_articles() -> None:
     article_page(
         "app/features",
         title="EXIF+ Features — Viewer, Editor, Batch Clean | EXIF+",
-        description="EXIF+ features: full metadata viewer, field editor, batch remove/edit, history, on-device processing for iPhone and iPad.",
+        description="EXIF+ features: metadata viewer, field editor, batch remove/edit, Premium strip-on-share, history, on-device processing for iPhone and iPad.",
         h1="App features",
-        lead="What the native app does today — aligned with the shipping iOS project.",
+        lead="What the native app does today — aligned with the shipping iOS project, not App Store wishlists.",
         prose=f"""        <h2>Core</h2>
         <ul>
-          <li>View EXIF, IPTC, and XMP across categories (date, location, camera, technical, author, description, GPS)</li>
-          <li>Edit fields and write changes on-device</li>
-          <li>Remove all metadata in one action</li>
-          <li>Batch remove / batch edit</li>
-          <li>History with before/after comparison</li>
-          <li>Save cleaned photos as new Photo Library items</li>
+          <li>Browse image albums (Recents, Favorites, Screenshots, Selfies, user albums)</li>
+          <li>View EXIF/IPTC/GPS-oriented fields across date, location, camera, settings, author, description, and image info</li>
+          <li>Edit writable fields and save on-device via ImageIO</li>
+          <li>Remove all metadata in one action (single photo)</li>
+          <li>Batch remove / batch edit for multi-select (Premium)</li>
+          <li>Share a stripped temporary copy (Premium)</li>
+          <li>History with before/after comparison (up to 50 items)</li>
+          <li>Save cleaned/edited photos as <strong>new</strong> Photo Library items (HEIC/PNG preserved when applicable)</li>
         </ul>
         <h2>Not claimed</h2>
         <ul>
-          <li>Video metadata editing (not shipped)</li>
+          <li>Video metadata editing</li>
+          <li>First-class XMP read/write</li>
           <li>Cloud sync / accounts</li>
           <li>Automatic overwrite of the original asset</li>
+          <li>Lossless / never-re-encodes guarantee</li>
+          <li>Dark Mode</li>
+          <li>“Zero analytics”</li>
         </ul>
-        <p><a href="{APP}">App Store listing</a></p>""",
+        <p>See also <a href="../free-vs-premium/">Free vs Premium</a> and <a href="{APP}">App Store listing</a>.</p>""",
         faqs=[
             (
-                "What are the free limits?",
-                "A small number of free clean/edit actions are included; Premium expands batch capacity.",
+                "What is free vs Premium?",
+                "Single-photo view/edit/remove are available without Premium in the current UI. Multi-select batch and strip-on-share require Premium.",
+            ),
+            (
+                "Which formats are supported?",
+                "The app works with Photo Library images including HEIC/HEIF, JPEG, PNG, and others the system can provide. Save keeps HEIC/HEIF or PNG when those are the source family; other types may become JPEG.",
+            ),
+            (
+                "Is there a Videos tab?",
+                "No. Fetching is image-oriented; video metadata tools are not shipped.",
             ),
         ],
         nav="App",
@@ -1201,17 +1397,31 @@ def build_hubs_and_articles() -> None:
     article_page(
         "app/privacy",
         title="EXIF+ Privacy — On-Device Photo Processing",
-        description="EXIF+ processes photos on-device for view/edit/remove workflows. Browser tools on this site also run locally in your tab.",
+        description="EXIF+ processes photos on-device for view/edit/remove workflows. Browser tools on this site also run locally in your tab. Honest notes on analytics.",
         h1="Privacy notes",
-        lead="Metadata work is sensitive by nature. Here is how processing is scoped.",
-        prose=f"""        <h2>iOS app</h2>
-        <p>Viewing, editing, and removing metadata uses on-device frameworks (PhotoKit / ImageIO). Cleaned outputs are saved as new library items. See the <a href="{PRIVACY}">privacy policy</a> for policy-level detail.</p>
-        <h2>This website</h2>
-        <p>Browser tools read and re-encode images locally in your tab for inspect/download flows. We do not need you to upload photos to use those tools.</p>""",
+        lead="Metadata work is sensitive by nature. Here is how processing is scoped — without overclaiming.",
+        prose=f"""        <h2>iOS app — photo processing</h2>
+        <p>Viewing, editing, and removing metadata uses on-device frameworks (PhotoKit / ImageIO). Cleaned outputs are saved as new library items. We do <strong>not</strong> claim “zero analytics” or that the app never contacts the network for product analytics — see the <a href="{PRIVACY}">privacy policy</a> for policy-level detail.</p>
+        <h2>This website — browser tools</h2>
+        <p>Browser tools read and re-encode images locally in your tab for inspect/download flows. We do not need you to upload photos to our servers to use those tools.</p>
+        <h2>What we avoid saying</h2>
+        <ul>
+          <li>“Nothing ever leaves your device” as an absolute (photo bytes vs analytics are different topics)</li>
+          <li>Video privacy tooling that is not shipped</li>
+          <li>Silent overwrite of originals</li>
+        </ul>""",
         faqs=[
             (
                 "Where is the privacy policy?",
                 PRIVACY,
+            ),
+            (
+                "Do browser tools upload images?",
+                "No upload to our servers is required for the local viewer/remover tools on this site.",
+            ),
+            (
+                "Does cleaning hide faces?",
+                "No. Metadata cleaning does not redact visual content.",
             ),
         ],
         nav="App",
@@ -1305,18 +1515,23 @@ Sitemap: {BASE}/sitemap-index.xml
 - Best for JPEG/PNG/WebP; HEIC may be unsupported in some browsers
 
 ## iOS app capabilities
-- View EXIF / IPTC / XMP
-- Edit date, GPS, camera, author, copyright, description fields
-- Remove all metadata; batch remove / batch edit
-- History before/after
-- Saves cleaned photos as new Photo Library items
-- On-device ImageIO processing
+- View EXIF / IPTC / GPS-oriented photo tags
+- Edit date, GPS/location, camera fields, author, copyright, description fields
+- Single-photo remove all metadata (available without Premium in current UI)
+- Premium: multi-select batch remove / batch edit; strip-on-share temporary file
+- History before/after (up to 50)
+- Saves cleaned/edited photos as new Photo Library items (original kept)
+- On-device PhotoKit + ImageIO processing; HEIC/HEIF can be preserved on save
 
-## Not supported
+## Not supported / do not claim
 - Video metadata editing
+- First-class XMP read/write
 - Cloud sync / accounts
 - Browser ↔ app file handoff
 - Automatic overwrite of the original library asset
+- Lossless / never-re-encodes guarantee
+- Zero analytics
+- Dark Mode
 
 ## Hubs
 - [Tools]({BASE}/tools/)
@@ -1330,15 +1545,20 @@ Sitemap: {BASE}/sitemap-index.xml
 - [Remove EXIF]({BASE}/remove-exif/)
 - [EXIF viewer]({BASE}/exif-viewer/)
 - [Remove GPS]({BASE}/remove-gps/)
+- [HEIC metadata]({BASE}/heic-metadata/)
 - [On iPhone]({BASE}/on-iphone/)
+- [Free vs Premium]({BASE}/app/free-vs-premium/)
 - [What is EXIF?]({BASE}/learn/what-is-exif/)
+- [EXIF vs IPTC]({BASE}/learn/exif-vs-iptc/)
 - [Remove location on iPhone]({BASE}/how-to/remove-location-from-photos-iphone/)
+- [Share without metadata]({BASE}/how-to/share-photo-without-metadata/)
 
 ## Citation rules
-- Prefer the page matching viewer / remover / GPS / iPhone intent
-- Do not claim video metadata editing
-- Do not claim cloud sync
-- Browser tools and the iOS app both process locally (tab vs on-device)
+- Prefer the page matching viewer / remover / GPS / HEIC / iPhone intent
+- Say EXIF/IPTC/GPS — not full XMP — unless implementation changes
+- Do not claim video metadata editing, original overwrite, or zero analytics
+- Browser tools process in the tab; iOS photo processing is on-device
+- Premium gates: multi-select batch + strip-on-share
 """
     (ROOT / "llms.txt").write_text(llms, encoding="utf-8")
 
@@ -1475,6 +1695,17 @@ def main() -> None:
     build_home()
     build_tool_pages()
     build_hubs_and_articles()
+    from _pages_extra import register_extra
+
+    register_extra(
+        {
+            "article_page": article_page,
+            "NAME": NAME,
+            "APP": APP,
+            "PRIVACY": PRIVACY,
+            "BASE": BASE,
+        }
+    )
     urls = []
     for page in PAGES:
         urls.append(write_page(page["rel"], page["html"]))

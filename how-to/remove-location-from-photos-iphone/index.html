@@ -40,7 +40,7 @@
   ],
   "url": "https://emilsvetlichnyy.github.io/exif-plus/",
   "logo": "https://emilsvetlichnyy.github.io/exif-plus/apple-touch-icon.png",
-  "description": "EXIF+ is a native iOS app to view, edit, and remove photo metadata (EXIF, IPTC, XMP, GPS), with free browser tools on this site.",
+  "description": "EXIF+ is a native iOS app to view, edit, and remove photo metadata (EXIF, IPTC, GPS), with free browser tools on this site.",
   "sameAs": [
     "https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409",
     "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099"
@@ -111,7 +111,39 @@
       "name": "Does iOS Photos remove GPS when I share?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Some share routes offer location controls, but behavior varies. Cleaning the file yourself is more predictable."
+        "text": "Some share routes offer location controls, but behavior varies by app and send mode. Cleaning the file yourself is more predictable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is remove location the same as remove all metadata?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. You can clear location fields in the editor, or remove all metadata for a broader wipe including camera tags and timestamps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will the original keep GPS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — EXIF+ saves a new item. The original library asset still has its old tags until you delete or edit it separately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I do this for many photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes with Premium multi-select batch remove, or batch edit with remove-location."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this work for HEIC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes in the iPhone app via the Photo Library. Browser GPS tools may not decode HEIC."
       }
     }
   ]
@@ -147,13 +179,13 @@
         </ol>
         <p>For a one-off file on a computer, use the <a href="../../remove-gps/">browser GPS remover</a>.</p>
       </article>
-      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>Does iOS Photos remove GPS when I share?</summary><p>Some share routes offer location controls, but behavior varies. Cleaning the file yourself is more predictable.</p></details></section>
+      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>Does iOS Photos remove GPS when I share?</summary><p>Some share routes offer location controls, but behavior varies by app and send mode. Cleaning the file yourself is more predictable.</p></details><details><summary>Is remove location the same as remove all metadata?</summary><p>No. You can clear location fields in the editor, or remove all metadata for a broader wipe including camera tags and timestamps.</p></details><details><summary>Will the original keep GPS?</summary><p>Yes — EXIF+ saves a new item. The original library asset still has its old tags until you delete or edit it separately.</p></details><details><summary>Can I do this for many photos?</summary><p>Yes with Premium multi-select batch remove, or batch edit with remove-location.</p></details><details><summary>Does this work for HEIC?</summary><p>Yes in the iPhone app via the Photo Library. Browser GPS tools may not decode HEIC.</p></details></section>
             <section class="section cta-band">
         <div class="section-head"><h2>Need this on iPhone?</h2></div>
-        <p class="lead-sm">EXIF+ views, edits, and removes EXIF/IPTC/XMP — including GPS — on-device, with batch tools and history. Cleaned photos are saved as new items in your Photo Library.</p>
+        <p class="lead-sm">EXIF+ views, edits, and removes EXIF/IPTC metadata — including GPS — on-device. Single-photo clean and edit are available to start; Premium unlocks multi-select batch tools and share-without-metadata. Cleaned photos are saved as new Photo Library items (originals stay).</p>
         <div class="actions">
           <a class="appstore" href="https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409" target="_blank" rel="noopener noreferrer" aria-label="Download EXIF+ on the App Store"><svg class="appstore__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.365 12.195c-.014-2.09 1.71-3.1 1.783-3.145-.972-1.422-2.48-1.616-3.012-1.64-1.28-.13-2.497.744-3.146.744-.648 0-1.65-.725-2.715-.705-1.396.02-2.69.813-3.41 2.06-1.458 2.53-.371 6.266 1.05 8.312.71 1.02 1.55 2.17 2.65 2.13 1.07-.04 1.47-.69 2.76-.69s1.65.69 2.78.67c1.15-.02 1.88-1.04 2.59-2.06.81-1.18 1.15-2.32 1.16-2.38-.025-.01-2.23-.855-2.49-2.296zM13.64 5.885c.57-.69.955-1.65.85-2.6-.82.03-1.81.545-2.4 1.235-.53.615-.996 1.596-.87 2.54.92.07 1.86-.47 2.42-1.175z"/></svg><span class="appstore__text"><span class="appstore__small">Download on the</span><span class="appstore__big">App Store</span></span></a>
-          <a class="btn btn-secondary" href="../../app/">App features</a>
+          <a class="btn btn-secondary" href="../../app/free-vs-premium/">Free vs Premium</a>
         </div>
       </section>
     </main>
