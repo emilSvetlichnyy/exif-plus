@@ -776,8 +776,9 @@ def build_tool_pages() -> None:
 
 def hub_page(slug: str, title: str, description: str, h1: str, lead: str, tiles: list[tuple[str, str, str]], nav: str) -> None:
     prefix = prefix_for(slug)
+    # Tile hrefs are relative to the hub page itself (do not prepend prefix again).
     tiles_html = "".join(
-        f'<a class="tile" href="{prefix}{href}"><h3>{esc(n)}</h3><p>{esc(d)}</p></a>'
+        f'<a class="tile" href="{href}"><h3>{esc(n)}</h3><p>{esc(d)}</p></a>'
         for n, href, d in tiles
     )
     body = f"""    {crumbs_html([("Home", prefix), (h1, None)])}
