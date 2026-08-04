@@ -1,1 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EXIF Remover &amp; Viewer Online + iPhone App — EXIF+</title>
+  <meta name="description" content="Free EXIF viewer and metadata remover in your browser. Strip GPS and photo metadata locally, or use EXIF+ on iPhone for batch edit and clean.">
+  <link rel="canonical" href="https://emilsvetlichnyy.github.io/exif-plus/">
+  <meta name="theme-color" content="#3b6ea8">
+  <link rel="icon" href="/exif-plus/favicon.ico">
+  <link rel="apple-touch-icon" href="/exif-plus/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="EXIF+">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="EXIF+">
+  <meta property="og:title" content="EXIF Remover &amp; Viewer Online + iPhone App — EXIF+">
+  <meta property="og:description" content="Free EXIF viewer and metadata remover in your browser. Strip GPS and photo metadata locally, or use EXIF+ on iPhone for batch edit and clean.">
+  <meta property="og:url" content="https://emilsvetlichnyy.github.io/exif-plus/">
+  <meta property="og:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EXIF Remover &amp; Viewer Online + iPhone App — EXIF+">
+  <meta name="twitter:description" content="Free EXIF viewer and metadata remover in your browser. Strip GPS and photo metadata locally, or use EXIF+ on iPhone for batch edit and clean.">
+  <meta name="twitter:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
+  <link rel="alternate" type="application/rss+xml" title="EXIF+" href="https://emilsvetlichnyy.github.io/exif-plus/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@500;600&family=Source+Sans+3:wght@400;550;650;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EXIF+",
+  "alternateName": [
+    "EXIF+ Viewer, Metadata Remover",
+    "EXIF +",
+    "Metadata Cleaner"
+  ],
+  "url": "https://emilsvetlichnyy.github.io/exif-plus/",
+  "logo": "https://emilsvetlichnyy.github.io/exif-plus/apple-touch-icon.png",
+  "description": "EXIF+ is a native iOS app to view, edit, and remove photo metadata (EXIF, IPTC, XMP, GPS), with free browser tools on this site.",
+  "sameAs": [
+    "https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409",
+    "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Emil Svetlichnyy",
+    "url": "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "EXIF+ Viewer, Metadata Remover",
+  "alternateName": [
+    "EXIF+",
+    "Metadata Cleaner"
+  ],
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "iOS",
+  "description": "View, edit, and remove EXIF/IPTC/XMP metadata and GPS location from photos on iPhone. Processing happens on-device; cleaned photos are saved as new library items.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "url": "https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409",
+  "author": {
+    "@type": "Person",
+    "name": "Emil Svetlichnyy",
+    "url": "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099"
+  },
+  "downloadUrl": "https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://emilsvetlichnyy.github.io/exif-plus/"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is EXIF+?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EXIF+ is a native iPhone app to view, edit, and remove photo metadata (EXIF, IPTC, XMP), including GPS. This site also offers free browser tools that process images locally."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do browser tools upload my photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The viewer and remover run in your browser tab. Files are not uploaded to our servers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does removing EXIF reduce image quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EXIF is metadata, not the picture itself. The browser cleaner re-encodes a copy for download; the iOS app uses on-device ImageIO and saves a new library item."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the app free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes to start. A small number of free clean/edit actions are included; subscriptions or lifetime unlock more batch work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I edit metadata, not only delete it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes in the iOS app — dates, GPS, camera fields, author, copyright, and descriptions. Browser tools focus on inspect and strip."
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "EXIF+ — EXIF tools",
+  "url": "https://emilsvetlichnyy.github.io/exif-plus/",
+  "description": "Free EXIF viewer and remover tools plus the EXIF+ iPhone app.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "EXIF+"
+  }
+}
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-nav">
+      <a class="brand" href="./">EXIF+ <small>metadata</small></a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="./tools/">Tools</a>
+        <a href="./learn/">Learn</a>
+        <a href="./how-to/">How-to</a>
+        <a href="./compare/">Compare</a>
+        <a href="./app/">App</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <h1>View, edit, and remove photo metadata</h1>
+        <p class="lead">Free browser EXIF viewer and remover — plus EXIF+, a native iPhone app for GPS cleanup, batch edits, and full EXIF/IPTC/XMP control on-device.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="./remove-exif/">Remove EXIF online</a>
+          <a class="btn btn-secondary" href="./exif-viewer/">View EXIF</a>
+          <a class="appstore" href="https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409" target="_blank" rel="noopener noreferrer" aria-label="Download EXIF+ on the App Store"><svg class="appstore__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.365 12.195c-.014-2.09 1.71-3.1 1.783-3.145-.972-1.422-2.48-1.616-3.012-1.64-1.28-.13-2.497.744-3.146.744-.648 0-1.65-.725-2.715-.705-1.396.02-2.69.813-3.41 2.06-1.458 2.53-.371 6.266 1.05 8.312.71 1.02 1.55 2.17 2.65 2.13 1.07-.04 1.47-.69 2.76-.69s1.65.69 2.78.67c1.15-.02 1.88-1.04 2.59-2.06.81-1.18 1.15-2.32 1.16-2.38-.025-.01-2.23-.855-2.49-2.296zM13.64 5.885c.57-.69.955-1.65.85-2.6-.82.03-1.81.545-2.4 1.235-.53.615-.996 1.596-.87 2.54.92.07 1.86-.47 2.42-1.175z"/></svg><span class="appstore__text"><span class="appstore__small">Download on the</span><span class="appstore__big">App Store</span></span></a>
+        </div>
+        <div class="chip-row">
+          <a class="chip" href="./remove-gps/">Remove GPS</a>
+          <a class="chip" href="./metadata-cleaner/">Metadata cleaner</a>
+          <a class="chip" href="./on-iphone/">On iPhone</a>
+          <a class="chip" href="./how-to/remove-location-from-photos-iphone/">Strip location</a>
+        </div>
+      </section>
 
+      <section class="section">
+        <div class="section-head"><h2>Start with a tool</h2></div>
+        <div class="grid-3">
+          <a class="tile" href="./remove-exif/"><h3>Remove EXIF</h3><p>Strip metadata and download a clean copy in your browser.</p></a>
+          <a class="tile" href="./exif-viewer/"><h3>EXIF viewer</h3><p>See camera, date, software, and GPS tags before you share.</p></a>
+          <a class="tile" href="./remove-gps/"><h3>Remove GPS</h3><p>Focus on location data that can reveal where you were.</p></a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>Why metadata matters</h2></div>
+        <p class="lead-sm">Phones embed more than pixels: exact GPS, timestamps, camera model, serial-related tags, and editing software. Instagram may strip some fields; email, Telegram as files, marketplaces, and direct shares often keep them.</p>
+        <div class="grid-2">
+          <a class="tile" href="./learn/what-is-exif/"><h3>What is EXIF?</h3><p>A plain-language definition and what typical tags mean.</p></a>
+          <a class="tile" href="./learn/does-instagram-remove-exif/"><h3>Does Instagram remove EXIF?</h3><p>What platforms strip — and what they don’t.</p></a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>iPhone app</h2></div>
+        <p class="lead-sm">When you need albums, batch clean, field-level edits, and history, use EXIF+ on iOS 17+. Photos never need to leave your device for processing.</p>
+        <div class="actions">
+          <a class="appstore" href="https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409" target="_blank" rel="noopener noreferrer" aria-label="Download EXIF+ on the App Store"><svg class="appstore__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.365 12.195c-.014-2.09 1.71-3.1 1.783-3.145-.972-1.422-2.48-1.616-3.012-1.64-1.28-.13-2.497.744-3.146.744-.648 0-1.65-.725-2.715-.705-1.396.02-2.69.813-3.41 2.06-1.458 2.53-.371 6.266 1.05 8.312.71 1.02 1.55 2.17 2.65 2.13 1.07-.04 1.47-.69 2.76-.69s1.65.69 2.78.67c1.15-.02 1.88-1.04 2.59-2.06.81-1.18 1.15-2.32 1.16-2.38-.025-.01-2.23-.855-2.49-2.296zM13.64 5.885c.57-.69.955-1.65.85-2.6-.82.03-1.81.545-2.4 1.235-.53.615-.996 1.596-.87 2.54.92.07 1.86-.47 2.42-1.175z"/></svg><span class="appstore__text"><span class="appstore__small">Download on the</span><span class="appstore__big">App Store</span></span></a>
+          <a class="btn btn-secondary" href="./app/features/">See features</a>
+        </div>
+      </section>
+
+      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>What is EXIF+?</summary><p>EXIF+ is a native iPhone app to view, edit, and remove photo metadata (EXIF, IPTC, XMP), including GPS. This site also offers free browser tools that process images locally.</p></details><details><summary>Do browser tools upload my photos?</summary><p>No. The viewer and remover run in your browser tab. Files are not uploaded to our servers.</p></details><details><summary>Does removing EXIF reduce image quality?</summary><p>EXIF is metadata, not the picture itself. The browser cleaner re-encodes a copy for download; the iOS app uses on-device ImageIO and saves a new library item.</p></details><details><summary>Is the app free?</summary><p>Yes to start. A small number of free clean/edit actions are included; subscriptions or lifetime unlock more batch work.</p></details><details><summary>Can I edit metadata, not only delete it?</summary><p>Yes in the iOS app — dates, GPS, camera fields, author, copyright, and descriptions. Browser tools focus on inspect and strip.</p></details></section>
+    </main>
+    <footer class="site-footer">
+      <nav aria-label="Footer">
+        <a href="./">Home</a>
+        <a href="./tools/">Tools</a>
+        <a href="./learn/">Learn</a>
+        <a href="./how-to/">How-to</a>
+        <a href="./compare/">Compare</a>
+        <a href="./app/">App</a>
+        <a href="./about/">About</a>
+        <a href="https://emilsvetlichnyy.github.io/exif-privacy/" rel="noopener noreferrer">Privacy</a>
+        <a href="./llms.txt">llms.txt</a>
+      </nav>
+      <p>© 2026 Emil Svetlichnyy. EXIF+ — view, edit, and remove photo metadata on iPhone.</p>
+    </footer>
+  </div>
+</body>
+</html>

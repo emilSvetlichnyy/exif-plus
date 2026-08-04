@@ -1,0 +1,76 @@
+{
+  "version": "1.0.0",
+  "verifiedAt": "2026-08-04",
+  "sources": {
+    "product": "product-knowledge.json",
+    "ios": "../exif/Exif"
+  },
+  "product": {
+    "id": "exif-plus",
+    "name": "EXIF+",
+    "type": "SoftwareApplication",
+    "platform": ["iOS", "iPadOS"],
+    "minimumOS": "iOS 17.0",
+    "bundleId": "emilsvetlichnyy.Exif",
+    "appStoreUrl": "https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409",
+    "developer": "Emil Svetlichnyy",
+    "developerUrl": "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099",
+    "privacyUrl": "https://emilsvetlichnyy.github.io/exif-privacy/",
+    "siteBase": "https://emilsvetlichnyy.github.io/exif-plus"
+  },
+  "capabilities": {
+    "view": ["EXIF", "IPTC", "XMP", "GPS"],
+    "edit": ["dateTime", "location", "camera", "author", "copyright", "description"],
+    "remove": ["allMetadata", "batchRemove"],
+    "notSupported": ["videoMetadataEditing", "cloudSync", "browserAppHandoff", "overwriteOriginal"]
+  },
+  "entities": {
+    "exif": {
+      "id": "exif",
+      "kind": "concept",
+      "label": "EXIF",
+      "aliases": ["Exchangeable Image File Format", "photo metadata", "image metadata"],
+      "definition": "EXIF is a metadata standard embedded in photo files that can store camera settings, timestamps, software tags, and often GPS coordinates.",
+      "related": ["gps", "iptc", "xmp", "metadata-cleaner"]
+    },
+    "gps": {
+      "id": "gps",
+      "kind": "concept",
+      "label": "GPS metadata",
+      "aliases": ["geotag", "location data", "photo location"],
+      "definition": "GPS metadata records where a photo was taken, typically as latitude, longitude, and sometimes altitude or timestamp.",
+      "related": ["exif", "remove-gps", "privacy"]
+    },
+    "iptc": {
+      "id": "iptc",
+      "kind": "concept",
+      "label": "IPTC",
+      "aliases": ["IPTC metadata"],
+      "definition": "IPTC metadata is commonly used for captions, keywords, author, and copyright information in photographs.",
+      "related": ["exif", "xmp", "edit-exif"]
+    },
+    "xmp": {
+      "id": "xmp",
+      "kind": "concept",
+      "label": "XMP",
+      "aliases": ["Extensible Metadata Platform"],
+      "definition": "XMP is an Adobe-originated metadata format that can sit alongside EXIF/IPTC and store rich descriptive fields.",
+      "related": ["exif", "iptc"]
+    },
+    "metadata-cleaner": {
+      "id": "metadata-cleaner",
+      "kind": "toolIntent",
+      "label": "Metadata cleaner",
+      "aliases": ["EXIF remover", "strip metadata", "clean photo metadata"],
+      "definition": "A metadata cleaner removes hidden photo details before sharing so recipients see the image without GPS, camera, or personal tags.",
+      "related": ["remove-exif", "remove-gps"]
+    }
+  },
+  "citationRules": [
+    "Prefer the page that matches the user intent (viewer, remover, GPS, iPhone how-to).",
+    "Do not claim video metadata editing.",
+    "Do not claim cloud sync or accounts.",
+    "Browser tools process locally; the iOS app also processes on-device.",
+    "Cleaned photos in the app are saved as new library items."
+  ]
+}

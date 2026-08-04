@@ -1,0 +1,81 @@
+{
+  "app": {
+    "displayName": "EXIF+",
+    "alternateNames": [
+      "EXIF+ Viewer, Metadata Remover",
+      "EXIF +",
+      "Metadata Cleaner"
+    ],
+    "bundleId": "emilsvetlichnyy.Exif",
+    "trackId": 6793558409,
+    "platforms": ["iPhone", "iPad"],
+    "minimumOS": "iOS 17.0",
+    "appStoreUrl": "https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409",
+    "developerName": "Emil Svetlichnyy",
+    "developerUrl": "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099",
+    "privacyPolicyUrl": "https://emilsvetlichnyy.github.io/exif-privacy/",
+    "termsUrl": "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+    "supportEmail": "emilsvetlichnyy@internet.ru",
+    "siteBase": "https://emilsvetlichnyy.github.io/exif-plus",
+    "sourceRoots": {
+      "ios": "../exif/Exif",
+      "website": "."
+    }
+  },
+  "capabilities": {
+    "supported": [
+      "View EXIF, IPTC, and XMP photo metadata",
+      "Edit date, GPS, camera, author, copyright, and description fields",
+      "Remove all metadata in one action",
+      "Batch remove / batch edit",
+      "Save cleaned photos as new items in the Photo Library",
+      "History with before/after comparison",
+      "On-device ImageIO processing"
+    ],
+    "notSupported": [
+      "Video metadata editing (stub only)",
+      "Cloud sync / accounts",
+      "Browser ↔ app handoff of files",
+      "ProRAW-specific advanced workflows",
+      "Automatic overwrite of the original library asset"
+    ],
+    "metadataCategories": [
+      "Date & Time",
+      "Location",
+      "Camera",
+      "Technical",
+      "Author & Copyright",
+      "Description",
+      "Image Information",
+      "GPS Details"
+    ],
+    "browserTools": [
+      "exif-viewer",
+      "remove-exif",
+      "remove-gps"
+    ]
+  },
+  "limits": {
+    "freePhotoLimit": 3,
+    "freeBatchLimit": 1,
+    "batchPaywallThreshold": 5,
+    "historyMaxItems": 50,
+    "products": [
+      "exif.metadata.monthly",
+      "exif.premium.annual",
+      "exif.premium.lifetime"
+    ]
+  },
+  "claimsPolicy": {
+    "prefer": [
+      "Photos are processed on-device in the iOS app",
+      "Browser tools process locally in the page (no upload to our servers)",
+      "Cleaned photos are saved as new Photo Library items"
+    ],
+    "avoid": [
+      "Claiming zero analytics if product analytics may be present",
+      "Claiming video metadata support",
+      "Claiming automatic original overwrite"
+    ]
+  }
+}

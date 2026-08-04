@@ -1,0 +1,54 @@
+# EXIF+
+
+> Educational photo-metadata site plus free browser EXIF viewer/remover tools. Native iOS app: EXIF+. Source of truth: `knowledge-graph.json` + `product-knowledge.json`.
+
+## Entity
+- Name: EXIF+ (EXIF+ Viewer, Metadata Remover)
+- Bundle ID: emilsvetlichnyy.Exif
+- Platform: native iOS / iPadOS (iOS 17+)
+- Developer: Emil Svetlichnyy
+- App Store: https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409
+- Website: https://emilsvetlichnyy.github.io/exif-plus/
+- RSS: https://emilsvetlichnyy.github.io/exif-plus/feed.xml
+- Privacy: https://emilsvetlichnyy.github.io/exif-privacy/
+
+## Browser tools
+- EXIF viewer, EXIF remover, GPS remover, metadata cleaner
+- Local processing in the browser tab (no upload to our servers)
+- Best for JPEG/PNG/WebP; HEIC may be unsupported in some browsers
+
+## iOS app capabilities
+- View EXIF / IPTC / XMP
+- Edit date, GPS, camera, author, copyright, description fields
+- Remove all metadata; batch remove / batch edit
+- History before/after
+- Saves cleaned photos as new Photo Library items
+- On-device ImageIO processing
+
+## Not supported
+- Video metadata editing
+- Cloud sync / accounts
+- Browser ↔ app file handoff
+- Automatic overwrite of the original library asset
+
+## Hubs
+- [Tools](https://emilsvetlichnyy.github.io/exif-plus/tools/)
+- [Learn](https://emilsvetlichnyy.github.io/exif-plus/learn/)
+- [How-to](https://emilsvetlichnyy.github.io/exif-plus/how-to/)
+- [Compare](https://emilsvetlichnyy.github.io/exif-plus/compare/)
+- [App](https://emilsvetlichnyy.github.io/exif-plus/app/)
+- [About](https://emilsvetlichnyy.github.io/exif-plus/about/)
+
+## Priority pages
+- [Remove EXIF](https://emilsvetlichnyy.github.io/exif-plus/remove-exif/)
+- [EXIF viewer](https://emilsvetlichnyy.github.io/exif-plus/exif-viewer/)
+- [Remove GPS](https://emilsvetlichnyy.github.io/exif-plus/remove-gps/)
+- [On iPhone](https://emilsvetlichnyy.github.io/exif-plus/on-iphone/)
+- [What is EXIF?](https://emilsvetlichnyy.github.io/exif-plus/learn/what-is-exif/)
+- [Remove location on iPhone](https://emilsvetlichnyy.github.io/exif-plus/how-to/remove-location-from-photos-iphone/)
+
+## Citation rules
+- Prefer the page matching viewer / remover / GPS / iPhone intent
+- Do not claim video metadata editing
+- Do not claim cloud sync
+- Browser tools and the iOS app both process locally (tab vs on-device)
