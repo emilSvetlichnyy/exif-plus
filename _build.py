@@ -405,8 +405,8 @@ def build_home() -> None:
     ]
     body = f"""    <main>
       <section class="hero">
-        <h1>View, edit, and remove photo metadata</h1>
-        <p class="lead">Free browser EXIF viewer and remover — plus {NAME}, a native iPhone app for GPS cleanup, field edits, batch tools, and on-device Photo Library workflows.</p>
+        <h1>EXIF remover & viewer online</h1>
+        <p class="lead">View EXIF data, remove GPS from photos, and strip metadata in your browser — plus {NAME}, a native iPhone app for HEIC, field edits, and batch cleanup.</p>
         <div class="actions">
           <a class="btn btn-primary" href="{prefix}remove-exif/">Remove EXIF online</a>
           <a class="btn btn-secondary" href="{prefix}exif-viewer/">View EXIF</a>
@@ -474,8 +474,8 @@ def build_home() -> None:
     ]
     html = page_shell(
         rel="",
-        title="EXIF Remover & Viewer Online + iPhone App — EXIF+",
-        description="Free EXIF viewer and metadata remover in your browser. Strip GPS and photo metadata locally, or use EXIF+ on iPhone for batch edit and clean.",
+        title="EXIF Remover & Viewer Online — Strip GPS Metadata | EXIF+",
+        description="Free EXIF viewer and EXIF remover online. View photo metadata, remove GPS geotags, and clean EXIF data locally — plus EXIF+ for iPhone HEIC and batch tools.",
         canonical_path="",
         body=body,
         schemas=schemas,
@@ -557,14 +557,15 @@ def tool_page(
 def build_tool_pages() -> None:
     tool_page(
         "remove-exif",
-        title="Remove EXIF Online Free — Strip Photo Metadata | EXIF+",
-        description="Remove EXIF and other photo metadata in your browser. No upload to our servers. Download a clean copy, or use EXIF+ on iPhone for batch cleaning.",
-        h1="Remove EXIF online",
-        lead="Strip hidden photo metadata before you share. Processing stays in your browser; for albums and batch jobs, use EXIF+ on iPhone.",
+        title="Remove EXIF Online Free — Strip EXIF Data from Photos | EXIF+",
+        description="Remove EXIF data online free: strip photo metadata and GPS in your browser. No upload to our servers. Download a clean copy, or use EXIF+ on iPhone for HEIC and batch jobs.",
+        h1="Remove EXIF data online",
+        lead="Remove EXIF data online before you share — strip camera tags, timestamps, and GPS locally in your browser, then download a cleaned copy.",
         mode="remove",
         tool_title="EXIF remover",
         tool_blurb="Drop a photo to inspect tags, then download a re-encoded copy without EXIF/GPS.",
         sections_html="""      <section class="section prose">
+        <p><strong>Direct answer:</strong> To remove EXIF online, drop a photo into the tool above and download the cleaned file. It runs in your browser tab — we do not need an upload to our servers.</p>
         <h2>What gets removed</h2>
         <p>Typical smartphone JPEGs can include GPS coordinates, capture time, camera make/model, lens info, software tags, and descriptive IPTC fields. The browser tool creates a new image file without those metadata blocks by re-encoding in your tab.</p>
         <h2>When to use the iPhone app instead</h2>
@@ -579,6 +580,10 @@ def build_tool_pages() -> None:
         <p>This page does not claim video support, original overwrite, or lossless pixel identity. For Camera Roll HEIC, prefer the <a href="../heic-metadata/">HEIC guide</a>.</p>
       </section>""",
         faqs=[
+            (
+                "How do I remove EXIF data online?",
+                "Use the tool on this page: choose a JPEG, PNG, or WebP, review detected tags, then download the cleaned copy. For HEIC from iPhone Camera Roll, use the EXIF+ app.",
+            ),
             (
                 "Is this EXIF remover free?",
                 "Yes. The browser tool is free with no account. The iOS app download is also free; Premium is only required for multi-select batch and strip-on-share in the current UI.",
@@ -613,18 +618,19 @@ def build_tool_pages() -> None:
 
     tool_page(
         "exif-viewer",
-        title="EXIF Viewer Online Free — See Photo Metadata | EXIF+",
-        description="Free online EXIF viewer. Inspect camera settings, dates, software tags, and GPS location in your browser — no upload to our servers.",
+        title="EXIF Viewer Online Free — View Photo EXIF & GPS | EXIF+",
+        description="Free EXIF viewer online: view EXIF data, camera settings, dates, and GPS metadata in your browser. No upload to our servers.",
         h1="EXIF viewer online",
-        lead="See what your photo is really carrying — camera, timestamps, software, and GPS — before you post or send it.",
+        lead="View EXIF data online — see camera settings, timestamps, software tags, and GPS metadata before you share a photo.",
         mode="view",
         tool_title="EXIF viewer",
         tool_blurb="Choose a photo to list readable EXIF/IPTC/GPS fields locally.",
         sections_html="""      <section class="section prose">
+        <p><strong>Direct answer:</strong> An EXIF viewer reads hidden photo metadata. Use the tool above to view EXIF data for a file on your computer without uploading it to our servers.</p>
         <h2>What you can check</h2>
-        <p>Common fields include date taken, camera make/model, lens, ISO, aperture, shutter, software, copyright, and GPS latitude/longitude when present.</p>
+        <p>Common fields include date taken, camera make/model, lens, ISO, aperture, shutter, software, copyright, and GPS latitude/longitude when present — the same details people mean by “EXIF info” or “EXIF data on a picture.”</p>
         <h2>Next step after viewing</h2>
-        <p>If you see location data you do not want to share, use the <a href="../remove-gps/">GPS remover</a> or <a href="../remove-exif/">full EXIF remover</a>. On iPhone, open EXIF+ to edit individual fields or batch-clean albums.</p>
+        <p>If you see location data you do not want to share, use the <a href="../remove-gps/">GPS remover</a> or <a href="../remove-exif/">remove EXIF online</a>. On iPhone, open EXIF+ to edit fields or batch-clean albums.</p>
       </section>""",
         faqs=[
             (
@@ -657,31 +663,44 @@ def build_tool_pages() -> None:
 
     tool_page(
         "remove-gps",
-        title="Remove GPS from Photos Online — Strip Location Data | EXIF+",
-        description="Remove GPS location from photos in your browser. Strip geotags before sharing. For batch cleanup on iPhone, use EXIF+.",
-        h1="Remove GPS from photos",
-        lead="Geotags can reveal your home, hotel, or workplace. Strip location data locally, then share the cleaned file.",
+        title="Remove GPS from Photo Online Free — Strip Geotags | EXIF+",
+        description="Remove GPS from a photo online: strip geotags and location metadata in your browser. Free local tool, then share safely — or batch-clean on iPhone with EXIF+.",
+        h1="Remove GPS from photo",
+        lead="Need to remove GPS from a photo before sharing? Strip geotags locally in your browser, then download a cleaned copy — no upload to our servers.",
         mode="gps",
-        tool_title="GPS / location remover",
-        tool_blurb="We’ll highlight GPS if present, then you can download a copy without metadata.",
+        tool_title="Remove GPS / geotag from photo",
+        tool_blurb="Drop a photo to check for GPS metadata, then download a copy with location data stripped.",
         sections_html="""      <section class="section prose">
-        <h2>Why GPS metadata is sensitive</h2>
-        <p>Coordinates are often accurate to roughly building-level precision. A single shared original can leak where you live or travel — even when the visible picture looks harmless.</p>
+        <p><strong>Direct answer:</strong> To remove GPS from a photo online, use the tool above — it reads location tags in your tab and lets you download a cleaned file. For iPhone Camera Roll / HEIC albums, use EXIF+ on-device instead.</p>
+        <h2>What is GPS metadata in a photo?</h2>
+        <p>GPS metadata (geotags) stores where the photo was taken — usually latitude, longitude, and sometimes altitude or a GPS timestamp. It is hidden inside the file, not drawn on the picture.</p>
+        <h2>Why people remove GPS from photos</h2>
+        <p>Coordinates are often accurate to roughly building-level precision. A single shared original can leak home, hotel, school, or workplace locations even when the image looks harmless.</p>
+        <h2>How to remove geotags (quick paths)</h2>
+        <ul>
+          <li><strong>Browser (this page):</strong> drop a JPEG/PNG/WebP → download cleaned copy.</li>
+          <li><strong>Full EXIF wipe:</strong> use <a href="../remove-exif/">remove EXIF online</a> if you also want camera/date tags gone.</li>
+          <li><strong>iPhone:</strong> follow <a href="../how-to/remove-location-from-photos-iphone/">remove location on iPhone</a> or edit GPS fields in EXIF+.</li>
+        </ul>
         <h2>Platforms that may keep GPS</h2>
         <p>Many social networks strip location on upload. Email attachments, messaging “as file”, cloud links, and marketplace listings frequently preserve it. Do not rely on the destination app.</p>
       </section>""",
         faqs=[
             (
+                "How do I remove GPS from a photo online?",
+                "Use the tool on this page: choose a photo, confirm GPS if present, then download the cleaned copy. Processing stays in your browser tab.",
+            ),
+            (
                 "Does removing GPS blur the photo?",
                 "No. Location is metadata. We export a new file without those tags; the visible scene is not intentionally blurred or censored.",
             ),
             (
-                "Can I remove only GPS but keep camera EXIF?",
-                "The browser download path strips broadly via re-encode. For selective location clear while keeping other fields, use EXIF+’s editor on iPhone.",
+                "Is GPS metadata the same as geotag?",
+                "Yes in everyday language — geotag usually means the embedded location coordinates in the photo file.",
             ),
             (
-                "Is GPS the same as the Photos “Location” album label?",
-                "Related but not identical. Embedded coordinates are file metadata; Moments/Maps features also use library location databases.",
+                "Can I remove only GPS but keep camera EXIF?",
+                "The browser download path strips broadly via re-encode. For selective location clear while keeping other fields, use EXIF+ editor on iPhone.",
             ),
             (
                 "Will AirDrop keep GPS?",
@@ -690,6 +709,10 @@ def build_tool_pages() -> None:
             (
                 "What about screenshots?",
                 "Many screenshots lack camera GPS. Always inspect if the source was a camera original or a re-export.",
+            ),
+            (
+                "Remove geotag from photo online — is this free?",
+                "Yes. The browser GPS/location remover on this page is free and does not require an account.",
             ),
         ],
         crumbs=[
@@ -1056,20 +1079,42 @@ def build_hubs_and_articles() -> None:
 
     article_page(
         "learn/what-is-exif",
-        title="What Is EXIF Data? Photo Metadata Explained | EXIF+",
-        description="EXIF is metadata embedded in photos: camera settings, timestamps, software tags, and often GPS. Learn what it is and why it matters for privacy.",
-        h1="What is EXIF?",
-        lead="EXIF (Exchangeable Image File Format) is a common way cameras and phones store technical details inside image files.",
-        prose="""        <h2>What EXIF usually contains</h2>
-        <p>Typical fields include capture time, camera make and model, lens, exposure settings (ISO, shutter, aperture), orientation, software names, and — if location was enabled — GPS coordinates. Viewers may also show related IPTC labels such as author or copyright when present.</p>
-        <h2>EXIF vs IPTC (and why we mention XMP carefully)</h2>
+        title="What Is EXIF Data? Meaning, Examples & Privacy | EXIF+",
+        description="What is EXIF data? EXIF means Exchangeable Image File Format — photo metadata with camera settings, timestamps, and often GPS. Plain-language meaning and how to view or remove it.",
+        h1="What is EXIF data?",
+        lead="EXIF data (Exchangeable Image File Format) is hidden photo metadata that cameras and phones store inside image files — not in the visible pixels.",
+        prose="""        <p><strong>Short definition:</strong> EXIF is the most common type of photo metadata. It can include when a picture was taken, which camera or phone took it, exposure settings, software names, and — if location was on — GPS coordinates.</p>
+        <h2>EXIF meaning in photography</h2>
+        <p>In photography, “EXIF data” usually means the technical record attached to a JPEG/HEIC (and some other formats). Photographers use it to review settings; privacy-conscious users remove it before sharing originals.</p>
+        <h2>What EXIF usually contains</h2>
+        <ul>
+          <li>Date taken / capture time</li>
+          <li>Camera make and model, lens, software</li>
+          <li>ISO, shutter speed, aperture, focal length</li>
+          <li>Orientation and related technical tags</li>
+          <li>GPS latitude/longitude when geotagging was enabled</li>
+        </ul>
+        <p>Related IPTC fields (author, copyright, captions) may also appear in the same file.</p>
+        <h2>EXIF vs IPTC (and XMP literacy)</h2>
         <p>EXIF is strongest for camera/GPS technical tags. IPTC is often used for captions, keywords, and copyright. XMP appears in many desktop editing workflows, but EXIF+’s shipping implementation is documented on the <a href="../exif-vs-iptc/">EXIF vs IPTC</a> page as EXIF/IPTC/GPS-focused — not full XMP parity.</p>
-        <h2>Why people remove it</h2>
-        <p>Sharing an original file can unintentionally publish where you were and which device took the shot. Removing metadata keeps the picture while dropping the hidden context. Remember that creating a cleaned file usually re-encodes pixels — see <a href="../does-cleaning-reduce-quality/">quality notes</a>.</p>
-        <h2>How to inspect a file right now</h2>
-        <p>Use the <a href="../../exif-viewer/">browser EXIF viewer</a> for JPEG/PNG/WebP, or open the photo in EXIF+ on iPhone for Camera Roll / HEIC library items.</p>
-        <p>Related: <a href="../what-is-gps-metadata/">GPS metadata</a>, <a href="../../remove-exif/">remove EXIF online</a>.</p>""",
+        <h2>Why people remove EXIF</h2>
+        <p>Sharing an original file can unintentionally publish where you were and which device took the shot. Removing metadata keeps the picture while dropping the hidden context. Creating a cleaned file usually re-encodes pixels — see <a href="../does-cleaning-reduce-quality/">quality notes</a>.</p>
+        <h2>How to view or remove EXIF right now</h2>
+        <ul>
+          <li><a href="../../exif-viewer/">EXIF viewer online</a> — inspect JPEG/PNG/WebP in your browser</li>
+          <li><a href="../../remove-exif/">Remove EXIF online</a> — download a cleaned copy</li>
+          <li><a href="../../on-iphone/">EXIF+ on iPhone</a> — HEIC / Photo Library workflows</li>
+        </ul>
+        <p>Related: <a href="../what-is-gps-metadata/">What is GPS metadata?</a></p>""",
         faqs=[
+            (
+                "What does EXIF stand for?",
+                "EXIF stands for Exchangeable Image File Format — a standard for storing metadata inside many photo files.",
+            ),
+            (
+                "What is EXIF data in simple words?",
+                "It is hidden information inside a photo file: when it was taken, which device took it, camera settings, and sometimes the exact location.",
+            ),
             (
                 "Is EXIF part of the photo pixels?",
                 "No. It is metadata attached to the file. Removing it does not crop or stylize the image by itself, though saving a cleaned copy usually re-encodes the file.",
@@ -1098,23 +1143,48 @@ def build_hubs_and_articles() -> None:
 
     article_page(
         "learn/what-is-gps-metadata",
-        title="What Is GPS Metadata in Photos? | EXIF+",
-        description="GPS metadata (geotags) stores where a photo was taken. Learn the privacy risk and how to remove location data.",
+        title="What Is GPS Metadata in Photos? Geotags Explained | EXIF+",
+        description="GPS metadata (geotags) stores where a photo was taken as latitude/longitude. Learn the privacy risk and how to remove GPS from photos online or on iPhone.",
         h1="What is GPS metadata?",
-        lead="GPS metadata records the location where a photo was captured — often as latitude, longitude, and sometimes altitude.",
-        prose="""        <h2>How geotags get into photos</h2>
-        <p>When location services are on, phones write coordinates into the image file. Screenshots and some exported images may not include GPS; camera originals often do.</p>
+        lead="GPS metadata — also called geotags or photo location data — records where a photo was captured, usually as latitude and longitude.",
+        prose="""        <p><strong>Direct answer:</strong> GPS metadata is location information embedded in a photo file. If someone opens the original with an EXIF viewer, they can often see exactly where it was taken.</p>
+        <h2>How geotags get into photos</h2>
+        <p>When Location Services are on, phones write coordinates into the image. Camera originals often include GPS; screenshots and some re-exports may not.</p>
+        <h2>GPS metadata vs “location” in Photos</h2>
+        <p>Embedded GPS tags live inside the file. Apple Photos may also show places using library databases. Cleaning the file removes embedded tags from that copy; it is the reliable control before you share an original.</p>
         <h2>Privacy risk</h2>
-        <p>A single geotagged photo can reveal home addresses, schools, hotels, or workplaces. That risk is why “remove location from photo” is one of the most common metadata tasks.</p>
-        <p>Try the <a href="../../remove-gps/">GPS remover</a> or the iPhone guide to <a href="../../how-to/remove-location-from-photos-iphone/">strip location</a>.</p>""",
+        <p>A single geotagged photo can reveal home addresses, schools, hotels, or workplaces. That is why “remove GPS from photo” and “remove geotag online” are common searches.</p>
+        <h2>How to remove GPS metadata</h2>
+        <ul>
+          <li><a href="../../remove-gps/">Remove GPS from photo online</a> (browser)</li>
+          <li><a href="../../how-to/remove-location-from-photos-iphone/">Remove location on iPhone</a> with EXIF+</li>
+          <li><a href="../../how-to/edit-gps-on-iphone/">Edit GPS on iPhone</a> if you need to change coordinates instead of wiping them</li>
+        </ul>""",
         faqs=[
+            (
+                "What is GPS metadata in a photo?",
+                "It is embedded location data — typically latitude, longitude, and sometimes altitude or a GPS timestamp — stored with the image file.",
+            ),
+            (
+                "Is GPS metadata the same as a geotag?",
+                "Yes for most everyday use. Geotag usually means those embedded coordinates.",
+            ),
             (
                 "Does turning off location for Camera stop old geotags?",
                 "It stops new ones. Old photos may still contain GPS until you remove metadata.",
             ),
+            (
+                "Can someone see my home from one photo?",
+                "If the original still has precise GPS tags, yes — that is the core risk of sharing uncleaned camera originals.",
+            ),
+            (
+                "Does removing GPS delete the picture?",
+                "No. Cleaning creates a new file (or a new library item in EXIF+) without those location tags.",
+            ),
         ],
         nav="Learn",
         parent=("Learn", "learn/"),
+        priority=True,
     )
 
     article_page(

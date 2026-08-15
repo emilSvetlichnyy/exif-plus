@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Remove Camera Data from Photos — Make/Model Tags | EXIF+</title>
-  <meta name="description" content="Remove camera make, model, and related EXIF device tags before sharing. Browser strip or EXIF+ on iPhone.">
+  <title>Remove Camera Data from Photos (Make/Model EXIF) | EXIF+</title>
+  <meta name="description" content="Remove camera data from photos: strip make, model, lens, and related EXIF device tags online or on iPhone with EXIF+ before you share.">
   <link rel="canonical" href="https://emilsvetlichnyy.github.io/exif-plus/remove-camera-data/">
   <meta name="theme-color" content="#3b6ea8">
   <link rel="icon" href="/exif-plus/favicon.ico">
@@ -13,15 +13,15 @@
   <meta name="apple-mobile-web-app-title" content="EXIF+">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EXIF+">
-  <meta property="og:title" content="Remove Camera Data from Photos — Make/Model Tags | EXIF+">
-  <meta property="og:description" content="Remove camera make, model, and related EXIF device tags before sharing. Browser strip or EXIF+ on iPhone.">
+  <meta property="og:title" content="Remove Camera Data from Photos (Make/Model EXIF) | EXIF+">
+  <meta property="og:description" content="Remove camera data from photos: strip make, model, lens, and related EXIF device tags online or on iPhone with EXIF+ before you share.">
   <meta property="og:url" content="https://emilsvetlichnyy.github.io/exif-plus/remove-camera-data/">
   <meta property="og:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Remove Camera Data from Photos — Make/Model Tags | EXIF+">
-  <meta name="twitter:description" content="Remove camera make, model, and related EXIF device tags before sharing. Browser strip or EXIF+ on iPhone.">
+  <meta name="twitter:title" content="Remove Camera Data from Photos (Make/Model EXIF) | EXIF+">
+  <meta name="twitter:description" content="Remove camera data from photos: strip make, model, lens, and related EXIF device tags online or on iPhone with EXIF+ before you share.">
   <meta name="twitter:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
   <link rel="alternate" type="application/rss+xml" title="EXIF+" href="https://emilsvetlichnyy.github.io/exif-plus/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,7 +83,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Remove camera data from photos",
-  "description": "Remove camera make, model, and related EXIF device tags before sharing. Browser strip or EXIF+ on iPhone.",
+  "description": "Remove camera data from photos: strip make, model, lens, and related EXIF device tags online or on iPhone with EXIF+ before you share.",
   "author": {
     "@type": "Person",
     "name": "Emil Svetlichnyy",
@@ -98,7 +98,7 @@
     }
   },
   "mainEntityOfPage": "https://emilsvetlichnyy.github.io/exif-plus/remove-camera-data/",
-  "dateModified": "2026-08-04"
+  "dateModified": "2026-08-15"
 }
   </script>
   <script type="application/ld+json">
@@ -108,10 +108,26 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "How do I remove camera make and model from a photo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a full EXIF remove online or in EXIF+, or edit the camera fields in the iPhone app if you only need those tags changed."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Is camera model sensitive?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Sometimes — for example when you do not want a public post tied to expensive gear or a unique device fingerprint."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does removing camera data also remove GPS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A full metadata remove does. Selective camera-field edits do not automatically clear location unless you also clear GPS."
       }
     },
     {
@@ -143,8 +159,9 @@
       <article class="prose">
         <section class="hero">
           <h1>Remove camera data from photos</h1>
-          <p class="lead">Device tags can reveal gear and sometimes link images. Strip them with a full metadata remove — or edit specific camera fields in the app.</p>
+          <p class="lead">Camera data in EXIF can reveal make, model, lens, and software. Remove it with a full metadata strip — or edit those fields in EXIF+ on iPhone.</p>
         </section>
+        <p><strong>Direct answer:</strong> To remove camera data from a photo, strip EXIF entirely with the <a href="../remove-exif/">online remover</a> or EXIF+ on iPhone. That also clears GPS and timestamps in a full wipe.</p>
         <h2>What “camera data” usually means</h2>
         <p>Make, model, lens, software, and technical exposure tags. Serial-related fields may appear in the viewer as read-only depending on the file.</p>
         <h2>Fast privacy path</h2>
@@ -152,7 +169,7 @@
         <h2>Selective path</h2>
         <p>In EXIF+’s editor you can change camera make/model/lens/software fields when you need labeling rather than total wipe. Remember: saves create new library items; JPEG/HEIC saves re-encode.</p>
       </article>
-      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>Is camera model sensitive?</summary><p>Sometimes — for example when you do not want a public post tied to expensive gear or a unique device fingerprint.</p></details><details><summary>Does Instagram remove camera EXIF?</summary><p>Often social uploads strip many tags, but other channels keep them. Clean before you send originals.</p></details></section>
+      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>How do I remove camera make and model from a photo?</summary><p>Use a full EXIF remove online or in EXIF+, or edit the camera fields in the iPhone app if you only need those tags changed.</p></details><details><summary>Is camera model sensitive?</summary><p>Sometimes — for example when you do not want a public post tied to expensive gear or a unique device fingerprint.</p></details><details><summary>Does removing camera data also remove GPS?</summary><p>A full metadata remove does. Selective camera-field edits do not automatically clear location unless you also clear GPS.</p></details><details><summary>Does Instagram remove camera EXIF?</summary><p>Often social uploads strip many tags, but other channels keep them. Clean before you send originals.</p></details></section>
             <section class="section cta-band">
         <div class="section-head"><h2>Need this on iPhone?</h2></div>
         <p class="lead-sm">EXIF+ views, edits, and removes EXIF/IPTC metadata — including GPS — on-device. Single-photo clean and edit are available to start; Premium unlocks multi-select batch tools and share-without-metadata. Cleaned photos are saved as new Photo Library items (originals stay).</p>

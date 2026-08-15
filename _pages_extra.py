@@ -14,11 +14,12 @@ def register_extra(ns: dict) -> None:
     # ---- Learn expansions / new ----
     article_page(
         "learn/exif-vs-iptc",
-        title="EXIF vs IPTC Metadata — What EXIF+ Reads and Edits",
-        description="EXIF vs IPTC explained for iPhone users. What EXIF+ views and edits on-device — and why we do not claim full XMP support.",
-        h1="EXIF vs IPTC",
-        lead="Two common metadata families show up in phone photos. Knowing the difference helps you decide whether to edit fields or strip everything.",
-        prose=f"""        <h2>EXIF in plain terms</h2>
+        title="EXIF vs IPTC Metadata Explained (and XMP) | EXIF+",
+        description="EXIF vs IPTC metadata explained: what each stores, how they differ from XMP, and what EXIF+ actually reads and edits on iPhone.",
+        h1="EXIF vs IPTC metadata explained",
+        lead="EXIF vs IPTC is one of the most common photo-metadata questions: technical capture tags versus editorial labels — with XMP as a third format people often mix in.",
+        prose=f"""        <p><strong>Direct answer:</strong> EXIF usually holds camera/GPS technical data; IPTC usually holds captions, keywords, author, and copyright. They can live in the same photo file. XMP is a separate extensible format used by many desktop editors.</p>
+        <h2>EXIF in plain terms</h2>
         <p>EXIF (Exchangeable Image File Format) usually carries technical capture data: date/time, camera make and model, lens, ISO, shutter, aperture, focal length, orientation, software tags, and often GPS coordinates when Location Services were on.</p>
         <h2>IPTC in plain terms</h2>
         <p>IPTC fields are more editorial: author, copyright, title, caption/description, keywords, and comments. Photographers and publishers use them to label ownership and context.</p>
@@ -32,12 +33,24 @@ def register_extra(ns: dict) -> None:
         <p>Related: <a href="../what-is-exif/">What is EXIF?</a>, <a href="../../compare/remove-vs-edit-exif/">Remove vs edit</a>.</p>""",
         faqs=[
             (
+                "What is the difference between EXIF and IPTC?",
+                "EXIF is mainly technical capture data (camera, exposure, often GPS). IPTC is mainly descriptive/ownership data (caption, keywords, author, copyright).",
+            ),
+            (
+                "What is IPTC metadata?",
+                "IPTC metadata is commonly used for titles, captions, keywords, author, and copyright information in photographs.",
+            ),
+            (
                 "Does every photo have IPTC?",
                 "No. Many camera-roll originals are EXIF/GPS-heavy with little or no IPTC until an editor writes author/copyright fields.",
             ),
             (
                 "Is XMP the same as IPTC?",
                 "No. XMP is a separate extensible format used by many desktop editors. {NAME}’s shipping ImageIO path focuses on EXIF/IPTC/GPS — do not assume full XMP parity.".format(NAME=NAME),
+            ),
+            (
+                "IPTC vs XMP — which should I care about?",
+                "For phone privacy before sharing, EXIF/GPS removal matters most. IPTC/XMP matter more when you manage captions and ownership across publishing workflows.",
             ),
             (
                 "Can browser tools show IPTC?",
@@ -363,11 +376,12 @@ def register_extra(ns: dict) -> None:
     # ---- Intent landing ----
     article_page(
         "heic-metadata",
-        title="HEIC Metadata Viewer & Cleaner on iPhone | EXIF+",
-        description="View and clean HEIC/HEIF photo metadata on iPhone with EXIF+. Why browser EXIF tools often fail on HEIC and how the app preserves HEIC on save.",
+        title="HEIC Metadata Viewer & Remover on iPhone | EXIF+",
+        description="HEIC metadata: view and remove EXIF/GPS from iPhone HEIC photos with EXIF+. Why online EXIF tools often fail on HEIC and how the app keeps HEIC on save.",
         h1="HEIC metadata on iPhone",
-        lead="iPhone photos are often HEIC. Browser tools struggle; EXIF+ works from the Photo Library and can keep HEIC on save.",
-        prose=f"""        <h2>Why web tools break on HEIC</h2>
+        lead="HEIC metadata is the EXIF/GPS (and related) information inside iPhone HEIC/HEIF photos. Browser tools often cannot open HEIC; EXIF+ works from your Photo Library.",
+        prose=f"""        <p><strong>Direct answer:</strong> To view or clean HEIC metadata, use EXIF+ on iPhone. Many online EXIF removers fail because the browser cannot decode HEIC.</p>
+        <h2>Why web tools break on HEIC</h2>
         <p>Many browsers cannot decode HEIC for canvas-based removers. That is a browser limitation, not “missing EXIF.”</p>
         <h2>What {NAME} does</h2>
         <ul>
@@ -404,11 +418,12 @@ def register_extra(ns: dict) -> None:
 
     article_page(
         "remove-camera-data",
-        title="Remove Camera Data from Photos — Make/Model Tags | EXIF+",
-        description="Remove camera make, model, and related EXIF device tags before sharing. Browser strip or EXIF+ on iPhone.",
+        title="Remove Camera Data from Photos (Make/Model EXIF) | EXIF+",
+        description="Remove camera data from photos: strip make, model, lens, and related EXIF device tags online or on iPhone with EXIF+ before you share.",
         h1="Remove camera data from photos",
-        lead="Device tags can reveal gear and sometimes link images. Strip them with a full metadata remove — or edit specific camera fields in the app.",
-        prose=f"""        <h2>What “camera data” usually means</h2>
+        lead="Camera data in EXIF can reveal make, model, lens, and software. Remove it with a full metadata strip — or edit those fields in EXIF+ on iPhone.",
+        prose=f"""        <p><strong>Direct answer:</strong> To remove camera data from a photo, strip EXIF entirely with the <a href="../remove-exif/">online remover</a> or EXIF+ on iPhone. That also clears GPS and timestamps in a full wipe.</p>
+        <h2>What “camera data” usually means</h2>
         <p>Make, model, lens, software, and technical exposure tags. Serial-related fields may appear in the viewer as read-only depending on the file.</p>
         <h2>Fast privacy path</h2>
         <p>Use <strong>remove all metadata</strong> (browser tool or {NAME}) so camera + GPS + timestamps leave together.</p>
@@ -416,8 +431,16 @@ def register_extra(ns: dict) -> None:
         <p>In {NAME}’s editor you can change camera make/model/lens/software fields when you need labeling rather than total wipe. Remember: saves create new library items; JPEG/HEIC saves re-encode.</p>""",
         faqs=[
             (
+                "How do I remove camera make and model from a photo?",
+                "Use a full EXIF remove online or in EXIF+, or edit the camera fields in the iPhone app if you only need those tags changed.",
+            ),
+            (
                 "Is camera model sensitive?",
                 "Sometimes — for example when you do not want a public post tied to expensive gear or a unique device fingerprint.",
+            ),
+            (
+                "Does removing camera data also remove GPS?",
+                "A full metadata remove does. Selective camera-field edits do not automatically clear location unless you also clear GPS.",
             ),
             (
                 "Does Instagram remove camera EXIF?",

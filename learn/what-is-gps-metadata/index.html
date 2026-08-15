@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>What Is GPS Metadata in Photos? | EXIF+</title>
-  <meta name="description" content="GPS metadata (geotags) stores where a photo was taken. Learn the privacy risk and how to remove location data.">
+  <title>What Is GPS Metadata in Photos? Geotags Explained | EXIF+</title>
+  <meta name="description" content="GPS metadata (geotags) stores where a photo was taken as latitude/longitude. Learn the privacy risk and how to remove GPS from photos online or on iPhone.">
   <link rel="canonical" href="https://emilsvetlichnyy.github.io/exif-plus/learn/what-is-gps-metadata/">
   <meta name="theme-color" content="#3b6ea8">
   <link rel="icon" href="/exif-plus/favicon.ico">
@@ -13,15 +13,15 @@
   <meta name="apple-mobile-web-app-title" content="EXIF+">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EXIF+">
-  <meta property="og:title" content="What Is GPS Metadata in Photos? | EXIF+">
-  <meta property="og:description" content="GPS metadata (geotags) stores where a photo was taken. Learn the privacy risk and how to remove location data.">
+  <meta property="og:title" content="What Is GPS Metadata in Photos? Geotags Explained | EXIF+">
+  <meta property="og:description" content="GPS metadata (geotags) stores where a photo was taken as latitude/longitude. Learn the privacy risk and how to remove GPS from photos online or on iPhone.">
   <meta property="og:url" content="https://emilsvetlichnyy.github.io/exif-plus/learn/what-is-gps-metadata/">
   <meta property="og:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="What Is GPS Metadata in Photos? | EXIF+">
-  <meta name="twitter:description" content="GPS metadata (geotags) stores where a photo was taken. Learn the privacy risk and how to remove location data.">
+  <meta name="twitter:title" content="What Is GPS Metadata in Photos? Geotags Explained | EXIF+">
+  <meta name="twitter:description" content="GPS metadata (geotags) stores where a photo was taken as latitude/longitude. Learn the privacy risk and how to remove GPS from photos online or on iPhone.">
   <meta name="twitter:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
   <link rel="alternate" type="application/rss+xml" title="EXIF+" href="https://emilsvetlichnyy.github.io/exif-plus/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,7 +83,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "What is GPS metadata?",
-  "description": "GPS metadata (geotags) stores where a photo was taken. Learn the privacy risk and how to remove location data.",
+  "description": "GPS metadata (geotags) stores where a photo was taken as latitude/longitude. Learn the privacy risk and how to remove GPS from photos online or on iPhone.",
   "author": {
     "@type": "Person",
     "name": "Emil Svetlichnyy",
@@ -98,7 +98,7 @@
     }
   },
   "mainEntityOfPage": "https://emilsvetlichnyy.github.io/exif-plus/learn/what-is-gps-metadata/",
-  "dateModified": "2026-08-04"
+  "dateModified": "2026-08-15"
 }
   </script>
   <script type="application/ld+json">
@@ -108,10 +108,42 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "What is GPS metadata in a photo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is embedded location data — typically latitude, longitude, and sometimes altitude or a GPS timestamp — stored with the image file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is GPS metadata the same as a geotag?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes for most everyday use. Geotag usually means those embedded coordinates."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Does turning off location for Camera stop old geotags?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "It stops new ones. Old photos may still contain GPS until you remove metadata."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can someone see my home from one photo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If the original still has precise GPS tags, yes — that is the core risk of sharing uncleaned camera originals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does removing GPS delete the picture?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Cleaning creates a new file (or a new library item in EXIF+) without those location tags."
       }
     }
   ]
@@ -135,15 +167,23 @@
       <article class="prose">
         <section class="hero">
           <h1>What is GPS metadata?</h1>
-          <p class="lead">GPS metadata records the location where a photo was captured — often as latitude, longitude, and sometimes altitude.</p>
+          <p class="lead">GPS metadata — also called geotags or photo location data — records where a photo was captured, usually as latitude and longitude.</p>
         </section>
+        <p><strong>Direct answer:</strong> GPS metadata is location information embedded in a photo file. If someone opens the original with an EXIF viewer, they can often see exactly where it was taken.</p>
         <h2>How geotags get into photos</h2>
-        <p>When location services are on, phones write coordinates into the image file. Screenshots and some exported images may not include GPS; camera originals often do.</p>
+        <p>When Location Services are on, phones write coordinates into the image. Camera originals often include GPS; screenshots and some re-exports may not.</p>
+        <h2>GPS metadata vs “location” in Photos</h2>
+        <p>Embedded GPS tags live inside the file. Apple Photos may also show places using library databases. Cleaning the file removes embedded tags from that copy; it is the reliable control before you share an original.</p>
         <h2>Privacy risk</h2>
-        <p>A single geotagged photo can reveal home addresses, schools, hotels, or workplaces. That risk is why “remove location from photo” is one of the most common metadata tasks.</p>
-        <p>Try the <a href="../../remove-gps/">GPS remover</a> or the iPhone guide to <a href="../../how-to/remove-location-from-photos-iphone/">strip location</a>.</p>
+        <p>A single geotagged photo can reveal home addresses, schools, hotels, or workplaces. That is why “remove GPS from photo” and “remove geotag online” are common searches.</p>
+        <h2>How to remove GPS metadata</h2>
+        <ul>
+          <li><a href="../../remove-gps/">Remove GPS from photo online</a> (browser)</li>
+          <li><a href="../../how-to/remove-location-from-photos-iphone/">Remove location on iPhone</a> with EXIF+</li>
+          <li><a href="../../how-to/edit-gps-on-iphone/">Edit GPS on iPhone</a> if you need to change coordinates instead of wiping them</li>
+        </ul>
       </article>
-      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>Does turning off location for Camera stop old geotags?</summary><p>It stops new ones. Old photos may still contain GPS until you remove metadata.</p></details></section>
+      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>What is GPS metadata in a photo?</summary><p>It is embedded location data — typically latitude, longitude, and sometimes altitude or a GPS timestamp — stored with the image file.</p></details><details><summary>Is GPS metadata the same as a geotag?</summary><p>Yes for most everyday use. Geotag usually means those embedded coordinates.</p></details><details><summary>Does turning off location for Camera stop old geotags?</summary><p>It stops new ones. Old photos may still contain GPS until you remove metadata.</p></details><details><summary>Can someone see my home from one photo?</summary><p>If the original still has precise GPS tags, yes — that is the core risk of sharing uncleaned camera originals.</p></details><details><summary>Does removing GPS delete the picture?</summary><p>No. Cleaning creates a new file (or a new library item in EXIF+) without those location tags.</p></details></section>
             <section class="section cta-band">
         <div class="section-head"><h2>Need this on iPhone?</h2></div>
         <p class="lead-sm">EXIF+ views, edits, and removes EXIF/IPTC metadata — including GPS — on-device. Single-photo clean and edit are available to start; Premium unlocks multi-select batch tools and share-without-metadata. Cleaned photos are saved as new Photo Library items (originals stay).</p>
