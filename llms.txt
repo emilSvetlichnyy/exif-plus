@@ -13,7 +13,7 @@
 - Privacy: https://emilsvetlichnyy.github.io/exif-privacy/
 
 ## Browser tools
-- EXIF viewer, EXIF remover, GPS remover, metadata cleaner
+- EXIF viewer, photo metadata viewer, EXIF remover / strip EXIF, GPS remover, metadata cleaner
 - Local processing in the browser tab (no upload to our servers)
 - Best for JPEG/PNG/WebP; HEIC may be unsupported in some browsers
 
@@ -45,14 +45,19 @@
 - [About](https://emilsvetlichnyy.github.io/exif-plus/about/)
 
 ## Priority pages
-- [Remove EXIF](https://emilsvetlichnyy.github.io/exif-plus/remove-exif/)
+- [Strip / remove EXIF](https://emilsvetlichnyy.github.io/exif-plus/remove-exif/)
+- [Photo metadata viewer](https://emilsvetlichnyy.github.io/exif-plus/photo-metadata-viewer/)
 - [EXIF viewer](https://emilsvetlichnyy.github.io/exif-plus/exif-viewer/)
 - [Remove GPS](https://emilsvetlichnyy.github.io/exif-plus/remove-gps/)
+- [Metadata cleaner](https://emilsvetlichnyy.github.io/exif-plus/metadata-cleaner/)
 - [HEIC metadata](https://emilsvetlichnyy.github.io/exif-plus/heic-metadata/)
 - [On iPhone](https://emilsvetlichnyy.github.io/exif-plus/on-iphone/)
 - [Free vs Premium](https://emilsvetlichnyy.github.io/exif-plus/app/free-vs-premium/)
 - [What is EXIF?](https://emilsvetlichnyy.github.io/exif-plus/learn/what-is-exif/)
 - [EXIF vs IPTC](https://emilsvetlichnyy.github.io/exif-plus/learn/exif-vs-iptc/)
+- [Does Discord remove EXIF?](https://emilsvetlichnyy.github.io/exif-plus/learn/does-discord-remove-exif/)
+- [Find EXIF data](https://emilsvetlichnyy.github.io/exif-plus/how-to/find-exif-data/)
+- [Remove photo metadata on iPhone](https://emilsvetlichnyy.github.io/exif-plus/how-to/remove-photo-metadata-iphone/)
 - [Remove location on iPhone](https://emilsvetlichnyy.github.io/exif-plus/how-to/remove-location-from-photos-iphone/)
 - [Share without metadata](https://emilsvetlichnyy.github.io/exif-plus/how-to/share-photo-without-metadata/)
 

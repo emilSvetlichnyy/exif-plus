@@ -55,8 +55,10 @@
     ],
     "browserTools": [
       "exif-viewer",
+      "photo-metadata-viewer",
       "remove-exif",
-      "remove-gps"
+      "remove-gps",
+      "metadata-cleaner"
     ]
   },
   "limits": {

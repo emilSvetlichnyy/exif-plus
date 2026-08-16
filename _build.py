@@ -429,8 +429,8 @@ def build_home() -> None:
       <section class="section">
         <div class="section-head"><h2>Start with a tool</h2></div>
         <div class="grid-3">
-          <a class="tile" href="{prefix}remove-exif/"><h3>Remove EXIF</h3><p>Strip metadata and download a clean copy in your browser.</p></a>
-          <a class="tile" href="{prefix}exif-viewer/"><h3>EXIF viewer</h3><p>See camera, date, software, and GPS tags before you share.</p></a>
+          <a class="tile" href="{prefix}remove-exif/"><h3>Strip EXIF</h3><p>Remove metadata and download a clean copy in your browser.</p></a>
+          <a class="tile" href="{prefix}photo-metadata-viewer/"><h3>Photo metadata viewer</h3><p>Check EXIF, IPTC, and GPS before you share.</p></a>
           <a class="tile" href="{prefix}remove-gps/"><h3>Remove GPS</h3><p>Focus on location data that can reveal where you were.</p></a>
         </div>
       </section>
@@ -442,6 +442,8 @@ def build_home() -> None:
           <a class="tile" href="{prefix}learn/what-is-exif/"><h3>What is EXIF?</h3><p>Definition, common tags, and why people remove them.</p></a>
           <a class="tile" href="{prefix}learn/exif-vs-iptc/"><h3>EXIF vs IPTC</h3><p>What {NAME} actually reads and edits.</p></a>
           <a class="tile" href="{prefix}learn/does-instagram-remove-exif/"><h3>Does Instagram remove EXIF?</h3><p>Platform behavior vs cleaning yourself.</p></a>
+          <a class="tile" href="{prefix}learn/does-discord-remove-exif/"><h3>Does Discord remove EXIF?</h3><p>Chat upload vs send-as-file.</p></a>
+          <a class="tile" href="{prefix}how-to/find-exif-data/"><h3>How to find EXIF data</h3><p>Check and read tags on desktop or iPhone.</p></a>
           <a class="tile" href="{prefix}learn/does-cleaning-reduce-quality/"><h3>Quality tradeoffs</h3><p>Re-encode reality without hype.</p></a>
         </div>
       </section>
@@ -557,16 +559,16 @@ def tool_page(
 def build_tool_pages() -> None:
     tool_page(
         "remove-exif",
-        title="Remove EXIF Online Free — Strip EXIF Data from Photos | EXIF+",
-        description="Remove EXIF data online free: strip photo metadata and GPS in your browser. No upload to our servers. Download a clean copy, or use EXIF+ on iPhone for HEIC and batch jobs.",
-        h1="Remove EXIF data online",
-        lead="Remove EXIF data online before you share — strip camera tags, timestamps, and GPS locally in your browser, then download a cleaned copy.",
+        title="Strip EXIF Data Online Free — Remove Photo Metadata | EXIF+",
+        description="Strip EXIF data online free: remove EXIF, IPTC, and GPS from photos in your browser. No upload to our servers. Download a clean copy, or use EXIF+ on iPhone for HEIC and batch jobs.",
+        h1="Strip EXIF data online",
+        lead="Strip EXIF data before you share — remove camera tags, timestamps, and GPS locally in your browser, then download a cleaned copy.",
         mode="remove",
-        tool_title="EXIF remover",
+        tool_title="EXIF remover / strip EXIF",
         tool_blurb="Drop a photo to inspect tags, then download a re-encoded copy without EXIF/GPS.",
         sections_html="""      <section class="section prose">
-        <p><strong>Direct answer:</strong> To remove EXIF online, drop a photo into the tool above and download the cleaned file. It runs in your browser tab — we do not need an upload to our servers.</p>
-        <h2>What gets removed</h2>
+        <p><strong>Direct answer:</strong> To strip EXIF data online, drop a photo into the tool above and download the cleaned file. “Strip EXIF” and “remove EXIF” mean the same privacy step: write a new image without those metadata blocks. It runs in your browser tab — we do not need an upload to our servers.</p>
+        <h2>What gets stripped</h2>
         <p>Typical smartphone JPEGs can include GPS coordinates, capture time, camera make/model, lens info, software tags, and descriptive IPTC fields. The browser tool creates a new image file without those metadata blocks by re-encoding in your tab.</p>
         <h2>When to use the iPhone app instead</h2>
         <ul>
@@ -581,8 +583,12 @@ def build_tool_pages() -> None:
       </section>""",
         faqs=[
             (
-                "How do I remove EXIF data online?",
+                "How do I strip EXIF data online?",
                 "Use the tool on this page: choose a JPEG, PNG, or WebP, review detected tags, then download the cleaned copy. For HEIC from iPhone Camera Roll, use the EXIF+ app.",
+            ),
+            (
+                "Is strip EXIF the same as remove EXIF?",
+                "Yes in everyday language. Both mean creating a new file without embedded camera/GPS/metadata tags.",
             ),
             (
                 "Is this EXIF remover free?",
@@ -601,7 +607,7 @@ def build_tool_pages() -> None:
                 "The download is a re-encoded copy (canvas export). For library workflows, EXIF+ also writes a new file via ImageIO at high quality rather than promising bit-identical lossless output.",
             ),
             (
-                "Does remove EXIF also remove GPS?",
+                "Does strip EXIF also remove GPS?",
                 "Yes — a full strip removes location tags along with other metadata blocks the exporter drops.",
             ),
             (
@@ -618,21 +624,31 @@ def build_tool_pages() -> None:
 
     tool_page(
         "exif-viewer",
-        title="EXIF Viewer Online Free — View Photo EXIF & GPS | EXIF+",
-        description="Free EXIF viewer online: view EXIF data, camera settings, dates, and GPS metadata in your browser. No upload to our servers.",
-        h1="EXIF viewer online",
-        lead="View EXIF data online — see camera settings, timestamps, software tags, and GPS metadata before you share a photo.",
+        title="Online EXIF Viewer Free — Check & Read Photo EXIF Data | EXIF+",
+        description="Free online EXIF viewer: check, read, and view EXIF data, camera settings, dates, and GPS in your browser. No upload to our servers.",
+        h1="Online EXIF viewer",
+        lead="Check and read EXIF data online — see camera settings, timestamps, software tags, and GPS metadata before you share a photo.",
         mode="view",
         tool_title="EXIF viewer",
         tool_blurb="Choose a photo to list readable EXIF/IPTC/GPS fields locally.",
         sections_html="""      <section class="section prose">
-        <p><strong>Direct answer:</strong> An EXIF viewer reads hidden photo metadata. Use the tool above to view EXIF data for a file on your computer without uploading it to our servers.</p>
+        <p><strong>Direct answer:</strong> An online EXIF viewer reads hidden photo metadata. Use the tool above to check or read EXIF data for a file on your computer without uploading it to our servers.</p>
         <h2>What you can check</h2>
-        <p>Common fields include date taken, camera make/model, lens, ISO, aperture, shutter, software, copyright, and GPS latitude/longitude when present — the same details people mean by “EXIF info” or “EXIF data on a picture.”</p>
+        <p>Common fields include date taken, camera make/model, lens, ISO, aperture, shutter, software, copyright, and GPS latitude/longitude when present — the same details people mean by “EXIF info,” “read EXIF data,” or “EXIF data on a picture.”</p>
+        <h2>EXIF viewer vs photo metadata viewer</h2>
+        <p>People often search both phrases. This page focuses on EXIF-oriented fields. For broader “photo metadata viewer” wording (EXIF + IPTC + GPS together), see the <a href="../photo-metadata-viewer/">photo metadata viewer</a>.</p>
         <h2>Next step after viewing</h2>
-        <p>If you see location data you do not want to share, use the <a href="../remove-gps/">GPS remover</a> or <a href="../remove-exif/">remove EXIF online</a>. On iPhone, open EXIF+ to edit fields or batch-clean albums.</p>
+        <p>If you see location data you do not want to share, use the <a href="../remove-gps/">GPS remover</a> or <a href="../remove-exif/">strip EXIF online</a>. On iPhone, open EXIF+ to edit fields or batch-clean albums. New to the topic? Start with <a href="../how-to/find-exif-data/">how to find EXIF data</a>.</p>
       </section>""",
         faqs=[
+            (
+                "How do I check EXIF data online?",
+                "Open this page, choose a JPEG/PNG/WebP, and review the listed fields. Processing stays in your browser tab.",
+            ),
+            (
+                "How do I read EXIF data from a photo?",
+                "Use this online viewer for a desktop file, or EXIF+ on iPhone for Photo Library / HEIC items.",
+            ),
             (
                 "Why don’t I see GPS?",
                 "Location services may have been off at capture, tags were already stripped, or another app re-exported the file without GPS.",
@@ -657,6 +673,57 @@ def build_tool_pages() -> None:
         crumbs=[
             ("Home", f"{BASE}/"),
             ("EXIF viewer", f"{BASE}/exif-viewer/"),
+        ],
+        og="exif-viewer.png",
+    )
+
+    tool_page(
+        "photo-metadata-viewer",
+        title="Photo Metadata Viewer Online — View & Check Image Metadata | EXIF+",
+        description="Free photo metadata viewer online: view and check image metadata (EXIF, IPTC, GPS) in your browser. No upload to our servers. iPhone HEIC? Use EXIF+.",
+        h1="Photo metadata viewer",
+        lead="View and check photo metadata online — camera tags, dates, copyright fields, and GPS — before you share an original file.",
+        mode="view",
+        tool_title="Photo / image metadata viewer",
+        tool_blurb="Choose a photo to list readable EXIF, IPTC, and GPS fields locally in your browser.",
+        sections_html="""      <section class="section prose">
+        <p><strong>Direct answer:</strong> A photo metadata viewer shows the hidden data inside an image file. Use the tool above to check photo metadata on a JPEG, PNG, or WebP without uploading the file to our servers.</p>
+        <h2>What “photo metadata” usually includes</h2>
+        <ul>
+          <li><strong>EXIF</strong> — capture time, camera/phone make and model, exposure settings, often GPS</li>
+          <li><strong>IPTC</strong> — author, copyright, caption, keywords (when present)</li>
+          <li><strong>GPS / geotags</strong> — latitude and longitude if Location Services were on</li>
+        </ul>
+        <h2>When to use this vs the iPhone app</h2>
+        <p>Browser viewer: quick check of a file on your computer. <a href="../on-iphone/">EXIF+ on iPhone</a>: Camera Roll / HEIC albums, field editors, and cleaning. Also see <a href="../exif-viewer/">online EXIF viewer</a> if you specifically searched that phrase.</p>
+        <h2>After you check metadata</h2>
+        <p>If you do not want those tags to travel with the file, <a href="../remove-exif/">strip EXIF</a>, use the <a href="../metadata-cleaner/">metadata cleaner</a>, or follow <a href="../how-to/remove-photo-metadata-iphone/">remove photo metadata on iPhone</a>.</p>
+      </section>""",
+        faqs=[
+            (
+                "How do I view photo metadata online?",
+                "Use the tool on this page: pick an image and review the fields returned in your browser. Nothing is uploaded to our servers for this tool.",
+            ),
+            (
+                "How do I check photo metadata on a picture?",
+                "Open this viewer (or the EXIF viewer page), select the file, and scroll the tag list. On iPhone library photos, use EXIF+.",
+            ),
+            (
+                "Is a photo metadata viewer the same as an EXIF viewer?",
+                "Mostly overlapping. “EXIF viewer” emphasizes camera/GPS tags; “photo metadata viewer” often includes IPTC/copyright fields too. This tool shows what the browser parser returns across those groups.",
+            ),
+            (
+                "Can I view iPhone HEIC metadata here?",
+                "Only if your browser can decode HEIC. Most people should use EXIF+ for Camera Roll HEIC.",
+            ),
+            (
+                "Does viewing metadata change the file?",
+                "No. Inspection is read-only. Cleaning or editing creates a new file or library item.",
+            ),
+        ],
+        crumbs=[
+            ("Home", f"{BASE}/"),
+            ("Photo metadata viewer", f"{BASE}/photo-metadata-viewer/"),
         ],
         og="exif-viewer.png",
     )
@@ -724,16 +791,17 @@ def build_tool_pages() -> None:
 
     tool_page(
         "metadata-cleaner",
-        title="Metadata Cleaner Online — Clean Photo EXIF | EXIF+",
-        description="Online metadata cleaner for photos. Remove EXIF, IPTC, and GPS locally in your browser, or clean batches with EXIF+ on iPhone.",
-        h1="Metadata cleaner",
-        lead="One place to inspect and clean photo metadata before sharing — browser quick clean or iPhone batch tools.",
+        title="Photo Metadata Cleaner Online — Remove EXIF & GPS | EXIF+",
+        description="Online photo metadata cleaner: remove EXIF, IPTC, and GPS locally in your browser, or clean batches with EXIF+ on iPhone. Free, no upload to our servers.",
+        h1="Photo metadata cleaner",
+        lead="Inspect and clean photo metadata before sharing — strip EXIF/GPS in the browser, or batch-clean albums on iPhone.",
         mode="remove",
-        tool_title="Metadata cleaner",
+        tool_title="Photo metadata cleaner",
         tool_blurb="Inspect tags, then download a cleaned image copy.",
         sections_html="""      <section class="section prose">
-        <h2>Cleaner vs editor</h2>
-        <p>A cleaner removes hidden fields. An editor changes them (new date, new copyright, corrected GPS). This page is a cleaner; the iOS app does both.</p>
+        <p><strong>Direct answer:</strong> A photo metadata cleaner removes hidden EXIF/IPTC/GPS fields by writing a new file. Use the tool above for a single JPEG/PNG/WebP, or EXIF+ on iPhone for HEIC and albums.</p>
+        <h2>Cleaner vs editor vs viewer</h2>
+        <p>A <strong>viewer</strong> only shows tags (<a href="../photo-metadata-viewer/">photo metadata viewer</a>). A <strong>cleaner</strong> strips them. An <strong>editor</strong> changes fields (date, copyright, GPS) in the iOS app.</p>
         <div class="grid-2">
           <a class="tile" href="../compare/remove-vs-edit-exif/"><h3>Remove vs edit</h3><p>Which workflow fits privacy vs organization.</p></a>
           <a class="tile" href="../batch-remove/"><h3>Batch remove</h3><p>How album cleaning works on iPhone.</p></a>
@@ -751,6 +819,10 @@ def build_tool_pages() -> None:
             (
                 "Does cleaning overwrite files on disk?",
                 "The browser downloads a new file. The iOS app saves a new Photo Library item and leaves the original in place.",
+            ),
+            (
+                "Is this the same as strip EXIF?",
+                "Yes for a full wipe. “Metadata cleaner,” “strip EXIF,” and “remove photo metadata” usually mean the same privacy outcome.",
             ),
         ],
         crumbs=[
@@ -1004,10 +1076,11 @@ def build_hubs_and_articles() -> None:
         "Tools",
         "Quick local tools in the browser. Use the iPhone app when you need albums, batch, and field editors.",
         [
-            ("Remove EXIF", "../remove-exif/", "Strip metadata and download a clean copy."),
-            ("EXIF viewer", "../exif-viewer/", "Inspect tags before you share."),
+            ("Remove EXIF / strip EXIF", "../remove-exif/", "Strip metadata and download a clean copy."),
+            ("Photo metadata viewer", "../photo-metadata-viewer/", "View EXIF, IPTC, and GPS online."),
+            ("EXIF viewer", "../exif-viewer/", "Check and read EXIF tags."),
             ("Remove GPS", "../remove-gps/", "Focus on location data."),
-            ("Metadata cleaner", "../metadata-cleaner/", "All-in-one clean intent page."),
+            ("Metadata cleaner", "../metadata-cleaner/", "Clean photo metadata before sharing."),
             ("HEIC metadata", "../heic-metadata/", "Camera Roll HEIC via the iPhone app."),
             ("Remove camera data", "../remove-camera-data/", "Make/model and device tags."),
             ("Batch remove", "../batch-remove/", "Album multi-select on iPhone (Premium)."),
@@ -1026,6 +1099,7 @@ def build_hubs_and_articles() -> None:
             ("What is GPS metadata?", "what-is-gps-metadata/", "Why geotags matter."),
             ("EXIF vs IPTC", "exif-vs-iptc/", "What the app actually implements."),
             ("Does Instagram remove EXIF?", "does-instagram-remove-exif/", "Platform behavior."),
+            ("Does Discord remove EXIF?", "does-discord-remove-exif/", "Upload vs send-as-file."),
             ("Does cleaning reduce quality?", "does-cleaning-reduce-quality/", "Re-encode tradeoffs."),
             ("Why a duplicate appears", "why-cleaned-photo-is-a-duplicate/", "Save-as-new explained."),
             ("Glossary", "glossary/", "EXIF, IPTC, geotag, cleaner, HEIC."),
@@ -1039,6 +1113,8 @@ def build_hubs_and_articles() -> None:
         "How-to",
         "Practical iPhone workflows for privacy before sharing — matched to shipping EXIF+ features.",
         [
+            ("Find / check EXIF data", "find-exif-data/", "How to locate hidden tags."),
+            ("Remove photo metadata on iPhone", "remove-photo-metadata-iphone/", "Full EXIF/GPS clean."),
             ("Remove location on iPhone", "remove-location-from-photos-iphone/", "Strip GPS before you send."),
             ("Edit GPS on iPhone", "edit-gps-on-iphone/", "Map picker and coordinates."),
             ("Change photo date", "change-photo-date-iphone/", "Fix Date Taken / Created."),
@@ -1084,6 +1160,8 @@ def build_hubs_and_articles() -> None:
         h1="What is EXIF data?",
         lead="EXIF data (Exchangeable Image File Format) is hidden photo metadata that cameras and phones store inside image files — not in the visible pixels.",
         prose="""        <p><strong>Short definition:</strong> EXIF is the most common type of photo metadata. It can include when a picture was taken, which camera or phone took it, exposure settings, software names, and — if location was on — GPS coordinates.</p>
+        <h2>EXIF data meaning (plain language)</h2>
+        <p>“EXIF data meaning” is simply: hidden technical information stored inside the photo file. It is not text printed on the image. If someone opens the original in an EXIF viewer, they can often read those fields.</p>
         <h2>EXIF meaning in photography</h2>
         <p>In photography, “EXIF data” usually means the technical record attached to a JPEG/HEIC (and some other formats). Photographers use it to review settings; privacy-conscious users remove it before sharing originals.</p>
         <h2>What EXIF usually contains</h2>
@@ -1107,6 +1185,10 @@ def build_hubs_and_articles() -> None:
         </ul>
         <p>Related: <a href="../what-is-gps-metadata/">What is GPS metadata?</a></p>""",
         faqs=[
+            (
+                "What is the meaning of EXIF data?",
+                "EXIF data means the hidden metadata inside many photo files — typically capture time, device/camera details, settings, and sometimes GPS location.",
+            ),
             (
                 "What does EXIF stand for?",
                 "EXIF stands for Exchangeable Image File Format — a standard for storing metadata inside many photo files.",
@@ -1190,11 +1272,14 @@ def build_hubs_and_articles() -> None:
     article_page(
         "learn/does-instagram-remove-exif",
         title="Does Instagram Remove EXIF Data? | EXIF+",
-        description="Instagram typically strips most EXIF/GPS on upload, but email, Telegram files, and many other channels keep metadata. Clean photos before you share elsewhere.",
+        description="Instagram typically strips most EXIF/GPS on upload, but email, Discord files, and many other channels keep metadata. Clean photos before you share elsewhere.",
         h1="Does Instagram remove EXIF?",
         lead="Major social networks often strip camera and GPS metadata on upload — but that is not a universal privacy guarantee.",
-        prose="""        <h2>Short answer</h2>
+        prose="""        <p><strong>Direct answer:</strong> Instagram generally strips most EXIF/GPS from photos you post to the feed. That does not protect originals you still keep, or files you send through other apps.</p>
+        <h2>Short answer</h2>
         <p>Instagram and similar feed apps generally do not publish full original EXIF to viewers. That still leaves gaps: other apps, email, messaging “as file”, cloud links, and downloads of your original can preserve everything.</p>
+        <h2>Related platform question</h2>
+        <p>People also ask <a href="../does-discord-remove-exif/">does Discord remove EXIF</a> — chat uploads and “send as file” behave differently from Instagram’s feed pipeline.</p>
         <h2>What to do instead</h2>
         <p>Treat destination stripping as a bonus, not a control. Clean the file first with a <a href="../../metadata-cleaner/">metadata cleaner</a> or <a href="../../on-iphone/">EXIF+ on iPhone</a>, then share.</p>""",
         faqs=[
@@ -1202,9 +1287,14 @@ def build_hubs_and_articles() -> None:
                 "If Instagram strips EXIF, why bother cleaning?",
                 "Because you will not only share on Instagram — and even there, your local original still has the data until you clean it.",
             ),
+            (
+                "Does Instagram remove GPS metadata?",
+                "Feed uploads typically drop location EXIF for viewers. Do not rely on that for every share path or for the copy that remains on your device.",
+            ),
         ],
         nav="Learn",
         parent=("Learn", "learn/"),
+        priority=True,
     )
 
     article_page(
@@ -1580,7 +1670,7 @@ Sitemap: {BASE}/sitemap-index.xml
 - Privacy: {PRIVACY}
 
 ## Browser tools
-- EXIF viewer, EXIF remover, GPS remover, metadata cleaner
+- EXIF viewer, photo metadata viewer, EXIF remover / strip EXIF, GPS remover, metadata cleaner
 - Local processing in the browser tab (no upload to our servers)
 - Best for JPEG/PNG/WebP; HEIC may be unsupported in some browsers
 
@@ -1612,14 +1702,19 @@ Sitemap: {BASE}/sitemap-index.xml
 - [About]({BASE}/about/)
 
 ## Priority pages
-- [Remove EXIF]({BASE}/remove-exif/)
+- [Strip / remove EXIF]({BASE}/remove-exif/)
+- [Photo metadata viewer]({BASE}/photo-metadata-viewer/)
 - [EXIF viewer]({BASE}/exif-viewer/)
 - [Remove GPS]({BASE}/remove-gps/)
+- [Metadata cleaner]({BASE}/metadata-cleaner/)
 - [HEIC metadata]({BASE}/heic-metadata/)
 - [On iPhone]({BASE}/on-iphone/)
 - [Free vs Premium]({BASE}/app/free-vs-premium/)
 - [What is EXIF?]({BASE}/learn/what-is-exif/)
 - [EXIF vs IPTC]({BASE}/learn/exif-vs-iptc/)
+- [Does Discord remove EXIF?]({BASE}/learn/does-discord-remove-exif/)
+- [Find EXIF data]({BASE}/how-to/find-exif-data/)
+- [Remove photo metadata on iPhone]({BASE}/how-to/remove-photo-metadata-iphone/)
 - [Remove location on iPhone]({BASE}/how-to/remove-location-from-photos-iphone/)
 - [Share without metadata]({BASE}/how-to/share-photo-without-metadata/)
 
@@ -1749,6 +1844,7 @@ def make_icons() -> None:
 
     labels = {
         "home": "Metadata tools",
+        "photo-metadata-viewer": "Photo metadata viewer",
         "remove-exif": "Remove EXIF",
         "exif-viewer": "EXIF viewer",
         "remove-gps": "Remove GPS",

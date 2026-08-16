@@ -450,3 +450,144 @@ def register_extra(ns: dict) -> None:
         nav="Tools",
         parent=("Tools", "tools/"),
     )
+
+    # ---- Trends-driven pages (photo metadata / find EXIF / Discord) ----
+    article_page(
+        "how-to/find-exif-data",
+        title="How to Find EXIF Data on a Photo (Check & Read) | EXIF+",
+        description="How to find, check, and read EXIF data on a photo: online EXIF viewer for desktop files, or EXIF+ on iPhone for Camera Roll / HEIC.",
+        h1="How to find EXIF data",
+        lead="EXIF is hidden inside the file — here is how to find, check, and read it on a computer or iPhone.",
+        prose=f"""        <p><strong>Direct answer:</strong> To find EXIF data, open the photo in an EXIF viewer. On a computer use the <a href="../../exif-viewer/">online EXIF viewer</a> or <a href="../../photo-metadata-viewer/">photo metadata viewer</a>; on iPhone use {NAME} for Photo Library items.</p>
+        <h2>On a computer (JPEG / PNG / WebP)</h2>
+        <ol>
+          <li>Open the <a href="../../exif-viewer/">online EXIF viewer</a>.</li>
+          <li>Choose the image file.</li>
+          <li>Read the listed fields: date, camera, GPS, and other tags the parser returns.</li>
+        </ol>
+        <p>Processing stays in your browser tab — the file is not uploaded to our servers for this tool.</p>
+        <h2>On iPhone (including HEIC)</h2>
+        <ol>
+          <li>Install {NAME} and allow Photo Library access.</li>
+          <li>Open the photo from an album.</li>
+          <li>Scroll metadata sections (date, location, camera, author, GPS details).</li>
+        </ol>
+        <p>Apple Photos shows limited info; {NAME} is built to surface fuller field groups. Step-by-step: <a href="../view-exif-on-iphone/">view EXIF on iPhone</a>.</p>
+        <h2>What to do after you find sensitive tags</h2>
+        <ul>
+          <li><a href="../../remove-exif/">Strip EXIF online</a> for a desktop file</li>
+          <li><a href="../remove-photo-metadata-iphone/">Remove photo metadata on iPhone</a> for library items</li>
+          <li><a href="../../remove-gps/">Remove GPS only</a> if location is the main concern</li>
+        </ul>""",
+        faqs=[
+            (
+                "How do I check if a photo has EXIF data?",
+                "Open it in an EXIF / photo metadata viewer. If fields like Date Taken, Make/Model, or GPS appear, the file still carries metadata.",
+            ),
+            (
+                "How do I read EXIF data without installing software?",
+                "Use the browser EXIF viewer on this site for JPEG/PNG/WebP. For iPhone HEIC library photos, use the EXIF+ app.",
+            ),
+            (
+                "Why can’t I find EXIF in Photos on iPhone?",
+                "Photos shows only a short summary. Full tag groups need a dedicated viewer like EXIF+.",
+            ),
+            (
+                "Does finding EXIF change the photo?",
+                "No. Viewing is read-only. Removing or editing creates a new file or library item.",
+            ),
+        ],
+        nav="How-to",
+        parent=("How-to", "how-to/"),
+        priority=True,
+    )
+
+    article_page(
+        "how-to/remove-photo-metadata-iphone",
+        title="How to Remove Photo Metadata on iPhone | EXIF+",
+        description="Remove photo metadata on iPhone with EXIF+: strip EXIF, IPTC, and GPS from Camera Roll / HEIC photos. Single-photo free; batch is Premium.",
+        h1="Remove photo metadata on iPhone",
+        lead="iPhone photo metadata often includes EXIF camera tags, timestamps, and GPS. Strip it on-device before you share.",
+        prose=f"""        <p><strong>Direct answer:</strong> To remove photo metadata on iPhone, open the photo in {NAME}, run remove metadata, and share the <strong>new</strong> library item — not the original.</p>
+        <h2>What iPhone photo metadata usually includes</h2>
+        <ul>
+          <li>Capture date/time</li>
+          <li>Device make/model and camera settings</li>
+          <li>GPS / location when Location Services were on</li>
+          <li>Author/copyright fields if previously written</li>
+        </ul>
+        <h2>Steps (single photo)</h2>
+        <ol>
+          <li>Install {NAME} from the App Store and allow Photo Library access.</li>
+          <li>Open the photo and review metadata sections.</li>
+          <li>Choose remove metadata (full wipe) or edit/clear only the sensitive fields.</li>
+          <li>Save — {NAME} writes a new Photo Library item.</li>
+          <li>Share that new item (or use Premium strip-on-share from the detail screen).</li>
+        </ol>
+        <h2>Batch albums</h2>
+        <p>Multi-select batch remove is <strong>Premium</strong>. Single-photo remove is available without Premium in the current UI. See <a href="../../app/free-vs-premium/">Free vs Premium</a>.</p>
+        <h2>Browser alternative</h2>
+        <p>For a JPEG on a laptop, use the <a href="../../metadata-cleaner/">photo metadata cleaner</a> or <a href="../../remove-exif/">strip EXIF</a> tool. HEIC Camera Roll items are best handled in the app.</p>
+        <p>Related: <a href="../remove-location-from-photos-iphone/">remove location only</a>, <a href="../share-photo-without-metadata/">share without metadata</a>.</p>""",
+        faqs=[
+            (
+                "How do I remove photo metadata from an iPhone photo?",
+                "Use EXIF+: open the photo, remove metadata (or clear fields), save the new library item, then share that copy.",
+            ),
+            (
+                "Is remove photo metadata the same as remove GPS?",
+                "GPS/location is one part. Full metadata remove also clears camera tags, timestamps, and other EXIF/IPTC fields the wipe covers.",
+            ),
+            (
+                "Does this overwrite the original?",
+                "No. EXIF+ saves a new item. The original keeps its tags until you delete or edit it separately.",
+            ),
+            (
+                "Will quality drop?",
+                "JPEG/HEIC saves re-encode at high quality. Metadata removal is not a visual filter, but it is not a bit-identical lossless promise either.",
+            ),
+            (
+                "Can I do this for many photos?",
+                "Yes with Premium multi-select batch remove.",
+            ),
+        ],
+        nav="How-to",
+        parent=("How-to", "how-to/"),
+        priority=True,
+    )
+
+    article_page(
+        "learn/does-discord-remove-exif",
+        title="Does Discord Remove EXIF Data? | EXIF+",
+        description="Does Discord remove EXIF? Chat image compression often drops metadata, but send-as-file and some clients can keep EXIF/GPS. Clean photos before you upload.",
+        h1="Does Discord remove EXIF?",
+        lead="Discord is a common “does it strip EXIF?” question — the honest answer depends on how you send the image.",
+        prose="""        <p><strong>Direct answer:</strong> Discord often strips or loses EXIF when images are compressed as normal chat uploads, but you should not treat that as a privacy guarantee. Sending as a file, using some clients, or sharing links to originals can still expose metadata.</p>
+        <h2>Why answers online disagree</h2>
+        <p>Discord re-encodes many inline image uploads for size. Re-encoding frequently drops EXIF/GPS. That is different from a documented “we always delete all metadata” promise you can rely on for every path.</p>
+        <h2>Risky paths</h2>
+        <ul>
+          <li>Send as file / attachment modes that preserve the original bytes</li>
+          <li>Cloud links to an uncleaned original</li>
+          <li>Assuming every server, bot, or client behaves the same</li>
+        </ul>
+        <h2>Safe workflow</h2>
+        <p>Clean first, then upload: use the <a href="../../remove-exif/">strip EXIF</a> tool, <a href="../../metadata-cleaner/">metadata cleaner</a>, or <a href="../../how-to/remove-photo-metadata-iphone/">remove photo metadata on iPhone</a>. Same advice as for <a href="../does-instagram-remove-exif/">Instagram</a> — destination behavior is a bonus, not your control.</p>""",
+        faqs=[
+            (
+                "Does Discord remove GPS metadata?",
+                "Often yes on compressed chat image uploads — but do not rely on it. Clean the file yourself if location privacy matters.",
+            ),
+            (
+                "If I send a photo as a file on Discord, is EXIF kept?",
+                "File-style sends are more likely to preserve original bytes (and metadata) than compressed inline images. Clean first when unsure.",
+            ),
+            (
+                "Is Discord safer than email for EXIF?",
+                "Not reliably. Email attachments frequently keep metadata; Discord is inconsistent by send mode. Cleaning removes the guesswork.",
+            ),
+        ],
+        nav="Learn",
+        parent=("Learn", "learn/"),
+        priority=True,
+    )
