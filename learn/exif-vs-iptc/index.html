@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EXIF vs IPTC Metadata Explained (and XMP) | EXIF+</title>
+  <title>EXIF vs IPTC: Differences Explained (and XMP) | EXIF+</title>
   <meta name="description" content="EXIF vs IPTC metadata explained: what each stores, how they differ from XMP, and what EXIF+ actually reads and edits on iPhone.">
   <link rel="canonical" href="https://emilsvetlichnyy.github.io/exif-plus/learn/exif-vs-iptc/">
   <meta name="theme-color" content="#3b6ea8">
@@ -13,14 +13,14 @@
   <meta name="apple-mobile-web-app-title" content="EXIF+">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EXIF+">
-  <meta property="og:title" content="EXIF vs IPTC Metadata Explained (and XMP) | EXIF+">
+  <meta property="og:title" content="EXIF vs IPTC: Differences Explained (and XMP) | EXIF+">
   <meta property="og:description" content="EXIF vs IPTC metadata explained: what each stores, how they differ from XMP, and what EXIF+ actually reads and edits on iPhone.">
   <meta property="og:url" content="https://emilsvetlichnyy.github.io/exif-plus/learn/exif-vs-iptc/">
   <meta property="og:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="EXIF vs IPTC Metadata Explained (and XMP) | EXIF+">
+  <meta name="twitter:title" content="EXIF vs IPTC: Differences Explained (and XMP) | EXIF+">
   <meta name="twitter:description" content="EXIF vs IPTC metadata explained: what each stores, how they differ from XMP, and what EXIF+ actually reads and edits on iPhone.">
   <meta name="twitter:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
   <link rel="alternate" type="application/rss+xml" title="EXIF+" href="https://emilsvetlichnyy.github.io/exif-plus/feed.xml">
@@ -186,6 +186,13 @@
           <p class="lead">EXIF vs IPTC is one of the most common photo-metadata questions: technical capture tags versus editorial labels — with XMP as a third format people often mix in.</p>
         </section>
         <p><strong>Direct answer:</strong> EXIF usually holds camera/GPS technical data; IPTC usually holds captions, keywords, author, and copyright. They can live in the same photo file. XMP is a separate extensible format used by many desktop editors.</p>
+        <h2>EXIF vs IPTC at a glance</h2>
+        <ul>
+          <li><strong>EXIF:</strong> written by the camera or phone — date taken, camera/lens, exposure settings, GPS.</li>
+          <li><strong>IPTC:</strong> usually added by people or software — author, copyright, caption, keywords.</li>
+          <li><strong>Privacy:</strong> EXIF is the usual source of accidental location and device leaks; IPTC can expose names and copyright text.</li>
+          <li><strong>Terms:</strong> see the <a href="../glossary/">metadata glossary</a> for EXIF, IPTC, geotag, and HEIC definitions.</li>
+        </ul>
         <h2>EXIF in plain terms</h2>
         <p>EXIF (Exchangeable Image File Format) usually carries technical capture data: date/time, camera make and model, lens, ISO, shutter, aperture, focal length, orientation, software tags, and often GPS coordinates when Location Services were on.</p>
         <h2>IPTC in plain terms</h2>

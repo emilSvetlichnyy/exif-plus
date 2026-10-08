@@ -14,11 +14,18 @@ def register_extra(ns: dict) -> None:
     # ---- Learn expansions / new ----
     article_page(
         "learn/exif-vs-iptc",
-        title="EXIF vs IPTC Metadata Explained (and XMP) | EXIF+",
+        title="EXIF vs IPTC: Differences Explained (and XMP) | EXIF+",
         description="EXIF vs IPTC metadata explained: what each stores, how they differ from XMP, and what EXIF+ actually reads and edits on iPhone.",
         h1="EXIF vs IPTC metadata explained",
         lead="EXIF vs IPTC is one of the most common photo-metadata questions: technical capture tags versus editorial labels — with XMP as a third format people often mix in.",
         prose=f"""        <p><strong>Direct answer:</strong> EXIF usually holds camera/GPS technical data; IPTC usually holds captions, keywords, author, and copyright. They can live in the same photo file. XMP is a separate extensible format used by many desktop editors.</p>
+        <h2>EXIF vs IPTC at a glance</h2>
+        <ul>
+          <li><strong>EXIF:</strong> written by the camera or phone — date taken, camera/lens, exposure settings, GPS.</li>
+          <li><strong>IPTC:</strong> usually added by people or software — author, copyright, caption, keywords.</li>
+          <li><strong>Privacy:</strong> EXIF is the usual source of accidental location and device leaks; IPTC can expose names and copyright text.</li>
+          <li><strong>Terms:</strong> see the <a href="../glossary/">metadata glossary</a> for EXIF, IPTC, geotag, and HEIC definitions.</li>
+        </ul>
         <h2>EXIF in plain terms</h2>
         <p>EXIF (Exchangeable Image File Format) usually carries technical capture data: date/time, camera make and model, lens, ISO, shutter, aperture, focal length, orientation, software tags, and often GPS coordinates when Location Services were on.</p>
         <h2>IPTC in plain terms</h2>
@@ -454,11 +461,17 @@ def register_extra(ns: dict) -> None:
     # ---- Trends-driven pages (photo metadata / find EXIF / Discord) ----
     article_page(
         "how-to/find-exif-data",
-        title="How to Find EXIF Data on a Photo (Check & Read) | EXIF+",
+        title="How to Find & View EXIF Data on a Photo (Free, Online or iPhone) | EXIF+",
         description="How to find, check, and read EXIF data on a photo: online EXIF viewer for desktop files, or EXIF+ on iPhone for Camera Roll / HEIC.",
         h1="How to find EXIF data",
         lead="EXIF is hidden inside the file — here is how to find, check, and read it on a computer or iPhone.",
         prose=f"""        <p><strong>Direct answer:</strong> To find EXIF data, open the photo in an EXIF viewer. On a computer use the <a href="../../exif-viewer/">online EXIF viewer</a> or <a href="../../photo-metadata-viewer/">photo metadata viewer</a>; on iPhone use {NAME} for Photo Library items.</p>
+        <h2>Built-in ways on Windows and Mac</h2>
+        <ul>
+          <li><strong>Windows:</strong> right-click the file → Properties → Details tab. It shows date taken, camera, and GPS if present.</li>
+          <li><strong>Mac:</strong> open the photo in Preview → Tools → Show Inspector → the EXIF tab.</li>
+        </ul>
+        <p>These show only part of the tags. For the full list, use the viewer below.</p>
         <h2>On a computer (JPEG / PNG / WebP)</h2>
         <ol>
           <li>Open the <a href="../../exif-viewer/">online EXIF viewer</a>.</li>
