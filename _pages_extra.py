@@ -559,12 +559,12 @@ def register_extra(ns: dict) -> None:
     article_page(
         "learn/does-discord-remove-exif",
         title="Does Discord Remove EXIF Data? | EXIF+",
-        description="Does Discord remove EXIF? Chat image compression often drops metadata, but send-as-file and some clients can keep EXIF/GPS. Clean photos before you upload.",
+        description="Normal Discord chat uploads are often re-encoded and frequently drop EXIF and GPS. Send-as-file can keep the original metadata — Discord is not a privacy guarantee.",
         h1="Does Discord remove EXIF?",
-        lead="Discord is a common “does it strip EXIF?” question — the honest answer depends on how you send the image.",
-        prose="""        <p><strong>Direct answer:</strong> Discord often strips or loses EXIF when images are compressed as normal chat uploads, but you should not treat that as a privacy guarantee. Sending as a file, using some clients, or sharing links to originals can still expose metadata.</p>
+        lead="Normal Discord chat uploads are often re-encoded, which frequently drops EXIF and GPS. Sending as a file can keep the original bytes — including metadata — so Discord is not a privacy guarantee.",
+        prose="""        <p><strong>Direct answer:</strong> Normal Discord chat uploads are often re-encoded, which frequently drops EXIF and GPS. Sending as a file can keep the original bytes — including metadata — so Discord is not a privacy guarantee.</p>
         <h2>Why answers online disagree</h2>
-        <p>Discord re-encodes many inline image uploads for size. Re-encoding frequently drops EXIF/GPS. That is different from a documented “we always delete all metadata” promise you can rely on for every path.</p>
+        <p>Discord compresses many inline images for size. That re-encode often strips EXIF/GPS. That is not a documented “we always delete all metadata” promise for every path, client, or bot.</p>
         <h2>Risky paths</h2>
         <ul>
           <li>Send as file / attachment modes that preserve the original bytes</li>
@@ -574,6 +574,14 @@ def register_extra(ns: dict) -> None:
         <h2>Safe workflow</h2>
         <p>Clean first, then upload: use the <a href="../../remove-exif/">strip EXIF</a> tool, <a href="../../metadata-cleaner/">metadata cleaner</a>, or <a href="../../how-to/remove-photo-metadata-iphone/">remove photo metadata on iPhone</a>. Same advice as for <a href="../does-instagram-remove-exif/">Instagram</a> — destination behavior is a bonus, not your control.</p>""",
         faqs=[
+            (
+                "Does Discord remove EXIF?",
+                "Often on compressed chat image uploads, because Discord re-encodes those files. It is not a guarantee: send-as-file and some clients can keep EXIF and GPS.",
+            ),
+            (
+                "Does Discord always strip metadata?",
+                "No. Do not treat Discord as a cleaner. If location or camera tags matter, strip them before you upload.",
+            ),
             (
                 "Does Discord remove GPS metadata?",
                 "Often yes on compressed chat image uploads — but do not rely on it. Clean the file yourself if location privacy matters.",

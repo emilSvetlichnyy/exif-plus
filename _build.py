@@ -257,6 +257,14 @@ def footer_html(prefix: str) -> str:
         <a href="{PRIVACY}" rel="noopener noreferrer">Privacy</a>
         <a href="{prefix}llms.txt">llms.txt</a>
       </nav>
+      <nav aria-label="On iPhone">
+        <a href="{prefix}on-iphone/">On iPhone</a>
+        <a href="{prefix}how-to/change-photo-date-iphone/">Change photo date</a>
+        <a href="{prefix}how-to/edit-gps-on-iphone/">Edit GPS</a>
+        <a href="{prefix}how-to/view-exif-on-iphone/">View EXIF</a>
+        <a href="{prefix}compare/online-vs-iphone-app/">Online vs app</a>
+        <a href="{prefix}app/history/">History</a>
+      </nav>
       <p>© {date.today().year} {esc(DEV_NAME)}. {esc(NAME)} — view, edit, and remove photo metadata on iPhone.</p>
     </footer>"""
 
@@ -1629,7 +1637,6 @@ def write_support_files(urls: list[str]) -> None:
 Allow: /
 
 Sitemap: {BASE}/sitemap.xml
-Sitemap: {BASE}/sitemap-index.xml
 
 # AI / search helpers
 # llms.txt: {BASE}/llms.txt
