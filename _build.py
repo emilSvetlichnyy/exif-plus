@@ -1108,6 +1108,9 @@ def build_hubs_and_articles() -> None:
             ("EXIF vs IPTC", "exif-vs-iptc/", "What the app actually implements."),
             ("Does Instagram remove EXIF?", "does-instagram-remove-exif/", "Platform behavior."),
             ("Does Discord remove EXIF?", "does-discord-remove-exif/", "Upload vs send-as-file."),
+            ("Does Telegram remove EXIF?", "does-telegram-remove-exif/", "Photo vs send-as-file."),
+            ("Does WhatsApp remove EXIF?", "does-whatsapp-remove-exif/", "Photo vs Document."),
+            ("iMessage & AirDrop location", "does-imessage-remove-location/", "Share sheet Options toggle."),
             ("Does cleaning reduce quality?", "does-cleaning-reduce-quality/", "Re-encode tradeoffs."),
             ("Why a duplicate appears", "why-cleaned-photo-is-a-duplicate/", "Save-as-new explained."),
             ("Glossary", "glossary/", "EXIF, IPTC, geotag, cleaner, HEIC."),
@@ -1287,7 +1290,7 @@ def build_hubs_and_articles() -> None:
         <h2>Short answer</h2>
         <p>Instagram and similar feed apps generally do not publish full original EXIF to viewers. That still leaves gaps: other apps, email, messaging “as file”, cloud links, and downloads of your original can preserve everything.</p>
         <h2>Related platform question</h2>
-        <p>People also ask <a href="../does-discord-remove-exif/">does Discord remove EXIF</a> — chat uploads and “send as file” behave differently from Instagram’s feed pipeline.</p>
+        <p>People also ask about <a href="../does-whatsapp-remove-exif/">WhatsApp</a>, <a href="../does-telegram-remove-exif/">Telegram</a>, and <a href="../does-imessage-remove-location/">iMessage/AirDrop</a>. And <a href="../does-discord-remove-exif/">does Discord remove EXIF</a> — chat uploads and “send as file” behave differently from Instagram’s feed pipeline.</p>
         <h2>What to do instead</h2>
         <p>Treat destination stripping as a bonus, not a control. Clean the file first with a <a href="../../metadata-cleaner/">metadata cleaner</a> or <a href="../../on-iphone/">EXIF+ on iPhone</a>, then share.</p>""",
         faqs=[
@@ -1720,6 +1723,9 @@ Sitemap: {BASE}/sitemap.xml
 - [What is EXIF?]({BASE}/learn/what-is-exif/)
 - [EXIF vs IPTC]({BASE}/learn/exif-vs-iptc/)
 - [Does Discord remove EXIF?]({BASE}/learn/does-discord-remove-exif/)
+- [Does Telegram remove EXIF?]({BASE}/learn/does-telegram-remove-exif/)
+- [Does WhatsApp remove EXIF?]({BASE}/learn/does-whatsapp-remove-exif/)
+- [Does iMessage or AirDrop remove location?]({BASE}/learn/does-imessage-remove-location/)
 - [Find EXIF data]({BASE}/how-to/find-exif-data/)
 - [Remove photo metadata on iPhone]({BASE}/how-to/remove-photo-metadata-iphone/)
 - [Remove location on iPhone]({BASE}/how-to/remove-location-from-photos-iphone/)

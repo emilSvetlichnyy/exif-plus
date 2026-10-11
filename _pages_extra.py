@@ -585,7 +585,8 @@ def register_extra(ns: dict) -> None:
           <li>Assuming every server, bot, or client behaves the same</li>
         </ul>
         <h2>Safe workflow</h2>
-        <p>Clean first, then upload: use the <a href="../../remove-exif/">strip EXIF</a> tool, <a href="../../metadata-cleaner/">metadata cleaner</a>, or <a href="../../how-to/remove-photo-metadata-iphone/">remove photo metadata on iPhone</a>. Same advice as for <a href="../does-instagram-remove-exif/">Instagram</a> — destination behavior is a bonus, not your control.</p>""",
+        <p>Clean first, then upload: use the <a href="../../remove-exif/">strip EXIF</a> tool, <a href="../../metadata-cleaner/">metadata cleaner</a>, or <a href="../../how-to/remove-photo-metadata-iphone/">remove photo metadata on iPhone</a>. Same advice as for <a href="../does-instagram-remove-exif/">Instagram</a> — destination behavior is a bonus, not your control.</p>
+        <p>Other platforms: <a href="../does-telegram-remove-exif/">Telegram</a>, <a href="../does-whatsapp-remove-exif/">WhatsApp</a>, <a href="../does-imessage-remove-location/">iMessage &amp; AirDrop</a>.</p>""",
         faqs=[
             (
                 "Does Discord remove EXIF?",
@@ -606,6 +607,134 @@ def register_extra(ns: dict) -> None:
             (
                 "Is Discord safer than email for EXIF?",
                 "Not reliably. Email attachments frequently keep metadata; Discord is inconsistent by send mode. Cleaning removes the guesswork.",
+            ),
+        ],
+        nav="Learn",
+        parent=("Learn", "learn/"),
+        priority=True,
+    )
+
+    # ---- Platform cluster (GSC: Discord queries rank #1–7; Telegram query has no page) ----
+    article_page(
+        "learn/does-telegram-remove-exif",
+        title="Does Telegram Remove EXIF Data? Photo vs File | EXIF+",
+        description="Telegram usually strips EXIF and GPS when you send a compressed photo, but “send as file” keeps the original metadata. Clean the photo first if location matters.",
+        h1="Does Telegram remove EXIF?",
+        lead="Telegram has two ways to send a picture: as a compressed photo or as an uncompressed file. They treat metadata very differently.",
+        prose="""        <p><strong>Direct answer:</strong> A normal Telegram photo send is compressed, which usually drops EXIF and GPS. Sending the picture <em>as a file</em> (uncompressed) delivers the original bytes — including camera tags and location — to everyone in the chat.</p>
+        <h2>Photo send vs file send</h2>
+        <ul>
+          <li><strong>Compressed photo:</strong> re-encoded for size; EXIF/GPS usually gone for recipients.</li>
+          <li><strong>Send as file / without compression:</strong> original file; EXIF, GPS, date, and device model usually kept.</li>
+          <li><strong>Channels and bots:</strong> behavior depends on how the image was posted — do not assume one rule.</li>
+        </ul>
+        <h2>Why this matters</h2>
+        <p>People often choose “file” to keep full quality — exactly the mode that keeps <a href="../what-is-gps-metadata/">GPS metadata</a>. A home or office location can travel with the photo.</p>
+        <h2>Safe workflow</h2>
+        <p>Clean first, then send in any mode: use the <a href="../../remove-gps/">remove GPS</a> tool or the <a href="../../metadata-cleaner/">metadata cleaner</a> in your browser, or <a href="../../how-to/remove-location-from-photos-iphone/">remove location on iPhone</a> with {NAME}. Check the result with the <a href="../../exif-viewer/">EXIF viewer</a>.</p>
+        <p>Other platforms: <a href="../does-whatsapp-remove-exif/">WhatsApp</a>, <a href="../does-discord-remove-exif/">Discord</a>, <a href="../does-instagram-remove-exif/">Instagram</a>, <a href="../does-imessage-remove-location/">iMessage &amp; AirDrop</a>.</p>""".replace("{NAME}", NAME),
+        faqs=[
+            (
+                "Does Telegram remove EXIF data?",
+                "Usually yes for compressed photo sends, because Telegram re-encodes them. Files sent without compression keep the original EXIF and GPS.",
+            ),
+            (
+                "Does Telegram remove location from photos?",
+                "Compressed photos usually lose GPS tags. Uncompressed “send as file” keeps them. Remove location yourself before sending if it matters.",
+            ),
+            (
+                "Is sending as a file on Telegram safe for privacy?",
+                "Not by default — the recipient gets the original file with its metadata. Strip EXIF/GPS first, then send as a file if you need full quality.",
+            ),
+            (
+                "How do I check if a Telegram photo still has EXIF?",
+                "Download the received file and open it in an EXIF viewer. If you see GPS or camera fields, the metadata survived.",
+            ),
+        ],
+        nav="Learn",
+        parent=("Learn", "learn/"),
+        priority=True,
+    )
+
+    article_page(
+        "learn/does-whatsapp-remove-exif",
+        title="Does WhatsApp Remove EXIF & Location? Photo vs Document | EXIF+",
+        description="WhatsApp usually strips EXIF and GPS from photos sent normally, but photos sent as a Document keep the original metadata. How to share safely.",
+        h1="Does WhatsApp remove EXIF?",
+        lead="WhatsApp compresses normal photo sends, which usually removes metadata. Sending the same picture as a document keeps the original file — tags included.",
+        prose="""        <p><strong>Direct answer:</strong> Photos sent the usual way in WhatsApp are compressed and usually arrive without EXIF or GPS. Photos sent as a <strong>Document</strong> are delivered as the original file, so camera, date, and location tags usually stay.</p>
+        <h2>Which send mode keeps metadata</h2>
+        <ul>
+          <li><strong>Gallery / camera send (including HD):</strong> re-encoded; EXIF/GPS usually removed.</li>
+          <li><strong>Document send:</strong> original bytes; EXIF/GPS usually kept.</li>
+          <li><strong>Backups and the copy on your phone:</strong> your own original still has its metadata.</li>
+        </ul>
+        <h2>Why people get caught out</h2>
+        <p>“Send as document” is a common trick to avoid compression — and it is the mode that leaks location. Treat WhatsApp stripping as a side effect of compression, not a privacy feature.</p>
+        <h2>Safe workflow</h2>
+        <p>Strip first, then send: <a href="../../remove-exif/">strip EXIF</a> or <a href="../../remove-gps/">remove GPS</a> in the browser, or on iPhone follow <a href="../../how-to/share-photo-without-metadata/">share a photo without metadata</a>. {NAME} saves a cleaned copy as a new item, so the original stays untouched.</p>
+        <p>Other platforms: <a href="../does-telegram-remove-exif/">Telegram</a>, <a href="../does-discord-remove-exif/">Discord</a>, <a href="../does-instagram-remove-exif/">Instagram</a>, <a href="../does-imessage-remove-location/">iMessage &amp; AirDrop</a>.</p>""".replace("{NAME}", NAME),
+        faqs=[
+            (
+                "Does WhatsApp remove EXIF data from photos?",
+                "Usually yes for normal photo sends, because WhatsApp compresses them. Photos sent as a Document keep their original EXIF.",
+            ),
+            (
+                "Does WhatsApp remove location from photos?",
+                "Normal sends usually drop GPS tags. Document sends usually keep them. Remove location yourself if you are not sure which mode you used.",
+            ),
+            (
+                "Does WhatsApp HD quality keep metadata?",
+                "HD photos are still re-encoded, so metadata is usually removed. Only the Document mode is designed to deliver the untouched original.",
+            ),
+            (
+                "Can someone get my location from a WhatsApp photo?",
+                "From a normal compressed photo, usually not from EXIF. From a photo sent as a Document, yes — if location was recorded when it was taken.",
+            ),
+        ],
+        nav="Learn",
+        parent=("Learn", "learn/"),
+        priority=True,
+    )
+
+    article_page(
+        "learn/does-imessage-remove-location",
+        title="Does iMessage or AirDrop Remove Photo Location? | EXIF+",
+        description="Photos sent from iPhone via iMessage, AirDrop, or Mail can keep GPS and EXIF. Turn off Location in the share sheet Options, or clean the photo with EXIF+ first.",
+        h1="Does iMessage or AirDrop remove photo location?",
+        lead="Sharing between iPhones feels private, but iMessage, AirDrop, and Mail can deliver the photo with its location and camera data.",
+        prose="""        <p><strong>Direct answer:</strong> Not by default. Photos shared from the Photos app can include GPS and other metadata. iOS lets you turn <strong>Location</strong> off per share: tap <em>Options</em> at the top of the share sheet before sending.</p>
+        <h2>How to share without location on iPhone</h2>
+        <ol>
+          <li>Open the photo in Photos and tap Share.</li>
+          <li>Tap <strong>Options</strong> at the top of the share sheet.</li>
+          <li>Turn <strong>Location</strong> off (and All Photos Data, if your iOS shows it), then tap Done and send.</li>
+        </ol>
+        <h2>Limits of the built-in toggle</h2>
+        <ul>
+          <li>It applies to that one share — you have to remember it every time.</li>
+          <li>It removes location, not every camera and date field.</li>
+          <li>The original in your library keeps its metadata.</li>
+        </ul>
+        <h2>When to use {NAME}</h2>
+        <p>If you share often, keep a cleaned copy instead of relying on a toggle: <a href="../../how-to/remove-location-from-photos-iphone/">remove location on iPhone</a>, <a href="../../how-to/remove-photo-metadata-iphone/">remove all photo metadata</a>, or <a href="../../how-to/view-exif-on-iphone/">view EXIF on iPhone</a> to check what is in the file. Strip-on-share and batch cleaning are <a href="../../app/free-vs-premium/">Premium</a>.</p>
+        <p>Other platforms: <a href="../does-whatsapp-remove-exif/">WhatsApp</a>, <a href="../does-telegram-remove-exif/">Telegram</a>, <a href="../does-discord-remove-exif/">Discord</a>, <a href="../does-instagram-remove-exif/">Instagram</a>.</p>""".replace("{NAME}", NAME),
+        faqs=[
+            (
+                "Does iMessage remove location from photos?",
+                "Not automatically. Photos sent through Messages can include location unless you turn Location off in the share sheet Options or clean the photo first.",
+            ),
+            (
+                "Does AirDrop keep photo metadata?",
+                "Yes, AirDrop can send the photo with its location and other metadata. Use Options in the share sheet to turn Location off before sending.",
+            ),
+            (
+                "Does emailing a photo from iPhone keep EXIF?",
+                "Often yes — email attachments commonly keep the original metadata. Clean the photo before attaching it if location matters.",
+            ),
+            (
+                "Does turning off Location in Options remove all EXIF?",
+                "No. It targets location. Camera model, dates, and other fields can remain. Use a full metadata remove for a clean file.",
             ),
         ],
         nav="Learn",
