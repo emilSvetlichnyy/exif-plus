@@ -461,11 +461,14 @@ def register_extra(ns: dict) -> None:
     # ---- Trends-driven pages (photo metadata / find EXIF / Discord) ----
     article_page(
         "how-to/find-exif-data",
-        title="How to Find & View EXIF Data on a Photo (Free, Online or iPhone) | EXIF+",
-        description="How to find, check, and read EXIF data on a photo: online EXIF viewer for desktop files, or EXIF+ on iPhone for Camera Roll / HEIC.",
-        h1="How to find EXIF data",
-        lead="EXIF is hidden inside the file — here is how to find, check, and read it on a computer or iPhone.",
-        prose=f"""        <p><strong>Direct answer:</strong> To find EXIF data, open the photo in an EXIF viewer. On a computer use the <a href="../../exif-viewer/">online EXIF viewer</a> or <a href="../../photo-metadata-viewer/">photo metadata viewer</a>; on iPhone use {NAME} for Photo Library items.</p>
+        title="How to Check Photo Metadata & Find EXIF Data (Windows, Mac, iPhone, Online) | EXIF+",
+        description="How to check photo metadata and find EXIF data: Windows, Mac, iPhone, Android and a free online viewer. Where location, date and camera info are stored, step by step.",
+        h1="How to check photo metadata (find EXIF data)",
+        lead="Photo metadata, also called EXIF data, is hidden inside the file. Here is how to check it on Windows, Mac, iPhone, Android or in a browser.",
+        updated="2026-10-12",
+        prose=f"""        <p><strong>Direct answer:</strong> To check photo metadata, open the photo in an EXIF viewer or its file properties. On a computer use the <a href="../../exif-viewer/">online EXIF viewer</a> or <a href="../../photo-metadata-viewer/">photo metadata viewer</a>; on iPhone use {NAME} for Photo Library items.</p>
+        <h2>How do I check photo metadata on my phone?</h2>
+        <p>On iPhone, Photos shows only a short summary; {NAME} lists the full groups (steps below). On Android, open the photo in Google Photos and open its info panel for date, device and location where available. For a full tag list from any phone, use the <a href="../../image-metadata-viewer/">image metadata viewer</a> in the browser.</p>
         <h2>Built-in ways on Windows and Mac</h2>
         <ul>
           <li><strong>Windows:</strong> right-click the file → Properties → Details tab. It shows date taken, camera, and GPS if present.</li>
@@ -491,8 +494,13 @@ def register_extra(ns: dict) -> None:
           <li><a href="../../remove-exif/">Strip EXIF online</a> for a desktop file</li>
           <li><a href="../remove-photo-metadata-iphone/">Remove photo metadata on iPhone</a> for library items</li>
           <li><a href="../../remove-gps/">Remove GPS only</a> if location is the main concern</li>
+          <li>Desktop steps for Mac, Windows and Android: <a href="../remove-photo-metadata-mac-windows/">remove photo metadata</a></li>
         </ul>""",
         faqs=[
+            (
+                "How do I check photo metadata?",
+                "Use the file properties on Windows or Preview on Mac for a short list, or open the photo in an online metadata viewer for the full tag list. On iPhone use EXIF+.",
+            ),
             (
                 "How do I check if a photo has EXIF data?",
                 "Open it in an EXIF / photo metadata viewer. If fields like Date Taken, Make/Model, or GPS appear, the file still carries metadata.",
@@ -571,11 +579,23 @@ def register_extra(ns: dict) -> None:
 
     article_page(
         "learn/does-discord-remove-exif",
-        title="Does Discord Remove EXIF Data? | EXIF+",
-        description="Normal Discord chat uploads are often re-encoded and frequently drop EXIF and GPS. Send-as-file can keep the original metadata — Discord is not a privacy guarantee.",
+        title="Does Discord Remove Metadata? Chat Images vs Files | EXIF+",
+        description="Does Discord remove metadata? Usually yes for images posted in chat (re-encoded), but not for files sent as attachments. What it strips, what it keeps, and how to be safe.",
         h1="Does Discord remove EXIF?",
-        lead="Normal Discord chat uploads are often re-encoded, which frequently drops EXIF and GPS. Sending as a file can keep the original bytes — including metadata — so Discord is not a privacy guarantee.",
-        prose="""        <p><strong>Direct answer:</strong> Normal Discord chat uploads are often re-encoded, which frequently drops EXIF and GPS. Sending as a file can keep the original bytes — including metadata — so Discord is not a privacy guarantee.</p>
+        lead="Short answer: often yes for images in chat, not reliably for files. Discord re-encodes many inline images, which frequently drops EXIF and GPS, but it is not a guarantee.",
+        updated="2026-10-12",
+        prose="""        <p><strong>Direct answer:</strong> Discord often removes metadata from images posted in chat because it re-encodes them, but it does not promise this. Files sent as attachments can keep the original bytes, including EXIF and GPS. Treat Discord as unreliable and clean the photo first.</p>
+        <h2>Does Discord strip metadata or only some of it?</h2>
+        <table>
+          <thead><tr><th>How you send it</th><th>Metadata usually</th></tr></thead>
+          <tbody>
+            <tr><td>Image pasted or uploaded in chat</td><td>Often removed by re-encoding (not guaranteed)</td></tr>
+            <tr><td>File / attachment that keeps original bytes</td><td>Often kept</td></tr>
+            <tr><td>Link to a cloud copy</td><td>Whatever the original file holds</td></tr>
+          </tbody>
+        </table>
+        <h2>Can people get metadata from Discord photos?</h2>
+        <p>If the file they download is the re-encoded chat copy, usually not. If it is a file attachment or a linked original, yes it can include location and camera data.</p>
         <h2>Why answers online disagree</h2>
         <p>Discord compresses many inline images for size. That re-encode often strips EXIF/GPS. That is not a documented “we always delete all metadata” promise for every path, client, or bot.</p>
         <h2>Risky paths</h2>
@@ -603,6 +623,14 @@ def register_extra(ns: dict) -> None:
             (
                 "If I send a photo as a file on Discord, is EXIF kept?",
                 "File-style sends are more likely to preserve original bytes (and metadata) than compressed inline images. Clean first when unsure.",
+            ),
+            (
+                "Can you get metadata from Discord photos?",
+                "From a re-encoded chat image usually little or none; from a file attachment or a linked original, possibly all of it, including GPS.",
+            ),
+            (
+                "Do Discord photos have metadata?",
+                "The copy you receive in chat often does not, but file attachments can. It depends on how it was sent.",
             ),
             (
                 "Is Discord safer than email for EXIF?",

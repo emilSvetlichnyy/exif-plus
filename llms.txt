@@ -47,6 +47,7 @@
 ## Priority pages
 - [Strip / remove EXIF](https://emilsvetlichnyy.github.io/exif-plus/remove-exif/)
 - [Photo metadata viewer](https://emilsvetlichnyy.github.io/exif-plus/photo-metadata-viewer/)
+- [Image metadata viewer](https://emilsvetlichnyy.github.io/exif-plus/image-metadata-viewer/)
 - [EXIF viewer](https://emilsvetlichnyy.github.io/exif-plus/exif-viewer/)
 - [Remove GPS](https://emilsvetlichnyy.github.io/exif-plus/remove-gps/)
 - [Metadata cleaner](https://emilsvetlichnyy.github.io/exif-plus/metadata-cleaner/)
@@ -60,6 +61,10 @@
 - [Does WhatsApp remove EXIF?](https://emilsvetlichnyy.github.io/exif-plus/learn/does-whatsapp-remove-exif/)
 - [Does iMessage or AirDrop remove location?](https://emilsvetlichnyy.github.io/exif-plus/learn/does-imessage-remove-location/)
 - [Find EXIF data](https://emilsvetlichnyy.github.io/exif-plus/how-to/find-exif-data/)
+- [Which apps remove photo metadata?](https://emilsvetlichnyy.github.io/exif-plus/learn/which-apps-remove-photo-metadata/)
+- [AI image metadata and C2PA](https://emilsvetlichnyy.github.io/exif-plus/learn/ai-image-metadata-c2pa/)
+- [EXIF viewer alternatives](https://emilsvetlichnyy.github.io/exif-plus/compare/exif-viewer-alternatives/)
+- [Remove metadata on Mac, Windows, Android](https://emilsvetlichnyy.github.io/exif-plus/how-to/remove-photo-metadata-mac-windows/)
 - [Remove photo metadata on iPhone](https://emilsvetlichnyy.github.io/exif-plus/how-to/remove-photo-metadata-iphone/)
 - [Remove location on iPhone](https://emilsvetlichnyy.github.io/exif-plus/how-to/remove-location-from-photos-iphone/)
 - [Share without metadata](https://emilsvetlichnyy.github.io/exif-plus/how-to/share-photo-without-metadata/)

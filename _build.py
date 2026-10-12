@@ -166,7 +166,7 @@ def howto_ld(name: str, steps: list[str]) -> dict:
     }
 
 
-def article_ld(headline: str, description: str, url: str) -> dict:
+def article_ld(headline: str, description: str, url: str, modified: str | None = None) -> dict:
     return {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -179,7 +179,7 @@ def article_ld(headline: str, description: str, url: str) -> dict:
             "logo": {"@type": "ImageObject", "url": f"{BASE}/apple-touch-icon.png"},
         },
         "mainEntityOfPage": url,
-        "dateModified": TODAY,
+        "dateModified": modified or TODAY,
     }
 
 
@@ -1020,6 +1020,7 @@ def article_page(
     parent: tuple[str, str],
     og: str = "home.png",
     priority: bool = False,
+    updated: str | None = None,
 ) -> None:
     prefix = prefix_for(slug)
     parent_href = prefix + parent[1]
@@ -1042,12 +1043,13 @@ def article_page(
         parent_rel = parent[1].strip("/")
         crumb_ui.append((parent[0], prefix_for(slug) + parent_rel + "/"))
     crumb_ui.append((h1, None))
+    updated_html = f'\n          <p><small>Updated {updated}</small></p>' if updated else ""
     body = f"""    {crumbs_html(crumb_ui)}
     <main>
       <article class="prose">
         <section class="hero">
           <h1>{esc(h1)}</h1>
-          <p class="lead">{esc(lead)}</p>
+          <p class="lead">{esc(lead)}</p>{updated_html}
         </section>
 {prose}
       </article>
@@ -1067,7 +1069,7 @@ def article_page(
         schemas=[
             org_ld(),
             breadcrumb_ld(crumbs_ld),
-            article_ld(h1, description, f"{BASE}/{slug}/"),
+            article_ld(h1, description, f"{BASE}/{slug}/", updated),
             faq_ld(faqs),
         ],
         nav_current=nav,
@@ -1086,6 +1088,7 @@ def build_hubs_and_articles() -> None:
         [
             ("Remove EXIF / strip EXIF", "../remove-exif/", "Strip metadata and download a clean copy."),
             ("Photo metadata viewer", "../photo-metadata-viewer/", "View EXIF, IPTC, and GPS online."),
+            ("Image metadata viewer", "../image-metadata-viewer/", "Check location, date and camera in any image."),
             ("EXIF viewer", "../exif-viewer/", "Check and read EXIF tags."),
             ("Remove GPS", "../remove-gps/", "Focus on location data."),
             ("Metadata cleaner", "../metadata-cleaner/", "Clean photo metadata before sharing."),
@@ -1113,6 +1116,13 @@ def build_hubs_and_articles() -> None:
             ("iMessage & AirDrop location", "does-imessage-remove-location/", "Share sheet Options toggle."),
             ("Does cleaning reduce quality?", "does-cleaning-reduce-quality/", "Re-encode tradeoffs."),
             ("Why a duplicate appears", "why-cleaned-photo-is-a-duplicate/", "Save-as-new explained."),
+            ("Which apps remove metadata?", "which-apps-remove-photo-metadata/", "Instagram, Facebook, X, Reddit, Discord and more."),
+            ("Does Facebook remove EXIF?", "does-facebook-remove-exif/", "Public copy vs original upload."),
+            ("Does X (Twitter) remove EXIF?", "does-twitter-x-remove-exif/", "Public copy vs original upload."),
+            ("Does Reddit remove EXIF?", "does-reddit-remove-exif/", "Uploads vs external links."),
+            ("AI image metadata & C2PA", "ai-image-metadata-c2pa/", "Content Credentials explained."),
+            ("Do screenshots have metadata?", "does-screenshot-have-exif/", "What a screenshot can reveal."),
+            ("PDF, video & PNG metadata", "pdf-video-png-metadata/", "What each file type stores."),
             ("Glossary", "glossary/", "EXIF, IPTC, geotag, cleaner, HEIC."),
         ],
         "Learn",
@@ -1133,6 +1143,7 @@ def build_hubs_and_articles() -> None:
             ("Batch copyright/author", "batch-edit-copyright/", "Premium batch edit."),
             ("View EXIF on iPhone", "view-exif-on-iphone/", "See hidden tags in EXIF+."),
             ("Strip metadata checklist", "strip-metadata-before-sharing/", "Pre-share checklist."),
+            ("Remove metadata on Mac, Windows, Android", "remove-photo-metadata-mac-windows/", "Built-in steps and a browser tool."),
         ],
         "How-to",
     )
@@ -1145,6 +1156,7 @@ def build_hubs_and_articles() -> None:
         [
             ("Remove vs edit EXIF", "remove-vs-edit-exif/", "Delete everything or change fields."),
             ("Online vs iPhone app", "online-vs-iphone-app/", "When each option wins."),
+            ("EXIF viewer alternatives", "exif-viewer-alternatives/", "ExifTool, online viewers and EXIF+."),
         ],
         "Compare",
     )
@@ -1714,6 +1726,7 @@ Sitemap: {BASE}/sitemap.xml
 ## Priority pages
 - [Strip / remove EXIF]({BASE}/remove-exif/)
 - [Photo metadata viewer]({BASE}/photo-metadata-viewer/)
+- [Image metadata viewer]({BASE}/image-metadata-viewer/)
 - [EXIF viewer]({BASE}/exif-viewer/)
 - [Remove GPS]({BASE}/remove-gps/)
 - [Metadata cleaner]({BASE}/metadata-cleaner/)
@@ -1727,6 +1740,10 @@ Sitemap: {BASE}/sitemap.xml
 - [Does WhatsApp remove EXIF?]({BASE}/learn/does-whatsapp-remove-exif/)
 - [Does iMessage or AirDrop remove location?]({BASE}/learn/does-imessage-remove-location/)
 - [Find EXIF data]({BASE}/how-to/find-exif-data/)
+- [Which apps remove photo metadata?]({BASE}/learn/which-apps-remove-photo-metadata/)
+- [AI image metadata and C2PA]({BASE}/learn/ai-image-metadata-c2pa/)
+- [EXIF viewer alternatives]({BASE}/compare/exif-viewer-alternatives/)
+- [Remove metadata on Mac, Windows, Android]({BASE}/how-to/remove-photo-metadata-mac-windows/)
 - [Remove photo metadata on iPhone]({BASE}/how-to/remove-photo-metadata-iphone/)
 - [Remove location on iPhone]({BASE}/how-to/remove-location-from-photos-iphone/)
 - [Share without metadata]({BASE}/how-to/share-photo-without-metadata/)
@@ -1875,13 +1892,23 @@ def main() -> None:
     build_tool_pages()
     build_hubs_and_articles()
     from _pages_extra import register_extra
+    from _pages_oct import register_oct
 
     register_extra(
         {
             "article_page": article_page,
+            "tool_page": tool_page,
             "NAME": NAME,
             "APP": APP,
             "PRIVACY": PRIVACY,
+            "BASE": BASE,
+        }
+    )
+    register_oct(
+        {
+            "article_page": article_page,
+            "tool_page": tool_page,
+            "NAME": NAME,
             "BASE": BASE,
         }
     )

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Does Discord Remove EXIF Data? | EXIF+</title>
-  <meta name="description" content="Normal Discord chat uploads are often re-encoded and frequently drop EXIF and GPS. Send-as-file can keep the original metadata — Discord is not a privacy guarantee.">
+  <title>Does Discord Remove Metadata? Chat Images vs Files | EXIF+</title>
+  <meta name="description" content="Does Discord remove metadata? Usually yes for images posted in chat (re-encoded), but not for files sent as attachments. What it strips, what it keeps, and how to be safe.">
   <link rel="canonical" href="https://emilsvetlichnyy.github.io/exif-plus/learn/does-discord-remove-exif/">
   <meta name="theme-color" content="#3b6ea8">
   <link rel="icon" href="/exif-plus/favicon.ico">
@@ -13,15 +13,15 @@
   <meta name="apple-mobile-web-app-title" content="EXIF+">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EXIF+">
-  <meta property="og:title" content="Does Discord Remove EXIF Data? | EXIF+">
-  <meta property="og:description" content="Normal Discord chat uploads are often re-encoded and frequently drop EXIF and GPS. Send-as-file can keep the original metadata — Discord is not a privacy guarantee.">
+  <meta property="og:title" content="Does Discord Remove Metadata? Chat Images vs Files | EXIF+">
+  <meta property="og:description" content="Does Discord remove metadata? Usually yes for images posted in chat (re-encoded), but not for files sent as attachments. What it strips, what it keeps, and how to be safe.">
   <meta property="og:url" content="https://emilsvetlichnyy.github.io/exif-plus/learn/does-discord-remove-exif/">
   <meta property="og:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Does Discord Remove EXIF Data? | EXIF+">
-  <meta name="twitter:description" content="Normal Discord chat uploads are often re-encoded and frequently drop EXIF and GPS. Send-as-file can keep the original metadata — Discord is not a privacy guarantee.">
+  <meta name="twitter:title" content="Does Discord Remove Metadata? Chat Images vs Files | EXIF+">
+  <meta name="twitter:description" content="Does Discord remove metadata? Usually yes for images posted in chat (re-encoded), but not for files sent as attachments. What it strips, what it keeps, and how to be safe.">
   <meta name="twitter:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
   <link rel="alternate" type="application/rss+xml" title="EXIF+" href="https://emilsvetlichnyy.github.io/exif-plus/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,7 +83,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Does Discord remove EXIF?",
-  "description": "Normal Discord chat uploads are often re-encoded and frequently drop EXIF and GPS. Send-as-file can keep the original metadata — Discord is not a privacy guarantee.",
+  "description": "Does Discord remove metadata? Usually yes for images posted in chat (re-encoded), but not for files sent as attachments. What it strips, what it keeps, and how to be safe.",
   "author": {
     "@type": "Person",
     "name": "Emil Svetlichnyy",
@@ -98,7 +98,7 @@
     }
   },
   "mainEntityOfPage": "https://emilsvetlichnyy.github.io/exif-plus/learn/does-discord-remove-exif/",
-  "dateModified": "2026-10-11"
+  "dateModified": "2026-10-12"
 }
   </script>
   <script type="application/ld+json">
@@ -140,6 +140,22 @@
     },
     {
       "@type": "Question",
+      "name": "Can you get metadata from Discord photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "From a re-encoded chat image usually little or none; from a file attachment or a linked original, possibly all of it, including GPS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Discord photos have metadata?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The copy you receive in chat often does not, but file attachments can. It depends on how it was sent."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Is Discord safer than email for EXIF?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -167,9 +183,21 @@
       <article class="prose">
         <section class="hero">
           <h1>Does Discord remove EXIF?</h1>
-          <p class="lead">Normal Discord chat uploads are often re-encoded, which frequently drops EXIF and GPS. Sending as a file can keep the original bytes — including metadata — so Discord is not a privacy guarantee.</p>
+          <p class="lead">Short answer: often yes for images in chat, not reliably for files. Discord re-encodes many inline images, which frequently drops EXIF and GPS, but it is not a guarantee.</p>
+          <p><small>Updated 2026-10-12</small></p>
         </section>
-        <p><strong>Direct answer:</strong> Normal Discord chat uploads are often re-encoded, which frequently drops EXIF and GPS. Sending as a file can keep the original bytes — including metadata — so Discord is not a privacy guarantee.</p>
+        <p><strong>Direct answer:</strong> Discord often removes metadata from images posted in chat because it re-encodes them, but it does not promise this. Files sent as attachments can keep the original bytes, including EXIF and GPS. Treat Discord as unreliable and clean the photo first.</p>
+        <h2>Does Discord strip metadata or only some of it?</h2>
+        <table>
+          <thead><tr><th>How you send it</th><th>Metadata usually</th></tr></thead>
+          <tbody>
+            <tr><td>Image pasted or uploaded in chat</td><td>Often removed by re-encoding (not guaranteed)</td></tr>
+            <tr><td>File / attachment that keeps original bytes</td><td>Often kept</td></tr>
+            <tr><td>Link to a cloud copy</td><td>Whatever the original file holds</td></tr>
+          </tbody>
+        </table>
+        <h2>Can people get metadata from Discord photos?</h2>
+        <p>If the file they download is the re-encoded chat copy, usually not. If it is a file attachment or a linked original, yes it can include location and camera data.</p>
         <h2>Why answers online disagree</h2>
         <p>Discord compresses many inline images for size. That re-encode often strips EXIF/GPS. That is not a documented “we always delete all metadata” promise for every path, client, or bot.</p>
         <h2>Risky paths</h2>
@@ -182,7 +210,7 @@
         <p>Clean first, then upload: use the <a href="../../remove-exif/">strip EXIF</a> tool, <a href="../../metadata-cleaner/">metadata cleaner</a>, or <a href="../../how-to/remove-photo-metadata-iphone/">remove photo metadata on iPhone</a>. Same advice as for <a href="../does-instagram-remove-exif/">Instagram</a> — destination behavior is a bonus, not your control.</p>
         <p>Other platforms: <a href="../does-telegram-remove-exif/">Telegram</a>, <a href="../does-whatsapp-remove-exif/">WhatsApp</a>, <a href="../does-imessage-remove-location/">iMessage &amp; AirDrop</a>.</p>
       </article>
-      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>Does Discord remove EXIF?</summary><p>Often on compressed chat image uploads, because Discord re-encodes those files. It is not a guarantee: send-as-file and some clients can keep EXIF and GPS.</p></details><details><summary>Does Discord always strip metadata?</summary><p>No. Do not treat Discord as a cleaner. If location or camera tags matter, strip them before you upload.</p></details><details><summary>Does Discord remove GPS metadata?</summary><p>Often yes on compressed chat image uploads — but do not rely on it. Clean the file yourself if location privacy matters.</p></details><details><summary>If I send a photo as a file on Discord, is EXIF kept?</summary><p>File-style sends are more likely to preserve original bytes (and metadata) than compressed inline images. Clean first when unsure.</p></details><details><summary>Is Discord safer than email for EXIF?</summary><p>Not reliably. Email attachments frequently keep metadata; Discord is inconsistent by send mode. Cleaning removes the guesswork.</p></details></section>
+      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>Does Discord remove EXIF?</summary><p>Often on compressed chat image uploads, because Discord re-encodes those files. It is not a guarantee: send-as-file and some clients can keep EXIF and GPS.</p></details><details><summary>Does Discord always strip metadata?</summary><p>No. Do not treat Discord as a cleaner. If location or camera tags matter, strip them before you upload.</p></details><details><summary>Does Discord remove GPS metadata?</summary><p>Often yes on compressed chat image uploads — but do not rely on it. Clean the file yourself if location privacy matters.</p></details><details><summary>If I send a photo as a file on Discord, is EXIF kept?</summary><p>File-style sends are more likely to preserve original bytes (and metadata) than compressed inline images. Clean first when unsure.</p></details><details><summary>Can you get metadata from Discord photos?</summary><p>From a re-encoded chat image usually little or none; from a file attachment or a linked original, possibly all of it, including GPS.</p></details><details><summary>Do Discord photos have metadata?</summary><p>The copy you receive in chat often does not, but file attachments can. It depends on how it was sent.</p></details><details><summary>Is Discord safer than email for EXIF?</summary><p>Not reliably. Email attachments frequently keep metadata; Discord is inconsistent by send mode. Cleaning removes the guesswork.</p></details></section>
             <section class="section cta-band">
         <div class="section-head"><h2>Need this on iPhone?</h2></div>
         <p class="lead-sm">EXIF+ views, edits, and removes EXIF/IPTC metadata — including GPS — on-device. Single-photo clean and edit are available to start; Premium unlocks multi-select batch tools and share-without-metadata. Cleaned photos are saved as new Photo Library items (originals stay).</p>
