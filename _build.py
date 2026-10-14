@@ -461,6 +461,7 @@ def build_home() -> None:
         <p class="lead-sm">When you need albums, HEIC from Camera Roll, field-level edits, History, and Premium batch/share tools, use {NAME} on iOS 17+. Photo processing runs on-device; outputs are saved as new library items.</p>
         <div class="actions">
           {appstore_btn()}
+          <a class="btn btn-secondary" href="{prefix}on-iphone/">EXIF tools on iPhone</a>
           <a class="btn btn-secondary" href="{prefix}app/features/">See features</a>
           <a class="btn btn-secondary" href="{prefix}app/free-vs-premium/">Free vs Premium</a>
         </div>
@@ -588,6 +589,8 @@ def build_tool_pages() -> None:
         </ul>
         <h2>Honest limits</h2>
         <p>This page does not claim video support, original overwrite, or lossless pixel identity. For Camera Roll HEIC, prefer the <a href="../heic-metadata/">HEIC guide</a>.</p>
+        <h2>Related</h2>
+        <p>Not sure which route fits? Compare <a href="../compare/online-vs-iphone-app/">online tools vs the iPhone app</a>, or see <a href="../on-iphone/">EXIF+ on iPhone</a>.</p>
       </section>""",
         faqs=[
             (
@@ -647,6 +650,8 @@ def build_tool_pages() -> None:
         <p>People often search both phrases. This page focuses on EXIF-oriented fields. For broader “photo metadata viewer” wording (EXIF + IPTC + GPS together), see the <a href="../photo-metadata-viewer/">photo metadata viewer</a>.</p>
         <h2>Next step after viewing</h2>
         <p>If you see location data you do not want to share, use the <a href="../remove-gps/">GPS remover</a> or <a href="../remove-exif/">strip EXIF online</a>. On iPhone, open EXIF+ to edit fields or batch-clean albums. New to the topic? Start with <a href="../how-to/find-exif-data/">how to find EXIF data</a>.</p>
+        <h2>Related</h2>
+        <p>Browser or phone? See <a href="../compare/online-vs-iphone-app/">online vs iPhone app</a> for when each one wins, or open <a href="../how-to/view-exif-on-iphone/">view EXIF on iPhone</a>.</p>
       </section>""",
         faqs=[
             (
@@ -862,6 +867,8 @@ def build_tool_pages() -> None:
         <p>Multi-select batch edit is <strong>Premium</strong>. Empty fields mean “leave unchanged” for that batch apply.</p>
         <h2>Browser note</h2>
         <p>This website’s live tools focus on view + remove. Field-level editing is in the iOS app.</p>
+        <h2>Related</h2>
+        <p>Step-by-step: <a href="../how-to/change-photo-date-iphone/">change photo date on iPhone</a> and <a href="../how-to/edit-gps-on-iphone/">edit GPS on iPhone</a>.</p>
       </section>""",
             [
                 (
@@ -925,6 +932,8 @@ def build_tool_pages() -> None:
         <div class="grid-2">
           <a class="tile" href="../how-to/view-exif-on-iphone/"><h3>View EXIF on iPhone</h3><p>Step-by-step.</p></a>
           <a class="tile" href="../how-to/remove-location-from-photos-iphone/"><h3>Remove location</h3><p>Strip GPS before sharing.</p></a>
+          <a class="tile" href="../compare/online-vs-iphone-app/"><h3>Online vs iPhone app</h3><p>When each option wins.</p></a>
+          <a class="tile" href="../app/history/"><h3>History</h3><p>Before/after for every cleaned photo.</p></a>
         </div>
       </section>""",
             [
@@ -1558,7 +1567,9 @@ def build_hubs_and_articles() -> None:
           <li>Dark Mode</li>
           <li>“Zero analytics”</li>
         </ul>
-        <p>See also <a href="../free-vs-premium/">Free vs Premium</a> and <a href="{APP}">App Store listing</a>.</p>""",
+        <p>See also <a href="../free-vs-premium/">Free vs Premium</a> and <a href="{APP}">App Store listing</a>.</p>
+        <h2>Related</h2>
+        <p>See how <a href="../history/">History</a> works, or compare <a href="../../compare/online-vs-iphone-app/">online tools vs the iPhone app</a>.</p>""",
         faqs=[
             (
                 "What is free vs Premium?",

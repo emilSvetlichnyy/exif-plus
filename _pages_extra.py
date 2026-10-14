@@ -166,7 +166,7 @@ def register_extra(ns: dict) -> None:
         <p>If you want location gone but still plan to keep other fields, clear location in the editor (batch edit also offers an explicit remove-location control). For maximum privacy before a public post, prefer full metadata remove.</p>
         <h2>Batch note</h2>
         <p>Multi-select batch edit is a <strong>Premium</strong> feature when more than one photo is selected.</p>
-        <p>Also see <a href="../remove-location-from-photos-iphone/">remove location</a> and the <a href="../../remove-gps/">browser GPS tool</a> for one-off desktop files.</p>""",
+        <p>Also see <a href="../remove-location-from-photos-iphone/">remove location</a> and the <a href="../../remove-gps/">browser GPS tool</a> for one-off desktop files. Fixing a wrong timestamp too? See <a href="../change-photo-date-iphone/">change photo date on iPhone</a>.</p>""",
         faqs=[
             (
                 "Does editing GPS change pixels?",
