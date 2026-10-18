@@ -116,7 +116,7 @@ def register_extra(ns: dict) -> None:
     article_page(
         "learn/why-cleaned-photo-is-a-duplicate",
         title="Why Cleaned Photos Appear as Duplicates on iPhone | EXIF+",
-        description="EXIF+ saves cleaned and edited photos as new Photo Library items (often named Edited). Why that happens and how to share the right copy.",
+        description="Why does a cleaned photo show up twice on iPhone? EXIF+ saves a new copy and keeps the original. How to tell them apart and share the right one.",
         h1="Why you see a new “Edited” photo",
         lead="EXIF+ does not overwrite the original library asset. A successful clean or edit adds a new item — by design for safety.",
         prose=f"""        <h2>What the app does</h2>
@@ -580,7 +580,7 @@ def register_extra(ns: dict) -> None:
     article_page(
         "learn/does-discord-remove-exif",
         title="Does Discord Remove Metadata? Chat Images vs Files | EXIF+",
-        description="Does Discord remove metadata? Usually yes for images posted in chat (re-encoded), but not for files sent as attachments. What it strips, what it keeps, and how to be safe.",
+        description="Does Discord remove metadata? Usually yes for chat images (re-encoded), not for files sent as attachments. What it keeps and how to be safe.",
         h1="Does Discord remove EXIF?",
         lead="Short answer: often yes for images in chat, not reliably for files. Discord re-encodes many inline images, which frequently drops EXIF and GPS, but it is not a guarantee.",
         updated="2026-10-12",

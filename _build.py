@@ -569,7 +569,7 @@ def build_tool_pages() -> None:
     tool_page(
         "remove-exif",
         title="Strip EXIF Data Online Free — Remove Photo Metadata | EXIF+",
-        description="Strip EXIF data online free: remove EXIF, IPTC, and GPS from photos in your browser. No upload to our servers. Download a clean copy, or use EXIF+ on iPhone for HEIC and batch jobs.",
+        description="Strip EXIF data online free: remove EXIF, IPTC and GPS from photos in your browser, no upload to our servers. Use EXIF+ on iPhone for HEIC and batches.",
         h1="Strip EXIF data online",
         lead="Strip EXIF data before you share — remove camera tags, timestamps, and GPS locally in your browser, then download a cleaned copy.",
         mode="remove",
@@ -590,7 +590,7 @@ def build_tool_pages() -> None:
         <h2>Honest limits</h2>
         <p>This page does not claim video support, original overwrite, or lossless pixel identity. For Camera Roll HEIC, prefer the <a href="../heic-metadata/">HEIC guide</a>.</p>
         <h2>Related</h2>
-        <p>Not sure which route fits? Compare <a href="../compare/online-vs-iphone-app/">online tools vs the iPhone app</a>, or see <a href="../on-iphone/">EXIF+ on iPhone</a>.</p>
+        <p>To also hide the phone model and camera tags, see <a href="../remove-camera-data/">remove camera data</a>. Not sure which route fits? Compare <a href="../compare/online-vs-iphone-app/">online tools vs the iPhone app</a>, or see <a href="../on-iphone/">EXIF+ on iPhone</a>.</p>
       </section>""",
         faqs=[
             (
@@ -635,7 +635,7 @@ def build_tool_pages() -> None:
 
     tool_page(
         "exif-viewer",
-        title="Online EXIF Viewer Free — Check & Read Photo EXIF Data | EXIF+",
+        title="Online EXIF Viewer Free — Read Photo EXIF Data | EXIF+",
         description="Free online EXIF viewer: check, read, and view EXIF data, camera settings, dates, and GPS in your browser. No upload to our servers.",
         h1="Online EXIF viewer",
         lead="Check and read EXIF data online — see camera settings, timestamps, software tags, and GPS metadata before you share a photo.",
@@ -651,7 +651,9 @@ def build_tool_pages() -> None:
         <h2>Next step after viewing</h2>
         <p>If you see location data you do not want to share, use the <a href="../remove-gps/">GPS remover</a> or <a href="../remove-exif/">strip EXIF online</a>. On iPhone, open EXIF+ to edit fields or batch-clean albums. New to the topic? Start with <a href="../how-to/find-exif-data/">how to find EXIF data</a>.</p>
         <h2>Related</h2>
-        <p>Browser or phone? See <a href="../compare/online-vs-iphone-app/">online vs iPhone app</a> for when each one wins, or open <a href="../how-to/view-exif-on-iphone/">view EXIF on iPhone</a>.</p>
+        <p>Browser or phone? See <a href="../compare/online-vs-iphone-app/">online vs iPhone app</a> for when each one wins, or open <a href="../how-to/view-exif-on-iphone/">view EXIF on iPhone</a>. Comparing tools? Read <a href="../compare/exif-viewer-alternatives/">EXIF viewer alternatives</a>.</p>
+        <h2>Which viewer page is this?</h2>
+        <p>All viewer pages use the same local tool. This one focuses on camera and exposure tags. For author and copyright fields see the <a href="../photo-metadata-viewer/">photo metadata viewer</a>; for PNG, WebP and a location check see the <a href="../image-metadata-viewer/">image metadata viewer</a>.</p>
       </section>""",
         faqs=[
             (
@@ -692,7 +694,7 @@ def build_tool_pages() -> None:
 
     tool_page(
         "photo-metadata-viewer",
-        title="Photo Metadata Viewer Online — View & Check Image Metadata | EXIF+",
+        title="Photo Metadata Viewer Online — Check Image Metadata | EXIF+",
         description="Free photo metadata viewer online: view and check image metadata (EXIF, IPTC, GPS) in your browser. No upload to our servers. iPhone HEIC? Use EXIF+.",
         h1="Photo metadata viewer",
         lead="View and check photo metadata online — camera tags, dates, copyright fields, and GPS — before you share an original file.",
@@ -708,7 +710,7 @@ def build_tool_pages() -> None:
           <li><strong>GPS / geotags</strong> — latitude and longitude if Location Services were on</li>
         </ul>
         <h2>When to use this vs the iPhone app</h2>
-        <p>Browser viewer: quick check of a file on your computer. <a href="../on-iphone/">EXIF+ on iPhone</a>: Camera Roll / HEIC albums, field editors, and cleaning. Also see <a href="../exif-viewer/">online EXIF viewer</a> if you specifically searched that phrase.</p>
+        <p>Browser viewer: quick check of a file on your computer. <a href="../on-iphone/">EXIF+ on iPhone</a>: Camera Roll / HEIC albums, field editors, and cleaning. Also see <a href="../exif-viewer/">online EXIF viewer</a> for camera and exposure tags, or the <a href="../image-metadata-viewer/">image metadata viewer</a> for a quick location check. This page focuses on author, copyright and caption fields (IPTC) next to EXIF.</p>
         <h2>After you check metadata</h2>
         <p>If you do not want those tags to travel with the file, <a href="../remove-exif/">strip EXIF</a>, use the <a href="../metadata-cleaner/">metadata cleaner</a>, or follow <a href="../how-to/remove-photo-metadata-iphone/">remove photo metadata on iPhone</a>.</p>
       </section>""",
@@ -818,6 +820,8 @@ def build_tool_pages() -> None:
         <div class="grid-2">
           <a class="tile" href="../compare/remove-vs-edit-exif/"><h3>Remove vs edit</h3><p>Which workflow fits privacy vs organization.</p></a>
           <a class="tile" href="../batch-remove/"><h3>Batch remove</h3><p>How album cleaning works on iPhone.</p></a>
+          <a class="tile" href="../remove-camera-data/"><h3>Remove camera data</h3><p>Hide make, model and device tags.</p></a>
+          <a class="tile" href="../edit-exif/"><h3>Edit EXIF</h3><p>Fix a field instead of wiping it.</p></a>
         </div>
       </section>""",
         faqs=[
@@ -928,7 +932,17 @@ def build_tool_pages() -> None:
             "Built for Photo Library workflows: view every tag, edit what you need, remove what you don’t — on-device.",
             f"""      <section class="section prose">
         <h2>Why a native app</h2>
-        <p>Browser tools are great for a quick single file. iPhone albums, HEIC library items, batch selection, and history need a native Photos-integrated app.</p>
+        <p>Browser tools are great for a quick single file. iPhone albums, HEIC library items, batch selection, and history need an app that works with your Photos library directly. EXIF+ reads photos through PhotoKit and rewrites them with ImageIO, on the phone (<a href="../app/privacy/">privacy notes</a>).</p>
+        <h2>What EXIF+ shows on iPhone</h2>
+        <p>Open a photo from your library and the metadata is split into eight groups: Date &amp; Time, Location, Camera, Camera Settings, Author &amp; Copyright, Description, Image Information and GPS Details. The Photos app shows only a few of these; EXIF+ lists the rest, including the exact coordinates a photo carries. Step by step: <a href="../how-to/view-exif-on-iphone/">view EXIF on iPhone</a>.</p>
+        <h2>Remove location and metadata before sharing</h2>
+        <p>Photos taken with Location Services on store the place and time in the file. To share a clean copy: pick the photo in EXIF+, check what it contains, and remove all metadata in one action. The cleaned photo is saved as a new item in your library, and the original stays untouched, so you choose which one to send. Removing metadata from a single photo works without Premium. Guide: <a href="../how-to/remove-location-from-photos-iphone/">remove location from photos on iPhone</a>.</p>
+        <h2>Edit instead of remove</h2>
+        <p>Sometimes you need to fix a field, not wipe it. <a href="../edit-exif/">EXIF+ edits</a> the date, GPS location, camera fields, author, copyright and description. Typical cases: a wrong date after a camera clock reset, a photo to be tagged with your copyright, or a location corrected on a map. As with cleaning, edited photos are saved as new library items.</p>
+        <h2>Free and Premium</h2>
+        <p>Viewing, editing and removing metadata on one photo is free in the current version. <a href="../app/free-vs-premium/">Premium</a> adds multi-select batch remove and batch edit, and sharing a stripped temporary copy straight from the detail screen. <a href="../app/history/">History</a> keeps a before/after comparison for up to 50 photos.</p>
+        <h2>What EXIF+ does not do</h2>
+        <p>It does not edit video metadata, does not treat XMP as a first-class format (it focuses on EXIF, IPTC and GPS), has no cloud sync or accounts, and does not overwrite the original library photo. JPEG and HEIC are rewritten with ImageIO compression, so a cleaned file is not guaranteed to be byte-for-byte lossless. HEIC/HEIF and PNG keep their format when saved from the library; other types may export as JPEG. Requires iOS 17.0 or later.</p>
         <div class="grid-2">
           <a class="tile" href="../how-to/view-exif-on-iphone/"><h3>View EXIF on iPhone</h3><p>Step-by-step.</p></a>
           <a class="tile" href="../how-to/remove-location-from-photos-iphone/"><h3>Remove location</h3><p>Strip GPS before sharing.</p></a>
@@ -940,6 +954,22 @@ def build_tool_pages() -> None:
                 (
                     "What iOS version is required?",
                     "iOS 17.0 or later.",
+                ),
+                (
+                    "Does EXIF+ delete the original photo?",
+                    "No. Cleaned and edited photos are saved as new items; the original stays unless you delete it.",
+                ),
+                (
+                    "Is removing metadata on iPhone free?",
+                    "For a single photo, yes. Batch remove and strip-on-share need Premium.",
+                ),
+                (
+                    "Does it work with HEIC photos?",
+                    "Yes. HEIC/HEIF is preserved when saving from the library.",
+                ),
+                (
+                    "Can it remove metadata from videos?",
+                    "No. Only photo metadata is supported.",
                 ),
             ],
             "on-iphone.png",
@@ -982,19 +1012,21 @@ def build_tool_pages() -> None:
         register({"rel": slug, "html": html, "title": h1, "priority": True})
 
 
-def hub_page(slug: str, title: str, description: str, h1: str, lead: str, tiles: list[tuple[str, str, str]], nav: str) -> None:
+def hub_page(slug: str, title: str, description: str, h1: str, lead: str, tiles: list[tuple[str, str, str]], nav: str, intro: str = "") -> None:
     prefix = prefix_for(slug)
     # Tile hrefs are relative to the hub page itself (do not prepend prefix again).
     tiles_html = "".join(
         f'<a class="tile" href="{href}"><h3>{esc(n)}</h3><p>{esc(d)}</p></a>'
         for n, href, d in tiles
     )
+    intro_html = f'<section class="section prose"><p>{esc(intro)}</p></section>' if intro else ""
     body = f"""    {crumbs_html([("Home", prefix), (h1, None)])}
     <main>
       <section class="hero">
         <h1>{esc(h1)}</h1>
         <p class="lead">{esc(lead)}</p>
       </section>
+      {intro_html}
       <section class="section">
         <div class="grid-2">{tiles_html}</div>
       </section>
@@ -1107,6 +1139,7 @@ def build_hubs_and_articles() -> None:
             ("Edit EXIF", "../edit-exif/", "Change fields in the iOS app."),
         ],
         "Tools",
+        intro="These browser tools read and clean one photo at a time, locally in your tab: nothing is uploaded to our servers. JPEG, PNG and WebP work in the browser; HEIC from an iPhone library is better handled by the EXIF+ app. Pick a viewer to see what a file reveals, a remover to download a clean copy, or the GPS remover when only location matters. The viewer pages share one tool and differ in focus: camera tags, author and copyright fields, or a quick location check.",
     )
     hub_page(
         "learn",
@@ -1135,6 +1168,7 @@ def build_hubs_and_articles() -> None:
             ("Glossary", "glossary/", "EXIF, IPTC, geotag, cleaner, HEIC."),
         ],
         "Learn",
+        intro="Short, plain-language explainers on photo metadata: what EXIF and GPS tags are, which apps re-encode your photos and which do not, and how to share pictures without leaking where they were taken. Start with \u201cWhat is EXIF?\u201d, or jump to the platform question you searched for. Every page ends with the same rule: clean the file before it leaves your device.",
     )
     hub_page(
         "how-to",
@@ -1155,11 +1189,12 @@ def build_hubs_and_articles() -> None:
             ("Remove metadata on Mac, Windows, Android", "remove-photo-metadata-mac-windows/", "Built-in steps and a browser tool."),
         ],
         "How-to",
+        intro="Step-by-step iPhone workflows for the most common jobs: checking what a photo reveals, removing location before you send it, fixing a wrong date, and cleaning several photos at once. Each guide matches what the EXIF+ app does today. Single-photo view, edit and remove are free; batch actions and strip-on-share need Premium.",
     )
     hub_page(
         "compare",
         "Compare EXIF Workflows — Remove vs Edit, Web vs App | EXIF+",
-        "Compare removing vs editing EXIF, and browser tools vs the EXIF+ iPhone app.",
+        "Compare removing vs editing EXIF, browser tools vs the EXIF+ iPhone app, and EXIF viewer alternatives. Pick the right workflow for privacy or organization.",
         "Compare",
         "Pick the right workflow for privacy vs organization.",
         [
@@ -1168,6 +1203,7 @@ def build_hubs_and_articles() -> None:
             ("EXIF viewer alternatives", "exif-viewer-alternatives/", "ExifTool, online viewers and EXIF+."),
         ],
         "Compare",
+        intro="Two decisions come up most: whether to remove metadata or edit it, and whether a browser tool is enough or an iPhone app is worth it. These pages lay out the trade-offs without a sales pitch, including how EXIF+ compares with ExifTool and online viewers. Choose by what you need to protect and how many photos you handle.",
     )
     hub_page(
         "app",
@@ -1183,6 +1219,7 @@ def build_hubs_and_articles() -> None:
             ("On iPhone overview", "../on-iphone/", "Why native matters."),
         ],
         "App",
+        intro="EXIF+ is a native iPhone and iPad app (iOS 17.0 or later) that reads photos through PhotoKit and rewrites them with ImageIO on the device. It shows eight groups of metadata, edits date, location and ownership fields, and removes metadata in one action. Cleaned photos are saved as new library items; the original stays.",
     )
 
     article_page(
@@ -1417,6 +1454,17 @@ def build_hubs_and_articles() -> None:
           <li>Pick a photo from an album.</li>
           <li>Scroll metadata sections: date, location, camera, technical, author, GPS details.</li>
         </ol>
+        <h2>What you will see</h2>
+        <p>Metadata is grouped into Date &amp; Time, Location, Camera, Camera Settings, Author &amp; Copyright, Description, Image Information and GPS Details. The Photos app shows only a few of these.</p>
+        <h2>What to check before you share</h2>
+        <ul>
+          <li><strong>Location:</strong> coordinates mean anyone with the original file can place the photo on a map.</li>
+          <li><strong>Date &amp; Time:</strong> shows when the photo was taken, which can reveal your routine.</li>
+          <li><strong>Camera and device:</strong> make and model identify your phone.</li>
+          <li><strong>Author &amp; Copyright:</strong> useful if you want ownership labels, unwanted if you want to stay anonymous.</li>
+        </ul>
+        <h2>Found something you do not want to share?</h2>
+        <p>Follow the <a href="../strip-metadata-before-sharing/">pre-share checklist</a>, <a href="../remove-location-from-photos-iphone/">remove the location</a>, or <a href="../../edit-exif/">edit the field</a> instead of wiping it. Viewing happens on the device; see the <a href="../../app/privacy/">privacy notes</a>.</p>
         <p>Need a desktop quick look? Use the <a href="../../exif-viewer/">online EXIF viewer</a>.</p>""",
         faqs=[
             (
@@ -1631,6 +1679,12 @@ def build_hubs_and_articles() -> None:
           <h1>About {esc(NAME)}</h1>
           <p class="lead">{esc(NAME)} is a native iOS utility by {esc(DEV_NAME)} for viewing, editing, and removing photo metadata. This site hosts free local browser tools and educational pages for SEO + AI citation.</p>
         </section>
+        <h2>What this site is</h2>
+        <p>Free browser tools that read or clean one photo at a time, locally in your tab, plus plain-language guides on EXIF, GPS and what messaging apps do to photo metadata. The tools handle JPEG, PNG and WebP; for iPhone library photos and HEIC, use the app.</p>
+        <h2>What the app does</h2>
+        <p>{esc(NAME)} shows EXIF, IPTC and GPS fields from your Photo Library, edits date, location, camera and ownership fields, and removes metadata in one action. Results are saved as new library items and the original is kept. See the <a href="{prefix}app/features/">feature list</a> and <a href="{prefix}app/free-vs-premium/">what is free</a>.</p>
+        <h2>Who makes it</h2>
+        <p>{esc(NAME)} is built and maintained by {esc(DEV_NAME)}, an independent developer. Questions and bug reports go to the support address below.</p>
         <h2>Product links</h2>
         <ul>
           <li><a href="{APP}">App Store</a></li>

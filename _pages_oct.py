@@ -13,8 +13,8 @@ def register_oct(ns: dict) -> None:
     # ---- Tool: image metadata viewer (Trends: "image metadata" > "exif data") ----
     tool_page(
         "image-metadata-viewer",
-        title="Image Metadata Viewer Online — Check Location & Remove Metadata | EXIF+",
-        description="Free image metadata viewer: see what a JPEG, PNG or WebP reveals — location, date, camera, software — then remove it. Runs in your browser, no upload to our servers.",
+        title="Image Metadata Viewer Online — Check Location | EXIF+",
+        description="Free image metadata viewer: see what a JPEG, PNG or WebP reveals — location, date, camera, software — then remove it. In your browser, no upload.",
         h1="Image metadata viewer",
         lead="See what an image reveals before you share it: location, date taken, camera, and software tags — then remove it.",
         mode="view",
@@ -28,6 +28,8 @@ def register_oct(ns: dict) -> None:
         <p>Use <a href="../remove-exif/">strip EXIF online</a> for a clean download, or <a href="../remove-gps/">remove GPS only</a>. On iPhone, <a href="../how-to/remove-photo-metadata-iphone/">remove photo metadata</a> from your library with EXIF+.</p>
         <h2>Which file types work?</h2>
         <p>JPEG, PNG and WebP in the browser. HEIC from an iPhone is often not decodable in browsers — use the <a href="../heic-metadata/">HEIC metadata</a> workflow in the app. Metadata inside PDFs and videos is outside this tool: see <a href="../learn/pdf-video-png-metadata/">PDF, video and PNG metadata</a>.</p>
+        <h2>Which viewer page is this?</h2>
+        <p>All three viewer pages use the same local tool. This one is about checking an image for location and software tags, including PNG and WebP. For camera and exposure settings see the <a href="../exif-viewer/">EXIF viewer</a>; for author and copyright fields see the <a href="../photo-metadata-viewer/">photo metadata viewer</a>. To remove what you find, use the <a href="../metadata-cleaner/">metadata cleaner</a>.</p>
         <h2>Related viewers</h2>
         <p><a href="../exif-viewer/">EXIF viewer</a> · <a href="../photo-metadata-viewer/">Photo metadata viewer</a> · <a href="../how-to/find-exif-data/">How to check photo metadata</a></p>
       </section>""",
@@ -48,8 +50,8 @@ def register_oct(ns: dict) -> None:
     def platform(slug: str, label: str, short: str, extra: str) -> None:
         article_page(
             f"learn/does-{slug}-remove-exif",
-            title=f"Does {label} Remove EXIF & Metadata From Photos? | EXIF+",
-            description=f"Does {label} remove EXIF and GPS from photos? Usually the public copy is re-encoded, but it is not a guarantee, and the service can still receive the original data on upload.",
+            title=f"Does {label} Remove EXIF Data? Short Answer | EXIF+",
+            description=f"Does {label} strip EXIF and GPS? Usually yes for the public copy, but never guaranteed. What it keeps and how to post safely.",
             h1=f"Does {label} remove EXIF?",
             lead=short,
             updated=UPDATED,
@@ -96,8 +98,8 @@ def register_oct(ns: dict) -> None:
     # ---- Comparison table page ----
     article_page(
         "learn/which-apps-remove-photo-metadata",
-        title="Which Apps Remove Photo Metadata? Instagram, WhatsApp, Discord & More | EXIF+",
-        description="Which apps strip EXIF and GPS from photos you send or post? A plain comparison of common apps, with links to details. None is a guarantee — clean the file first.",
+        title="Which Apps Remove Photo Metadata? Compared | EXIF+",
+        description="Which apps strip EXIF and GPS from photos you send or post? A plain comparison of common apps. None is a guarantee — clean the file first.",
         h1="Which apps remove photo metadata?",
         lead="Many apps re-encode photos and drop EXIF/GPS from the copy others see — but none is a guarantee. Here is how the common ones compare and where the risk is.",
         updated=UPDATED,
@@ -132,8 +134,8 @@ def register_oct(ns: dict) -> None:
     # ---- AI image metadata / C2PA ----
     article_page(
         "learn/ai-image-metadata-c2pa",
-        title="AI Image Metadata & C2PA Content Credentials Explained | EXIF+",
-        description="What metadata do AI-generated images carry? EXIF, text chunks and C2PA Content Credentials explained in plain language — and what removing EXIF does and does not do.",
+        title="AI Image Metadata & C2PA Content Credentials | EXIF+",
+        description="What metadata do AI images carry? EXIF, text chunks and C2PA Content Credentials in plain language, and what removing EXIF does and does not do.",
         h1="AI image metadata and C2PA, explained",
         lead="AI-generated images can carry metadata that says how they were made. Some of it is ordinary EXIF-style data; some is signed provenance called C2PA Content Credentials.",
         updated=UPDATED,
@@ -164,7 +166,7 @@ def register_oct(ns: dict) -> None:
     article_page(
         "learn/does-screenshot-have-exif",
         title="Do Screenshots Have Metadata? EXIF in Screenshots | EXIF+",
-        description="Do screenshots contain EXIF or location data? Usually far less than a camera photo, but not nothing. What a screenshot can reveal and how to check it.",
+        description="Do screenshots have metadata? Usually far less than a camera photo, but not nothing. See what a screenshot can reveal and how to check it.",
         h1="Do screenshots have metadata?",
         lead="A screenshot usually carries much less than a camera photo — no lens or GPS from a camera — but it is not guaranteed to be empty.",
         updated=UPDATED,
@@ -192,7 +194,7 @@ def register_oct(ns: dict) -> None:
     # ---- PDF / video / PNG ----
     article_page(
         "learn/pdf-video-png-metadata",
-        title="PDF, Video & PNG Metadata Viewers: What Each File Type Stores | EXIF+",
+        title="PDF, Video & PNG Metadata: What Each File Stores | EXIF+",
         description="What metadata do PDF, video, PNG and JPEG files store, and how to check each? Plain explanation, plus what EXIF+ does and does not cover.",
         h1="PDF, video and PNG metadata: what each stores",
         lead="Metadata is not only for photos. PDFs, videos and PNGs carry their own fields — here is what is in each and where it fits with EXIF+.",
@@ -219,8 +221,8 @@ def register_oct(ns: dict) -> None:
     # ---- Compare: viewer alternatives ----
     article_page(
         "compare/exif-viewer-alternatives",
-        title="EXIF Viewer Alternatives: ExifTool, Jeffrey's, Jimpl, Metadata2go & EXIF+ | EXIF+",
-        description="Comparing ways to read photo metadata: command-line ExifTool, online viewers like Jeffrey's, Jimpl and Metadata2go, and EXIF+. How to choose, with privacy questions to ask.",
+        title="EXIF Viewer Alternatives: ExifTool, Jimpl & More | EXIF+",
+        description="Ways to read photo metadata: ExifTool, online viewers like Jeffrey's, Jimpl and Metadata2go, and EXIF+. How to choose, plus privacy questions to ask.",
         h1="EXIF viewer alternatives: how to choose",
         lead="There are several ways to read photo metadata. The right one depends on whether you need depth, speed, privacy or an iPhone workflow.",
         updated=UPDATED,
@@ -256,7 +258,7 @@ def register_oct(ns: dict) -> None:
     # ---- How-to: Mac / Windows / Android ----
     article_page(
         "how-to/remove-photo-metadata-mac-windows",
-        title="How to Remove Photo Metadata on Mac, Windows & Android | EXIF+",
+        title="Remove Photo Metadata on Mac, Windows & Android | EXIF+",
         description="Remove EXIF and location from photos on Mac, Windows or Android: built-in steps, plus a browser tool that strips metadata locally. Step by step.",
         h1="How to remove photo metadata on Mac, Windows and Android",
         lead="Each system can remove some metadata itself. A browser tool covers the rest on any device.",
