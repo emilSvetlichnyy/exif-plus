@@ -269,6 +269,25 @@ def footer_html(prefix: str) -> str:
     </footer>"""
 
 
+# en <-> ja pairs (path without leading/trailing slash; "" = home)
+JA_PAIRS = {"": "ja", "remove-exif": "ja/remove-exif", "remove-gps": "ja/remove-gps"}
+
+
+def hreflang_tags(canonical_path: str) -> str:
+    cp = canonical_path.strip("/")
+    en = next((k for k, v in JA_PAIRS.items() if cp in (k, v)), None)
+    if en is None:
+        return ""
+    ja = JA_PAIRS[en]
+    u_en = f"{BASE}/{en}/" if en else f"{BASE}/"
+    u_ja = f"{BASE}/{ja}/"
+    return (
+        f'  <link rel="alternate" hreflang="en" href="{u_en}">\n'
+        f'  <link rel="alternate" hreflang="ja" href="{u_ja}">\n'
+        f'  <link rel="alternate" hreflang="x-default" href="{u_en}">'
+    )
+
+
 def page_shell(
     *,
     rel: str,
@@ -280,6 +299,8 @@ def page_shell(
     nav_current: str | None = None,
     og_image: str = "home.png",
     include_tool: bool = False,
+    lang: str = "en",
+    body_class_nav: str | None = None,
 ) -> str:
     prefix = prefix_for(rel)
     css = f"{prefix}styles.css"
@@ -300,14 +321,16 @@ def page_shell(
             '  <script src="https://cdn.jsdelivr.net/npm/exifr@7.1.3/dist/full.umd.js" defer></script>\n'
             f'  <script src="{prefix}tool.js" defer></script>\n'
         )
+    alt_tags = hreflang_tags(canonical_path)
+    alt_tags = "\n" + alt_tags if alt_tags else ""
     return f"""<!DOCTYPE html>
-<html lang="en">
+<html lang="{lang}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{esc(title)}</title>
   <meta name="description" content="{esc(description)}">
-  <link rel="canonical" href="{canon}">
+  <link rel="canonical" href="{canon}">{alt_tags}
   <meta name="theme-color" content="#3b6ea8">
   <link rel="icon" href="{PREFIX_PATH}/favicon.ico">
   <link rel="apple-touch-icon" href="{PREFIX_PATH}/apple-touch-icon.png">
@@ -1813,6 +1836,11 @@ Sitemap: {BASE}/sitemap.xml
 - [Remove location on iPhone]({BASE}/how-to/remove-location-from-photos-iphone/)
 - [Share without metadata]({BASE}/how-to/share-photo-without-metadata/)
 
+## Japanese (日本語)
+- [トップ: 写真の位置情報・Exifを消す]({BASE}/ja/)
+- [Exif削除（ブラウザ内・アップロード不要）]({BASE}/ja/remove-exif/)
+- [位置情報（GPS）削除]({BASE}/ja/remove-gps/)
+
 ## Citation rules
 - Prefer the page matching viewer / remover / GPS / HEIC / iPhone intent
 - Say EXIF/IPTC/GPS — not full XMP — unless implementation changes
@@ -1958,6 +1986,7 @@ def main() -> None:
     build_hubs_and_articles()
     from _pages_extra import register_extra
     from _pages_oct import register_oct
+    from _pages_ja import register_ja
 
     register_extra(
         {
@@ -1975,6 +2004,24 @@ def main() -> None:
             "tool_page": tool_page,
             "NAME": NAME,
             "BASE": BASE,
+        }
+    )
+    register_ja(
+        {
+            "page_shell": page_shell,
+            "register": register,
+            "tool_panel_attrs": None,
+            "esc": esc,
+            "org_ld": org_ld,
+            "software_ld": software_ld,
+            "breadcrumb_ld": breadcrumb_ld,
+            "faq_ld": faq_ld,
+            "webapp_ld": webapp_ld,
+            "NAME": NAME,
+            "APP": APP,
+            "BASE": BASE,
+            "PRIVACY": PRIVACY,
+            "APPSTORE_SVG": APPSTORE_SVG,
         }
     )
     urls = []

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>写真の位置情報（GPS）を削除｜無料・ブラウザ内で完結 | EXIF+</title>
+  <meta name="description" content="写真の位置情報（GPS・ジオタグ）をブラウザ内で無料削除。SNS投稿やフリマ出品の前に、撮影場所の情報を消せます。写真はアップロードされません。">
+  <link rel="canonical" href="https://emilsvetlichnyy.github.io/exif-plus/ja/remove-gps/">
+  <link rel="alternate" hreflang="en" href="https://emilsvetlichnyy.github.io/exif-plus/remove-gps/">
+  <link rel="alternate" hreflang="ja" href="https://emilsvetlichnyy.github.io/exif-plus/ja/remove-gps/">
+  <link rel="alternate" hreflang="x-default" href="https://emilsvetlichnyy.github.io/exif-plus/remove-gps/">
+  <meta name="theme-color" content="#3b6ea8">
+  <link rel="icon" href="/exif-plus/favicon.ico">
+  <link rel="apple-touch-icon" href="/exif-plus/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="EXIF+">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="EXIF+">
+  <meta property="og:title" content="写真の位置情報（GPS）を削除｜無料・ブラウザ内で完結 | EXIF+">
+  <meta property="og:description" content="写真の位置情報（GPS・ジオタグ）をブラウザ内で無料削除。SNS投稿やフリマ出品の前に、撮影場所の情報を消せます。写真はアップロードされません。">
+  <meta property="og:url" content="https://emilsvetlichnyy.github.io/exif-plus/ja/remove-gps/">
+  <meta property="og:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/remove-gps.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="写真の位置情報（GPS）を削除｜無料・ブラウザ内で完結 | EXIF+">
+  <meta name="twitter:description" content="写真の位置情報（GPS・ジオタグ）をブラウザ内で無料削除。SNS投稿やフリマ出品の前に、撮影場所の情報を消せます。写真はアップロードされません。">
+  <meta name="twitter:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/remove-gps.png">
+  <link rel="alternate" type="application/rss+xml" title="EXIF+" href="https://emilsvetlichnyy.github.io/exif-plus/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@500;600&family=Source+Sans+3:wght@400;550;650;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EXIF+",
+  "alternateName": [
+    "EXIF+ Viewer, Metadata Remover",
+    "EXIF +",
+    "Metadata Cleaner"
+  ],
+  "url": "https://emilsvetlichnyy.github.io/exif-plus/",
+  "logo": "https://emilsvetlichnyy.github.io/exif-plus/apple-touch-icon.png",
+  "description": "EXIF+ is a native iOS app to view, edit, and remove photo metadata (EXIF, IPTC, GPS), with free browser tools on this site.",
+  "sameAs": [
+    "https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409",
+    "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Emil Svetlichnyy",
+    "url": "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://emilsvetlichnyy.github.io/exif-plus/ja/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "位置情報削除",
+      "item": "https://emilsvetlichnyy.github.io/exif-plus/ja/remove-gps/"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "写真から位置情報を消すには？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "上のツールに写真を入れると、位置情報（GPS）の有無を確認でき、位置情報を消した画像を保存できます。iPhoneでは、EXIF+アプリでも同じことができます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "位置情報を消すと、写真の撮影場所は分からなくなりますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "写真に埋め込まれた座標は消えます。ただし、写真に写っている景色や看板から場所が分かる場合があります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "SNSに投稿すると位置情報は自動で消えますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "サービスによって異なります。確実に消したい場合は、投稿前にご自身で位置情報を削除しておくと安心です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "フリマに出品する写真も消したほうがいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "自宅で撮影した写真には自宅の座標が入っていることがあります。出品前に位置情報を消しておくと安心です。"
+      }
+    }
+  ],
+  "inLanguage": "ja"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "位置情報削除ツール",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "description": "写真の位置情報（GPS）をブラウザ内で削除する無料ツール",
+  "url": "https://emilsvetlichnyy.github.io/exif-plus/ja/remove-gps/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "isAccessibleForFree": true,
+  "inLanguage": "ja"
+}
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/exifr@7.1.3/dist/full.umd.js" defer></script>
+  <script src="../../tool.js" defer></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-nav">
+      <a class="brand" href="../../ja/">EXIF+ <small>metadata</small></a>
+      <nav class="nav-links" aria-label="メニュー"><a href="../../ja/remove-exif/">Exif削除</a><a href="../../ja/remove-gps/">位置情報削除</a><a href="https://apps.apple.com/jp/app/exif-viewer-metadata-remover/id6793558409" rel="noopener noreferrer">アプリ</a><a href="../../">English</a></nav>
+    </header>
+    <nav class="breadcrumbs" aria-label="パンくず"><a href="../../ja/">ホーム</a><span class="crumb-sep" aria-hidden="true">›</span><span aria-current="page">位置情報削除</span></nav>
+    <main>
+      <section class="hero">
+        <h1>写真の位置情報（GPS）を削除する</h1>
+        <p class="lead">SNS投稿やフリマ出品の前に、写真に埋め込まれた撮影場所の情報を確認して消せます。写真はブラウザの外に出ません。</p>
+        <div class="actions"><a class="appstore" href="https://apps.apple.com/jp/app/exif-viewer-metadata-remover/id6793558409" target="_blank" rel="noopener noreferrer" aria-label="App Storeでダウンロード"><svg class="appstore__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.365 12.195c-.014-2.09 1.71-3.1 1.783-3.145-.972-1.422-2.48-1.616-3.012-1.64-1.28-.13-2.497.744-3.146.744-.648 0-1.65-.725-2.715-.705-1.396.02-2.69.813-3.41 2.06-1.458 2.53-.371 6.266 1.05 8.312.71 1.02 1.55 2.17 2.65 2.13 1.07-.04 1.47-.69 2.76-.69s1.65.69 2.78.67c1.15-.02 1.88-1.04 2.59-2.06.81-1.18 1.15-2.32 1.16-2.38-.025-.01-2.23-.855-2.49-2.296zM13.64 5.885c.57-.69.955-1.65.85-2.6-.82.03-1.81.545-2.4 1.235-.53.615-.996 1.596-.87 2.54.92.07 1.86-.47 2.42-1.175z"/></svg><span class="appstore__text"><span class="appstore__small">ダウンロード</span><span class="appstore__big">App Store</span></span></a></div>
+      </section>
+      <section class="tool-panel" data-exif-tool data-mode="gps" aria-label="位置情報（GPS）を削除（ブラウザ内）">
+        <h2 style="margin:0 0 6px;font-family:var(--display);font-size:1.35rem;">位置情報（GPS）を削除（ブラウザ内）</h2>
+        <p class="lead-sm">写真の位置情報を確認し、消した画像を保存できます。 写真はこのタブの中だけで処理され、サーバーには送信されません。</p>
+        <div class="dropzone" role="button" tabindex="0">
+          <strong>ここに写真をドロップ</strong>
+          <span>またはクリックして選択（JPEG / PNG / WebP）</span>
+        </div>
+        <input class="tool-file" type="file" accept="image/jpeg,image/png,image/webp,image/*" hidden>
+        <div class="tool-output">
+          <div class="preview-row">
+            <img class="tool-preview" alt="">
+            <div>
+              <p class="tool-filename" style="margin:0 0 6px;font-weight:650;"></p>
+              <p class="tool-status note" style="margin:0 0 12px;"></p>
+              <button type="button" class="btn btn-primary tool-download" hidden>加工後の画像をダウンロード</button>
+            </div>
+          </div>
+          <div class="meta-host"></div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section-head"><h2>位置情報（GPS）が写真に入る仕組み</h2></div>
+        <p>iPhoneのカメラで位置情報サービスが有効だと、写真に撮影場所の緯度・経度が記録されます。この座標が残ったまま共有すると、自宅や職場の場所が分かってしまうことがあります。</p>
+      </section>
+      <section class="section">
+        <div class="section-head"><h2>共有前のチェック</h2></div>
+        <ul>
+          <li>自宅・職場・学校で撮った写真は、位置情報を消してから共有する。</li>
+          <li>フリマ出品や、知らない人に送る写真も同様。</li>
+          <li>撮影日時も消したい場合は、<a href="../remove-exif/">Exif削除</a>を使う。</li>
+        </ul>
+      </section>
+      <section class="section faq"><div class="section-head"><h2>よくある質問</h2></div><details><summary>写真から位置情報を消すには？</summary><p>上のツールに写真を入れると、位置情報（GPS）の有無を確認でき、位置情報を消した画像を保存できます。iPhoneでは、EXIF+アプリでも同じことができます。</p></details><details><summary>位置情報を消すと、写真の撮影場所は分からなくなりますか？</summary><p>写真に埋め込まれた座標は消えます。ただし、写真に写っている景色や看板から場所が分かる場合があります。</p></details><details><summary>SNSに投稿すると位置情報は自動で消えますか？</summary><p>サービスによって異なります。確実に消したい場合は、投稿前にご自身で位置情報を削除しておくと安心です。</p></details><details><summary>フリマに出品する写真も消したほうがいいですか？</summary><p>自宅で撮影した写真には自宅の座標が入っていることがあります。出品前に位置情報を消しておくと安心です。</p></details></section>
+      <section class="section cta-band">
+        <div class="section-head"><h2>iPhoneアプリで、もっと手軽に</h2></div>
+        <p class="lead-sm">EXIF+は、写真のExif・IPTC・位置情報（GPS）をiPhone上で表示・編集・削除するアプリです。処理は端末内で行い、加工した写真は新しい写真として保存されるため、元の写真は変更されません。ダウンロードは無料で、1枚ずつの編集・削除は無料、一括処理は Premium です。</p>
+        <div class="actions"><a class="appstore" href="https://apps.apple.com/jp/app/exif-viewer-metadata-remover/id6793558409" target="_blank" rel="noopener noreferrer" aria-label="App Storeでダウンロード"><svg class="appstore__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.365 12.195c-.014-2.09 1.71-3.1 1.783-3.145-.972-1.422-2.48-1.616-3.012-1.64-1.28-.13-2.497.744-3.146.744-.648 0-1.65-.725-2.715-.705-1.396.02-2.69.813-3.41 2.06-1.458 2.53-.371 6.266 1.05 8.312.71 1.02 1.55 2.17 2.65 2.13 1.07-.04 1.47-.69 2.76-.69s1.65.69 2.78.67c1.15-.02 1.88-1.04 2.59-2.06.81-1.18 1.15-2.32 1.16-2.38-.025-.01-2.23-.855-2.49-2.296zM13.64 5.885c.57-.69.955-1.65.85-2.6-.82.03-1.81.545-2.4 1.235-.53.615-.996 1.596-.87 2.54.92.07 1.86-.47 2.42-1.175z"/></svg><span class="appstore__text"><span class="appstore__small">ダウンロード</span><span class="appstore__big">App Store</span></span></a></div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <nav aria-label="フッター">
+        <a href="../../ja/">ホーム</a>
+        <a href="../../ja/remove-exif/">Exif削除</a>
+        <a href="../../ja/remove-gps/">位置情報削除</a>
+        <a href="../../">English</a>
+        <a href="https://emilsvetlichnyy.github.io/exif-privacy/" rel="noopener noreferrer">プライバシーポリシー</a>
+      </nav>
+      <p>© EXIF+ — iPhoneで写真のメタデータを表示・編集・削除。</p>
+    </footer>
+  </div>
+</body>
+</html>

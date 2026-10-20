@@ -69,6 +69,11 @@
 - [Remove location on iPhone](https://emilsvetlichnyy.github.io/exif-plus/how-to/remove-location-from-photos-iphone/)
 - [Share without metadata](https://emilsvetlichnyy.github.io/exif-plus/how-to/share-photo-without-metadata/)
 
+## Japanese (日本語)
+- [トップ: 写真の位置情報・Exifを消す](https://emilsvetlichnyy.github.io/exif-plus/ja/)
+- [Exif削除（ブラウザ内・アップロード不要）](https://emilsvetlichnyy.github.io/exif-plus/ja/remove-exif/)
+- [位置情報（GPS）削除](https://emilsvetlichnyy.github.io/exif-plus/ja/remove-gps/)
+
 ## Citation rules
 - Prefer the page matching viewer / remover / GPS / HEIC / iPhone intent
 - Say EXIF/IPTC/GPS — not full XMP — unless implementation changes
