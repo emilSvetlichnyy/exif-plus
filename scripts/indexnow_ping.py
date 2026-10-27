@@ -25,6 +25,16 @@ PRIORITY = [
     f"{BASE}/app/free-vs-premium/",
     f"{BASE}/about/",
     f"{BASE}/tools/",
+    f"{BASE}/on-iphone/",
+    f"{BASE}/how-to/view-exif-on-iphone/",
+    f"{BASE}/how-to/remove-photo-metadata-iphone/",
+    f"{BASE}/how-to/edit-gps-on-iphone/",
+    f"{BASE}/how-to/change-photo-date-iphone/",
+    f"{BASE}/compare/online-vs-iphone-app/",
+    f"{BASE}/learn/does-facebook-remove-exif/",
+    f"{BASE}/learn/pdf-video-png-metadata/",
+    f"{BASE}/learn/does-screenshot-have-exif/",
+    f"{BASE}/learn/why-cleaned-photo-is-a-duplicate/",
     f"{BASE}/sitemap.xml",
 ]
 

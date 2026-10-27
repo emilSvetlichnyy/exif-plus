@@ -115,8 +115,8 @@ def register_extra(ns: dict) -> None:
 
     article_page(
         "learn/why-cleaned-photo-is-a-duplicate",
-        title="Why Cleaned Photos Appear as Duplicates on iPhone | EXIF+",
-        description="Why does a cleaned photo show up twice on iPhone? EXIF+ saves a new copy and keeps the original. How to tell them apart and share the right one.",
+        title="Cleaned Photo Showing Twice on iPhone? It Is Normal | EXIF+",
+        description="Yes, it is normal: EXIF+ saves the cleaned photo as a new Edited copy and keeps the original. How to tell them apart and share the right one.",
         h1="Why you see a new “Edited” photo",
         lead="EXIF+ does not overwrite the original library asset. A successful clean or edit adds a new item — by design for safety.",
         prose=f"""        <h2>What the app does</h2>

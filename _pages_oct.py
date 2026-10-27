@@ -165,8 +165,8 @@ def register_oct(ns: dict) -> None:
     # ---- Screenshot metadata ----
     article_page(
         "learn/does-screenshot-have-exif",
-        title="Do Screenshots Have Metadata? EXIF in Screenshots | EXIF+",
-        description="Do screenshots have metadata? Usually far less than a camera photo, but not nothing. See what a screenshot can reveal and how to check it.",
+        title="Do Screenshots Have Metadata? Yes, a Little | EXIF+",
+        description="Yes, but far less than a camera photo: no GPS or camera settings, usually just date, size and software. See what a screenshot can reveal.",
         h1="Do screenshots have metadata?",
         lead="A screenshot usually carries much less than a camera photo — no lens or GPS from a camera — but it is not guaranteed to be empty.",
         updated=UPDATED,
