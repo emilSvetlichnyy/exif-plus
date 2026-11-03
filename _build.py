@@ -1247,9 +1247,9 @@ def build_hubs_and_articles() -> None:
 
     article_page(
         "learn/what-is-exif",
-        title="EXIF Meaning: What Is EXIF Data? Examples & Privacy | EXIF+",
-        description="EXIF meaning: EXIF stands for Exchangeable Image File Format — hidden photo metadata with camera settings, date taken, and often GPS. Examples, privacy risks, and how to view or remove it.",
-        h1="What is EXIF data?",
+        title="What Is EXIF Data? Meaning, Full Form & Examples | EXIF+",
+        description="EXIF stands for Exchangeable Image File Format: hidden data in a photo file (camera, date, GPS). Meaning, full form, examples, and how to view or remove it.",
+        h1="What is EXIF data? Meaning and full form",
         lead="EXIF meaning in one line: EXIF (Exchangeable Image File Format) is hidden photo metadata that cameras and phones store inside image files — not in the visible pixels.",
         prose="""        <p><strong>Short definition:</strong> EXIF is the most common type of photo metadata. It can include when a picture was taken, which camera or phone took it, exposure settings, software names, and — if location was on — GPS coordinates.</p>
         <h2>EXIF data meaning (plain language)</h2>

@@ -461,9 +461,9 @@ def register_extra(ns: dict) -> None:
     # ---- Trends-driven pages (photo metadata / find EXIF / Discord) ----
     article_page(
         "how-to/find-exif-data",
-        title="How to Check Photo Metadata & Find EXIF Data (Windows, Mac, iPhone, Online) | EXIF+",
-        description="How to check photo metadata and find EXIF data: Windows, Mac, iPhone, Android and a free online viewer. Where location, date and camera info are stored, step by step.",
-        h1="How to check photo metadata (find EXIF data)",
+        title="How to Check EXIF Data: View Photo Metadata Free | EXIF+",
+        description="Check EXIF data in seconds: view photo metadata free online, or on Windows, Mac, iPhone and Android. See where date, camera and GPS are stored.",
+        h1="How to check EXIF data (view photo metadata)",
         lead="Photo metadata, also called EXIF data, is hidden inside the file. Here is how to check it on Windows, Mac, iPhone, Android or in a browser.",
         updated="2026-10-12",
         prose=f"""        <p><strong>Direct answer:</strong> To check photo metadata, open the photo in an EXIF viewer or its file properties. On a computer use the <a href="../../exif-viewer/">online EXIF viewer</a> or <a href="../../photo-metadata-viewer/">photo metadata viewer</a>; on iPhone use {NAME} for Photo Library items.</p>
