@@ -45,7 +45,7 @@ def register_oct(ns: dict) -> None:
     )
 
     # ---- Platform cluster: Facebook / X / Reddit (same template as Discord) ----
-    others = '<p>Other platforms: <a href="../does-instagram-remove-exif/">Instagram</a>, <a href="../does-discord-remove-exif/">Discord</a>, <a href="../does-whatsapp-remove-exif/">WhatsApp</a>, <a href="../does-telegram-remove-exif/">Telegram</a>, <a href="../does-imessage-remove-location/">iMessage &amp; AirDrop</a>. Full list: <a href="../which-apps-remove-photo-metadata/">which apps remove photo metadata</a>.</p>'
+    others = '<p>Other platforms: <a href="../does-instagram-remove-exif/">Instagram</a>, <a href="../does-discord-remove-exif/">Discord</a>, <a href="../does-whatsapp-remove-exif/">WhatsApp</a>, <a href="../does-telegram-remove-exif/">Telegram</a>, <a href="../does-signal-remove-exif/">Signal</a>, <a href="../does-snapchat-remove-exif/">Snapchat</a>, <a href="../does-imessage-remove-location/">iMessage &amp; AirDrop</a>. Full list: <a href="../which-apps-remove-photo-metadata/">which apps remove photo metadata</a>.</p>'
 
     def platform(slug: str, label: str, short: str, extra: str) -> None:
         article_page(
@@ -115,6 +115,9 @@ def register_oct(ns: dict) -> None:
             <tr><td>Discord</td><td>Chat image vs send-as-file</td><td><a href="../does-discord-remove-exif/">Read</a></td></tr>
             <tr><td>Telegram</td><td>Photo vs send-as-file</td><td><a href="../does-telegram-remove-exif/">Read</a></td></tr>
             <tr><td>WhatsApp</td><td>Photo vs Document</td><td><a href="../does-whatsapp-remove-exif/">Read</a></td></tr>
+            <tr><td>Signal</td><td>Images processed; files may keep original</td><td><a href="../does-signal-remove-exif/">Read</a></td></tr>
+            <tr><td>Snapchat</td><td>Snaps re-processed; camera-roll uploads arrive with metadata</td><td><a href="../does-snapchat-remove-exif/">Read</a></td></tr>
+            <tr><td>Email</td><td>Attachments keep the original file</td><td><a href="../does-email-attachment-keep-exif/">Read</a></td></tr>
             <tr><td>iMessage &amp; AirDrop</td><td>Share-sheet Options toggle for location</td><td><a href="../does-imessage-remove-location/">Read</a></td></tr>
           </tbody>
         </table>

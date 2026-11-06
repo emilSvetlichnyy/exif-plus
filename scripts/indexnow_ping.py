@@ -35,6 +35,18 @@ PRIORITY = [
     f"{BASE}/learn/pdf-video-png-metadata/",
     f"{BASE}/learn/does-screenshot-have-exif/",
     f"{BASE}/learn/why-cleaned-photo-is-a-duplicate/",
+    f"{BASE}/compare/best-app-to-remove-exif-iphone/",
+    f"{BASE}/compare/best-exif-viewer-iphone/",
+    f"{BASE}/compare/ios-share-options-vs-exif-app/",
+    f"{BASE}/compare/free-exif-remover-vs-paid/",
+    f"{BASE}/learn/can-photo-metadata-reveal-your-location/",
+    f"{BASE}/learn/what-metadata-does-an-iphone-photo-contain/",
+    f"{BASE}/learn/does-signal-remove-exif/",
+    f"{BASE}/learn/does-snapchat-remove-exif/",
+    f"{BASE}/learn/does-email-attachment-keep-exif/",
+    f"{BASE}/how-to/remove-location-before-selling-online/",
+    f"{BASE}/how-to/remove-exif-from-multiple-photos-iphone/",
+    f"{BASE}/how-to/check-if-photo-has-location/",
     f"{BASE}/sitemap.xml",
 ]
 

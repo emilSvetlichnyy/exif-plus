@@ -1188,6 +1188,11 @@ def build_hubs_and_articles() -> None:
             ("AI image metadata & C2PA", "ai-image-metadata-c2pa/", "Content Credentials explained."),
             ("Do screenshots have metadata?", "does-screenshot-have-exif/", "What a screenshot can reveal."),
             ("PDF, video & PNG metadata", "pdf-video-png-metadata/", "What each file type stores."),
+            ("Can a photo reveal your location?", "can-photo-metadata-reveal-your-location/", "GPS in EXIF, and when it travels."),
+            ("What metadata is in an iPhone photo?", "what-metadata-does-an-iphone-photo-contain/", "Date, location, device, settings."),
+            ("Does Signal remove EXIF?", "does-signal-remove-exif/", "Messenger behavior."),
+            ("Does Snapchat remove EXIF?", "does-snapchat-remove-exif/", "Snaps vs camera-roll uploads."),
+            ("Do email attachments keep EXIF?", "does-email-attachment-keep-exif/", "Why email keeps GPS."),
             ("Glossary", "glossary/", "EXIF, IPTC, geotag, cleaner, HEIC."),
         ],
         "Learn",
@@ -1210,6 +1215,9 @@ def build_hubs_and_articles() -> None:
             ("View EXIF on iPhone", "view-exif-on-iphone/", "See hidden tags in EXIF+."),
             ("Strip metadata checklist", "strip-metadata-before-sharing/", "Pre-share checklist."),
             ("Remove metadata on Mac, Windows, Android", "remove-photo-metadata-mac-windows/", "Built-in steps and a browser tool."),
+            ("Check if a photo has location", "check-if-photo-has-location/", "iPhone, Mac, Windows, browser."),
+            ("Remove location before selling online", "remove-location-before-selling-online/", "Marketplace and listing photos."),
+            ("Remove EXIF from many photos", "remove-exif-from-multiple-photos-iphone/", "Batch remove on iPhone."),
         ],
         "How-to",
         intro="Step-by-step iPhone workflows for the most common jobs: checking what a photo reveals, removing location before you send it, fixing a wrong date, and cleaning several photos at once. Each guide matches what the EXIF+ app does today. Single-photo view, edit and remove are free; batch actions and strip-on-share need Premium.",
@@ -1224,6 +1232,10 @@ def build_hubs_and_articles() -> None:
             ("Remove vs edit EXIF", "remove-vs-edit-exif/", "Delete everything or change fields."),
             ("Online vs iPhone app", "online-vs-iphone-app/", "When each option wins."),
             ("EXIF viewer alternatives", "exif-viewer-alternatives/", "ExifTool, online viewers and EXIF+."),
+            ("Best app to remove EXIF on iPhone", "best-app-to-remove-exif-iphone/", "Criteria and options compared."),
+            ("Best EXIF viewer for iPhone", "best-exif-viewer-iphone/", "What to look for."),
+            ("Share Options vs EXIF app", "ios-share-options-vs-exif-app/", "One send vs a clean file."),
+            ("Free vs paid EXIF remover", "free-exif-remover-vs-paid/", "What is free, what is Premium."),
         ],
         "Compare",
         intro="Two decisions come up most: whether to remove metadata or edit it, and whether a browser tool is enough or an iPhone app is worth it. These pages lay out the trade-offs without a sales pitch, including how EXIF+ compares with ExifTool and online viewers. Choose by what you need to protect and how many photos you handle.",
@@ -1835,6 +1847,16 @@ Sitemap: {BASE}/sitemap.xml
 - [Remove photo metadata on iPhone]({BASE}/how-to/remove-photo-metadata-iphone/)
 - [Remove location on iPhone]({BASE}/how-to/remove-location-from-photos-iphone/)
 - [Share without metadata]({BASE}/how-to/share-photo-without-metadata/)
+- [Best app to remove EXIF on iPhone]({BASE}/compare/best-app-to-remove-exif-iphone/)
+- [Best EXIF viewer for iPhone]({BASE}/compare/best-exif-viewer-iphone/)
+- [iPhone share Options vs an EXIF app]({BASE}/compare/ios-share-options-vs-exif-app/)
+- [Free EXIF remover vs paid]({BASE}/compare/free-exif-remover-vs-paid/)
+- [Can a photo reveal your location?]({BASE}/learn/can-photo-metadata-reveal-your-location/)
+- [What metadata does an iPhone photo contain?]({BASE}/learn/what-metadata-does-an-iphone-photo-contain/)
+- [Do email attachments keep EXIF?]({BASE}/learn/does-email-attachment-keep-exif/)
+- [Check if a photo has location data]({BASE}/how-to/check-if-photo-has-location/)
+- [Remove photo location before selling online]({BASE}/how-to/remove-location-before-selling-online/)
+- [Remove EXIF from multiple photos on iPhone]({BASE}/how-to/remove-exif-from-multiple-photos-iphone/)
 
 ## Japanese (日本語)
 - [トップ: 写真の位置情報・Exifを消す]({BASE}/ja/)
@@ -1986,6 +2008,7 @@ def main() -> None:
     build_hubs_and_articles()
     from _pages_extra import register_extra
     from _pages_oct import register_oct
+    from _pages_nov import register_nov
     from _pages_ja import register_ja
 
     register_extra(
@@ -2004,6 +2027,12 @@ def main() -> None:
             "tool_page": tool_page,
             "NAME": NAME,
             "BASE": BASE,
+        }
+    )
+    register_nov(
+        {
+            "article_page": article_page,
+            "NAME": NAME,
         }
     )
     register_ja(
