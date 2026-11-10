@@ -272,17 +272,18 @@ def footer_html(prefix: str) -> str:
 # Language alternates: each group maps lang -> path (no slashes; "" = English home).
 # Every page of a group gets hreflang links to all others + x-default (en, or first entry).
 I18N_GROUPS = [
-    {"en": "", "ja": "ja", "ko": "ko", "de": "de", "es": "es"},
-    {"en": "remove-exif", "ja": "ja/remove-exif", "ko": "ko/remove-exif", "de": "de/remove-exif", "es": "es/remove-exif"},
-    {"en": "remove-gps", "ja": "ja/remove-gps", "ko": "ko/remove-gps", "de": "de/remove-gps", "es": "es/remove-gps"},
-    {"en": "exif-viewer", "ko": "ko/exif-viewer", "de": "de/exif-viewer", "es": "es/exif-viewer"},
+    {"en": "", "ja": "ja", "ko": "ko", "de": "de", "es": "es", "nl": "nl"},
+    {"en": "remove-exif", "ja": "ja/remove-exif", "ko": "ko/remove-exif", "de": "de/remove-exif", "es": "es/remove-exif", "nl": "nl/remove-exif"},
+    {"en": "remove-gps", "ja": "ja/remove-gps", "ko": "ko/remove-gps", "de": "de/remove-gps", "es": "es/remove-gps", "nl": "nl/remove-gps"},
+    {"en": "exif-viewer", "ko": "ko/exif-viewer", "de": "de/exif-viewer", "es": "es/exif-viewer", "nl": "nl/exif-viewer"},
     {
         "en": "how-to/remove-location-from-photos-iphone",
         "ko": "ko/how-to/remove-location-from-photos-iphone",
         "de": "de/how-to/remove-location-from-photos-iphone",
         "es": "es/how-to/remove-location-from-photos-iphone",
+        "nl": "nl/how-to/remove-location-from-photos-iphone",
     },
-    {"en": "learn/does-whatsapp-remove-exif", "de": "de/learn/does-whatsapp-remove-exif", "es": "es/learn/does-whatsapp-remove-exif"},
+    {"en": "learn/does-whatsapp-remove-exif", "de": "de/learn/does-whatsapp-remove-exif", "es": "es/learn/does-whatsapp-remove-exif", "nl": "nl/learn/does-whatsapp-remove-exif"},
 ]
 # backwards-compatible alias (en <-> ja)
 JA_PAIRS = {g["en"]: g["ja"] for g in I18N_GROUPS if "ja" in g}

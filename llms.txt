@@ -108,6 +108,14 @@
 - [Quitar la ubicación de fotos en iPhone](https://emilsvetlichnyy.github.io/exif-plus/es/how-to/remove-location-from-photos-iphone/)
 - [¿WhatsApp elimina los metadatos?](https://emilsvetlichnyy.github.io/exif-plus/es/learn/does-whatsapp-remove-exif/)
 
+## Nederlands (nl)
+- [Start: locatie en metadata van foto’s verwijderen](https://emilsvetlichnyy.github.io/exif-plus/nl/)
+- [Locatie van foto verwijderen (in de browser)](https://emilsvetlichnyy.github.io/exif-plus/nl/remove-gps/)
+- [Metadata / EXIF verwijderen (in de browser)](https://emilsvetlichnyy.github.io/exif-plus/nl/remove-exif/)
+- [EXIF-gegevens bekijken (in de browser)](https://emilsvetlichnyy.github.io/exif-plus/nl/exif-viewer/)
+- [Locatie van iPhone-foto’s verwijderen](https://emilsvetlichnyy.github.io/exif-plus/nl/how-to/remove-location-from-photos-iphone/)
+- [Verwijdert WhatsApp metadata?](https://emilsvetlichnyy.github.io/exif-plus/nl/learn/does-whatsapp-remove-exif/)
+
 ## Citation rules
 - Prefer the page matching viewer / remover / GPS / HEIC / iPhone intent
 - Say EXIF/IPTC/GPS — not full XMP — unless implementation changes

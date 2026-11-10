@@ -1,4 +1,4 @@
-"""Localized pages for ko / de / es, modelled on _pages_ja.py. Called from _build.main().
+"""Localized pages for ko / de / es / nl, modelled on _pages_ja.py. Called from _build.main().
 
 Each language gets the same set of pages (slugs mirror the English site so hreflang
 groups in _build.I18N_GROUPS line up):
@@ -7,7 +7,7 @@ groups in _build.I18N_GROUPS line up):
   /{lang}/remove-gps/                              browser location remover
   /{lang}/exif-viewer/                             browser EXIF viewer
   /{lang}/how-to/remove-location-from-photos-iphone/
-  /{lang}/learn/does-<messenger>-remove-exif/      KakaoTalk (ko), WhatsApp (de, es)
+  /{lang}/learn/does-<messenger>-remove-exif/      KakaoTalk (ko), WhatsApp (de, es, nl)
 
 Text is written for the searches people use in that country, not translated line by line.
 Inside page HTML, "{L}" is replaced with the relative path to the language root.
@@ -702,6 +702,236 @@ LOCALES["es"]["pages"] = [
             ("¿WhatsApp quita la ubicación de las fotos?", "En envíos normales suele quitarla; como documento, no. Si no estás seguro, quítala tú antes de enviar."),
             ("¿La calidad HD de WhatsApp conserva los metadatos?", "Las fotos HD también se vuelven a codificar, así que los metadatos suelen perderse. Solo el envío como documento entrega el original intacto."),
             ("¿Alguien puede saber mi ubicación por una foto de WhatsApp?", "Por una foto enviada de forma normal, normalmente no. Por una enviada como documento, sí, si se guardó la ubicación al tomarla."),
+        ],
+    },
+]
+
+
+# ======================================================================== nl
+LOCALES["nl"] = {
+    "store": "nl",
+    "lang_name": "Nederlands",
+    "ui": {
+        "appstore_aria": "Download in de App Store",
+        "appstore_small": "Download in de",
+        "nav_aria": "Menu",
+        "nav": [("remove-gps/", "Locatie verwijderen"), ("remove-exif/", "Metadata verwijderen"), ("exif-viewer/", "EXIF bekijken")],
+        "nav_app": "App",
+        "footer_aria": "Voettekst",
+        "home": "Start",
+        "privacy": "Privacy",
+        "tagline": "Fotometadata bekijken, bewerken en verwijderen op je iPhone.",
+        "crumb_aria": "Kruimelpad",
+        "faq": "Veelgestelde vragen",
+        "drop_strong": "Sleep een foto hierheen",
+        "drop_span": "of klik om er een te kiezen (JPEG / PNG / WebP)",
+        "download": "Opgeschoonde foto downloaden",
+        "local_note": "De foto wordt alleen in dit tabblad verwerkt en niet naar een server gestuurd.",
+        "cta_h": "Nog makkelijker met de iPhone-app",
+        "cta_p": "EXIF+ is een iPhone-app waarmee je EXIF-, IPTC- en locatiegegevens (GPS) van foto’s bekijkt, bewerkt en verwijdert. Alles gebeurt op je toestel. De opgeschoonde foto wordt als nieuwe foto bewaard, het origineel blijft ongewijzigd. Downloaden is gratis, foto’s één voor één bewerken en opschonen is gratis, meerdere tegelijk is Premium.",
+        "related": "Meer lezen",
+    },
+    "llms": [
+        ("", "Start: locatie en metadata van foto’s verwijderen"),
+        ("remove-gps/", "Locatie van foto verwijderen (in de browser)"),
+        ("remove-exif/", "Metadata / EXIF verwijderen (in de browser)"),
+        ("exif-viewer/", "EXIF-gegevens bekijken (in de browser)"),
+        ("how-to/remove-location-from-photos-iphone/", "Locatie van iPhone-foto’s verwijderen"),
+        ("learn/does-whatsapp-remove-exif/", "Verwijdert WhatsApp metadata?"),
+    ],
+}
+LOCALES["nl"]["pages"] = [
+    {
+        "slug": "",
+        "title": "Locatie en metadata van foto’s verwijderen – gratis, zonder upload | EXIF+",
+        "description": "Bekijk en verwijder gratis de locatie (GPS) en EXIF-metadata van je foto’s. De foto blijft in je browser. Met de iPhone-app EXIF+ ook veel foto’s tegelijk.",
+        "h1": "Locatie en metadata van foto’s verwijderen (gratis, zonder upload)",
+        "lead": "EXIF+ toont en verwijdert verborgen gegevens in foto’s: locatie (GPS), opnamedatum en camera. Gratis in de browser of als iPhone-app. Alles gebeurt op je toestel en het origineel blijft ongewijzigd.",
+        "crumb": "",
+        "tool": None,
+        "og": "home.png",
+        "main": """      <section class="section">
+        <div class="section-head"><h2>In het kort</h2></div>
+        <ul>
+          <li><strong>Wat:</strong> locatie (GPS), opnamedatum en cameragegevens in foto’s bekijken en verwijderen.</li>
+          <li><strong>Waar:</strong> in het browsertabblad of op de iPhone. Niets gaat naar een server.</li>
+          <li><strong>Origineel:</strong> blijft ongewijzigd; de opgeschoonde foto wordt als nieuwe foto bewaard.</li>
+          <li><strong>Prijs:</strong> downloaden gratis. Losse foto’s gratis, meerdere tegelijk met Premium.</li>
+        </ul>
+      </section>
+      <section class="section">
+        <div class="section-head"><h2>Tools</h2></div>
+        <div class="tiles">
+          <a class="tile" href="{L}remove-gps/"><h3>Locatie verwijderen</h3><p>GPS wissen voordat je een foto deelt of verkoopt.</p></a>
+          <a class="tile" href="{L}remove-exif/"><h3>Metadata verwijderen</h3><p>Alle EXIF-gegevens wissen en een schone foto bewaren.</p></a>
+          <a class="tile" href="{L}exif-viewer/"><h3>EXIF bekijken</h3><p>Zien welke gegevens er in een foto zitten.</p></a>
+          <a class="tile" href="{L}how-to/remove-location-from-photos-iphone/"><h3>Op de iPhone</h3><p>Locatie van foto’s in je fotobibliotheek verwijderen.</p></a>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section-head"><h2>Wanneer handig</h2></div>
+        <ul>
+          <li>Voordat je foto’s op Marktplaats of Vinted zet, zodat niemand je huisadres ziet.</li>
+          <li>Voordat je iets op Instagram, een forum of een blog plaatst.</li>
+          <li>Voordat je foto’s via <a href="{L}learn/does-whatsapp-remove-exif/">WhatsApp als document</a> stuurt.</li>
+        </ul>
+      </section>""",
+        "faqs": [
+            ("Wat is EXIF+?", "EXIF+ is een app voor iPhone en iPad waarmee je EXIF-, IPTC- en locatiegegevens (GPS) van foto’s bekijkt, bewerkt en verwijdert. Op deze website staan ook gratis tools die alleen in de browser werken."),
+            ("Worden mijn foto’s geüpload?", "Nee. De browsertools verwerken de foto alleen in dit tabblad. De app verwerkt foto’s op de iPhone."),
+            ("Wordt de originele foto aangepast?", "Nee. Bewerkte of opgeschoonde foto’s worden als nieuwe foto in de fotobibliotheek bewaard. Het origineel blijft staan tot je het zelf verwijdert."),
+            ("Is EXIF+ gratis?", "Downloaden is gratis. Metadata bekijken en losse foto’s bewerken of opschonen is gratis. Meerdere foto’s tegelijk en automatisch verwijderen bij delen zijn Premium."),
+            ("Werkt het ook met video’s?", "Nee. Videometadata wordt niet ondersteund, alleen foto’s."),
+        ],
+    },
+    {
+        "slug": "remove-gps",
+        "title": "Locatie van foto verwijderen – GPS gratis wissen | EXIF+",
+        "description": "Verwijder gratis de locatie (GPS, geotag) van je foto’s in de browser. Zonder upload: coördinaten wissen en een schone foto bewaren. Op de iPhone met EXIF+.",
+        "h1": "Locatie van een foto verwijderen (GPS wissen)",
+        "lead": "Voordat je een foto deelt of online verkoopt: kijk of er een locatie in zit en verwijder die. De foto verlaat je browser niet.",
+        "crumb": "Locatie verwijderen",
+        "tool": ("gps", "Locatie verwijderen (in de browser)", "Kijk of de foto GPS-gegevens bevat en bewaar een kopie zonder locatie."),
+        "og": "remove-gps.png",
+        "main": """      <section class="section">
+        <div class="section-head"><h2>Waarom een foto een locatie bevat</h2></div>
+        <p>Staat locatievoorzieningen aan voor de iPhone-camera, dan bewaart elke foto de breedte- en lengtegraad van de plek waar hij is genomen. Wie het bestand krijgt, kan zo zien waar je woont of werkt.</p>
+      </section>
+      <section class="section">
+        <div class="section-head"><h2>Voor het delen</h2></div>
+        <ul>
+          <li>Foto’s van thuis, werk of school: eerst de locatie verwijderen.</li>
+          <li>Hetzelfde voor foto’s voor Marktplaats en foto’s voor onbekenden.</li>
+          <li>Ook datum en camera wissen: <a href="{L}remove-exif/">metadata verwijderen</a>.</li>
+          <li>Foto’s uit de iPhone-fotobibliotheek: <a href="{L}how-to/remove-location-from-photos-iphone/">locatie verwijderen op de iPhone</a>.</li>
+        </ul>
+      </section>""",
+        "faqs": [
+            ("Hoe verwijder ik de locatie van een foto?", "Zet de foto in de tool hierboven. Je ziet of er GPS-gegevens in zitten en kunt een kopie zonder locatie bewaren. Op de iPhone doe je dat met de app EXIF+."),
+            ("Is de plek daarna helemaal niet meer te zien?", "De opgeslagen coördinaten zijn weg. De plek kan nog wel herkenbaar zijn aan wat er op de foto staat, zoals gebouwen of borden."),
+            ("Halen sociale media de locatie automatisch weg?", "Dat verschilt per dienst. Zeker weten doe je het alleen als je de locatie zelf verwijdert voor het plaatsen."),
+            ("Werkt het met HEIC-foto’s?", "De meeste browsers kunnen HEIC niet lezen. HEIC-foto’s uit de iPhone-fotobibliotheek schoon je op met de app EXIF+."),
+        ],
+    },
+    {
+        "slug": "remove-exif",
+        "title": "Metadata verwijderen – EXIF van foto’s gratis wissen | EXIF+",
+        "description": "Verwijder gratis de metadata (EXIF) van je foto’s in de browser: datum, camera en locatie, zonder upload. Met de iPhone-app ook veel foto’s tegelijk.",
+        "h1": "Metadata van foto’s verwijderen (EXIF wissen, zonder upload)",
+        "lead": "Bekijk en verwijder de EXIF-metadata van een foto direct in de browser. De foto wordt niet naar een server gestuurd.",
+        "crumb": "Metadata verwijderen",
+        "tool": ("remove", "Metadata verwijderen (in de browser)", "Kies een foto, bekijk de metadata en bewaar een opgeschoonde kopie."),
+        "og": "remove-exif.png",
+        "main": """      <section class="section">
+        <div class="section-head"><h2>Wat zijn EXIF-gegevens?</h2></div>
+        <p>EXIF-gegevens zet elke camera en telefoon automatisch in een foto: toestel, datum en tijd, belichting en vaak de locatie (GPS). Wie het bestand krijgt, kan ze uitlezen.</p>
+      </section>
+      <section class="section">
+        <div class="section-head"><h2>Zo werkt het</h2></div>
+        <ol>
+          <li>Sleep de foto naar de tool hierboven of klik om hem te kiezen.</li>
+          <li>Bekijk de getoonde metadata.</li>
+          <li>Download de opgeschoonde foto.</li>
+        </ol>
+        <p>Alleen de locatie wissen: <a href="{L}remove-gps/">locatie verwijderen</a>. Eerst alleen kijken: <a href="{L}exif-viewer/">EXIF bekijken</a>.</p>
+      </section>""",
+        "faqs": [
+            ("Wordt mijn foto geüpload bij het verwijderen?", "Nee. De foto wordt alleen in dit tabblad verwerkt en niet naar een server gestuurd."),
+            ("Gaat de kwaliteit achteruit?", "De metadata zelf heeft geen invloed op het beeld, maar bij opnieuw opslaan wordt de foto opnieuw gecodeerd en kan hij iets veranderen. Bewaar het origineel."),
+            ("Wat wordt er gewist als ik EXIF verwijder?", "Toestel, lens, opnamedatum, locatie (GPS) en andere opnamegegevens in de foto."),
+            ("Kan ik veel foto’s tegelijk opschonen?", "In de browser één voor één. Met EXIF+ Premium op de iPhone schoon je meerdere foto’s tegelijk op."),
+        ],
+    },
+    {
+        "slug": "exif-viewer",
+        "title": "EXIF-gegevens bekijken – fotometadata online uitlezen | EXIF+",
+        "description": "Bekijk gratis de EXIF-gegevens van een foto: datum, camera, lens, ISO en locatie (GPS). Zonder upload. Op de iPhone met EXIF+.",
+        "h1": "EXIF-gegevens van een foto bekijken",
+        "lead": "Zie wat er in een foto zit: opnamedatum, camera en lens, belichting en locatie (GPS). Gratis, de foto wordt niet geüpload.",
+        "crumb": "EXIF bekijken",
+        "tool": ("view", "EXIF-viewer (in de browser)", "Kies een foto om de EXIF-, IPTC- en GPS-velden te zien."),
+        "og": "exif-viewer.png",
+        "main": """      <section class="section">
+        <div class="section-head"><h2>Wat je ziet</h2></div>
+        <p>Datum en tijd, camera- of telefoonmodel, lens, ISO, diafragma, sluitertijd, software, copyright en – als die er is – de locatie in breedte- en lengtegraad.</p>
+      </section>
+      <section class="section">
+        <div class="section-head"><h2>En daarna?</h2></div>
+        <p>Staat er een locatie in die je niet wilt delen: <a href="{L}remove-gps/">locatie verwijderen</a>. Alles wissen: <a href="{L}remove-exif/">metadata verwijderen</a>. Foto’s uit de iPhone-fotobibliotheek bekijk en bewerk je direct in de app EXIF+.</p>
+      </section>""",
+        "faqs": [
+            ("Hoe bekijk ik de EXIF-gegevens van een foto?", "Kies op deze pagina een JPEG-, PNG- of WebP-foto en de velden verschijnen. Voor foto’s uit de iPhone-fotobibliotheek en HEIC gebruik je de app EXIF+."),
+            ("Waarom zie ik geen locatie?", "Locatievoorzieningen stonden uit bij het maken, de gegevens zijn al gewist of een andere app heeft de foto zonder GPS opgeslagen."),
+            ("Is het veilig om EXIF hier te bekijken?", "Het bestand wordt alleen in je browser gelezen en getoond, niet geüpload."),
+            ("Kan ik de gegevens hier bewerken?", "In de browser niet. Bewerken kan in de iPhone-app EXIF+, wissen met de tool ‘Metadata verwijderen’."),
+        ],
+    },
+    {
+        "slug": "how-to/remove-location-from-photos-iphone",
+        "title": "Locatie van foto verwijderen op iPhone – zo doe je dat | EXIF+",
+        "description": "Locatie van iPhone-foto’s verwijderen: uitzetten bij delen via ‘Opties’ of met EXIF+ een kopie zonder GPS bewaren. Origineel blijft, meerdere foto’s tegelijk.",
+        "h1": "Locatie van foto’s verwijderen op de iPhone",
+        "lead": "Op de iPhone kan het op twee manieren: de locatie alleen bij het delen weglaten (standaard in iOS) of met EXIF+ een kopie zonder locatie bewaren.",
+        "crumb": "Locatie verwijderen op iPhone",
+        "tool": None,
+        "og": "on-iphone.png",
+        "main": """      <section class="section">
+        <div class="section-head"><h2>Manier 1: uitzetten bij het delen (iOS)</h2></div>
+        <ol>
+          <li>Kies de foto in de Foto’s-app en tik op Deel.</li>
+          <li>Tik bovenaan op ‘Opties’.</li>
+          <li>Zet ‘Locatie’ uit, tik op ‘Gereed’ en deel.</li>
+        </ol>
+        <p>Dit geldt alleen voor deze keer delen; in je fotobibliotheek houdt de foto zijn locatie. Afhankelijk van de app of manier van versturen ontbreekt de optie soms.</p>
+      </section>
+      <section class="section">
+        <div class="section-head"><h2>Manier 2: kopie zonder locatie met EXIF+</h2></div>
+        <ol>
+          <li>Installeer EXIF+ uit de App Store en geef toegang tot Foto’s.</li>
+          <li>Open de foto en bekijk het onderdeel Locatie / GPS.</li>
+          <li>Wis de locatie of verwijder alle metadata en bewaar.</li>
+          <li>Deel de nieuwe foto. Het origineel blijft ongewijzigd.</li>
+        </ol>
+        <p>Voor één bestand op de computer: <a href="{L}remove-gps/">locatie verwijderen in de browser</a>.</p>
+      </section>
+      <section class="section">
+        <div class="section-head"><h2>Voortaan geen locatie opslaan</h2></div>
+        <p>Instellingen → Privacy en beveiliging → Locatievoorzieningen → Camera → ‘Nooit’. Nieuwe foto’s krijgen dan geen locatie; bestaande foto’s houden die wel.</p>
+      </section>""",
+        "faqs": [
+            ("Haalt ‘Opties → Locatie’ de locatie ook uit het origineel?", "Nee. Alleen de gedeelde kopie mist de locatie; de foto in je bibliotheek houdt hem."),
+            ("Is locatie verwijderen hetzelfde als alle metadata verwijderen?", "Nee. In EXIF+ kun je alleen de locatie wissen, of alles inclusief camera en datum."),
+            ("Kan ik veel foto’s tegelijk doen?", "Ja, met meervoudige selectie in EXIF+ Premium."),
+            ("Werkt het met HEIC?", "Ja, in de iPhone-app direct vanuit de fotobibliotheek."),
+        ],
+    },
+    {
+        "slug": "learn/does-whatsapp-remove-exif",
+        "title": "Verwijdert WhatsApp metadata en locatie uit foto’s? | EXIF+",
+        "description": "WhatsApp comprimeert gewone foto’s, waarbij EXIF en locatie meestal verdwijnen. Als document verstuurd blijft het origineel met metadata. Zo verstuur je veilig.",
+        "h1": "Verwijdert WhatsApp metadata uit foto’s?",
+        "lead": "Kort: gewoon verstuurde foto’s worden gecomprimeerd en komen meestal zonder EXIF en locatie aan. Als document verstuurd komt het originele bestand aan – met alle metadata.",
+        "crumb": "WhatsApp en metadata",
+        "tool": None,
+        "og": "home.png",
+        "main": """      <section class="section">
+        <div class="section-head"><h2>Welke manier van versturen de metadata houdt</h2></div>
+        <ul>
+          <li><strong>Gewoon vanuit galerij of camera (ook HD):</strong> opnieuw gecodeerd; EXIF en GPS meestal weg.</li>
+          <li><strong>Als document:</strong> origineel bestand; EXIF en GPS blijven meestal staan.</li>
+          <li><strong>Je eigen kopie en back-ups:</strong> het origineel op je telefoon heeft nog alle metadata.</li>
+        </ul>
+        <p>‘Als document versturen’ is een bekende truc tegen compressie – en precies dan gaat de locatie mee. Dat WhatsApp gegevens weghaalt bij gewone foto’s is een bijeffect van compressie, geen privacyfunctie.</p>
+      </section>
+      <section class="section">
+        <div class="section-head"><h2>Veilig versturen</h2></div>
+        <p>Eerst opschonen, dan versturen: <a href="{L}remove-gps/">locatie verwijderen in de browser</a> of op de iPhone <a href="{L}how-to/remove-location-from-photos-iphone/">locatie verwijderen op de iPhone</a>. EXIF+ bewaart een nieuwe kopie, het origineel blijft.</p>
+      </section>""",
+        "faqs": [
+            ("Verwijdert WhatsApp EXIF-gegevens uit foto’s?", "Bij gewoon verstuurde foto’s meestal wel, omdat WhatsApp ze comprimeert. Als document verstuurde foto’s houden hun EXIF."),
+            ("Haalt WhatsApp de locatie uit foto’s?", "Bij gewoon versturen meestal wel, als document meestal niet. Twijfel je, verwijder de locatie dan eerst zelf."),
+            ("Houdt WhatsApp HD-kwaliteit de metadata?", "HD-foto’s worden ook opnieuw gecodeerd, dus de metadata gaat meestal verloren. Alleen versturen als document levert het onaangeroerde origineel."),
+            ("Kan iemand mijn locatie uit een WhatsApp-foto halen?", "Uit een gewoon verstuurde foto meestal niet. Uit een als document verstuurde foto wel, als er bij het maken een locatie is opgeslagen."),
         ],
     },
 ]
