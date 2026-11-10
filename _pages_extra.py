@@ -645,8 +645,8 @@ def register_extra(ns: dict) -> None:
     # ---- Platform cluster (GSC: Discord queries rank #1–7; Telegram query has no page) ----
     article_page(
         "learn/does-telegram-remove-exif",
-        title="Does Telegram Remove EXIF Data? Photo vs File | EXIF+",
-        description="Telegram usually strips EXIF and GPS when you send a compressed photo, but “send as file” keeps the original metadata. Clean the photo first if location matters.",
+        title="Does Telegram Remove EXIF? Photos Yes, Files No | EXIF+",
+        description="Yes for normal photos, no for “Send as file”. Telegram strips GPS from compressed photos but keeps full EXIF in files. How to share safely.",
         h1="Does Telegram remove EXIF?",
         lead="Telegram has two ways to send a picture: as a compressed photo or as an uncompressed file. They treat metadata very differently.",
         prose="""        <p><strong>Direct answer:</strong> A normal Telegram photo send is compressed, which usually drops EXIF and GPS. Sending the picture <em>as a file</em> (uncompressed) delivers the original bytes — including camera tags and location — to everyone in the chat.</p>
@@ -686,8 +686,8 @@ def register_extra(ns: dict) -> None:
 
     article_page(
         "learn/does-whatsapp-remove-exif",
-        title="Does WhatsApp Remove EXIF & Location? Photo vs Document | EXIF+",
-        description="WhatsApp usually strips EXIF and GPS from photos sent normally, but photos sent as a Document keep the original metadata. How to share safely.",
+        title="Does WhatsApp Remove EXIF? Photos Yes, Documents No | EXIF+",
+        description="Yes for normal photos, no for Documents. WhatsApp strips GPS from photos sent as images but keeps full EXIF in Document files. How to share safely.",
         h1="Does WhatsApp remove EXIF?",
         lead="WhatsApp compresses normal photo sends, which usually removes metadata. Sending the same picture as a document keeps the original file — tags included.",
         prose="""        <p><strong>Direct answer:</strong> Photos sent the usual way in WhatsApp are compressed and usually arrive without EXIF or GPS. Photos sent as a <strong>Document</strong> are delivered as the original file, so camera, date, and location tags usually stay.</p>
