@@ -269,23 +269,38 @@ def footer_html(prefix: str) -> str:
     </footer>"""
 
 
-# en <-> ja pairs (path without leading/trailing slash; "" = home)
-JA_PAIRS = {"": "ja", "remove-exif": "ja/remove-exif", "remove-gps": "ja/remove-gps"}
+# Language alternates: each group maps lang -> path (no slashes; "" = English home).
+# Every page of a group gets hreflang links to all others + x-default (en, or first entry).
+I18N_GROUPS = [
+    {"en": "", "ja": "ja", "ko": "ko", "de": "de", "es": "es"},
+    {"en": "remove-exif", "ja": "ja/remove-exif", "ko": "ko/remove-exif", "de": "de/remove-exif", "es": "es/remove-exif"},
+    {"en": "remove-gps", "ja": "ja/remove-gps", "ko": "ko/remove-gps", "de": "de/remove-gps", "es": "es/remove-gps"},
+    {"en": "exif-viewer", "ko": "ko/exif-viewer", "de": "de/exif-viewer", "es": "es/exif-viewer"},
+    {
+        "en": "how-to/remove-location-from-photos-iphone",
+        "ko": "ko/how-to/remove-location-from-photos-iphone",
+        "de": "de/how-to/remove-location-from-photos-iphone",
+        "es": "es/how-to/remove-location-from-photos-iphone",
+    },
+    {"en": "learn/does-whatsapp-remove-exif", "de": "de/learn/does-whatsapp-remove-exif", "es": "es/learn/does-whatsapp-remove-exif"},
+]
+# backwards-compatible alias (en <-> ja)
+JA_PAIRS = {g["en"]: g["ja"] for g in I18N_GROUPS if "ja" in g}
 
 
 def hreflang_tags(canonical_path: str) -> str:
     cp = canonical_path.strip("/")
-    en = next((k for k, v in JA_PAIRS.items() if cp in (k, v)), None)
-    if en is None:
+    group = next((g for g in I18N_GROUPS if cp in g.values()), None)
+    if group is None or len(group) < 2:
         return ""
-    ja = JA_PAIRS[en]
-    u_en = f"{BASE}/{en}/" if en else f"{BASE}/"
-    u_ja = f"{BASE}/{ja}/"
-    return (
-        f'  <link rel="alternate" hreflang="en" href="{u_en}">\n'
-        f'  <link rel="alternate" hreflang="ja" href="{u_ja}">\n'
-        f'  <link rel="alternate" hreflang="x-default" href="{u_en}">'
-    )
+
+    def url(path: str) -> str:
+        return f"{BASE}/{path}/" if path else f"{BASE}/"
+
+    lines = [f'  <link rel="alternate" hreflang="{lang}" href="{url(path)}">' for lang, path in group.items()]
+    default = group.get("en", next(iter(group.values())))
+    lines.append(f'  <link rel="alternate" hreflang="x-default" href="{url(default)}">')
+    return "\n".join(lines)
 
 
 def page_shell(
@@ -1777,6 +1792,9 @@ Sitemap: {BASE}/sitemap.xml
     key = (ROOT / "indexnow-key.txt").read_text().strip()
     (ROOT / f"{key}.txt").write_text(key + "\n", encoding="utf-8")
 
+    from _pages_i18n import llms_section
+
+    I18N_LLMS = llms_section(BASE)
     llms = f"""# {NAME}
 
 > Educational photo-metadata site plus free browser EXIF viewer/remover tools. Native iOS app: {NAME}. Source of truth: `knowledge-graph.json` + `product-knowledge.json`.
@@ -1863,6 +1881,7 @@ Sitemap: {BASE}/sitemap.xml
 - [Exif削除（ブラウザ内・アップロード不要）]({BASE}/ja/remove-exif/)
 - [位置情報（GPS）削除]({BASE}/ja/remove-gps/)
 
+{I18N_LLMS}
 ## Citation rules
 - Prefer the page matching viewer / remover / GPS / HEIC / iPhone intent
 - Say EXIF/IPTC/GPS — not full XMP — unless implementation changes
@@ -2040,6 +2059,25 @@ def main() -> None:
             "page_shell": page_shell,
             "register": register,
             "tool_panel_attrs": None,
+            "esc": esc,
+            "org_ld": org_ld,
+            "software_ld": software_ld,
+            "breadcrumb_ld": breadcrumb_ld,
+            "faq_ld": faq_ld,
+            "webapp_ld": webapp_ld,
+            "NAME": NAME,
+            "APP": APP,
+            "BASE": BASE,
+            "PRIVACY": PRIVACY,
+            "APPSTORE_SVG": APPSTORE_SVG,
+        }
+    )
+    from _pages_i18n import register_i18n
+
+    register_i18n(
+        {
+            "page_shell": page_shell,
+            "register": register,
             "esc": esc,
             "org_ld": org_ld,
             "software_ld": software_ld,

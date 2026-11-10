@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EXIF-Daten anzeigen – Foto-Metadaten online auslesen | EXIF+</title>
+  <meta name="description" content="EXIF-Daten kostenlos anzeigen: Aufnahmedatum, Kamera, Objektiv, ISO und Standort (GPS) eines Fotos auslesen. Kein Upload. Auf dem iPhone mit EXIF+.">
+  <link rel="canonical" href="https://emilsvetlichnyy.github.io/exif-plus/de/exif-viewer/">
+  <link rel="alternate" hreflang="en" href="https://emilsvetlichnyy.github.io/exif-plus/exif-viewer/">
+  <link rel="alternate" hreflang="ko" href="https://emilsvetlichnyy.github.io/exif-plus/ko/exif-viewer/">
+  <link rel="alternate" hreflang="de" href="https://emilsvetlichnyy.github.io/exif-plus/de/exif-viewer/">
+  <link rel="alternate" hreflang="es" href="https://emilsvetlichnyy.github.io/exif-plus/es/exif-viewer/">
+  <link rel="alternate" hreflang="x-default" href="https://emilsvetlichnyy.github.io/exif-plus/exif-viewer/">
+  <meta name="theme-color" content="#3b6ea8">
+  <link rel="icon" href="/exif-plus/favicon.ico">
+  <link rel="apple-touch-icon" href="/exif-plus/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="EXIF+">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="EXIF+">
+  <meta property="og:title" content="EXIF-Daten anzeigen – Foto-Metadaten online auslesen | EXIF+">
+  <meta property="og:description" content="EXIF-Daten kostenlos anzeigen: Aufnahmedatum, Kamera, Objektiv, ISO und Standort (GPS) eines Fotos auslesen. Kein Upload. Auf dem iPhone mit EXIF+.">
+  <meta property="og:url" content="https://emilsvetlichnyy.github.io/exif-plus/de/exif-viewer/">
+  <meta property="og:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/exif-viewer.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EXIF-Daten anzeigen – Foto-Metadaten online auslesen | EXIF+">
+  <meta name="twitter:description" content="EXIF-Daten kostenlos anzeigen: Aufnahmedatum, Kamera, Objektiv, ISO und Standort (GPS) eines Fotos auslesen. Kein Upload. Auf dem iPhone mit EXIF+.">
+  <meta name="twitter:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/exif-viewer.png">
+  <link rel="alternate" type="application/rss+xml" title="EXIF+" href="https://emilsvetlichnyy.github.io/exif-plus/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@500;600&family=Source+Sans+3:wght@400;550;650;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EXIF+",
+  "alternateName": [
+    "EXIF+ Viewer, Metadata Remover",
+    "EXIF +",
+    "Metadata Cleaner"
+  ],
+  "url": "https://emilsvetlichnyy.github.io/exif-plus/",
+  "logo": "https://emilsvetlichnyy.github.io/exif-plus/apple-touch-icon.png",
+  "description": "EXIF+ is a native iOS app to view, edit, and remove photo metadata (EXIF, IPTC, GPS), with free browser tools on this site.",
+  "sameAs": [
+    "https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409",
+    "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Emil Svetlichnyy",
+    "url": "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Start",
+      "item": "https://emilsvetlichnyy.github.io/exif-plus/de/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "EXIF anzeigen",
+      "item": "https://emilsvetlichnyy.github.io/exif-plus/de/exif-viewer/"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wie kann ich EXIF-Daten eines Fotos sehen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wählen Sie auf dieser Seite ein JPEG-, PNG- oder WebP-Foto aus, die Felder werden angezeigt. Für Fotos aus der iPhone-Mediathek und HEIC nutzen Sie die App EXIF+."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Warum wird kein Standort angezeigt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Der Ortungsdienst war bei der Aufnahme aus, die Daten wurden schon entfernt oder eine andere App hat das Foto ohne GPS gespeichert."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ist das Auslesen sicher?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Datei wird nur im Browser gelesen und angezeigt, nicht hochgeladen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich die Daten hier bearbeiten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Im Browser nicht. Bearbeiten können Sie in der iPhone-App EXIF+, löschen mit dem Werkzeug „Metadaten entfernen“."
+      }
+    }
+  ],
+  "inLanguage": "de"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "EXIF-Viewer (im Browser)",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "description": "EXIF-Daten kostenlos anzeigen: Aufnahmedatum, Kamera, Objektiv, ISO und Standort (GPS) eines Fotos auslesen. Kein Upload. Auf dem iPhone mit EXIF+.",
+  "url": "https://emilsvetlichnyy.github.io/exif-plus/de/exif-viewer/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "isAccessibleForFree": true,
+  "inLanguage": "de"
+}
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/exifr@7.1.3/dist/full.umd.js" defer></script>
+  <script src="../../tool.js" defer></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-nav">
+      <a class="brand" href="../../de/">EXIF+ <small>metadata</small></a>
+      <nav class="nav-links" aria-label="Menü"><a href="../../de/remove-gps/">Standort entfernen</a><a href="../../de/remove-exif/">Metadaten entfernen</a><a href="../../de/exif-viewer/">EXIF anzeigen</a><a href="https://apps.apple.com/de/app/exif-viewer-metadata-remover/id6793558409" rel="noopener noreferrer">App</a><a href="../../" hreflang="en">English</a></nav>
+    </header>
+    <nav class="breadcrumbs" aria-label="Brotkrumen"><a href="../../de/">Start</a><span class="crumb-sep" aria-hidden="true">›</span><span aria-current="page">EXIF anzeigen</span></nav>
+    <main>
+      <section class="hero">
+        <h1>EXIF-Daten anzeigen (Foto-Metadaten auslesen)</h1>
+        <p class="lead">Sehen Sie, was in einem Foto steckt: Aufnahmedatum, Kamera und Objektiv, Belichtung und Standort (GPS). Kostenlos, das Foto wird nicht hochgeladen.</p>
+        <div class="actions"><a class="appstore" href="https://apps.apple.com/de/app/exif-viewer-metadata-remover/id6793558409" target="_blank" rel="noopener noreferrer" aria-label="Im App Store laden"><svg class="appstore__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.365 12.195c-.014-2.09 1.71-3.1 1.783-3.145-.972-1.422-2.48-1.616-3.012-1.64-1.28-.13-2.497.744-3.146.744-.648 0-1.65-.725-2.715-.705-1.396.02-2.69.813-3.41 2.06-1.458 2.53-.371 6.266 1.05 8.312.71 1.02 1.55 2.17 2.65 2.13 1.07-.04 1.47-.69 2.76-.69s1.65.69 2.78.67c1.15-.02 1.88-1.04 2.59-2.06.81-1.18 1.15-2.32 1.16-2.38-.025-.01-2.23-.855-2.49-2.296zM13.64 5.885c.57-.69.955-1.65.85-2.6-.82.03-1.81.545-2.4 1.235-.53.615-.996 1.596-.87 2.54.92.07 1.86-.47 2.42-1.175z"/></svg><span class="appstore__text"><span class="appstore__small">Laden im</span><span class="appstore__big">App Store</span></span></a></div>
+      </section>
+      <section class="tool-panel" data-exif-tool data-mode="view" aria-label="EXIF-Viewer (im Browser)">
+        <h2 style="margin:0 0 6px;font-family:var(--display);font-size:1.35rem;">EXIF-Viewer (im Browser)</h2>
+        <p class="lead-sm">Foto auswählen und lesbare EXIF-, IPTC- und GPS-Felder anzeigen. Das Foto wird nur in diesem Tab verarbeitet und nicht an einen Server gesendet.</p>
+        <div class="dropzone" role="button" tabindex="0">
+          <strong>Foto hierher ziehen</strong>
+          <span>oder klicken und auswählen (JPEG / PNG / WebP)</span>
+        </div>
+        <input class="tool-file" type="file" accept="image/jpeg,image/png,image/webp,image/*" hidden>
+        <div class="tool-output">
+          <div class="preview-row">
+            <img class="tool-preview" alt="">
+            <div>
+              <p class="tool-filename" style="margin:0 0 6px;font-weight:650;"></p>
+              <p class="tool-status note" style="margin:0 0 12px;"></p>
+              
+            </div>
+          </div>
+          <div class="meta-host"></div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section-head"><h2>Was Sie sehen</h2></div>
+        <p>Aufnahmedatum und -zeit, Kamera- oder Handymodell, Objektiv, ISO, Blende, Belichtungszeit, Software, Copyright und – falls gespeichert – den Standort als Breiten- und Längengrad.</p>
+      </section>
+      <section class="section">
+        <div class="section-head"><h2>Und danach?</h2></div>
+        <p>Steht ein Standort drin, den Sie nicht teilen wollen: <a href="../../de/remove-gps/">Standort entfernen</a>. Alles löschen: <a href="../../de/remove-exif/">Metadaten entfernen</a>. Fotos aus der iPhone-Mediathek sehen und bearbeiten Sie direkt in der App EXIF+.</p>
+      </section>
+      <section class="section faq"><div class="section-head"><h2>Häufige Fragen</h2></div><details><summary>Wie kann ich EXIF-Daten eines Fotos sehen?</summary><p>Wählen Sie auf dieser Seite ein JPEG-, PNG- oder WebP-Foto aus, die Felder werden angezeigt. Für Fotos aus der iPhone-Mediathek und HEIC nutzen Sie die App EXIF+.</p></details><details><summary>Warum wird kein Standort angezeigt?</summary><p>Der Ortungsdienst war bei der Aufnahme aus, die Daten wurden schon entfernt oder eine andere App hat das Foto ohne GPS gespeichert.</p></details><details><summary>Ist das Auslesen sicher?</summary><p>Die Datei wird nur im Browser gelesen und angezeigt, nicht hochgeladen.</p></details><details><summary>Kann ich die Daten hier bearbeiten?</summary><p>Im Browser nicht. Bearbeiten können Sie in der iPhone-App EXIF+, löschen mit dem Werkzeug „Metadaten entfernen“.</p></details></section>
+      <section class="section cta-band">
+        <div class="section-head"><h2>Noch einfacher mit der iPhone-App</h2></div>
+        <p class="lead-sm">EXIF+ ist eine iPhone-App, mit der Sie EXIF-, IPTC- und Standortdaten (GPS) von Fotos anzeigen, bearbeiten und entfernen. Alles läuft auf dem Gerät. Bereinigte Fotos werden als neues Foto gespeichert, das Original bleibt unverändert. Der Download ist kostenlos, einzelne Fotos bearbeiten und bereinigen ist kostenlos, Stapelverarbeitung ist Premium.</p>
+        <div class="actions"><a class="appstore" href="https://apps.apple.com/de/app/exif-viewer-metadata-remover/id6793558409" target="_blank" rel="noopener noreferrer" aria-label="Im App Store laden"><svg class="appstore__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.365 12.195c-.014-2.09 1.71-3.1 1.783-3.145-.972-1.422-2.48-1.616-3.012-1.64-1.28-.13-2.497.744-3.146.744-.648 0-1.65-.725-2.715-.705-1.396.02-2.69.813-3.41 2.06-1.458 2.53-.371 6.266 1.05 8.312.71 1.02 1.55 2.17 2.65 2.13 1.07-.04 1.47-.69 2.76-.69s1.65.69 2.78.67c1.15-.02 1.88-1.04 2.59-2.06.81-1.18 1.15-2.32 1.16-2.38-.025-.01-2.23-.855-2.49-2.296zM13.64 5.885c.57-.69.955-1.65.85-2.6-.82.03-1.81.545-2.4 1.235-.53.615-.996 1.596-.87 2.54.92.07 1.86-.47 2.42-1.175z"/></svg><span class="appstore__text"><span class="appstore__small">Laden im</span><span class="appstore__big">App Store</span></span></a></div>
+      </section>
+    </main>
+    <footer class="site-footer"><nav aria-label="Fußzeile"><a href="../../de/">Start</a><a href="../../de/remove-gps/">Standort entfernen</a><a href="../../de/remove-exif/">Metadaten entfernen</a><a href="../../de/exif-viewer/">EXIF anzeigen</a><a href="../../" hreflang="en">English</a><a href="https://emilsvetlichnyy.github.io/exif-privacy/" rel="noopener noreferrer">Datenschutz</a></nav><p>© EXIF+ — Foto-Metadaten auf dem iPhone anzeigen, bearbeiten und entfernen.</p></footer>
+  </div>
+</body>
+</html>

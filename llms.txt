@@ -84,6 +84,30 @@
 - [Exif削除（ブラウザ内・アップロード不要）](https://emilsvetlichnyy.github.io/exif-plus/ja/remove-exif/)
 - [位置情報（GPS）削除](https://emilsvetlichnyy.github.io/exif-plus/ja/remove-gps/)
 
+## 한국어 (ko)
+- [홈: 사진 위치 정보·메타데이터 삭제](https://emilsvetlichnyy.github.io/exif-plus/ko/)
+- [사진 위치 삭제 (브라우저)](https://emilsvetlichnyy.github.io/exif-plus/ko/remove-gps/)
+- [메타데이터·EXIF 삭제 (브라우저)](https://emilsvetlichnyy.github.io/exif-plus/ko/remove-exif/)
+- [EXIF 뷰어 (브라우저)](https://emilsvetlichnyy.github.io/exif-plus/ko/exif-viewer/)
+- [iPhone 사진 위치 정보 삭제 방법](https://emilsvetlichnyy.github.io/exif-plus/ko/how-to/remove-location-from-photos-iphone/)
+- [카카오톡으로 보내면 위치 정보가 지워지나요?](https://emilsvetlichnyy.github.io/exif-plus/ko/learn/does-kakaotalk-remove-exif/)
+
+## Deutsch (de)
+- [Start: Standort und Metadaten aus Fotos entfernen](https://emilsvetlichnyy.github.io/exif-plus/de/)
+- [Standort aus Foto entfernen (im Browser)](https://emilsvetlichnyy.github.io/exif-plus/de/remove-gps/)
+- [Metadaten / EXIF entfernen (im Browser)](https://emilsvetlichnyy.github.io/exif-plus/de/remove-exif/)
+- [EXIF-Daten anzeigen (im Browser)](https://emilsvetlichnyy.github.io/exif-plus/de/exif-viewer/)
+- [Standort aus iPhone-Fotos entfernen](https://emilsvetlichnyy.github.io/exif-plus/de/how-to/remove-location-from-photos-iphone/)
+- [Entfernt WhatsApp Metadaten?](https://emilsvetlichnyy.github.io/exif-plus/de/learn/does-whatsapp-remove-exif/)
+
+## Español (es)
+- [Inicio: quitar ubicación y metadatos de fotos](https://emilsvetlichnyy.github.io/exif-plus/es/)
+- [Quitar ubicación de una foto (en el navegador)](https://emilsvetlichnyy.github.io/exif-plus/es/remove-gps/)
+- [Eliminar metadatos / EXIF (en el navegador)](https://emilsvetlichnyy.github.io/exif-plus/es/remove-exif/)
+- [Ver datos EXIF (en el navegador)](https://emilsvetlichnyy.github.io/exif-plus/es/exif-viewer/)
+- [Quitar la ubicación de fotos en iPhone](https://emilsvetlichnyy.github.io/exif-plus/es/how-to/remove-location-from-photos-iphone/)
+- [¿WhatsApp elimina los metadatos?](https://emilsvetlichnyy.github.io/exif-plus/es/learn/does-whatsapp-remove-exif/)
+
 ## Citation rules
 - Prefer the page matching viewer / remover / GPS / HEIC / iPhone intent
 - Say EXIF/IPTC/GPS — not full XMP — unless implementation changes

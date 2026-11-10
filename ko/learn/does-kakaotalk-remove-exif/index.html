@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>카카오톡으로 사진 보내면 위치 정보가 지워질까? | EXIF+</title>
+  <meta name="description" content="카카오톡 일반 사진 전송은 압축되어 보통 위치 정보·EXIF가 사라집니다. 원본 화질이나 파일로 보내면 남을 수 있습니다. 보내기 전에 위치를 지우는 방법.">
+  <link rel="canonical" href="https://emilsvetlichnyy.github.io/exif-plus/ko/learn/does-kakaotalk-remove-exif/">
+  <meta name="theme-color" content="#3b6ea8">
+  <link rel="icon" href="/exif-plus/favicon.ico">
+  <link rel="apple-touch-icon" href="/exif-plus/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="EXIF+">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="EXIF+">
+  <meta property="og:title" content="카카오톡으로 사진 보내면 위치 정보가 지워질까? | EXIF+">
+  <meta property="og:description" content="카카오톡 일반 사진 전송은 압축되어 보통 위치 정보·EXIF가 사라집니다. 원본 화질이나 파일로 보내면 남을 수 있습니다. 보내기 전에 위치를 지우는 방법.">
+  <meta property="og:url" content="https://emilsvetlichnyy.github.io/exif-plus/ko/learn/does-kakaotalk-remove-exif/">
+  <meta property="og:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="카카오톡으로 사진 보내면 위치 정보가 지워질까? | EXIF+">
+  <meta name="twitter:description" content="카카오톡 일반 사진 전송은 압축되어 보통 위치 정보·EXIF가 사라집니다. 원본 화질이나 파일로 보내면 남을 수 있습니다. 보내기 전에 위치를 지우는 방법.">
+  <meta name="twitter:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/home.png">
+  <link rel="alternate" type="application/rss+xml" title="EXIF+" href="https://emilsvetlichnyy.github.io/exif-plus/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@500;600&family=Source+Sans+3:wght@400;550;650;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../styles.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EXIF+",
+  "alternateName": [
+    "EXIF+ Viewer, Metadata Remover",
+    "EXIF +",
+    "Metadata Cleaner"
+  ],
+  "url": "https://emilsvetlichnyy.github.io/exif-plus/",
+  "logo": "https://emilsvetlichnyy.github.io/exif-plus/apple-touch-icon.png",
+  "description": "EXIF+ is a native iOS app to view, edit, and remove photo metadata (EXIF, IPTC, GPS), with free browser tools on this site.",
+  "sameAs": [
+    "https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409",
+    "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Emil Svetlichnyy",
+    "url": "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://emilsvetlichnyy.github.io/exif-plus/ko/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "카카오톡 사진 위치 정보",
+      "item": "https://emilsvetlichnyy.github.io/exif-plus/ko/learn/does-kakaotalk-remove-exif/"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "카카오톡 사진에서 위치를 알 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "일반 화질로 받은 사진은 EXIF가 보통 지워져 있어 위치를 알기 어렵습니다. 원본 화질이나 파일로 받은 사진은 촬영 시 위치가 기록되었다면 알 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "원본으로 보내면 메타데이터가 남나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "남을 수 있습니다. 화질을 유지하려고 원본으로 보낼 때는 먼저 위치 정보를 지우세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "받은 사진에 위치가 있는지 확인하려면?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "사진을 저장한 뒤 EXIF 뷰어로 열어 GPS 항목이 있는지 보면 됩니다."
+      }
+    }
+  ],
+  "inLanguage": "ko"
+}
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-nav">
+      <a class="brand" href="../../../ko/">EXIF+ <small>metadata</small></a>
+      <nav class="nav-links" aria-label="메뉴"><a href="../../../ko/remove-gps/">사진 위치 삭제</a><a href="../../../ko/remove-exif/">메타데이터 삭제</a><a href="../../../ko/exif-viewer/">EXIF 뷰어</a><a href="https://apps.apple.com/kr/app/exif-viewer-metadata-remover/id6793558409" rel="noopener noreferrer">앱</a><a href="../../../" hreflang="en">English</a></nav>
+    </header>
+    <nav class="breadcrumbs" aria-label="경로"><a href="../../../ko/">홈</a><span class="crumb-sep" aria-hidden="true">›</span><span aria-current="page">카카오톡 사진 위치 정보</span></nav>
+    <main>
+      <section class="hero">
+        <h1>카카오톡으로 사진을 보내면 위치 정보가 지워질까?</h1>
+        <p class="lead">짧은 답: 일반 화질로 보내면 사진이 압축되어 보통 위치 정보와 EXIF가 사라집니다. 원본 화질이나 파일로 보내면 원본 파일이 그대로 가서 위치가 남을 수 있습니다.</p>
+        <div class="actions"><a class="appstore" href="https://apps.apple.com/kr/app/exif-viewer-metadata-remover/id6793558409" target="_blank" rel="noopener noreferrer" aria-label="App Store에서 다운로드"><svg class="appstore__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.365 12.195c-.014-2.09 1.71-3.1 1.783-3.145-.972-1.422-2.48-1.616-3.012-1.64-1.28-.13-2.497.744-3.146.744-.648 0-1.65-.725-2.715-.705-1.396.02-2.69.813-3.41 2.06-1.458 2.53-.371 6.266 1.05 8.312.71 1.02 1.55 2.17 2.65 2.13 1.07-.04 1.47-.69 2.76-.69s1.65.69 2.78.67c1.15-.02 1.88-1.04 2.59-2.06.81-1.18 1.15-2.32 1.16-2.38-.025-.01-2.23-.855-2.49-2.296zM13.64 5.885c.57-.69.955-1.65.85-2.6-.82.03-1.81.545-2.4 1.235-.53.615-.996 1.596-.87 2.54.92.07 1.86-.47 2.42-1.175z"/></svg><span class="appstore__text"><span class="appstore__small">다운로드</span><span class="appstore__big">App Store</span></span></a></div>
+      </section>
+      <section class="section">
+        <div class="section-head"><h2>보내는 방식별 정리</h2></div>
+        <ul>
+          <li><strong>일반 화질 사진 전송:</strong> 재압축되어 EXIF·GPS가 보통 사라집니다.</li>
+          <li><strong>원본 화질 전송:</strong> 원본에 가깝게 보내므로 메타데이터가 남을 수 있습니다.</li>
+          <li><strong>파일로 보내기:</strong> 원본 파일 그대로 전달되어 촬영 날짜·기종·위치가 보통 남습니다.</li>
+        </ul>
+        <p>카카오톡의 압축은 개인정보 보호 기능이 아니라 용량을 줄이는 과정의 부수 효과입니다. 설정이나 앱 버전에 따라 결과가 달라질 수 있습니다.</p>
+      </section>
+      <section class="section">
+        <div class="section-head"><h2>안전하게 보내는 방법</h2></div>
+        <p>먼저 지우고 보내세요. 컴퓨터라면 <a href="../../../ko/remove-gps/">브라우저에서 위치 삭제</a>, iPhone이라면 <a href="../../../ko/how-to/remove-location-from-photos-iphone/">아이폰 사진 위치 삭제 방법</a>을 따라 하세요. EXIF+는 정리한 사진을 새로 저장하므로 원본은 그대로입니다.</p>
+      </section>
+      <section class="section faq"><div class="section-head"><h2>자주 묻는 질문</h2></div><details><summary>카카오톡 사진에서 위치를 알 수 있나요?</summary><p>일반 화질로 받은 사진은 EXIF가 보통 지워져 있어 위치를 알기 어렵습니다. 원본 화질이나 파일로 받은 사진은 촬영 시 위치가 기록되었다면 알 수 있습니다.</p></details><details><summary>원본으로 보내면 메타데이터가 남나요?</summary><p>남을 수 있습니다. 화질을 유지하려고 원본으로 보낼 때는 먼저 위치 정보를 지우세요.</p></details><details><summary>받은 사진에 위치가 있는지 확인하려면?</summary><p>사진을 저장한 뒤 EXIF 뷰어로 열어 GPS 항목이 있는지 보면 됩니다.</p></details></section>
+      <section class="section cta-band">
+        <div class="section-head"><h2>iPhone 앱으로 더 간편하게</h2></div>
+        <p class="lead-sm">EXIF+는 iPhone에서 사진의 EXIF·IPTC·위치 정보(GPS)를 보고, 편집하고, 삭제하는 앱입니다. 처리는 기기 안에서 이루어지고, 정리한 사진은 새 사진으로 저장되므로 원본은 그대로 남습니다. 다운로드는 무료이며 한 장씩 편집·삭제는 무료, 여러 장 일괄 처리는 Premium입니다.</p>
+        <div class="actions"><a class="appstore" href="https://apps.apple.com/kr/app/exif-viewer-metadata-remover/id6793558409" target="_blank" rel="noopener noreferrer" aria-label="App Store에서 다운로드"><svg class="appstore__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.365 12.195c-.014-2.09 1.71-3.1 1.783-3.145-.972-1.422-2.48-1.616-3.012-1.64-1.28-.13-2.497.744-3.146.744-.648 0-1.65-.725-2.715-.705-1.396.02-2.69.813-3.41 2.06-1.458 2.53-.371 6.266 1.05 8.312.71 1.02 1.55 2.17 2.65 2.13 1.07-.04 1.47-.69 2.76-.69s1.65.69 2.78.67c1.15-.02 1.88-1.04 2.59-2.06.81-1.18 1.15-2.32 1.16-2.38-.025-.01-2.23-.855-2.49-2.296zM13.64 5.885c.57-.69.955-1.65.85-2.6-.82.03-1.81.545-2.4 1.235-.53.615-.996 1.596-.87 2.54.92.07 1.86-.47 2.42-1.175z"/></svg><span class="appstore__text"><span class="appstore__small">다운로드</span><span class="appstore__big">App Store</span></span></a></div>
+      </section>
+    </main>
+    <footer class="site-footer"><nav aria-label="푸터"><a href="../../../ko/">홈</a><a href="../../../ko/remove-gps/">사진 위치 삭제</a><a href="../../../ko/remove-exif/">메타데이터 삭제</a><a href="../../../ko/exif-viewer/">EXIF 뷰어</a><a href="../../../" hreflang="en">English</a><a href="https://emilsvetlichnyy.github.io/exif-privacy/" rel="noopener noreferrer">개인정보 처리방침</a></nav><p>© EXIF+ — iPhone에서 사진 메타데이터 보기·편집·삭제.</p></footer>
+  </div>
+</body>
+</html>
