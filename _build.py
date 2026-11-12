@@ -2127,9 +2127,6 @@ def main() -> None:
             "APPSTORE_SVG": APPSTORE_SVG,
         }
     )
-    from _pages_test import register_test
-
-    register_test({"article_page": article_page, "esc": esc, "NAME": NAME})
     urls = []
     for page in PAGES:
         urls.append(write_page(page["rel"], page["html"]))

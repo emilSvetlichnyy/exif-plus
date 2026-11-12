@@ -69,7 +69,7 @@ def register_oct(ns: dict) -> None:
         h1="Which apps remove photo metadata?",
         lead="Many apps re-encode photos and drop EXIF/GPS from the copy others see — but none is a guarantee. Here is how the common ones compare and where the risk is.",
         updated=UPDATED,
-        prose="""        <p><strong>Direct answer:</strong> Several big apps re-encode photos you upload, which often removes EXIF and GPS from the shared copy. Sending the same photo as a file or document usually keeps the original bytes and metadata. Because behavior varies by app version and route, remove metadata yourself before sharing.</p>
+        prose=f"""        <p><strong>Direct answer:</strong> Several big apps re-encode photos you upload, which often removes EXIF and GPS from the shared copy. Sending the same photo as a file or document usually keeps the original bytes and metadata. Because behavior varies by app version and route, remove metadata yourself before sharing.</p>
         <h2>Comparison</h2>
         <table>
           <thead><tr><th>App</th><th>What usually matters</th><th>Details</th></tr></thead>
@@ -87,13 +87,34 @@ def register_oct(ns: dict) -> None:
             <tr><td>iMessage &amp; AirDrop</td><td>Share-sheet Options toggle for location</td><td><a href="../does-imessage-remove-location/">Read</a></td></tr>
           </tbody>
         </table>
-        <h2>The rule that always works</h2>
-        <p>Clean the file before it leaves your device: <a href="../../remove-exif/">strip EXIF online</a>, <a href="../../remove-gps/">remove GPS only</a>, or <a href="../../how-to/share-photo-without-metadata/">share without metadata on iPhone</a>.</p>""",
+        <h2>What the official sources say</h2>
+        <p>Most apps do not document what they do with photo metadata. These are the only first-party statements we found (checked 12 Nov 2026):</p>
+        <table>
+          <thead><tr><th>Route</th><th>What the source says</th><th>Location kept?</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr><td>iPhone share sheet: Messages, AirDrop, Mail and other apps</td><td>People you share with may be able to read the location; you can turn off <em>Location</em> under <em>Options</em> before sharing</td><td>Yes by default; no if you switch it off for that share</td><td><a href="https://support.apple.com/guide/personal-safety/manage-location-metadata-in-photos-ips0d7a5df82/web" rel="noopener">Apple Personal Safety Guide</a></td></tr>
+            <tr><td>Telegram, standard photo</td><td>Telegram makes photos smaller before sending</td><td>Not stated</td><td><a href="https://telegram.org/faq" rel="noopener">Telegram FAQ</a></td></tr>
+            <tr><td>Telegram, sent as a file</td><td>The original photo with no compression</td><td>Not stated; the original file is what gets sent</td><td><a href="https://telegram.org/faq" rel="noopener">Telegram FAQ</a></td></tr>
+            <tr><td>Signal, image attachment</td><td>A 2018 change to Signal for iOS strips non-orientation metadata from image and video attachments</td><td>No, per that change; later versions not documented</td><td><a href="https://github.com/signalapp/Signal-iOS/pull/2907" rel="noopener">Signal-iOS on GitHub</a></td></tr>
+          </tbody>
+        </table>
+        <p>WhatsApp, Instagram, Facebook, X, Reddit, Discord and Snapchat publish no statement on this that we could find: for them the answer depends on how you send, and can change with an app update. The comparison table above, with per-app pages, explains the usual photo-vs-file difference.</p>
+        <h2>Clean first, then any route is safe</h2>
+        <p>If you remove metadata in {NAME} before sending, the route no longer matters. From the app's code:</p>
+        <ul>
+          <li><strong>Remove Metadata</strong> decodes the photo and writes a new image file that carries only the orientation tag: no EXIF, GPS, IPTC, camera make or model.</li>
+          <li>The cleaned file is saved as a new photo in your library with no location attached; the original is not changed. In Photos it appears with the date you cleaned it.</li>
+          <li><strong>Share</strong> inside {NAME} (Premium) sends that same cleaned file through the iOS share sheet.</li>
+        </ul>
+        <p>So whether you then send it as a photo, a file, a document or an email attachment, there is no GPS in the file left to keep. One thing cleaning cannot cover: an app that adds your current location to a post when you allow it, which is a setting of that app, not data in the photo.</p>
+        <h2>Other ways to clean</h2>
+        <p><a href="../../remove-exif/">Strip EXIF online</a>, <a href="../../remove-gps/">remove GPS only</a>, or <a href="../../how-to/share-photo-without-metadata/">share without metadata on iPhone</a>.</p>""",
         faqs=[
             ("Which apps remove EXIF from photos?", "Many social apps re-encode uploads, which often drops EXIF and GPS from the public copy. Behavior is not guaranteed and differs by route (photo vs file)."),
             ("Does sending a photo as a file keep metadata?", "Usually yes, because file or document sends tend to preserve the original bytes."),
             ("Do these apps see my photo's location?", "Assume the service receives the original upload with its metadata, even if the copy others see is cleaned."),
             ("What is the safest approach?", "Remove metadata yourself before sharing, then check the result with a metadata viewer."),
+            ("Which apps officially say they remove photo location?", "Very few document it. Apple says shared photos may include location unless you turn it off in the share sheet Options; a 2018 Signal for iOS change strips metadata from image attachments. Most other apps publish no statement."),
         ],
         nav="Learn",
         parent=("Learn", "learn/"),
