@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
+import subprocess
 import secrets
 from datetime import date
 from pathlib import Path
@@ -385,6 +387,33 @@ def page_shell(
 """
 
 
+# ---------- Honest dates ----------
+# dateModified changes only when what a reader sees changes (title, description or
+# <main>), not on every build. datePublished = first git commit of the page.
+PAGE_DATES: dict[str, tuple[str, str]] = {}  # url -> (published, modified)
+_UPDATED_TXT = re.compile(r"<small>Updated \d{4}-\d{2}-\d{2}</small>")
+_DATE_LD = re.compile(r'(\n\s*)(?:"datePublished": "[^"]*",\s*)?"dateModified": "[^"]*"')
+
+
+def _content_key(html: str) -> str:
+    head = re.findall(r'<title>.*?</title>|<meta name="description"[^>]*>', html)
+    main = re.search(r"<main.*?</main>", html, re.S)
+    body = main.group(0) if main else html
+    return "\n".join(head) + _UPDATED_TXT.sub("", body)
+
+
+def _git_dates(path: Path) -> tuple[str | None, str | None]:
+    """(first commit date, last commit date) for a tracked file."""
+    try:
+        out = subprocess.run(
+            ["git", "log", "--format=%cs", "--", str(path.relative_to(ROOT))],
+            cwd=ROOT, capture_output=True, text=True, check=True,
+        ).stdout.split()
+    except Exception:
+        return None, None
+    return (out[-1], out[0]) if out else (None, None)
+
+
 def write_page(rel: str, html: str) -> str:
     if rel in ("", "."):
         path = ROOT / "index.html"
@@ -393,8 +422,56 @@ def write_page(rel: str, html: str) -> str:
         path = ROOT / rel / "index.html"
         path.parent.mkdir(parents=True, exist_ok=True)
         url = f"{BASE}/{rel.strip('/')}/"
-    path.write_text(html, encoding="utf-8")
+
+    old = path.read_text(encoding="utf-8") if path.exists() else None
+    first, last = _git_dates(path)
+    published = first or TODAY
+    if old is not None and _content_key(old) == _content_key(html):
+        m = re.search(r'"dateModified": "([^"]*)"', old)
+        modified = m.group(1) if m else (last or TODAY)
+    else:
+        modified = TODAY
+    modified = max(modified, published)
+    PAGE_DATES[url] = (published, modified)
+
+    html = _DATE_LD.sub(
+        lambda m: f'{m.group(1)}"datePublished": "{published}",{m.group(1)}"dateModified": "{modified}"',
+        html,
+    )
+    html = _UPDATED_TXT.sub(f"<small>Updated {modified}</small>", html)
+    if html != old:
+        path.write_text(html, encoding="utf-8")
     return url
+
+
+# Pages merged into another URL. GitHub Pages has no server redirects, so each old
+# URL gets a tiny page with an instant meta refresh + canonical (Google treats a
+# 0-second meta refresh as a permanent redirect). Not listed in the sitemap.
+REDIRECTS = {
+    "photo-metadata-viewer": "exif-viewer",
+    "image-metadata-viewer": "exif-viewer",
+}
+
+
+def write_redirects() -> None:
+    for old, new in REDIRECTS.items():
+        target = f"{BASE}/{new}/"
+        html = f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Moved to {esc(target)}</title>
+  <link rel="canonical" href="{target}">
+  <meta http-equiv="refresh" content="0; url={target}">
+</head>
+<body>
+  <p>This page moved to <a href="{target}">{esc(target)}</a>.</p>
+</body>
+</html>
+"""
+        path = ROOT / old / "index.html"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(html, encoding="utf-8")
 
 
 # ---------- Page content ----------
@@ -477,7 +554,7 @@ def build_home() -> None:
         <div class="section-head"><h2>Start with a tool</h2></div>
         <div class="grid-3">
           <a class="tile" href="{prefix}remove-exif/"><h3>Strip EXIF</h3><p>Remove metadata and download a clean copy in your browser.</p></a>
-          <a class="tile" href="{prefix}photo-metadata-viewer/"><h3>Photo metadata viewer</h3><p>Check EXIF, IPTC, and GPS before you share.</p></a>
+          <a class="tile" href="{prefix}exif-viewer/"><h3>EXIF &amp; metadata viewer</h3><p>Check EXIF, IPTC, and GPS before you share.</p></a>
           <a class="tile" href="{prefix}remove-gps/"><h3>Remove GPS</h3><p>Focus on location data that can reveal where you were.</p></a>
         </div>
       </section>
@@ -674,110 +751,67 @@ def build_tool_pages() -> None:
 
     tool_page(
         "exif-viewer",
-        title="Online EXIF Viewer Free — Read Photo EXIF Data | EXIF+",
-        description="Free online EXIF viewer: check, read, and view EXIF data, camera settings, dates, and GPS in your browser. No upload to our servers.",
+        title="EXIF Viewer Online — Check Photo & Image Metadata | EXIF+",
+        description="Free online EXIF viewer and photo metadata viewer: check camera, date, copyright and GPS location in JPEG, PNG or WebP. Runs in your browser, no upload.",
         h1="Online EXIF viewer",
-        lead="Check and read EXIF data online — see camera settings, timestamps, software tags, and GPS metadata before you share a photo.",
+        lead="Check what a photo reveals before you share it: camera settings, date taken, author and copyright fields, and GPS location.",
         mode="view",
-        tool_title="EXIF viewer",
-        tool_blurb="Choose a photo to list readable EXIF/IPTC/GPS fields locally.",
+        tool_title="EXIF / photo metadata viewer",
+        tool_blurb="Choose a JPEG, PNG or WebP to list readable EXIF, IPTC and GPS fields locally.",
         sections_html="""      <section class="section prose">
-        <p><strong>Direct answer:</strong> An online EXIF viewer reads hidden photo metadata. Use the tool above to check or read EXIF data for a file on your computer without uploading it to our servers.</p>
+        <p><strong>Direct answer:</strong> An EXIF viewer — also called a photo or image metadata viewer — reads the hidden data stored inside an image file. Choose a file above and the fields are read in your browser tab; the file is not uploaded to our servers.</p>
         <h2>What you can check</h2>
-        <p>Common fields include date taken, camera make/model, lens, ISO, aperture, shutter, software, copyright, and GPS latitude/longitude when present — the same details people mean by “EXIF info,” “read EXIF data,” or “EXIF data on a picture.”</p>
-        <h2>EXIF viewer vs photo metadata viewer</h2>
-        <p>People often search both phrases. This page focuses on EXIF-oriented fields. For broader “photo metadata viewer” wording (EXIF + IPTC + GPS together), see the <a href="../photo-metadata-viewer/">photo metadata viewer</a>.</p>
+        <ul>
+          <li><strong>EXIF</strong> — date taken, camera or phone make and model, lens, ISO, aperture, shutter speed, software</li>
+          <li><strong>IPTC</strong> — author, copyright, caption and keywords, when present</li>
+          <li><strong>GPS</strong> — latitude and longitude if Location Services were on</li>
+        </ul>
+        <h2>How do I check if a photo shows my location?</h2>
+        <p>Look for GPS latitude and longitude in the results. If they are present, anyone who gets the original file can place the photo on a map. If they are missing, location was off at capture or an app already removed them. Step-by-step: <a href="../how-to/check-if-photo-has-location/">check if a photo has location</a>.</p>
+        <h2>Which file types work?</h2>
+        <p>JPEG, PNG and WebP in the browser. HEIC from an iPhone often cannot be decoded by browsers — use the <a href="../heic-metadata/">HEIC metadata</a> workflow in the app. Metadata inside PDFs and videos is outside this tool: see <a href="../learn/pdf-video-png-metadata/">PDF, video and PNG metadata</a>.</p>
         <h2>Next step after viewing</h2>
-        <p>If you see location data you do not want to share, use the <a href="../remove-gps/">GPS remover</a> or <a href="../remove-exif/">strip EXIF online</a>. On iPhone, open EXIF+ to edit fields or batch-clean albums. New to the topic? Start with <a href="../how-to/find-exif-data/">how to find EXIF data</a>.</p>
+        <p>If you see data you do not want to share, <a href="../remove-exif/">strip EXIF online</a>, use the <a href="../remove-gps/">GPS remover</a>, or the <a href="../metadata-cleaner/">metadata cleaner</a>. On iPhone, open EXIF+ to edit fields or <a href="../how-to/remove-photo-metadata-iphone/">remove photo metadata</a> from your library. New to the topic? Start with <a href="../how-to/find-exif-data/">how to find EXIF data</a>.</p>
         <h2>Related</h2>
-        <p>Browser or phone? See <a href="../compare/online-vs-iphone-app/">online vs iPhone app</a> for when each one wins, or open <a href="../how-to/view-exif-on-iphone/">view EXIF on iPhone</a>. Comparing tools? Read <a href="../compare/exif-viewer-alternatives/">EXIF viewer alternatives</a>.</p>
-        <h2>Which viewer page is this?</h2>
-        <p>All viewer pages use the same local tool. This one focuses on camera and exposure tags. For author and copyright fields see the <a href="../photo-metadata-viewer/">photo metadata viewer</a>; for PNG, WebP and a location check see the <a href="../image-metadata-viewer/">image metadata viewer</a>.</p>
+        <p>Browser or phone? See <a href="../compare/online-vs-iphone-app/">online vs iPhone app</a>, or open <a href="../how-to/view-exif-on-iphone/">view EXIF on iPhone</a>. Comparing tools? Read <a href="../compare/exif-viewer-alternatives/">EXIF viewer alternatives</a> and <a href="../compare/best-exif-viewer-iphone/">best EXIF viewer for iPhone</a>.</p>
       </section>""",
         faqs=[
             (
                 "How do I check EXIF data online?",
-                "Open this page, choose a JPEG/PNG/WebP, and review the listed fields. Processing stays in your browser tab.",
+                "Open this page, choose a JPEG, PNG or WebP, and review the listed fields. Processing stays in your browser tab.",
             ),
             (
-                "How do I read EXIF data from a photo?",
-                "Use this online viewer for a desktop file, or EXIF+ on iPhone for Photo Library / HEIC items.",
+                "Is a photo metadata viewer the same as an EXIF viewer?",
+                "Mostly. EXIF is the most common kind of photo metadata; a file can also carry IPTC fields such as author, caption and copyright. This viewer shows the EXIF, IPTC and GPS fields the browser parser returns.",
+            ),
+            (
+                "Can image metadata show where a photo was taken?",
+                "Yes, if GPS coordinates are stored in the file. Many phone photos include them unless location was off or they were stripped.",
             ),
             (
                 "Why don’t I see GPS?",
                 "Location services may have been off at capture, tags were already stripped, or another app re-exported the file without GPS.",
             ),
             (
-                "Is viewing EXIF safe?",
-                "The file is read locally in your browser for display. It is not uploaded to our servers for this tool.",
+                "Are my images uploaded?",
+                "Not to our servers for this tool: the file is read locally in your browser for display.",
+            ),
+            (
+                "Can I view iPhone HEIC metadata here?",
+                "Only if your browser can decode HEIC. For Camera Roll HEIC use EXIF+ on iPhone.",
             ),
             (
                 "Why are some fields missing compared with desktop apps?",
                 "Parsers differ. This viewer shows common EXIF/IPTC/GPS fields returned in-browser. For fuller Photo Library inspection on iPhone, use EXIF+.",
             ),
             (
-                "Can I edit from the viewer?",
-                "Not in the browser tool. Use EXIF+ on iPhone for field editors, or switch to the remover if you want a clean download.",
-            ),
-            (
-                "Does the viewer work offline?",
-                "After the page and script assets load, inspection runs locally on the file you pick. A network drop mid-session may still affect CDN script load on first visit.",
+                "Does viewing metadata change the file?",
+                "No. Inspection is read-only. To edit, use EXIF+ on iPhone; to get a clean copy, switch to the remover.",
             ),
         ],
         crumbs=[
             ("Home", f"{BASE}/"),
             ("EXIF viewer", f"{BASE}/exif-viewer/"),
-        ],
-        og="exif-viewer.png",
-    )
-
-    tool_page(
-        "photo-metadata-viewer",
-        title="Photo Metadata Viewer Online — Check Image Metadata | EXIF+",
-        description="Free photo metadata viewer online: view and check image metadata (EXIF, IPTC, GPS) in your browser. No upload to our servers. iPhone HEIC? Use EXIF+.",
-        h1="Photo metadata viewer",
-        lead="View and check photo metadata online — camera tags, dates, copyright fields, and GPS — before you share an original file.",
-        mode="view",
-        tool_title="Photo / image metadata viewer",
-        tool_blurb="Choose a photo to list readable EXIF, IPTC, and GPS fields locally in your browser.",
-        sections_html="""      <section class="section prose">
-        <p><strong>Direct answer:</strong> A photo metadata viewer shows the hidden data inside an image file. Use the tool above to check photo metadata on a JPEG, PNG, or WebP without uploading the file to our servers.</p>
-        <h2>What “photo metadata” usually includes</h2>
-        <ul>
-          <li><strong>EXIF</strong> — capture time, camera/phone make and model, exposure settings, often GPS</li>
-          <li><strong>IPTC</strong> — author, copyright, caption, keywords (when present)</li>
-          <li><strong>GPS / geotags</strong> — latitude and longitude if Location Services were on</li>
-        </ul>
-        <h2>When to use this vs the iPhone app</h2>
-        <p>Browser viewer: quick check of a file on your computer. <a href="../on-iphone/">EXIF+ on iPhone</a>: Camera Roll / HEIC albums, field editors, and cleaning. Also see <a href="../exif-viewer/">online EXIF viewer</a> for camera and exposure tags, or the <a href="../image-metadata-viewer/">image metadata viewer</a> for a quick location check. This page focuses on author, copyright and caption fields (IPTC) next to EXIF.</p>
-        <h2>After you check metadata</h2>
-        <p>If you do not want those tags to travel with the file, <a href="../remove-exif/">strip EXIF</a>, use the <a href="../metadata-cleaner/">metadata cleaner</a>, or follow <a href="../how-to/remove-photo-metadata-iphone/">remove photo metadata on iPhone</a>.</p>
-      </section>""",
-        faqs=[
-            (
-                "How do I view photo metadata online?",
-                "Use the tool on this page: pick an image and review the fields returned in your browser. Nothing is uploaded to our servers for this tool.",
-            ),
-            (
-                "How do I check photo metadata on a picture?",
-                "Open this viewer (or the EXIF viewer page), select the file, and scroll the tag list. On iPhone library photos, use EXIF+.",
-            ),
-            (
-                "Is a photo metadata viewer the same as an EXIF viewer?",
-                "Mostly overlapping. “EXIF viewer” emphasizes camera/GPS tags; “photo metadata viewer” often includes IPTC/copyright fields too. This tool shows what the browser parser returns across those groups.",
-            ),
-            (
-                "Can I view iPhone HEIC metadata here?",
-                "Only if your browser can decode HEIC. Most people should use EXIF+ for Camera Roll HEIC.",
-            ),
-            (
-                "Does viewing metadata change the file?",
-                "No. Inspection is read-only. Cleaning or editing creates a new file or library item.",
-            ),
-        ],
-        crumbs=[
-            ("Home", f"{BASE}/"),
-            ("Photo metadata viewer", f"{BASE}/photo-metadata-viewer/"),
         ],
         og="exif-viewer.png",
     )
@@ -855,7 +889,7 @@ def build_tool_pages() -> None:
         sections_html="""      <section class="section prose">
         <p><strong>Direct answer:</strong> A photo metadata cleaner removes hidden EXIF/IPTC/GPS fields by writing a new file. Use the tool above for a single JPEG/PNG/WebP, or EXIF+ on iPhone for HEIC and albums.</p>
         <h2>Cleaner vs editor vs viewer</h2>
-        <p>A <strong>viewer</strong> only shows tags (<a href="../photo-metadata-viewer/">photo metadata viewer</a>). A <strong>cleaner</strong> strips them. An <strong>editor</strong> changes fields (date, copyright, GPS) in the iOS app.</p>
+        <p>A <strong>viewer</strong> only shows tags (<a href="../exif-viewer/">photo metadata viewer</a>). A <strong>cleaner</strong> strips them. An <strong>editor</strong> changes fields (date, copyright, GPS) in the iOS app.</p>
         <div class="grid-2">
           <a class="tile" href="../compare/remove-vs-edit-exif/"><h3>Remove vs edit</h3><p>Which workflow fits privacy vs organization.</p></a>
           <a class="tile" href="../batch-remove/"><h3>Batch remove</h3><p>How album cleaning works on iPhone.</p></a>
@@ -1167,9 +1201,7 @@ def build_hubs_and_articles() -> None:
         "Quick local tools in the browser. Use the iPhone app when you need albums, batch, and field editors.",
         [
             ("Remove EXIF / strip EXIF", "../remove-exif/", "Strip metadata and download a clean copy."),
-            ("Photo metadata viewer", "../photo-metadata-viewer/", "View EXIF, IPTC, and GPS online."),
-            ("Image metadata viewer", "../image-metadata-viewer/", "Check location, date and camera in any image."),
-            ("EXIF viewer", "../exif-viewer/", "Check and read EXIF tags."),
+            ("EXIF & photo metadata viewer", "../exif-viewer/", "Check EXIF, IPTC and GPS location in any image."),
             ("Remove GPS", "../remove-gps/", "Focus on location data."),
             ("Metadata cleaner", "../metadata-cleaner/", "Clean photo metadata before sharing."),
             ("HEIC metadata", "../heic-metadata/", "Camera Roll HEIC via the iPhone app."),
@@ -1178,7 +1210,7 @@ def build_hubs_and_articles() -> None:
             ("Edit EXIF", "../edit-exif/", "Change fields in the iOS app."),
         ],
         "Tools",
-        intro="These browser tools read and clean one photo at a time, locally in your tab: nothing is uploaded to our servers. JPEG, PNG and WebP work in the browser; HEIC from an iPhone library is better handled by the EXIF+ app. Pick a viewer to see what a file reveals, a remover to download a clean copy, or the GPS remover when only location matters. The viewer pages share one tool and differ in focus: camera tags, author and copyright fields, or a quick location check.",
+        intro="These browser tools read and clean one photo at a time, locally in your tab: nothing is uploaded to our servers. JPEG, PNG and WebP work in the browser; HEIC from an iPhone library is better handled by the EXIF+ app. Pick a viewer to see what a file reveals, a remover to download a clean copy, or the GPS remover when only location matters. The EXIF viewer shows camera tags, author and copyright fields, and GPS location in one place.",
     )
     hub_page(
         "learn",
@@ -1776,7 +1808,10 @@ Sitemap: {BASE}/sitemap.xml
         encoding="utf-8",
     )
 
-    url_xml = "\n".join(f"  <url>\n    <loc>{u}</loc>\n  </url>" for u in urls)
+    url_xml = "\n".join(
+        f"  <url>\n    <loc>{u}</loc>\n    <lastmod>{PAGE_DATES.get(u, ('', TODAY))[1]}</lastmod>\n  </url>"
+        for u in urls
+    )
     (ROOT / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?>\n'
         f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{url_xml}\n</urlset>\n',
@@ -1844,8 +1879,6 @@ Sitemap: {BASE}/sitemap.xml
 
 ## Priority pages
 - [Strip / remove EXIF]({BASE}/remove-exif/)
-- [Photo metadata viewer]({BASE}/photo-metadata-viewer/)
-- [Image metadata viewer]({BASE}/image-metadata-viewer/)
 - [EXIF viewer]({BASE}/exif-viewer/)
 - [Remove GPS]({BASE}/remove-gps/)
 - [Metadata cleaner]({BASE}/metadata-cleaner/)
@@ -1893,13 +1926,15 @@ Sitemap: {BASE}/sitemap.xml
     (ROOT / "llms.txt").write_text(llms, encoding="utf-8")
 
     items = []
-    for u in urls[:20]:
+    recent = sorted(urls, key=lambda u: PAGE_DATES.get(u, ("", ""))[1], reverse=True)
+    for u in recent[:20]:
+        d = date.fromisoformat(PAGE_DATES.get(u, ("", TODAY))[1])
         items.append(
             f"""    <item>
       <title>{esc(NAME)} — {esc(u.replace(BASE, '') or '/')}</title>
       <link>{u}</link>
       <guid>{u}</guid>
-      <pubDate>{date.today().strftime('%a, %d %b %Y')} 00:00:00 GMT</pubDate>
+      <pubDate>{d.strftime('%a, %d %b %Y')} 00:00:00 GMT</pubDate>
     </item>"""
         )
     (ROOT / "feed.xml").write_text(
@@ -2092,10 +2127,14 @@ def main() -> None:
             "APPSTORE_SVG": APPSTORE_SVG,
         }
     )
+    from _pages_test import register_test
+
+    register_test({"article_page": article_page, "esc": esc, "NAME": NAME})
     urls = []
     for page in PAGES:
         urls.append(write_page(page["rel"], page["html"]))
     urls = sorted(set(urls), key=lambda u: (u != f"{BASE}/", u))
+    write_redirects()
     write_support_files(urls)
     make_icons()
     print(f"Built {len(urls)} URLs")

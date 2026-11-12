@@ -10,40 +10,6 @@ def register_oct(ns: dict) -> None:
     NAME = ns["NAME"]
     BASE = ns["BASE"]
 
-    # ---- Tool: image metadata viewer (Trends: "image metadata" > "exif data") ----
-    tool_page(
-        "image-metadata-viewer",
-        title="Image Metadata Viewer Online — Check Location | EXIF+",
-        description="Free image metadata viewer: see what a JPEG, PNG or WebP reveals — location, date, camera, software — then remove it. In your browser, no upload.",
-        h1="Image metadata viewer",
-        lead="See what an image reveals before you share it: location, date taken, camera, and software tags — then remove it.",
-        mode="view",
-        tool_title="Image metadata viewer",
-        tool_blurb="Choose an image to list readable metadata fields locally.",
-        sections_html="""      <section class="section prose">
-        <p><strong>Direct answer:</strong> An image metadata viewer lists the hidden data stored inside an image file — mostly EXIF (camera, date, GPS), sometimes IPTC (author, caption, copyright). Choose a file above and the fields are read in your browser tab.</p>
-        <h2>How do I check image metadata location?</h2>
-        <p>Look for GPS latitude and longitude in the results. If they are present, anyone who gets the original file can place the photo on a map. If they are missing, location services were off, or an app already removed them.</p>
-        <h2>How do I remove image metadata?</h2>
-        <p>Use <a href="../remove-exif/">strip EXIF online</a> for a clean download, or <a href="../remove-gps/">remove GPS only</a>. On iPhone, <a href="../how-to/remove-photo-metadata-iphone/">remove photo metadata</a> from your library with EXIF+.</p>
-        <h2>Which file types work?</h2>
-        <p>JPEG, PNG and WebP in the browser. HEIC from an iPhone is often not decodable in browsers — use the <a href="../heic-metadata/">HEIC metadata</a> workflow in the app. Metadata inside PDFs and videos is outside this tool: see <a href="../learn/pdf-video-png-metadata/">PDF, video and PNG metadata</a>.</p>
-        <h2>Which viewer page is this?</h2>
-        <p>All three viewer pages use the same local tool. This one is about checking an image for location and software tags, including PNG and WebP. For camera and exposure settings see the <a href="../exif-viewer/">EXIF viewer</a>; for author and copyright fields see the <a href="../photo-metadata-viewer/">photo metadata viewer</a>. To remove what you find, use the <a href="../metadata-cleaner/">metadata cleaner</a>.</p>
-        <h2>Related viewers</h2>
-        <p><a href="../exif-viewer/">EXIF viewer</a> · <a href="../photo-metadata-viewer/">Photo metadata viewer</a> · <a href="../how-to/find-exif-data/">How to check photo metadata</a></p>
-      </section>""",
-        faqs=[
-            ("How do I check image metadata?", "Open this page, choose a JPEG, PNG or WebP, and read the listed fields. Processing stays in your browser tab."),
-            ("Can image metadata show where a photo was taken?", "Yes, if GPS coordinates are stored in the file. Many phone photos include them unless location was off or they were stripped."),
-            ("How do I remove metadata from an image?", "Use the EXIF remover on this site for a cleaned download, or EXIF+ on iPhone for Photo Library items."),
-            ("Is image metadata the same as EXIF?", "EXIF is the most common kind. IPTC (captions, author, copyright) can also be present in the same file."),
-            ("Are my images uploaded?", "Not to our servers for this tool: the file is read locally in your browser."),
-        ],
-        crumbs=[("Home", f"{BASE}/"), ("Image metadata viewer", f"{BASE}/image-metadata-viewer/")],
-        og="photo-metadata-viewer.png",
-    )
-
     # ---- Platform cluster: Facebook / X / Reddit (same template as Discord) ----
     others = '<p>Other platforms: <a href="../does-instagram-remove-exif/">Instagram</a>, <a href="../does-discord-remove-exif/">Discord</a>, <a href="../does-whatsapp-remove-exif/">WhatsApp</a>, <a href="../does-telegram-remove-exif/">Telegram</a>, <a href="../does-signal-remove-exif/">Signal</a>, <a href="../does-snapchat-remove-exif/">Snapchat</a>, <a href="../does-imessage-remove-location/">iMessage &amp; AirDrop</a>. Full list: <a href="../which-apps-remove-photo-metadata/">which apps remove photo metadata</a>.</p>'
 
@@ -154,7 +120,7 @@ def register_oct(ns: dict) -> None:
         <h2>Does removing EXIF remove C2PA?</h2>
         <p>Not necessarily as a promise. Re-encoding or stripping a file can remove embedded credentials, but that depends on the tool and the file. Metadata can also be missing simply because a platform stripped it, so its absence does not prove an image is real or fake.</p>
         <h2>What {NAME} does and does not do</h2>
-        <p>{NAME} reads and edits EXIF, IPTC and GPS on your iPhone. It does <strong>not</strong> verify C2PA signatures or detect AI images. To see which basic fields an image carries, use the <a href="../../image-metadata-viewer/">image metadata viewer</a>.</p>""",
+        <p>{NAME} reads and edits EXIF, IPTC and GPS on your iPhone. It does <strong>not</strong> verify C2PA signatures or detect AI images. To see which basic fields an image carries, use the <a href="../../exif-viewer/">image metadata viewer</a>.</p>""",
         faqs=[
             ("Do AI images have EXIF data?", "Sometimes. Some tools write a software name or settings into metadata fields; many images have little or none."),
             ("What is C2PA metadata?", "A signed provenance record (Content Credentials) describing how a file was created and edited. It is separate from EXIF."),
@@ -181,7 +147,7 @@ def register_oct(ns: dict) -> None:
           <li>Text visible on screen — names, messages, addresses — which is the bigger privacy risk</li>
         </ul>
         <h2>How to check</h2>
-        <p>Drop the file into the <a href="../../image-metadata-viewer/">image metadata viewer</a>. If any field is sensitive, <a href="../../remove-exif/">strip EXIF online</a>. For an iPhone screenshot in your library, use <a href="../../how-to/view-exif-on-iphone/">view EXIF on iPhone</a>.</p>
+        <p>Drop the file into the <a href="../../exif-viewer/">image metadata viewer</a>. If any field is sensitive, <a href="../../remove-exif/">strip EXIF online</a>. For an iPhone screenshot in your library, use <a href="../../how-to/view-exif-on-iphone/">view EXIF on iPhone</a>.</p>
         <h2>Before you share one</h2>
         <p>Crop out notification banners, account names and addresses first. Removing metadata does not hide what is visible in the image.</p>""",
         faqs=[
@@ -204,7 +170,7 @@ def register_oct(ns: dict) -> None:
         updated=UPDATED,
         prose=f"""        <p><strong>Direct answer:</strong> JPEG photos mainly use EXIF/IPTC; PNG uses text chunks (and sometimes EXIF); PDFs store document properties such as author, title and creation tool; videos store container tags such as creation time and sometimes location. The tools on this site read images; they do not read PDFs or video.</p>
         <h2>JPEG, HEIC, WebP</h2>
-        <p>Camera, date and GPS in EXIF; captions and copyright in IPTC. Check with the <a href="../../image-metadata-viewer/">image metadata viewer</a>.</p>
+        <p>Camera, date and GPS in EXIF; captions and copyright in IPTC. Check with the <a href="../../exif-viewer/">image metadata viewer</a>.</p>
         <h2>PNG</h2>
         <p>PNG has no standard camera EXIF block in most files, but can hold text chunks and, in some files, EXIF. Screenshots and generated images are often PNG: see <a href="../does-screenshot-have-exif/">screenshot metadata</a> and <a href="../ai-image-metadata-c2pa/">AI image metadata</a>.</p>
         <h2>PDF</h2>
@@ -237,7 +203,7 @@ def register_oct(ns: dict) -> None:
             <tr><td>ExifTool</td><td>Deep tag lists, batch scripts on a computer</td><td>Comfortable with a command line?</td></tr>
             <tr><td>Jeffrey's Image Metadata Viewer</td><td>Detailed online report for a file or URL</td><td>Does it fetch or upload the file?</td></tr>
             <tr><td>Jimpl, Metadata2go</td><td>Quick online lookups</td><td>Is the file uploaded to a server?</td></tr>
-            <tr><td><a href="../../image-metadata-viewer/">EXIF+ web viewer</a></td><td>Reading JPEG/PNG/WebP locally in the browser, then removing</td><td>Not for HEIC in most browsers</td></tr>
+            <tr><td><a href="../../exif-viewer/">EXIF+ web viewer</a></td><td>Reading JPEG/PNG/WebP locally in the browser, then removing</td><td>Not for HEIC in most browsers</td></tr>
             <tr><td>{NAME} on iPhone</td><td>Photo Library, HEIC, edit and batch remove</td><td>Needs an iPhone</td></tr>
           </tbody>
         </table>
@@ -286,7 +252,7 @@ def register_oct(ns: dict) -> None:
           <li>Choose the photo (JPEG, PNG or WebP).</li>
           <li>Download the cleaned copy and share that one.</li>
         </ol>
-        <p>Processing stays in your browser tab. Check the result in the <a href="../../image-metadata-viewer/">image metadata viewer</a>. On iPhone see <a href="../remove-photo-metadata-iphone/">remove photo metadata on iPhone</a>.</p>""",
+        <p>Processing stays in your browser tab. Check the result in the <a href="../../exif-viewer/">image metadata viewer</a>. On iPhone see <a href="../remove-photo-metadata-iphone/">remove photo metadata on iPhone</a>.</p>""",
         faqs=[
             ("How do I remove EXIF data on Windows?", "Right-click the file → Properties → Details → Remove Properties and Personal Information."),
             ("How do I remove location from a photo on Mac?", "Open it in Preview → Tools → Show Inspector → GPS tab → Remove Location Info."),

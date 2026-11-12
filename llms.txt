@@ -46,8 +46,6 @@
 
 ## Priority pages
 - [Strip / remove EXIF](https://emilsvetlichnyy.github.io/exif-plus/remove-exif/)
-- [Photo metadata viewer](https://emilsvetlichnyy.github.io/exif-plus/photo-metadata-viewer/)
-- [Image metadata viewer](https://emilsvetlichnyy.github.io/exif-plus/image-metadata-viewer/)
 - [EXIF viewer](https://emilsvetlichnyy.github.io/exif-plus/exif-viewer/)
 - [Remove GPS](https://emilsvetlichnyy.github.io/exif-plus/remove-gps/)
 - [Metadata cleaner](https://emilsvetlichnyy.github.io/exif-plus/metadata-cleaner/)

@@ -18,37 +18,50 @@ def register_nov(ns: dict) -> None:
     # 1 ---------------------------------------------------------------
     article_page(
         "compare/best-app-to-remove-exif-iphone",
-        title="Best App to Remove EXIF Data on iPhone (2026) | EXIF+",
-        description="How to choose an app that removes EXIF and location from iPhone photos: five criteria, the main options compared, and where EXIF+ fits.",
-        h1="Best app to remove EXIF data on iPhone",
-        lead="The best app is the one that cleans the photo on your device, keeps the original, and does the job in few taps. Here are the criteria, the options, and where EXIF+ fits.",
+        title="Best App to Remove EXIF on iPhone: 5 Apps Compared | EXIF+",
+        description="Metapho, Exif Metadata, Photo Metadata EXIF Remover, Photo Secure and EXIF+ compared: what each removes, batch, video, price model, and where each one wins.",
+        h1="Best app to remove EXIF data on iPhone: 5 apps compared",
+        lead="Five iPhone apps that remove photo metadata, compared on what they actually do. We make one of them (EXIF+), so we say where the others are better.",
         updated=UPDATED,
-        prose=f"""        <p><strong>Direct answer:</strong> Pick an iPhone app that removes EXIF and GPS on the device (no upload), saves the result as a new photo instead of overwriting the original, supports HEIC, and lets you clean several photos at once. {NAME} does these things; the iOS share sheet can drop location only, and a browser tool is fine for a single JPEG, PNG or WebP.</p>
+        prose=f"""        <p><strong>Direct answer:</strong> All five apps below remove GPS and EXIF on the device without uploading your photo. Pick <strong>Metapho</strong> if you also need videos, RAW files or a Mac; <strong>Exif Metadata</strong> if you want the most-reviewed editor with a Photos extension; <strong>Photo Metadata EXIF Remover</strong> if you only want to share clean copies of photos and videos; and <strong>{NAME}</strong> if you want view, edit and remove in one free app that always saves a new copy and keeps the original.</p>
+        <p><small>Disclosure: {NAME} is our app. Facts about other apps come from their US App Store listings as of 12 Nov 2026; features and prices change, so check the listing before you buy. We have not run a lab test of every app.</small></p>
+        <h2>The five apps at a glance</h2>
+        <table>
+          <thead><tr><th>App</th><th>US rating</th><th>Removes</th><th>Batch</th><th>Video</th><th>How it is paid</th></tr></thead>
+          <tbody>
+            <tr><td>Metapho</td><td>4.6 (≈2,100)</td><td>All metadata or location; edit date and place</td><td>Yes</td><td>Yes, plus RAW and Live Photos</td><td>Subscription or one-time purchase (trial)</td></tr>
+            <tr><td>Exif Metadata</td><td>4.6 (≈6,100)</td><td>All metadata or GPS only; edit 50+ tags</td><td>Pro</td><td>Not listed</td><td>Free to try; Pro by year or one-time, removes ads</td></tr>
+            <tr><td>Photo Metadata EXIF Remover</td><td>4.0 (≈170)</td><td>All metadata at once (no GPS-only option)</td><td>Yes, up to 20 from Photos</td><td>Yes</td><td>Free; editing is in a separate paid app</td></tr>
+            <tr><td>EXIF Remover – Photo Secure</td><td>4.3 (≈60)</td><td>Location and EXIF</td><td>Not listed</td><td>Yes, can also remove audio</td><td>Free with ads; Plus subscription removes ads</td></tr>
+            <tr><td>{NAME}</td><td>New, no ratings yet</td><td>EXIF, IPTC and GPS: remove all, remove location, or edit fields</td><td>Premium</td><td>No</td><td>Single photo free; batch and stripped share are Premium</td></tr>
+          </tbody>
+        </table>
+        <h2>Where each one wins</h2>
+        <ul>
+          <li><strong>Metapho</strong> — the widest format support: HEIC, DNG and other RAW files, Live Photos and videos, files in the Files app and on SMB or external drives, and the same purchase on Mac. It can also replace the original instead of saving a copy.</li>
+          <li><strong>Exif Metadata</strong> — the largest number of reviews in this group, a Photos extension to see metadata without leaving Photos, and filters for photos missing location or metadata (Pro).</li>
+          <li><strong>Photo Metadata EXIF Remover</strong> — the simplest privacy tool: share or save a copy with no metadata, including videos, from the Share button in Photos. It also flags AI and Content Credentials (C2PA) info. It does not edit fields.</li>
+          <li><strong>EXIF Remover – Photo Secure</strong> — handles photos and videos and can strip a video's audio; shows the place on a map before you post.</li>
+          <li><strong>{NAME}</strong> — view, edit and remove in one app, free for single photos; every change is saved as a new photo so the original stays; History keeps 50 before/after entries. It does not handle video, RAW or XMP, and has no Photos-app extension.</li>
+        </ul>
         <h2>Five criteria that matter</h2>
         <ol>
-          <li><strong>Processing stays on the device.</strong> A photo you want to make private should not be uploaded to a server to be cleaned.</li>
-          <li><strong>Original is kept.</strong> The tool should save a new copy so a mistake cannot destroy your only photo.</li>
+          <li><strong>Processing stays on the device.</strong> All five say photos are not sent to a server.</li>
+          <li><strong>Original is kept.</strong> A saved copy means a mistake cannot destroy your only photo. Metapho lets you choose; the others save copies.</li>
           <li><strong>HEIC works.</strong> iPhone photos are usually HEIC; many browser tools cannot open them.</li>
           <li><strong>Removes more than location.</strong> Camera model, software and date also describe you.</li>
           <li><strong>Batch.</strong> Cleaning one photo at a time stops being practical after a few.</li>
         </ol>
-        <h2>Options compared</h2>
-        <table>
-          <thead><tr><th>Option</th><th>Removes</th><th>Good for</th><th>Limit</th></tr></thead>
-          <tbody>
-            <tr><td>iOS share sheet → Options</td><td>Location (and some data) for that share</td><td>Quick one-off send</td><td>Does not give you a cleaned file in your library</td></tr>
-            <tr><td><a href="../../remove-exif/">Browser EXIF remover</a></td><td>All EXIF/GPS in the file</td><td>JPEG, PNG, WebP on any device</td><td>HEIC from the iPhone library is often not readable</td></tr>
-            <tr><td>{NAME} app</td><td>EXIF, IPTC and GPS; selective edit or remove all</td><td>iPhone Photo Library, HEIC, batch (Premium)</td><td>iOS/iPadOS only; no video or XMP</td></tr>
-            <tr><td>ExifTool</td><td>Almost any tag in many file types</td><td>Computers, scripts</td><td>Command line</td></tr>
-          </tbody>
-        </table>
+        <h2>No app at all</h2>
+        <p>The iOS share sheet's <em>Options → Location</em> drops location for one send, but leaves camera and date tags and gives you no cleaned file. For a single JPEG, PNG or WebP on any device, the <a href="../../remove-exif/">browser EXIF remover</a> works without installing anything. On a computer, ExifTool removes almost any tag from many file types from the command line.</p>
 {fits}
-        <p>See also: <a href="../online-vs-iphone-app/">online tool vs iPhone app</a>, <a href="../../how-to/remove-photo-metadata-iphone/">how to remove photo metadata on iPhone</a>.</p>""",
+        <p>See also: <a href="../online-vs-iphone-app/">online tool vs iPhone app</a>, <a href="../ios-share-options-vs-exif-app/">share-sheet Options vs an EXIF app</a>, <a href="../../how-to/remove-photo-metadata-iphone/">how to remove photo metadata on iPhone</a>.</p>""",
         faqs=[
-            ("What is the best app to remove EXIF data on iPhone?", f"Look for on-device processing, HEIC support, a saved copy instead of overwriting, and batch cleaning. {NAME} is built around those."),
+            ("What is the best app to remove EXIF data on iPhone?", f"It depends on the job. Metapho covers the most formats including video and RAW; Exif Metadata is the most reviewed editor; Photo Metadata EXIF Remover is the simplest share-a-clean-copy tool; {NAME} combines view, edit and remove for free on single photos and always keeps the original."),
+            ("Is there a free app to remove metadata from iPhone photos?", f"Yes. Photo Metadata EXIF Remover is free, Photo Secure is free with ads, Exif Metadata is free to try, and {NAME} is free for single photos. Batch features usually cost extra."),
+            ("Which apps remove metadata from videos?", f"Metapho, Photo Metadata EXIF Remover and Photo Secure list video support. {NAME} works with photos only."),
             ("Can I remove EXIF on iPhone without an app?", "Partly. The share sheet's Options lets you turn off location for that send, but it does not remove camera and date tags from a saved file."),
-            ("Is it safe to use an online EXIF remover?", "Only if it processes the file locally. Check the tool's privacy statement; the browser tools on this site read files in your tab."),
-            ("Does removing EXIF lower photo quality?", "Stripping tags does not change the pixels, but an app that re-saves a JPEG or HEIC may recompress it. See the page on quality."),
+            ("Do these apps upload my photos?", "All five state that photos are processed on the device and not sent to a server. Apps that show a map may send coordinates to Apple Maps to draw it."),
         ],
         nav="Compare",
         parent=("Compare", "compare/"),
@@ -207,7 +220,7 @@ def register_nov(ns: dict) -> None:
           </tbody>
         </table>
         <h2>See it yourself</h2>
-        <p>{NAME} groups tags in these same categories for any photo in your library: <a href="../../how-to/view-exif-on-iphone/">view EXIF on iPhone</a>. For a file on a computer use the <a href="../../image-metadata-viewer/">image metadata viewer</a>. HEIC specifics are on the <a href="../../heic-metadata/">HEIC metadata</a> page; definitions are in <a href="../what-is-exif/">What is EXIF?</a>.</p>""",
+        <p>{NAME} groups tags in these same categories for any photo in your library: <a href="../../how-to/view-exif-on-iphone/">view EXIF on iPhone</a>. For a file on a computer use the <a href="../../exif-viewer/">image metadata viewer</a>. HEIC specifics are on the <a href="../../heic-metadata/">HEIC metadata</a> page; definitions are in <a href="../what-is-exif/">What is EXIF?</a>.</p>""",
         faqs=[
             ("What data is stored in an iPhone photo?", "Date and time, GPS location when enabled, device and lens, exposure settings, orientation and image size."),
             ("Do iPhone photos include location?", "Yes, when Location Services are enabled for the Camera app."),
@@ -272,7 +285,7 @@ def register_nov(ns: dict) -> None:
         <ol>
           <li>Remove location or all metadata first: <a href="../../remove-gps/">GPS remover</a>, <a href="../../remove-exif/">strip EXIF online</a>, or {NAME} on iPhone.</li>
           <li>Attach the cleaned copy, not the original.</li>
-          <li>Open the cleaned file in the <a href="../../image-metadata-viewer/">image metadata viewer</a> if you want to confirm.</li>
+          <li>Open the cleaned file in the <a href="../../exif-viewer/">image metadata viewer</a> if you want to confirm.</li>
         </ol>
         <p>On iPhone, the share sheet's Options switch can also remove location for a single send; see <a href="../../compare/ios-share-options-vs-exif-app/">Options vs an EXIF app</a>.</p>""",
         faqs=[
@@ -372,7 +385,7 @@ def register_nov(ns: dict) -> None:
         <h2>On Mac</h2>
         <p>Open in Preview → Tools → Show Inspector → the GPS tab (it appears only when the photo has location).</p>
         <h2>In any browser</h2>
-        <p>Drop the file into the <a href="../../image-metadata-viewer/">image metadata viewer</a> (JPEG, PNG, WebP). Read the fields locally, nothing is uploaded to our servers.</p>
+        <p>Drop the file into the <a href="../../exif-viewer/">image metadata viewer</a> (JPEG, PNG, WebP). Read the fields locally, nothing is uploaded to our servers.</p>
         <h2>If it has location</h2>
         <p>Remove it with the <a href="../../remove-gps/">GPS remover</a> or on iPhone via <a href="../remove-location-from-photos-iphone/">remove location from photos</a>. Why it matters: <a href="../../learn/can-photo-metadata-reveal-your-location/">can a photo reveal your location</a>.</p>""",
         faqs=[

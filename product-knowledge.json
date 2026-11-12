@@ -55,7 +55,6 @@
     ],
     "browserTools": [
       "exif-viewer",
-      "photo-metadata-viewer",
       "remove-exif",
       "remove-gps",
       "metadata-cleaner"

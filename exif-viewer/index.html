@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Online EXIF Viewer Free — Read Photo EXIF Data | EXIF+</title>
-  <meta name="description" content="Free online EXIF viewer: check, read, and view EXIF data, camera settings, dates, and GPS in your browser. No upload to our servers.">
+  <title>EXIF Viewer Online — Check Photo &amp; Image Metadata | EXIF+</title>
+  <meta name="description" content="Free online EXIF viewer and photo metadata viewer: check camera, date, copyright and GPS location in JPEG, PNG or WebP. Runs in your browser, no upload.">
   <link rel="canonical" href="https://emilsvetlichnyy.github.io/exif-plus/exif-viewer/">
   <link rel="alternate" hreflang="en" href="https://emilsvetlichnyy.github.io/exif-plus/exif-viewer/">
   <link rel="alternate" hreflang="ko" href="https://emilsvetlichnyy.github.io/exif-plus/ko/exif-viewer/">
@@ -19,15 +19,15 @@
   <meta name="apple-mobile-web-app-title" content="EXIF+">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EXIF+">
-  <meta property="og:title" content="Online EXIF Viewer Free — Read Photo EXIF Data | EXIF+">
-  <meta property="og:description" content="Free online EXIF viewer: check, read, and view EXIF data, camera settings, dates, and GPS in your browser. No upload to our servers.">
+  <meta property="og:title" content="EXIF Viewer Online — Check Photo &amp; Image Metadata | EXIF+">
+  <meta property="og:description" content="Free online EXIF viewer and photo metadata viewer: check camera, date, copyright and GPS location in JPEG, PNG or WebP. Runs in your browser, no upload.">
   <meta property="og:url" content="https://emilsvetlichnyy.github.io/exif-plus/exif-viewer/">
   <meta property="og:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/exif-viewer.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Online EXIF Viewer Free — Read Photo EXIF Data | EXIF+">
-  <meta name="twitter:description" content="Free online EXIF viewer: check, read, and view EXIF data, camera settings, dates, and GPS in your browser. No upload to our servers.">
+  <meta name="twitter:title" content="EXIF Viewer Online — Check Photo &amp; Image Metadata | EXIF+">
+  <meta name="twitter:description" content="Free online EXIF viewer and photo metadata viewer: check camera, date, copyright and GPS location in JPEG, PNG or WebP. Runs in your browser, no upload.">
   <meta name="twitter:image" content="https://emilsvetlichnyy.github.io/exif-plus/assets/og/exif-viewer.png">
   <link rel="alternate" type="application/rss+xml" title="EXIF+" href="https://emilsvetlichnyy.github.io/exif-plus/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -88,15 +88,23 @@
       "name": "How do I check EXIF data online?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Open this page, choose a JPEG/PNG/WebP, and review the listed fields. Processing stays in your browser tab."
+        "text": "Open this page, choose a JPEG, PNG or WebP, and review the listed fields. Processing stays in your browser tab."
       }
     },
     {
       "@type": "Question",
-      "name": "How do I read EXIF data from a photo?",
+      "name": "Is a photo metadata viewer the same as an EXIF viewer?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use this online viewer for a desktop file, or EXIF+ on iPhone for Photo Library / HEIC items."
+        "text": "Mostly. EXIF is the most common kind of photo metadata; a file can also carry IPTC fields such as author, caption and copyright. This viewer shows the EXIF, IPTC and GPS fields the browser parser returns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can image metadata show where a photo was taken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if GPS coordinates are stored in the file. Many phone photos include them unless location was off or they were stripped."
       }
     },
     {
@@ -109,10 +117,18 @@
     },
     {
       "@type": "Question",
-      "name": "Is viewing EXIF safe?",
+      "name": "Are my images uploaded?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The file is read locally in your browser for display. It is not uploaded to our servers for this tool."
+        "text": "Not to our servers for this tool: the file is read locally in your browser for display."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I view iPhone HEIC metadata here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if your browser can decode HEIC. For Camera Roll HEIC use EXIF+ on iPhone."
       }
     },
     {
@@ -125,18 +141,10 @@
     },
     {
       "@type": "Question",
-      "name": "Can I edit from the viewer?",
+      "name": "Does viewing metadata change the file?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not in the browser tool. Use EXIF+ on iPhone for field editors, or switch to the remover if you want a clean download."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does the viewer work offline?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "After the page and script assets load, inspection runs locally on the file you pick. A network drop mid-session may still affect CDN script load on first visit."
+        "text": "No. Inspection is read-only. To edit, use EXIF+ on iPhone; to get a clean copy, switch to the remover."
       }
     }
   ]
@@ -146,11 +154,11 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "EXIF viewer",
+  "name": "EXIF / photo metadata viewer",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "Any",
   "browserRequirements": "Requires JavaScript",
-  "description": "Free online EXIF viewer: check, read, and view EXIF data, camera settings, dates, and GPS in your browser. No upload to our servers.",
+  "description": "Free online EXIF viewer and photo metadata viewer: check camera, date, copyright and GPS location in JPEG, PNG or WebP. Runs in your browser, no upload.",
   "url": "https://emilsvetlichnyy.github.io/exif-plus/exif-viewer/",
   "offers": {
     "@type": "Offer",
@@ -164,7 +172,7 @@
 {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  "name": "EXIF viewer",
+  "name": "EXIF / photo metadata viewer",
   "step": [
     {
       "@type": "HowToStep",
@@ -203,15 +211,15 @@
     <main>
       <section class="hero">
         <h1>Online EXIF viewer</h1>
-        <p class="lead">Check and read EXIF data online — see camera settings, timestamps, software tags, and GPS metadata before you share a photo.</p>
+        <p class="lead">Check what a photo reveals before you share it: camera settings, date taken, author and copyright fields, and GPS location.</p>
         <div class="actions">
           <a class="appstore" href="https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409" target="_blank" rel="noopener noreferrer" aria-label="Download EXIF+ on the App Store"><svg class="appstore__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.365 12.195c-.014-2.09 1.71-3.1 1.783-3.145-.972-1.422-2.48-1.616-3.012-1.64-1.28-.13-2.497.744-3.146.744-.648 0-1.65-.725-2.715-.705-1.396.02-2.69.813-3.41 2.06-1.458 2.53-.371 6.266 1.05 8.312.71 1.02 1.55 2.17 2.65 2.13 1.07-.04 1.47-.69 2.76-.69s1.65.69 2.78.67c1.15-.02 1.88-1.04 2.59-2.06.81-1.18 1.15-2.32 1.16-2.38-.025-.01-2.23-.855-2.49-2.296zM13.64 5.885c.57-.69.955-1.65.85-2.6-.82.03-1.81.545-2.4 1.235-.53.615-.996 1.596-.87 2.54.92.07 1.86-.47 2.42-1.175z"/></svg><span class="appstore__text"><span class="appstore__small">Download on the</span><span class="appstore__big">App Store</span></span></a>
           <a class="btn btn-secondary" href="../app/">iPhone app</a>
         </div>
       </section>
-      <section class="tool-panel" data-exif-tool data-mode="view" aria-label="EXIF viewer">
-        <h2 style="margin:0 0 6px;font-family:var(--display);font-size:1.35rem;">EXIF viewer</h2>
-        <p class="lead-sm">Choose a photo to list readable EXIF/IPTC/GPS fields locally. Files stay in this tab — nothing is uploaded to our servers.</p>
+      <section class="tool-panel" data-exif-tool data-mode="view" aria-label="EXIF / photo metadata viewer">
+        <h2 style="margin:0 0 6px;font-family:var(--display);font-size:1.35rem;">EXIF / photo metadata viewer</h2>
+        <p class="lead-sm">Choose a JPEG, PNG or WebP to list readable EXIF, IPTC and GPS fields locally. Files stay in this tab — nothing is uploaded to our servers.</p>
         <div class="dropzone" role="button" tabindex="0">
           <strong>Drop a photo here</strong>
           <span>or click to choose JPEG / PNG / WebP</span>
@@ -230,19 +238,23 @@
         </div>
       </section>
       <section class="section prose">
-        <p><strong>Direct answer:</strong> An online EXIF viewer reads hidden photo metadata. Use the tool above to check or read EXIF data for a file on your computer without uploading it to our servers.</p>
+        <p><strong>Direct answer:</strong> An EXIF viewer — also called a photo or image metadata viewer — reads the hidden data stored inside an image file. Choose a file above and the fields are read in your browser tab; the file is not uploaded to our servers.</p>
         <h2>What you can check</h2>
-        <p>Common fields include date taken, camera make/model, lens, ISO, aperture, shutter, software, copyright, and GPS latitude/longitude when present — the same details people mean by “EXIF info,” “read EXIF data,” or “EXIF data on a picture.”</p>
-        <h2>EXIF viewer vs photo metadata viewer</h2>
-        <p>People often search both phrases. This page focuses on EXIF-oriented fields. For broader “photo metadata viewer” wording (EXIF + IPTC + GPS together), see the <a href="../photo-metadata-viewer/">photo metadata viewer</a>.</p>
+        <ul>
+          <li><strong>EXIF</strong> — date taken, camera or phone make and model, lens, ISO, aperture, shutter speed, software</li>
+          <li><strong>IPTC</strong> — author, copyright, caption and keywords, when present</li>
+          <li><strong>GPS</strong> — latitude and longitude if Location Services were on</li>
+        </ul>
+        <h2>How do I check if a photo shows my location?</h2>
+        <p>Look for GPS latitude and longitude in the results. If they are present, anyone who gets the original file can place the photo on a map. If they are missing, location was off at capture or an app already removed them. Step-by-step: <a href="../how-to/check-if-photo-has-location/">check if a photo has location</a>.</p>
+        <h2>Which file types work?</h2>
+        <p>JPEG, PNG and WebP in the browser. HEIC from an iPhone often cannot be decoded by browsers — use the <a href="../heic-metadata/">HEIC metadata</a> workflow in the app. Metadata inside PDFs and videos is outside this tool: see <a href="../learn/pdf-video-png-metadata/">PDF, video and PNG metadata</a>.</p>
         <h2>Next step after viewing</h2>
-        <p>If you see location data you do not want to share, use the <a href="../remove-gps/">GPS remover</a> or <a href="../remove-exif/">strip EXIF online</a>. On iPhone, open EXIF+ to edit fields or batch-clean albums. New to the topic? Start with <a href="../how-to/find-exif-data/">how to find EXIF data</a>.</p>
+        <p>If you see data you do not want to share, <a href="../remove-exif/">strip EXIF online</a>, use the <a href="../remove-gps/">GPS remover</a>, or the <a href="../metadata-cleaner/">metadata cleaner</a>. On iPhone, open EXIF+ to edit fields or <a href="../how-to/remove-photo-metadata-iphone/">remove photo metadata</a> from your library. New to the topic? Start with <a href="../how-to/find-exif-data/">how to find EXIF data</a>.</p>
         <h2>Related</h2>
-        <p>Browser or phone? See <a href="../compare/online-vs-iphone-app/">online vs iPhone app</a> for when each one wins, or open <a href="../how-to/view-exif-on-iphone/">view EXIF on iPhone</a>. Comparing tools? Read <a href="../compare/exif-viewer-alternatives/">EXIF viewer alternatives</a>.</p>
-        <h2>Which viewer page is this?</h2>
-        <p>All viewer pages use the same local tool. This one focuses on camera and exposure tags. For author and copyright fields see the <a href="../photo-metadata-viewer/">photo metadata viewer</a>; for PNG, WebP and a location check see the <a href="../image-metadata-viewer/">image metadata viewer</a>.</p>
+        <p>Browser or phone? See <a href="../compare/online-vs-iphone-app/">online vs iPhone app</a>, or open <a href="../how-to/view-exif-on-iphone/">view EXIF on iPhone</a>. Comparing tools? Read <a href="../compare/exif-viewer-alternatives/">EXIF viewer alternatives</a> and <a href="../compare/best-exif-viewer-iphone/">best EXIF viewer for iPhone</a>.</p>
       </section>
-      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>How do I check EXIF data online?</summary><p>Open this page, choose a JPEG/PNG/WebP, and review the listed fields. Processing stays in your browser tab.</p></details><details><summary>How do I read EXIF data from a photo?</summary><p>Use this online viewer for a desktop file, or EXIF+ on iPhone for Photo Library / HEIC items.</p></details><details><summary>Why don’t I see GPS?</summary><p>Location services may have been off at capture, tags were already stripped, or another app re-exported the file without GPS.</p></details><details><summary>Is viewing EXIF safe?</summary><p>The file is read locally in your browser for display. It is not uploaded to our servers for this tool.</p></details><details><summary>Why are some fields missing compared with desktop apps?</summary><p>Parsers differ. This viewer shows common EXIF/IPTC/GPS fields returned in-browser. For fuller Photo Library inspection on iPhone, use EXIF+.</p></details><details><summary>Can I edit from the viewer?</summary><p>Not in the browser tool. Use EXIF+ on iPhone for field editors, or switch to the remover if you want a clean download.</p></details><details><summary>Does the viewer work offline?</summary><p>After the page and script assets load, inspection runs locally on the file you pick. A network drop mid-session may still affect CDN script load on first visit.</p></details></section>
+      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>How do I check EXIF data online?</summary><p>Open this page, choose a JPEG, PNG or WebP, and review the listed fields. Processing stays in your browser tab.</p></details><details><summary>Is a photo metadata viewer the same as an EXIF viewer?</summary><p>Mostly. EXIF is the most common kind of photo metadata; a file can also carry IPTC fields such as author, caption and copyright. This viewer shows the EXIF, IPTC and GPS fields the browser parser returns.</p></details><details><summary>Can image metadata show where a photo was taken?</summary><p>Yes, if GPS coordinates are stored in the file. Many phone photos include them unless location was off or they were stripped.</p></details><details><summary>Why don’t I see GPS?</summary><p>Location services may have been off at capture, tags were already stripped, or another app re-exported the file without GPS.</p></details><details><summary>Are my images uploaded?</summary><p>Not to our servers for this tool: the file is read locally in your browser for display.</p></details><details><summary>Can I view iPhone HEIC metadata here?</summary><p>Only if your browser can decode HEIC. For Camera Roll HEIC use EXIF+ on iPhone.</p></details><details><summary>Why are some fields missing compared with desktop apps?</summary><p>Parsers differ. This viewer shows common EXIF/IPTC/GPS fields returned in-browser. For fuller Photo Library inspection on iPhone, use EXIF+.</p></details><details><summary>Does viewing metadata change the file?</summary><p>No. Inspection is read-only. To edit, use EXIF+ on iPhone; to get a clean copy, switch to the remover.</p></details></section>
             <section class="section cta-band">
         <div class="section-head"><h2>Need this on iPhone?</h2></div>
         <p class="lead-sm">EXIF+ views, edits, and removes EXIF/IPTC metadata — including GPS — on-device. Single-photo clean and edit are available to start; Premium unlocks multi-select batch tools and share-without-metadata. Cleaned photos are saved as new Photo Library items (originals stay).</p>

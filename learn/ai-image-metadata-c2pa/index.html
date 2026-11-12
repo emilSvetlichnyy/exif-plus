@@ -98,7 +98,8 @@
     }
   },
   "mainEntityOfPage": "https://emilsvetlichnyy.github.io/exif-plus/learn/ai-image-metadata-c2pa/",
-  "dateModified": "2026-10-12"
+  "datePublished": "2026-10-12",
+  "dateModified": "2026-11-12"
 }
   </script>
   <script type="application/ld+json">
@@ -160,7 +161,7 @@
         <section class="hero">
           <h1>AI image metadata and C2PA, explained</h1>
           <p class="lead">AI-generated images can carry metadata that says how they were made. Some of it is ordinary EXIF-style data; some is signed provenance called C2PA Content Credentials.</p>
-          <p><small>Updated 2026-10-12</small></p>
+          <p><small>Updated 2026-11-12</small></p>
         </section>
         <p><strong>Direct answer:</strong> AI image metadata is information stored in an image file about how it was made — for example a generator or software name, a prompt in a text field, or signed C2PA Content Credentials. Ordinary EXIF can be viewed and removed with a metadata tool; C2PA is a separate signed record.</p>
         <h2>What is C2PA?</h2>
@@ -174,7 +175,7 @@
         <h2>Does removing EXIF remove C2PA?</h2>
         <p>Not necessarily as a promise. Re-encoding or stripping a file can remove embedded credentials, but that depends on the tool and the file. Metadata can also be missing simply because a platform stripped it, so its absence does not prove an image is real or fake.</p>
         <h2>What EXIF+ does and does not do</h2>
-        <p>EXIF+ reads and edits EXIF, IPTC and GPS on your iPhone. It does <strong>not</strong> verify C2PA signatures or detect AI images. To see which basic fields an image carries, use the <a href="../../image-metadata-viewer/">image metadata viewer</a>.</p>
+        <p>EXIF+ reads and edits EXIF, IPTC and GPS on your iPhone. It does <strong>not</strong> verify C2PA signatures or detect AI images. To see which basic fields an image carries, use the <a href="../../exif-viewer/">image metadata viewer</a>.</p>
       </article>
       <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>Do AI images have EXIF data?</summary><p>Sometimes. Some tools write a software name or settings into metadata fields; many images have little or none.</p></details><details><summary>What is C2PA metadata?</summary><p>A signed provenance record (Content Credentials) describing how a file was created and edited. It is separate from EXIF.</p></details><details><summary>Can I tell if an image is AI-generated from metadata?</summary><p>Metadata can be a hint, but it is easy to strip, so a missing tag proves nothing.</p></details><details><summary>Does removing EXIF remove Content Credentials?</summary><p>Not guaranteed. It depends on the tool and file. EXIF+ does not verify or manage C2PA.</p></details></section>
             <section class="section cta-band">
