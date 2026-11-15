@@ -1980,7 +1980,7 @@ Property: `{BASE}/`
 4. After content pushes: `python3 scripts/indexnow_ping.py`
 
 ## Done when
-`site:emilsvetlichnyy.github.io/exif-plus` returns URLs in Google or Bing.
+`site:emilsvetlichnyy.app/exif-plus` returns URLs in Google or Bing.
 """,
         encoding="utf-8",
     )

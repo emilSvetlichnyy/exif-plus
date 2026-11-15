@@ -13,10 +13,10 @@
     "appStoreUrl": "https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409",
     "developerName": "Emil Svetlichnyy",
     "developerUrl": "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099",
-    "privacyPolicyUrl": "https://emilsvetlichnyy.github.io/exif-privacy/",
+    "privacyPolicyUrl": "https://emilsvetlichnyy.app/exif-privacy/",
     "termsUrl": "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
     "supportEmail": "emilsvetlichnyy@internet.ru",
-    "siteBase": "https://emilsvetlichnyy.github.io/exif-plus",
+    "siteBase": "https://emilsvetlichnyy.app/exif-plus",
     "sourceRoots": {
       "ios": "../exif/Exif",
       "website": "."

@@ -15,8 +15,8 @@
     "appStoreUrl": "https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409",
     "developer": "Emil Svetlichnyy",
     "developerUrl": "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099",
-    "privacyUrl": "https://emilsvetlichnyy.github.io/exif-privacy/",
-    "siteBase": "https://emilsvetlichnyy.github.io/exif-plus"
+    "privacyUrl": "https://emilsvetlichnyy.app/exif-privacy/",
+    "siteBase": "https://emilsvetlichnyy.app/exif-plus"
   },
   "capabilities": {
     "view": ["EXIF", "IPTC", "GPS", "TIFF", "PNG text where present"],

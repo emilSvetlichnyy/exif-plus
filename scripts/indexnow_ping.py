@@ -8,7 +8,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-HOST = "emilsvetlichnyy.github.io"
+HOST = "emilsvetlichnyy.app"
 BASE = f"https://{HOST}/exif-plus"
 KEY = (ROOT / "indexnow-key.txt").read_text().strip()
 
