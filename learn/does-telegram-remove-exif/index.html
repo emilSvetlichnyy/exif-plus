@@ -99,7 +99,7 @@
   },
   "mainEntityOfPage": "https://emilsvetlichnyy.app/exif-plus/learn/does-telegram-remove-exif/",
   "datePublished": "2026-10-11",
-  "dateModified": "2026-11-04"
+  "dateModified": "2026-11-19"
 }
   </script>
   <script type="application/ld+json">
@@ -161,6 +161,7 @@
         <section class="hero">
           <h1>Does Telegram remove EXIF?</h1>
           <p class="lead">Telegram has two ways to send a picture: as a compressed photo or as an uncompressed file. They treat metadata very differently.</p>
+          <p><small>Updated 2026-11-19</small></p>
         </section>
         <p><strong>Direct answer:</strong> A normal Telegram photo send is compressed, which usually drops EXIF and GPS. Sending the picture <em>as a file</em> (uncompressed) delivers the original bytes — including camera tags and location — to everyone in the chat.</p>
         <h2>Photo send vs file send</h2>
@@ -174,6 +175,7 @@
         <h2>Safe workflow</h2>
         <p>Clean first, then send in any mode: use the <a href="../../remove-gps/">remove GPS</a> tool or the <a href="../../metadata-cleaner/">metadata cleaner</a> in your browser, or <a href="../../how-to/remove-location-from-photos-iphone/">remove location on iPhone</a> with EXIF+. Check the result with the <a href="../../exif-viewer/">EXIF viewer</a>.</p>
         <p>Other platforms: <a href="../does-whatsapp-remove-exif/">WhatsApp</a>, <a href="../does-discord-remove-exif/">Discord</a>, <a href="../does-instagram-remove-exif/">Instagram</a>, <a href="../does-imessage-remove-location/">iMessage &amp; AirDrop</a>.</p>
+        <h2>What we could verify (checked 19 Nov 2026)</h2><ul><li><strong>First-party statement:</strong> the <a href="https://telegram.org/faq" rel="noopener">Telegram FAQ</a> says a photo sent as a file is the original photo with no compression at all. It does not mention EXIF or GPS.</li><li><strong>Independent test:</strong> none we could verify and cite here.</li><li><strong>EXIF+ has not run its own upload test</strong> for Telegram, so treat this page as an explanation of the risk, not a measurement.</li></ul>
       </article>
       <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>Does Telegram remove EXIF data?</summary><p>Usually yes for compressed photo sends, because Telegram re-encodes them. Files sent without compression keep the original EXIF and GPS.</p></details><details><summary>Does Telegram remove location from photos?</summary><p>Compressed photos usually lose GPS tags. Uncompressed “send as file” keeps them. Remove location yourself before sending if it matters.</p></details><details><summary>Is sending as a file on Telegram safe for privacy?</summary><p>Not by default — the recipient gets the original file with its metadata. Strip EXIF/GPS first, then send as a file if you need full quality.</p></details><details><summary>How do I check if a Telegram photo still has EXIF?</summary><p>Download the received file and open it in an EXIF viewer. If you see GPS or camera fields, the metadata survived.</p></details></section>
             <section class="section cta-band">

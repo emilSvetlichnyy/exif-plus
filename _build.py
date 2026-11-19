@@ -1121,6 +1121,20 @@ def hub_page(slug: str, title: str, description: str, h1: str, lead: str, tiles:
     register({"rel": slug, "html": html, "title": h1, "priority": True})
 
 
+# Dated evidence blocks for platform pages (EX-050). Only first-party or cited sources; no claim of our own tests.
+EVIDENCE_BLOCKS: dict[str, str] = {
+ "discord": "<h2>What we could verify (checked 19 Nov 2026)</h2><ul><li><strong>First-party statement:</strong> none found on how Discord handles EXIF or GPS in images or attachments.</li><li><strong>Independent test:</strong> none we could verify and cite here.</li><li><strong>EXIF+ has not run its own upload test</strong> for Discord, so treat this page as an explanation of the risk, not a measurement.</li></ul>",
+ "whatsapp": "<h2>What we could verify (checked 19 Nov 2026)</h2><ul><li><strong>First-party statement:</strong> none found. We searched WhatsApp Help Center pages for photo metadata and found no statement on EXIF or GPS.</li><li><strong>Independent test:</strong> none we could verify and cite here.</li><li><strong>EXIF+ has not run its own upload test</strong> for WhatsApp, so treat this page as an explanation of the risk, not a measurement.</li></ul>",
+ "snapchat": "<h2>What we could verify (checked 19 Nov 2026)</h2><ul><li><strong>First-party statement:</strong> none found on how Snapchat handles EXIF or GPS in photos.</li><li><strong>Independent test:</strong> none we could verify and cite here.</li><li><strong>EXIF+ has not run its own upload test</strong> for Snapchat, so treat this page as an explanation of the risk, not a measurement.</li></ul>",
+ "instagram": "<h2>What we could verify (checked 19 Nov 2026)</h2><ul><li><strong>First-party statement:</strong> none found on how Instagram handles EXIF or GPS in uploaded photos.</li><li><strong>Independent test:</strong> in the <a href=\"https://iptc.org/news/social-media-sites-photo-metadata-test-results/\" rel=\"noopener\">IPTC Social Media Sites Photo Metadata Test (2019)</a>, Instagram showed no embedded metadata on posted images (only posting is possible, no download). That test looked at IPTC rights metadata, not GPS, and is from 2019.</li><li><strong>EXIF+ has not run its own upload test</strong> for Instagram, so treat this page as an explanation of the risk, not a measurement.</li></ul>",
+ "telegram": "<h2>What we could verify (checked 19 Nov 2026)</h2><ul><li><strong>First-party statement:</strong> the <a href=\"https://telegram.org/faq\" rel=\"noopener\">Telegram FAQ</a> says a photo sent as a file is the original photo with no compression at all. It does not mention EXIF or GPS.</li><li><strong>Independent test:</strong> none we could verify and cite here.</li><li><strong>EXIF+ has not run its own upload test</strong> for Telegram, so treat this page as an explanation of the risk, not a measurement.</li></ul>",
+ "imessage": "<h2>What we could verify (checked 19 Nov 2026)</h2><ul><li><strong>First-party statement:</strong> the <a href=\"https://support.apple.com/guide/personal-safety/manage-location-metadata-in-photos-ips0d7a5df82/web\" rel=\"noopener\">Apple Personal Safety Guide</a> says people you share photos with may be able to access the location metadata, and describes the Options control in the share sheet.</li><li><strong>Independent test:</strong> none we could verify and cite here.</li><li><strong>EXIF+ has not run its own upload test</strong> for iMessage and AirDrop, so treat this page as an explanation of the risk, not a measurement.</li></ul>",
+ "signal": "<h2>What we could verify (checked 19 Nov 2026)</h2><ul><li><strong>First-party statement:</strong> a 2018 change to Signal for iOS (<a href=\"https://github.com/signalapp/Signal-iOS/pull/2907\" rel=\"noopener\">Signal-iOS pull request 2907</a>) strips non-orientation metadata from image attachments. Later versions are not documented in what we found.</li><li><strong>Independent test:</strong> none we could verify and cite here.</li><li><strong>EXIF+ has not run its own upload test</strong> for Signal, so treat this page as an explanation of the risk, not a measurement.</li></ul>",
+ "email-attachment-keep": "<h2>What we could verify (checked 19 Nov 2026)</h2><ul><li><strong>First-party statement:</strong> none found: mail services do not publish a single rule, and attachments are usually passed through as files.</li><li><strong>Independent test:</strong> none we could verify and cite here.</li><li><strong>EXIF+ has not run its own upload test</strong> for email, so treat this page as an explanation of the risk, not a measurement.</li></ul>"
+}
+
+
+
 def article_page(
     slug: str,
     *,
@@ -1136,6 +1150,10 @@ def article_page(
     priority: bool = False,
     updated: str | None = None,
 ) -> None:
+    _key = slug.split("/")[-1].replace("does-", "").replace("-remove-exif", "").replace("-remove-location", "").replace("-keep-exif", "")
+    if slug.startswith("learn/does-") and _key in EVIDENCE_BLOCKS and "What we could verify" not in prose:
+        prose = prose + "\n        " + EVIDENCE_BLOCKS[_key]
+        updated = "2026-11-19"
     prefix = prefix_for(slug)
     parent_href = prefix + parent[1]
     body = f"""    {crumbs_html([("Home", prefix + ("../" * (len(Path(slug).parts) - 1) if "/" in slug else "")), (parent[0], parent_href), (h1, None)])}
