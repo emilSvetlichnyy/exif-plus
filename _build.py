@@ -1264,6 +1264,13 @@ def build_hubs_and_articles() -> None:
             ("HEIC vs JPEG metadata", "heic-vs-jpeg-metadata/", "Both keep EXIF and GPS."),
             ("Is EXIF data a privacy risk?", "is-exif-data-a-privacy-risk/", "When it matters, with a real case."),
             ("Photo metadata FAQ", "photo-metadata-faq/", "12 short answers."),
+            ("Exchangeable image file format", "exchangeable-image-file-format/", "EXIF full form and meaning."),
+            ("EXIF ImageUniqueID", "exif-image-unique-id/", "What the tag is."),
+            ("ExifTool online", "exiftool-online/", "Browser alternative and commands."),
+            ("Do iPhone screenshots have location?", "do-iphone-screenshots-have-location/", "Usually no GPS."),
+            ("Does Gmail remove EXIF?", "does-gmail-remove-exif/", "Attachments and what we could not verify."),
+            ("Does AirDrop keep location?", "does-airdrop-keep-location/", "The Options switch."),
+            ("What is IPTC data?", "what-is-iptc-data/", "Caption, keywords, copyright."),
             ("Glossary", "glossary/", "EXIF, IPTC, geotag, cleaner, HEIC."),
         ],
         "Learn",
@@ -1287,6 +1294,11 @@ def build_hubs_and_articles() -> None:
             ("Strip metadata checklist", "strip-metadata-before-sharing/", "Pre-share checklist."),
             ("Remove metadata on Mac, Windows, Android", "remove-photo-metadata-mac-windows/", "Built-in steps and a browser tool."),
             ("Check if a photo has location", "check-if-photo-has-location/", "iPhone, Mac, Windows, browser."),
+            ("Read EXIF data from an image", "read-exif-data-from-image/", "Six ways."),
+            ("View PNG metadata", "view-png-metadata/", "PNG chunks explained."),
+            ("Delete image metadata on Windows", "delete-image-metadata-windows/", "Properties dialog steps."),
+            ("Delete image metadata on Mac", "delete-image-metadata-mac/", "Preview and Photos export."),
+            ("Preview Content Credentials in Photoshop", "preview-content-credentials-photoshop/", "Export As dialog."),
             ("Remove location before selling online", "remove-location-before-selling-online/", "Marketplace and listing photos."),
             ("Remove EXIF from many photos", "remove-exif-from-multiple-photos-iphone/", "Batch remove on iPhone."),
         ],
@@ -1937,6 +1949,18 @@ Sitemap: {BASE}/sitemap.xml
 - [HEIC vs JPEG metadata]({BASE}/learn/heic-vs-jpeg-metadata/)
 - [Is EXIF data a privacy risk?]({BASE}/learn/is-exif-data-a-privacy-risk/)
 - [Photo metadata FAQ]({BASE}/learn/photo-metadata-faq/)
+- [Exchangeable image file format]({BASE}/learn/exchangeable-image-file-format/)
+- [EXIF ImageUniqueID]({BASE}/learn/exif-image-unique-id/)
+- [ExifTool online]({BASE}/learn/exiftool-online/)
+- [Do iPhone screenshots have location?]({BASE}/learn/do-iphone-screenshots-have-location/)
+- [Does Gmail remove EXIF?]({BASE}/learn/does-gmail-remove-exif/)
+- [Does AirDrop keep location?]({BASE}/learn/does-airdrop-keep-location/)
+- [What is IPTC data?]({BASE}/learn/what-is-iptc-data/)
+- [Read EXIF data from an image]({BASE}/how-to/read-exif-data-from-image/)
+- [View PNG metadata]({BASE}/how-to/view-png-metadata/)
+- [Delete image metadata on Windows]({BASE}/how-to/delete-image-metadata-windows/)
+- [Delete image metadata on Mac]({BASE}/how-to/delete-image-metadata-mac/)
+- [Preview Content Credentials in Photoshop]({BASE}/how-to/preview-content-credentials-photoshop/)
 
 ## Japanese (日本語)
 - [トップ: 写真の位置情報・Exifを消す]({BASE}/ja/)
@@ -2093,6 +2117,7 @@ def main() -> None:
     from _pages_oct import register_oct
     from _pages_nov import register_nov
     from _pages_cite import register_cite
+    from _pages_gsc import register_gsc
     from _pages_ja import register_ja
 
     register_extra(
@@ -2120,6 +2145,7 @@ def main() -> None:
         }
     )
     register_cite({"article_page": article_page, "NAME": NAME})
+    register_gsc({"article_page": article_page, "NAME": NAME})
     register_ja(
         {
             "page_shell": page_shell,
