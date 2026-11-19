@@ -13,14 +13,14 @@ def register_oct(ns: dict) -> None:
     # ---- Platform cluster: Facebook / X / Reddit (same template as Discord) ----
     others = '<p>Other platforms: <a href="../does-instagram-remove-exif/">Instagram</a>, <a href="../does-discord-remove-exif/">Discord</a>, <a href="../does-whatsapp-remove-exif/">WhatsApp</a>, <a href="../does-telegram-remove-exif/">Telegram</a>, <a href="../does-signal-remove-exif/">Signal</a>, <a href="../does-snapchat-remove-exif/">Snapchat</a>, <a href="../does-imessage-remove-location/">iMessage &amp; AirDrop</a>. Full list: <a href="../which-apps-remove-photo-metadata/">which apps remove photo metadata</a>.</p>'
 
-    def platform(slug: str, label: str, short: str, extra: str) -> None:
+    def platform(slug: str, label: str, short: str, extra: str, evidence: str = "") -> None:
         article_page(
             f"learn/does-{slug}-remove-exif",
             title=f"Does {label} Remove EXIF Data? Short Answer | EXIF+",
             description=f"Does {label} strip EXIF and GPS? Usually yes for the public copy, but never guaranteed. What it keeps and how to post safely.",
             h1=f"Does {label} remove EXIF?",
             lead=short,
-            updated=UPDATED,
+            updated="2026-11-19" if evidence else UPDATED,
             prose=f"""        <p><strong>Direct answer:</strong> {short}</p>
         <h2>Two different questions</h2>
         <ul>
@@ -29,6 +29,7 @@ def register_oct(ns: dict) -> None:
         </ul>
         <h2>What is not covered</h2>
         {extra}
+        {evidence}
         <h2>Safe workflow</h2>
         <p>Clean first, then upload: <a href="../../remove-exif/">strip EXIF online</a>, the <a href="../../remove-gps/">GPS remover</a>, or <a href="../../how-to/remove-photo-metadata-iphone/">remove photo metadata on iPhone</a>. Cleaning the file yourself works the same on every platform.</p>
         {others}""",
@@ -47,18 +48,21 @@ def register_oct(ns: dict) -> None:
         "Facebook",
         "Facebook usually re-encodes uploaded photos, so the copy other people see often loses EXIF and GPS — but it is not a guarantee, and Facebook still receives the original metadata on upload.",
         "<p>Photos sent as originals or documents in chats, files shared outside the main feed pipeline, and photos downloaded from other sources may behave differently. Treat each route separately.</p>",
+        evidence='<h2>What we could verify (checked 19 Nov 2026)</h2><ul><li><strong>First-party statement:</strong> none found on how Facebook handles EXIF or GPS in uploaded photos.</li><li><strong>Independent test:</strong> in the <a href="https://iptc.org/news/social-media-sites-photo-metadata-test-results/" rel="noopener">IPTC Social Media Sites Photo Metadata Test (2019)</a>, Facebook showed no embedded metadata, and saved copies had no XMP; a few rights-related fields were kept in IIM and Exif. That test looked at IPTC rights metadata, not GPS, and is from 2019.</li><li><strong>EXIF+ has not run its own upload test</strong> for Facebook, so treat this page as an explanation of the risk, not a measurement.</li></ul>',
     )
     platform(
         "twitter-x",
         "X (Twitter)",
         "X usually re-encodes uploaded images, so the public copy often loses EXIF and GPS — but it is not a guarantee, and X still receives the original metadata on upload.",
         "<p>Behavior can differ by app version, upload method and media type (photo, GIF, video). Direct-message attachments and linked originals are separate routes.</p>",
+        evidence='<h2>What we could verify (checked 19 Nov 2026)</h2><ul><li><strong>First-party statement:</strong> none found on how X handles EXIF or GPS in uploaded photos.</li><li><strong>Independent test:</strong> in the <a href="https://iptc.org/news/social-media-sites-photo-metadata-test-results/" rel="noopener">IPTC Social Media Sites Photo Metadata Test (2019)</a>, Twitter showed no embedded metadata and stripped it from saved files. That test looked at IPTC rights metadata, not GPS, and is from 2019, before the service became X.</li><li><strong>EXIF+ has not run its own upload test</strong> for X, so treat this page as an explanation of the risk, not a measurement.</li></ul>',
     )
     platform(
         "reddit",
         "Reddit",
         "Reddit typically re-processes uploaded images, so the public copy often loses EXIF and GPS — but it is not a guarantee, and Reddit still receives the original metadata on upload. Links to images hosted elsewhere keep whatever that host serves.",
         "<p>An image you link from another host (cloud storage, a personal site) is served exactly as stored there, metadata included.</p>",
+        evidence='<h2>What we could verify (checked 19 Nov 2026)</h2><ul><li><strong>First-party statement:</strong> we could not open a Reddit policy page that states how photo metadata is handled, so we do not quote one. If you find the current wording, check the date on it.</li><li><strong>Independent test:</strong> none we could verify and cite here.</li><li><strong>EXIF+ has not run its own upload test</strong> for Reddit, so treat this page as an explanation of the risk, not a measurement.</li></ul>',
     )
 
     # ---- Comparison table page ----
