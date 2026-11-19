@@ -13,7 +13,7 @@ def register_ja(ctx: dict) -> None:
 
     def appstore_btn() -> str:
         return (
-            f'<a class="appstore" href="{APP_JP}" target="_blank" rel="noopener noreferrer" '
+            f'<a class="appstore" href="{APP_JP}?ct=exifplus_site" target="_blank" rel="noopener noreferrer" '
             f'aria-label="App Storeでダウンロード">{ctx["APPSTORE_SVG"]}'
             '<span class="appstore__text"><span class="appstore__small">ダウンロード</span>'
             '<span class="appstore__big">App Store</span></span></a>'
@@ -24,7 +24,7 @@ def register_ja(ctx: dict) -> None:
             '<nav class="nav-links" aria-label="メニュー">'
             f'<a href="{prefix}ja/remove-exif/">Exif削除</a>'
             f'<a href="{prefix}ja/remove-gps/">位置情報削除</a>'
-            f'<a href="{APP_JP}" rel="noopener noreferrer">アプリ</a>'
+            f'<a href="{APP_JP}?ct=exifplus_site" rel="noopener noreferrer">アプリ</a>'
             f'<a href="{prefix}">English</a>'
             "</nav>"
         )

@@ -968,7 +968,7 @@ def register_i18n(ctx: dict) -> None:
 
         def appstore_btn(ui=ui, app_url=app_url) -> str:
             return (
-                f'<a class="appstore" href="{app_url}" target="_blank" rel="noopener noreferrer" '
+                f'<a class="appstore" href="{app_url}?ct=exifplus_site" target="_blank" rel="noopener noreferrer" '
                 f'aria-label="{esc(ui["appstore_aria"])}">{ctx["APPSTORE_SVG"]}'
                 f'<span class="appstore__text"><span class="appstore__small">{esc(ui["appstore_small"])}</span>'
                 '<span class="appstore__big">App Store</span></span></a>'
@@ -978,7 +978,7 @@ def register_i18n(ctx: dict) -> None:
             links = "".join(f'<a href="{prefix}{lang}/{href}">{esc(label)}</a>' for href, label in ui["nav"])
             return (
                 f'<nav class="nav-links" aria-label="{esc(ui["nav_aria"])}">{links}'
-                f'<a href="{app_url}" rel="noopener noreferrer">{esc(ui["nav_app"])}</a>'
+                f'<a href="{app_url}?ct=exifplus_site" rel="noopener noreferrer">{esc(ui["nav_app"])}</a>'
                 f'<a href="{prefix}" hreflang="en">English</a>'
                 "</nav>"
             )

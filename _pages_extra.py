@@ -326,7 +326,7 @@ def register_extra(ns: dict) -> None:
         </ul>
         <h2>What we will not claim</h2>
         <p>A hard “3 free removals” counter exists in code plumbing but is <strong>not enforced</strong> by current UI call sites. This page describes live gates only. Always check the in-app paywall for the offer you see.</p>
-        <p><a href="{APP}">App Store listing</a></p>""",
+        <p><a href="{APP}?ct=exifplus_site">App Store listing</a></p>""",
         faqs=[
             (
                 "Is the app download free?",

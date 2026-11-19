@@ -51,7 +51,7 @@ def prefix_for(rel: str) -> str:
 
 def appstore_btn() -> str:
     return (
-        f'<a class="appstore" href="{APP}" target="_blank" rel="noopener noreferrer" '
+        f'<a class="appstore" href="{APP}?ct=exifplus_site" target="_blank" rel="noopener noreferrer" '
         f'aria-label="Download {NAME} on the App Store">{APPSTORE_SVG}'
         '<span class="appstore__text"><span class="appstore__small">Download on the</span>'
         '<span class="appstore__big">App Store</span></span></a>'
@@ -1698,7 +1698,7 @@ def build_hubs_and_articles() -> None:
           <li>Dark Mode</li>
           <li>“Zero analytics”</li>
         </ul>
-        <p>See also <a href="../free-vs-premium/">Free vs Premium</a> and <a href="{APP}">App Store listing</a>.</p>
+        <p>See also <a href="../free-vs-premium/">Free vs Premium</a> and <a href="{APP}?ct=exifplus_site">App Store listing</a>.</p>
         <h2>Related</h2>
         <p>See how <a href="../history/">History</a> works, or compare <a href="../../compare/online-vs-iphone-app/">online tools vs the iPhone app</a>.</p>""",
         faqs=[
@@ -1770,7 +1770,7 @@ def build_hubs_and_articles() -> None:
         <p>{esc(NAME)} is built and maintained by {esc(DEV_NAME)}, an independent developer. Questions and bug reports go to the support address below.</p>
         <h2>Product links</h2>
         <ul>
-          <li><a href="{APP}">App Store</a></li>
+          <li><a href="{APP}?ct=exifplus_site">App Store</a></li>
           <li><a href="{DEV}">Developer page</a></li>
           <li><a href="{PRIVACY}">Privacy policy</a></li>
           <li><a href="{prefix}llms.txt">llms.txt</a></li>
