@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Is EXIF Data a Privacy Risk? What Photos Can Give Away | EXIF+</title>
+  <meta name="description" content="When photo metadata is a real privacy risk, when it is not, and a documented case where a geotagged photo exposed a location.">
+  <link rel="canonical" href="https://emilsvetlichnyy.app/exif-plus/learn/is-exif-data-a-privacy-risk/">
+  <meta name="theme-color" content="#3b6ea8">
+  <link rel="icon" href="/exif-plus/favicon.ico">
+  <link rel="apple-touch-icon" href="/exif-plus/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="EXIF+">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="EXIF+">
+  <meta property="og:title" content="Is EXIF Data a Privacy Risk? What Photos Can Give Away | EXIF+">
+  <meta property="og:description" content="When photo metadata is a real privacy risk, when it is not, and a documented case where a geotagged photo exposed a location.">
+  <meta property="og:url" content="https://emilsvetlichnyy.app/exif-plus/learn/is-exif-data-a-privacy-risk/">
+  <meta property="og:image" content="https://emilsvetlichnyy.app/exif-plus/assets/og/home.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Is EXIF Data a Privacy Risk? What Photos Can Give Away | EXIF+">
+  <meta name="twitter:description" content="When photo metadata is a real privacy risk, when it is not, and a documented case where a geotagged photo exposed a location.">
+  <meta name="twitter:image" content="https://emilsvetlichnyy.app/exif-plus/assets/og/home.png">
+  <link rel="alternate" type="application/rss+xml" title="EXIF+" href="https://emilsvetlichnyy.app/exif-plus/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:wght@500;600&family=Source+Sans+3:wght@400;550;650;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EXIF+",
+  "alternateName": [
+    "EXIF+ Viewer, Metadata Remover",
+    "EXIF +",
+    "Metadata Cleaner"
+  ],
+  "url": "https://emilsvetlichnyy.app/exif-plus/",
+  "logo": "https://emilsvetlichnyy.app/exif-plus/apple-touch-icon.png",
+  "description": "EXIF+ is a native iOS app to view, edit, and remove photo metadata (EXIF, IPTC, GPS), with free browser tools on this site.",
+  "sameAs": [
+    "https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409",
+    "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Emil Svetlichnyy",
+    "url": "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://emilsvetlichnyy.app/exif-plus/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Learn",
+      "item": "https://emilsvetlichnyy.app/exif-plus/learn/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Is EXIF data a privacy risk?",
+      "item": "https://emilsvetlichnyy.app/exif-plus/learn/is-exif-data-a-privacy-risk/"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Is EXIF data a privacy risk?",
+  "description": "When photo metadata is a real privacy risk, when it is not, and a documented case where a geotagged photo exposed a location.",
+  "author": {
+    "@type": "Person",
+    "name": "Emil Svetlichnyy",
+    "url": "https://apps.apple.com/us/developer/emil-svetlichnyy/id1875514099"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EXIF+",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://emilsvetlichnyy.app/exif-plus/apple-touch-icon.png"
+    }
+  },
+  "mainEntityOfPage": "https://emilsvetlichnyy.app/exif-plus/learn/is-exif-data-a-privacy-risk/",
+  "datePublished": "2026-11-19",
+  "dateModified": "2026-11-19"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can someone find my home from a photo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If the original file has GPS tags and you share it unchanged, yes. Remove location before sharing photos taken at home."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do social networks show my EXIF to others?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Major platforms generally strip it from the public copy, but behaviour varies and the original may be stored, so do not rely on it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it enough to turn off Location Services?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It stops new GPS tags. Photos already taken keep theirs until you remove them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does EXIF contain my name?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if a camera or app wrote Artist or Copyright fields. Most phones do not."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-nav">
+      <a class="brand" href="../../">EXIF+ <small>metadata</small></a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="../../tools/">Tools</a>
+        <a href="../../learn/" aria-current="page">Learn</a>
+        <a href="../../how-to/">How-to</a>
+        <a href="../../compare/">Compare</a>
+        <a href="../../app/">App</a>
+      </nav>
+    </header>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../">Home</a><span class="crumb-sep" aria-hidden="true">›</span><a href="../../learn/">Learn</a><span class="crumb-sep" aria-hidden="true">›</span><span aria-current="page">Is EXIF data a privacy risk?</span></nav>
+    <main>
+      <article class="prose">
+        <section class="hero">
+          <h1>Is EXIF data a privacy risk?</h1>
+          <p class="lead">Sometimes. The risk comes from GPS and date tags in the original file, not from the picture itself.</p>
+          <p><small>Updated 2026-11-19</small></p>
+        </section>
+        <p><strong>Direct answer:</strong> EXIF is a privacy risk when you share the <em>original file</em> of a photo that contains GPS coordinates. Anyone who receives that file can read where and when it was taken. It is low risk when the platform strips it, or when Location Services was off at capture.</p>
+        <h2>A documented example</h2>
+        <p>In December 2012, a photo of software founder John McAfee published by a magazine while he was a fugitive carried GPS tags in its EXIF data. Readers extracted the coordinates and located him in Guatemala, and the magazine removed the photo. It is the standard example of a geotag giving away a location the subject was hiding.</p>
+        <h2>Risk by situation</h2>
+        <table>
+          <thead><tr><th>Situation</th><th>Risk</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Sending an original by email or "as file" in a messenger</td><td>High</td><td>The file usually arrives unchanged, with tags</td></tr>
+            <tr><td>Uploading to a classifieds or marketplace site</td><td>Depends</td><td>Behaviour differs per site; clean first if unsure</td></tr>
+            <tr><td>Posting to a major social feed</td><td>Lower</td><td>Many strip EXIF from the public copy, but the original may be kept</td></tr>
+            <tr><td>Photos of your home, kids' school or car</td><td>High</td><td>A coordinate links the image to a real place</td></tr>
+            <tr><td>Screenshots</td><td>Low</td><td>Typically no GPS</td></tr>
+          </tbody>
+        </table>
+        <h2>Simple routine</h2>
+        <ol>
+          <li>Check: <a href="../../how-to/check-if-photo-has-location/">does the photo have location</a>.</li>
+          <li>Remove location or all metadata: <a href="../../how-to/remove-location-from-photos-iphone/">on iPhone</a> or in the <a href="../../remove-gps/">browser</a>.</li>
+          <li>Share the cleaned copy, not the original.</li>
+        </ol>
+        <p>EXIF+ does this on-device and keeps your original. For platform behaviour see <a href="../which-apps-remove-photo-metadata/">which apps remove photo metadata</a> and <a href="../can-photo-metadata-reveal-your-location/">can a photo reveal your location</a>.</p>
+      </article>
+      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>Can someone find my home from a photo?</summary><p>If the original file has GPS tags and you share it unchanged, yes. Remove location before sharing photos taken at home.</p></details><details><summary>Do social networks show my EXIF to others?</summary><p>Major platforms generally strip it from the public copy, but behaviour varies and the original may be stored, so do not rely on it.</p></details><details><summary>Is it enough to turn off Location Services?</summary><p>It stops new GPS tags. Photos already taken keep theirs until you remove them.</p></details><details><summary>Does EXIF contain my name?</summary><p>Only if a camera or app wrote Artist or Copyright fields. Most phones do not.</p></details></section>
+            <section class="section cta-band">
+        <div class="section-head"><h2>Need this on iPhone?</h2></div>
+        <p class="lead-sm">EXIF+ views, edits, and removes EXIF/IPTC metadata — including GPS — on-device. Single-photo clean and edit are available to start; Premium unlocks multi-select batch tools and share-without-metadata. Cleaned photos are saved as new Photo Library items (originals stay).</p>
+        <div class="actions">
+          <a class="appstore" href="https://apps.apple.com/us/app/exif-viewer-metadata-remover/id6793558409?ct=exifplus_site" target="_blank" rel="noopener noreferrer" aria-label="Download EXIF+ on the App Store"><svg class="appstore__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.365 12.195c-.014-2.09 1.71-3.1 1.783-3.145-.972-1.422-2.48-1.616-3.012-1.64-1.28-.13-2.497.744-3.146.744-.648 0-1.65-.725-2.715-.705-1.396.02-2.69.813-3.41 2.06-1.458 2.53-.371 6.266 1.05 8.312.71 1.02 1.55 2.17 2.65 2.13 1.07-.04 1.47-.69 2.76-.69s1.65.69 2.78.67c1.15-.02 1.88-1.04 2.59-2.06.81-1.18 1.15-2.32 1.16-2.38-.025-.01-2.23-.855-2.49-2.296zM13.64 5.885c.57-.69.955-1.65.85-2.6-.82.03-1.81.545-2.4 1.235-.53.615-.996 1.596-.87 2.54.92.07 1.86-.47 2.42-1.175z"/></svg><span class="appstore__text"><span class="appstore__small">Download on the</span><span class="appstore__big">App Store</span></span></a>
+          <a class="btn btn-secondary" href="../../app/free-vs-premium/">Free vs Premium</a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <nav aria-label="Footer">
+        <a href="../../">Home</a>
+        <a href="../../tools/">Tools</a>
+        <a href="../../learn/">Learn</a>
+        <a href="../../how-to/">How-to</a>
+        <a href="../../compare/">Compare</a>
+        <a href="../../app/">App</a>
+        <a href="../../about/">About</a>
+        <a href="https://emilsvetlichnyy.app/exif-privacy/" rel="noopener noreferrer">Privacy</a>
+        <a href="../../llms.txt">llms.txt</a>
+      </nav>
+      <nav aria-label="On iPhone">
+        <a href="../../on-iphone/">On iPhone</a>
+        <a href="../../how-to/change-photo-date-iphone/">Change photo date</a>
+        <a href="../../how-to/edit-gps-on-iphone/">Edit GPS</a>
+        <a href="../../how-to/view-exif-on-iphone/">View EXIF</a>
+        <a href="../../compare/online-vs-iphone-app/">Online vs app</a>
+        <a href="../../app/history/">History</a>
+      </nav>
+      <p>© 2026 Emil Svetlichnyy. EXIF+ — view, edit, and remove photo metadata on iPhone.</p>
+    </footer>
+  </div>
+</body>
+</html>

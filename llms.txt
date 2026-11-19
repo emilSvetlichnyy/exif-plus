@@ -76,6 +76,11 @@
 - [Check if a photo has location data](https://emilsvetlichnyy.app/exif-plus/how-to/check-if-photo-has-location/)
 - [Remove photo location before selling online](https://emilsvetlichnyy.app/exif-plus/how-to/remove-location-before-selling-online/)
 - [Remove EXIF from multiple photos on iPhone](https://emilsvetlichnyy.app/exif-plus/how-to/remove-exif-from-multiple-photos-iphone/)
+- [EXIF tags cheat sheet](https://emilsvetlichnyy.app/exif-plus/learn/exif-tags-cheat-sheet/)
+- [EXIF date fields explained](https://emilsvetlichnyy.app/exif-plus/learn/exif-date-fields-explained/)
+- [HEIC vs JPEG metadata](https://emilsvetlichnyy.app/exif-plus/learn/heic-vs-jpeg-metadata/)
+- [Is EXIF data a privacy risk?](https://emilsvetlichnyy.app/exif-plus/learn/is-exif-data-a-privacy-risk/)
+- [Photo metadata FAQ](https://emilsvetlichnyy.app/exif-plus/learn/photo-metadata-faq/)
 
 ## Japanese (日本語)
 - [トップ: 写真の位置情報・Exifを消す](https://emilsvetlichnyy.app/exif-plus/ja/)

@@ -1259,6 +1259,11 @@ def build_hubs_and_articles() -> None:
             ("Does Signal remove EXIF?", "does-signal-remove-exif/", "Messenger behavior."),
             ("Does Snapchat remove EXIF?", "does-snapchat-remove-exif/", "Snaps vs camera-roll uploads."),
             ("Do email attachments keep EXIF?", "does-email-attachment-keep-exif/", "Why email keeps GPS."),
+            ("EXIF tags cheat sheet", "exif-tags-cheat-sheet/", "Common tags and which ones are risky."),
+            ("EXIF date fields explained", "exif-date-fields-explained/", "DateTimeOriginal vs CreateDate vs ModifyDate."),
+            ("HEIC vs JPEG metadata", "heic-vs-jpeg-metadata/", "Both keep EXIF and GPS."),
+            ("Is EXIF data a privacy risk?", "is-exif-data-a-privacy-risk/", "When it matters, with a real case."),
+            ("Photo metadata FAQ", "photo-metadata-faq/", "12 short answers."),
             ("Glossary", "glossary/", "EXIF, IPTC, geotag, cleaner, HEIC."),
         ],
         "Learn",
@@ -1927,6 +1932,11 @@ Sitemap: {BASE}/sitemap.xml
 - [Check if a photo has location data]({BASE}/how-to/check-if-photo-has-location/)
 - [Remove photo location before selling online]({BASE}/how-to/remove-location-before-selling-online/)
 - [Remove EXIF from multiple photos on iPhone]({BASE}/how-to/remove-exif-from-multiple-photos-iphone/)
+- [EXIF tags cheat sheet]({BASE}/learn/exif-tags-cheat-sheet/)
+- [EXIF date fields explained]({BASE}/learn/exif-date-fields-explained/)
+- [HEIC vs JPEG metadata]({BASE}/learn/heic-vs-jpeg-metadata/)
+- [Is EXIF data a privacy risk?]({BASE}/learn/is-exif-data-a-privacy-risk/)
+- [Photo metadata FAQ]({BASE}/learn/photo-metadata-faq/)
 
 ## Japanese (日本語)
 - [トップ: 写真の位置情報・Exifを消す]({BASE}/ja/)
@@ -2082,6 +2092,7 @@ def main() -> None:
     from _pages_extra import register_extra
     from _pages_oct import register_oct
     from _pages_nov import register_nov
+    from _pages_cite import register_cite
     from _pages_ja import register_ja
 
     register_extra(
@@ -2108,6 +2119,7 @@ def main() -> None:
             "NAME": NAME,
         }
     )
+    register_cite({"article_page": article_page, "NAME": NAME})
     register_ja(
         {
             "page_shell": page_shell,
