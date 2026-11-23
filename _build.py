@@ -766,6 +766,13 @@ def build_tool_pages() -> None:
           <li><strong>IPTC</strong> — author, copyright, caption and keywords, when present</li>
           <li><strong>GPS</strong> — latitude and longitude if Location Services were on</li>
         </ul>
+        <h2>How to read EXIF data online in 3 steps</h2>
+        <ol>
+          <li>Drop a JPEG, PNG or WebP into the box above, or choose a file.</li>
+          <li>The viewer reads the file in your browser and lists the EXIF, IPTC and GPS fields.</li>
+          <li>Check the date, camera and GPS rows. If location or author data is there, clean the file before you share it.</li>
+        </ol>
+        <p>This is a free EXIF reader with no sign-up and no upload. Want every tag name explained? See the <a href="../learn/exif-tags-cheat-sheet/">EXIF tags cheat sheet</a>, or <a href="../learn/exiftool-online/">ExifTool online</a> if you are used to the command line.</p>
         <h2>How do I check if a photo shows my location?</h2>
         <p>Look for GPS latitude and longitude in the results. If they are present, anyone who gets the original file can place the photo on a map. If they are missing, location was off at capture or an app already removed them. Step-by-step: <a href="../how-to/check-if-photo-has-location/">check if a photo has location</a>.</p>
         <h2>Which file types work?</h2>
