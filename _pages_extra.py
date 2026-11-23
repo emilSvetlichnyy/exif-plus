@@ -465,7 +465,7 @@ def register_extra(ns: dict) -> None:
         description="Check EXIF data in seconds: view photo metadata free online, or on Windows, Mac, iPhone and Android. See where date, camera and GPS are stored.",
         h1="How to check EXIF data (view photo metadata)",
         lead="Photo metadata, also called EXIF data, is hidden inside the file. Here is how to check it on Windows, Mac, iPhone, Android or in a browser.",
-        updated="2026-10-12",
+        updated="2026-11-23",
         prose=f"""        <p><strong>Direct answer:</strong> To check photo metadata, open the photo in an EXIF viewer or its file properties. On a computer use the <a href="../../exif-viewer/">online EXIF viewer</a>; on iPhone use {NAME} for Photo Library items.</p>
         <h2>How do I check photo metadata on my phone?</h2>
         <p>On iPhone, Photos shows only a short summary; {NAME} lists the full groups (steps below). On Android, open the photo in Google Photos and open its info panel for date, device and location where available. For a full tag list from any phone, use the <a href="../../exif-viewer/">image metadata viewer</a> in the browser.</p>
@@ -489,6 +489,21 @@ def register_extra(ns: dict) -> None:
           <li>Scroll metadata sections (date, location, camera, author, GPS details).</li>
         </ol>
         <p>Apple Photos shows limited info; {NAME} is built to surface fuller field groups. Step-by-step: <a href="../view-exif-on-iphone/">view EXIF on iPhone</a>.</p>
+        <h2>What EXIF data you will find</h2>
+        <ul>
+          <li><strong>Date and time:</strong> when the photo was taken (DateTimeOriginal), often to the second.</li>
+          <li><strong>Camera:</strong> make, model, lens, exposure, ISO, aperture and focal length.</li>
+          <li><strong>Location:</strong> GPS latitude and longitude, if location was on when you shot.</li>
+          <li><strong>Software and author:</strong> the editing app, copyright and artist fields.</li>
+        </ul>
+        <h2>How to check if a photo has GPS location</h2>
+        <p>Open the photo in the <a href="../../exif-viewer/">EXIF viewer</a> and look for GPS Latitude and GPS Longitude. If they are there, anyone who gets the original file can see where it was taken. Details: <a href="../check-if-photo-has-location/">check if a photo has location</a>.</p>
+        <h2>Why a photo may show no EXIF data</h2>
+        <ul>
+          <li>Instagram, WhatsApp and many sites strip tags when you upload.</li>
+          <li>Screenshots carry little camera data, and edits or exports can clear it.</li>
+          <li>The file was already cleaned with a metadata remover.</li>
+        </ul>
         <h2>What to do after you find sensitive tags</h2>
         <ul>
           <li><a href="../../remove-exif/">Strip EXIF online</a> for a desktop file</li>

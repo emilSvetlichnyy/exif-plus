@@ -5,6 +5,12 @@
     <link>https://emilsvetlichnyy.app/exif-plus/</link>
     <description>EXIF viewer/remover tools and iPhone metadata app guides.</description>
     <item>
+      <title>EXIF+ — /how-to/find-exif-data/</title>
+      <link>https://emilsvetlichnyy.app/exif-plus/how-to/find-exif-data/</link>
+      <guid>https://emilsvetlichnyy.app/exif-plus/how-to/find-exif-data/</guid>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>EXIF+ — /</title>
       <link>https://emilsvetlichnyy.app/exif-plus/</link>
       <guid>https://emilsvetlichnyy.app/exif-plus/</guid>
@@ -116,12 +122,6 @@
       <title>EXIF+ — /how-to/delete-image-metadata-mac/</title>
       <link>https://emilsvetlichnyy.app/exif-plus/how-to/delete-image-metadata-mac/</link>
       <guid>https://emilsvetlichnyy.app/exif-plus/how-to/delete-image-metadata-mac/</guid>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>EXIF+ — /how-to/delete-image-metadata-windows/</title>
-      <link>https://emilsvetlichnyy.app/exif-plus/how-to/delete-image-metadata-windows/</link>
-      <guid>https://emilsvetlichnyy.app/exif-plus/how-to/delete-image-metadata-windows/</guid>
       <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
