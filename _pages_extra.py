@@ -196,7 +196,13 @@ def register_extra(ns: dict) -> None:
         description="Change Date Taken / Date Created on iPhone photos with EXIF+. On-device edit, saved as a new Photo Library item.",
         h1="Change photo date on iPhone",
         lead="Fix wrong timestamps after travel, camera clock errors, or imports — then save a corrected copy into Photos.",
-        prose=f"""        <h2>Steps</h2>
+        prose=f"""        <p><strong>Direct answer:</strong> To change the date of a photo on iPhone, use the built-in Photos option (open the photo, tap the info button, then Adjust) for a quick fix, or edit the EXIF Date Taken tag in {NAME} if you need the date written into the file itself.</p>
+        <h2>Photos app or EXIF+?</h2>
+        <ul>
+          <li><strong>Photos app:</strong> changes the date Photos uses to sort the picture. Fast, no extra app.</li>
+          <li><strong>{NAME}:</strong> changes the Date Taken and Date Created tags and saves a corrected copy, so the new date travels with the file when you share it.</li>
+        </ul>
+        <h2>Steps in {NAME}</h2>
         <ol>
           <li>Open the photo in {NAME}.</li>
           <li>Enter the editor → Date &amp; Time.</li>

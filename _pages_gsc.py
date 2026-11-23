@@ -40,6 +40,13 @@ def register_gsc(ns: dict) -> None:
         </table>
         <h2>"EXIF data" in plain words</h2>
         <p>It is the hidden label attached to a photo. You do not see it in the picture, but software can read it. That is why a photo can carry the place and time it was taken. See the <a href="../exif-tags-cheat-sheet/">tags cheat sheet</a> and <a href="../what-is-exif/">what is EXIF</a>.</p>
+        <h2>What is EXIF used for?</h2>
+        <ul>
+          <li>Photo apps use it to sort pictures by date and rotate them the right way.</li>
+          <li>Photographers read exposure, ISO and lens to learn from a shot.</li>
+          <li>Maps and galleries use the GPS tags to place photos on a map.</li>
+          <li>Privacy checks use it to see what a photo reveals before sharing: <a href="../is-exif-data-a-privacy-risk/">is EXIF data a privacy risk?</a></li>
+        </ul>
         <h2>Is it the same as IPTC?</h2>
         <p>No. EXIF is mostly written by the device. IPTC holds descriptive text such as caption and copyright: <a href="../exif-vs-iptc/">EXIF vs IPTC</a>.</p>
         <p>To read yours, use the <a href="../../exif-viewer/">browser EXIF viewer</a> or {NAME} on iPhone.</p>
@@ -286,6 +293,7 @@ def register_gsc(ns: dict) -> None:
             ("Do screenshots have any metadata?", "Usually basic details such as date and device, but not camera settings."),
             ("Can someone find me from a screenshot?", "Not from GPS tags, but from what the screenshot displays, such as addresses or names."),
             ("How can I be sure?", "Inspect the file with an EXIF viewer."),
+            ("Do screenshots have EXIF data?", "Usually only basic fields such as date and device, not camera settings or GPS. Open the file in an EXIF viewer to see exactly what it holds."),
         ],
         nav="Learn",
         parent=("Learn", "learn/"),
