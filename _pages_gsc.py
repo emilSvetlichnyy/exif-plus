@@ -184,6 +184,12 @@ def register_gsc(ns: dict) -> None:
           </tbody>
         </table>
         <p>Removing all tags can also drop the orientation and colour profile, so a photo may look rotated or slightly different afterwards. Test on a copy first.</p>
+        <h2>How to install ExifTool</h2>
+        <ul>
+          <li><strong>Mac:</strong> install with Homebrew (<code>brew install exiftool</code>) or use the package from the ExifTool site.</li>
+          <li><strong>Windows:</strong> download the Windows executable from the ExifTool site and run it from a command prompt.</li>
+        </ul>
+        <p>No command line wanted? The browser viewer below shows the common tags without installing anything.</p>
         <h2>Browser or app instead</h2>
         <ul>
           <li><strong>Browser:</strong> <a href="../../exif-viewer/">EXIF viewer</a>, <a href="../../remove-exif/">EXIF remover</a>, <a href="../../remove-gps/">GPS remover</a>.</li>
@@ -253,6 +259,8 @@ def register_gsc(ns: dict) -> None:
             <tr><td>ExifTool <code>-all=</code></td><td>Nearly everything</td><td>Pixels</td></tr>
           </tbody>
         </table>
+        <h2>Check what is left after cleaning</h2>
+        <p>Open the new copy in the <a href="../../exif-viewer/">online EXIF viewer</a>. If GPS Latitude and GPS Longitude are gone and the camera rows are empty, the clean worked. To see what a photo reveals first, read <a href="../find-exif-data/">how to check EXIF data</a>.</p>
         <p>If the photo came from an iPhone, you can clean it on the phone instead: {NAME} saves a cleaned copy and keeps the original. See <a href="../remove-photo-metadata-iphone/">remove photo metadata on iPhone</a> and <a href="../remove-photo-metadata-mac-windows/">Mac and Windows overview</a>.</p>""",
         faqs=[
             ("How do I remove location from a photo on Mac?", "Preview → Tools → Show Inspector → GPS tab → Remove Location Info."),
@@ -383,6 +391,8 @@ def register_gsc(ns: dict) -> None:
             <tr><td>Date Created, City, Country</td><td>2026-11-02, Lisbon, Portugal</td></tr>
           </tbody>
         </table>
+        <h2>How to view IPTC data in a photo</h2>
+        <p>Open the photo in the <a href="../../exif-viewer/">online metadata viewer</a> and look for the Creator, Copyright and Description rows. On iPhone, {NAME} lists them in its Author &amp; Copyright and Description sections. Modern files may store the same fields in XMP rather than in the older IPTC block, so a good viewer reads both.</p>
         <h2>Why it matters</h2>
         <p>IPTC can contain your name and location in words, not only in coordinates, so a GPS-only cleanup does not remove it. {NAME} reads EXIF, IPTC and GPS and can edit or remove them. See <a href="../exif-vs-iptc/">EXIF vs IPTC</a>, <a href="../../how-to/batch-edit-copyright/">batch edit copyright</a> and the <a href="../glossary/">glossary</a>.</p>
         {src(("IPTC Photo Metadata Standard", "https://iptc.org/standards/photo-metadata/"))}""",
@@ -391,6 +401,7 @@ def register_gsc(ns: dict) -> None:
             ("What is IPTC metadata used for?", "Captions, keywords, creator, credit and copyright text, mainly for publishing and archiving."),
             ("Is IPTC the same as EXIF?", "No. EXIF is mostly camera-written technical data; IPTC is descriptive text added by people or software."),
             ("Can IPTC reveal my name?", "Yes, if a Creator or Copyright field is filled in."),
+            ("How do I view IPTC data?", "Open the photo in an EXIF and IPTC viewer, such as the browser viewer on this site, and read the Creator, Copyright and Description fields."),
         ],
         nav="Learn",
         parent=("Learn", "learn/"),

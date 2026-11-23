@@ -99,7 +99,7 @@
   },
   "mainEntityOfPage": "https://emilsvetlichnyy.app/exif-plus/how-to/delete-image-metadata-mac/",
   "datePublished": "2026-11-19",
-  "dateModified": "2026-11-19"
+  "dateModified": "2026-11-23"
 }
   </script>
   <script type="application/ld+json">
@@ -161,7 +161,7 @@
         <section class="hero">
           <h1>How to delete image metadata on Mac</h1>
           <p class="lead">macOS removes location easily; removing every tag needs another tool.</p>
-          <p><small>Updated 2026-11-19</small></p>
+          <p><small>Updated 2026-11-23</small></p>
         </section>
         <p><strong>Direct answer:</strong> On a Mac, open the photo in <strong>Preview → Tools → Show Inspector</strong>, go to the <strong>GPS</strong> tab and click <strong>Remove Location Info</strong>. In the Photos app, choose <strong>File → Export</strong> and untick the location option. These remove location; they do not clear camera and date tags.</p>
         <table>
@@ -173,6 +173,8 @@
             <tr><td>ExifTool <code>-all=</code></td><td>Nearly everything</td><td>Pixels</td></tr>
           </tbody>
         </table>
+        <h2>Check what is left after cleaning</h2>
+        <p>Open the new copy in the <a href="../../exif-viewer/">online EXIF viewer</a>. If GPS Latitude and GPS Longitude are gone and the camera rows are empty, the clean worked. To see what a photo reveals first, read <a href="../find-exif-data/">how to check EXIF data</a>.</p>
         <p>If the photo came from an iPhone, you can clean it on the phone instead: EXIF+ saves a cleaned copy and keeps the original. See <a href="../remove-photo-metadata-iphone/">remove photo metadata on iPhone</a> and <a href="../remove-photo-metadata-mac-windows/">Mac and Windows overview</a>.</p>
       </article>
       <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>How do I remove location from a photo on Mac?</summary><p>Preview → Tools → Show Inspector → GPS tab → Remove Location Info.</p></details><details><summary>Does Preview remove all metadata?</summary><p>No. It removes location; camera and date tags remain.</p></details><details><summary>Can Photos export without location?</summary><p>Yes. Untick the location option in the export dialog.</p></details><details><summary>How do I remove everything?</summary><p>Use a metadata remover such as the browser tool here or ExifTool.</p></details></section>
