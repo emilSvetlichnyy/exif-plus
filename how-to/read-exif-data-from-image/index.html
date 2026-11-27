@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>How to Read EXIF Data From an Image: 6 Ways | EXIF+</title>
+  <title>How to Read EXIF Data From a JPG or Image: 6 Ways | EXIF+</title>
   <meta name="description" content="How to read EXIF data from a photo on iPhone, Windows, Mac, Android, in a browser, and with ExifTool. Pick the way that fits your device.">
   <link rel="canonical" href="https://emilsvetlichnyy.app/exif-plus/how-to/read-exif-data-from-image/">
   <meta name="theme-color" content="#3b6ea8">
@@ -13,14 +13,14 @@
   <meta name="apple-mobile-web-app-title" content="EXIF+">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="EXIF+">
-  <meta property="og:title" content="How to Read EXIF Data From an Image: 6 Ways | EXIF+">
+  <meta property="og:title" content="How to Read EXIF Data From a JPG or Image: 6 Ways | EXIF+">
   <meta property="og:description" content="How to read EXIF data from a photo on iPhone, Windows, Mac, Android, in a browser, and with ExifTool. Pick the way that fits your device.">
   <meta property="og:url" content="https://emilsvetlichnyy.app/exif-plus/how-to/read-exif-data-from-image/">
   <meta property="og:image" content="https://emilsvetlichnyy.app/exif-plus/assets/og/home.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="How to Read EXIF Data From an Image: 6 Ways | EXIF+">
+  <meta name="twitter:title" content="How to Read EXIF Data From a JPG or Image: 6 Ways | EXIF+">
   <meta name="twitter:description" content="How to read EXIF data from a photo on iPhone, Windows, Mac, Android, in a browser, and with ExifTool. Pick the way that fits your device.">
   <meta name="twitter:image" content="https://emilsvetlichnyy.app/exif-plus/assets/og/home.png">
   <link rel="alternate" type="application/rss+xml" title="EXIF+" href="https://emilsvetlichnyy.app/exif-plus/feed.xml">
@@ -99,7 +99,7 @@
   },
   "mainEntityOfPage": "https://emilsvetlichnyy.app/exif-plus/how-to/read-exif-data-from-image/",
   "datePublished": "2026-11-19",
-  "dateModified": "2026-11-19"
+  "dateModified": "2026-11-27"
 }
   </script>
   <script type="application/ld+json">
@@ -113,6 +113,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Use a browser EXIF viewer, your computer's file properties or Preview, an iPhone app, or ExifTool on the command line."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I read EXIF data from a JPG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add the original .jpg to a browser EXIF viewer, or open its properties on Windows or the Inspector in Preview on Mac."
       }
     },
     {
@@ -161,7 +169,7 @@
         <section class="hero">
           <h1>How to read EXIF data from an image</h1>
           <p class="lead">Six ways to read the EXIF in a photo, from a right-click to a command line.</p>
-          <p><small>Updated 2026-11-19</small></p>
+          <p><small>Updated 2026-11-27</small></p>
         </section>
         <p><strong>Direct answer:</strong> The fastest way on any device is to drop the file into a browser EXIF viewer. On a computer you can also use file properties (Windows) or Preview (Mac). On iPhone, use Photos for the basics or an app such as EXIF+ for the full list. For every tag, use ExifTool.</p>
         <table>
@@ -175,11 +183,18 @@
             <tr><td>Command line</td><td><code>exiftool photo.jpg</code></td><td>All tags</td></tr>
           </tbody>
         </table>
+        <h2>How to read EXIF data from a JPG</h2>
+        <p>A JPG (JPEG) file usually keeps its EXIF inside the file itself, so you do not need any extra file.</p>
+        <ol>
+          <li>Use the original file if you can. A copy sent through a messenger or downloaded from a social network may have no EXIF left.</li>
+          <li>Add the .jpg to the <a href="../../exif-viewer/">EXIF viewer</a>. It is read in your browser tab and not uploaded.</li>
+          <li>Look for Make and Model (camera), DateTimeOriginal (when it was taken) and the GPS fields (where). What each tag means: <a href="../../learn/exif-tags-cheat-sheet/">EXIF tags cheat sheet</a>.</li>
+        </ol>
         <h2>If the tool shows nothing</h2>
         <p>The photo may have had metadata removed (messengers and many sites do this), or it is a screenshot, or the tool cannot read HEIC. See <a href="../../learn/heic-vs-jpeg-metadata/">HEIC vs JPEG metadata</a>.</p>
         <p>More: <a href="../find-exif-data/">find EXIF data</a>, <a href="../view-exif-on-iphone/">view EXIF on iPhone</a>, <a href="../check-if-photo-has-location/">check for location</a>.</p>
       </article>
-      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>How do I read EXIF data from a photo?</summary><p>Use a browser EXIF viewer, your computer's file properties or Preview, an iPhone app, or ExifTool on the command line.</p></details><details><summary>How can I see EXIF data without installing anything?</summary><p>Use the browser viewer on this site; the file is read in your tab and not uploaded.</p></details><details><summary>Why is the EXIF data empty?</summary><p>It was stripped by an app or site, the file is a screenshot, or the viewer does not support the format.</p></details><details><summary>Which tool shows the most tags?</summary><p>ExifTool lists nearly every tag, including maker-specific ones.</p></details></section>
+      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>How do I read EXIF data from a photo?</summary><p>Use a browser EXIF viewer, your computer's file properties or Preview, an iPhone app, or ExifTool on the command line.</p></details><details><summary>How do I read EXIF data from a JPG?</summary><p>Add the original .jpg to a browser EXIF viewer, or open its properties on Windows or the Inspector in Preview on Mac.</p></details><details><summary>How can I see EXIF data without installing anything?</summary><p>Use the browser viewer on this site; the file is read in your tab and not uploaded.</p></details><details><summary>Why is the EXIF data empty?</summary><p>It was stripped by an app or site, the file is a screenshot, or the viewer does not support the format.</p></details><details><summary>Which tool shows the most tags?</summary><p>ExifTool lists nearly every tag, including maker-specific ones.</p></details></section>
             <section class="section cta-band">
         <div class="section-head"><h2>Need this on iPhone?</h2></div>
         <p class="lead-sm">EXIF+ views, edits, and removes EXIF/IPTC metadata — including GPS — on-device. Single-photo clean and edit are available to start; Premium unlocks multi-select batch tools and share-without-metadata. Cleaned photos are saved as new Photo Library items (originals stay).</p>

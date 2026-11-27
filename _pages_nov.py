@@ -220,7 +220,7 @@ def register_nov(ns: dict) -> None:
           </tbody>
         </table>
         <h2>See it yourself</h2>
-        <p>{NAME} groups tags in these same categories for any photo in your library: <a href="../../how-to/view-exif-on-iphone/">view EXIF on iPhone</a>. For a file on a computer use the <a href="../../exif-viewer/">image metadata viewer</a>. HEIC specifics are on the <a href="../../heic-metadata/">HEIC metadata</a> page; definitions are in <a href="../what-is-exif/">What is EXIF?</a>.</p>""",
+        <p>{NAME} groups tags in these same categories for any photo in your library: <a href="../../how-to/view-exif-on-iphone/">view EXIF on iPhone</a>. For a file on a computer use the <a href="../../exif-viewer/">image metadata viewer</a>. HEIC specifics are on the <a href="../../heic-metadata/">HEIC metadata</a> page; definitions are in <a href="../what-is-exif/">What is EXIF?</a>. Before posting online, check <a href="../does-twitter-x-remove-exif/">does X (Twitter) strip EXIF data</a>; for a JPG file, see <a href="../../how-to/read-exif-data-from-image/">how to read EXIF data from a JPG</a>.</p>""",
         faqs=[
             ("What data is stored in an iPhone photo?", "Date and time, GPS location when enabled, device and lens, exposure settings, orientation and image size."),
             ("Do iPhone photos include location?", "Yes, when Location Services are enabled for the Camera app."),

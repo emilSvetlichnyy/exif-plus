@@ -53,7 +53,7 @@ def register_cite(ns: dict) -> None:
         </table>
         <h2>What to do with them</h2>
         <p>Keep shot settings if you share photos for learning. Remove GPS and serial numbers before you post publicly. {NAME} lists EXIF, IPTC and GPS tags for photos in your library and can remove all of them, or only location. In a browser, use the <a href="../../exif-viewer/">EXIF viewer</a> or the <a href="../../remove-gps/">GPS remover</a>.</p>
-        <p>Related: <a href="../what-is-exif/">what is EXIF</a>, <a href="../exif-date-fields-explained/">date fields explained</a>, <a href="../exif-vs-iptc/">EXIF vs IPTC</a>.</p>
+        <p>Related: <a href="../what-is-exif/">what is EXIF</a>, <a href="../exif-date-fields-explained/">date fields explained</a>, <a href="../exif-vs-iptc/">EXIF vs IPTC</a>, <a href="../../how-to/read-exif-data-from-image/">how to read EXIF data from a JPG</a>.</p>
         {src_exif}""",
         faqs=[
             ("What are the most common EXIF tags?", "Make, Model, DateTimeOriginal, ExposureTime, FNumber, ISO, FocalLength, Orientation and the GPS tags are the ones found in most phone and camera photos."),
@@ -126,7 +126,7 @@ def register_cite(ns: dict) -> None:
           <li>The <a href="../../exif-viewer/">browser viewer</a> and <a href="../../remove-exif/">browser remover</a> work best on JPEG, PNG and WebP; HEIC may be unsupported in some browsers. See <a href="../../heic-metadata/">HEIC metadata</a>.</li>
           <li>{NAME} reads HEIC from the Photo Library and can keep HEIC or HEIF when it saves the cleaned copy.</li>
         </ul>
-        <p>Related: <a href="../what-is-exif/">what is EXIF</a>, <a href="../does-cleaning-reduce-quality/">does cleaning reduce quality</a>.</p>
+        <p>Related: <a href="../what-is-exif/">what is EXIF</a>, <a href="../does-cleaning-reduce-quality/">does cleaning reduce quality</a>, <a href="../../how-to/read-exif-data-from-image/">how to read EXIF data from a JPG</a>.</p>
         <p><small>Sources: <a href="https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format" rel="noopener">HEIF (Wikipedia)</a>; <a href="https://exiftool.org/TagNames/EXIF.html" rel="noopener">ExifTool tag names</a>. Checked 19 Nov 2026.</small></p>""",
         faqs=[
             ("Does HEIC have EXIF data?", "Yes. HEIC photos carry EXIF, including GPS, stored as a metadata item in the HEIF container."),
@@ -204,6 +204,8 @@ def register_cite(ns: dict) -> None:
         <p>Often from the displayed copy, rarely from files sent as documents. See <a href="../which-apps-remove-photo-metadata/">which apps remove metadata</a>.</p>
         <h2>Is HEIC different from JPEG for metadata?</h2>
         <p>Both store EXIF and GPS; the container differs. See <a href="../heic-vs-jpeg-metadata/">HEIC vs JPEG metadata</a>.</p>
+        <h2>Do social networks remove it for me?</h2>
+        <p>It depends on the service and how you send the file. See <a href="../does-twitter-x-remove-exif/">does X (Twitter) strip EXIF data</a> and <a href="../which-apps-remove-photo-metadata/">which apps remove photo metadata</a>.</p>
         <h2>Can I edit metadata instead of deleting it?</h2>
         <p>Yes: date, location, camera and author fields can be changed. See <a href="../../compare/remove-vs-edit-exif/">remove vs edit</a>.</p>
         <h2>What is the difference between EXIF and IPTC?</h2>

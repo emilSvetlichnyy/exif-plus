@@ -99,7 +99,7 @@
   },
   "mainEntityOfPage": "https://emilsvetlichnyy.app/exif-plus/how-to/preview-content-credentials-photoshop/",
   "datePublished": "2026-11-19",
-  "dateModified": "2026-11-19"
+  "dateModified": "2026-11-27"
 }
   </script>
   <script type="application/ld+json">
@@ -121,6 +121,30 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Choose None in the Content Credentials option."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I save Content Credentials settings as a preset in Photoshop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Adobe describes default settings under History & Content Credentials, including Export As Options, rather than named presets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I remove Content Credentials from an already exported file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Adobe's tutorials do not describe this. Export your source file again with None and share that copy; cloud-published records can still be recoverable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why would I choose None?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To avoid attaching your name, accounts or edit activity to a particular export."
       }
     },
     {
@@ -161,7 +185,7 @@
         <section class="hero">
           <h1>How to preview Content Credentials before exporting in Photoshop</h1>
           <p class="lead">Photoshop shows a preview of what will be attached when you export. Here is where to look.</p>
-          <p><small>Updated 2026-11-19</small></p>
+          <p><small>Updated 2026-11-27</small></p>
         </section>
         <p><strong>Direct answer:</strong> In Photoshop, open <strong>File → Export As</strong> and review the <strong>Content Credentials</strong> options in the lower-right of the dialog. The <strong>Preview</strong> tab of the Content Credentials panel lists what would be attached, such as identity details, connected social accounts, edit history and ingredients. Choose <strong>None</strong> to attach no Content Credentials. Menu names can differ by version, as Adobe still labels the feature Beta in places.</p>
         <h2>What can be included</h2>
@@ -174,11 +198,17 @@
             <tr><td>Ingredients (source images)</td><td>Reflected in the Preview tab</td></tr>
           </tbody>
         </table>
+        <h2>Save your choice so you do not set it every time</h2>
+        <p>Adobe describes defaults, not named presets. Open <strong>History &amp; Content Credentials</strong> in Photoshop's Settings (called Preferences on some Adobe pages). <strong>Document Settings</strong> controls whether new and saved documents get Content Credentials. <strong>Export As Options</strong> sets what the Export As dialog starts with. An existing file without credentials may still need to be enabled in <strong>Window → Content Credentials</strong>.</p>
+        <h2>Remove Content Credentials from a file you already exported</h2>
+        <p>The Adobe tutorials we checked do not describe a way to strip them from an exported file. What you can do is open your source file, export it again with <strong>None</strong>, and share the new copy; Adobe says None adds no Content Credentials to that export. The old file does not change. If you published to the Content Credentials cloud, Adobe says the record is public and persistent and can be recovered by searching on verify.contentauthenticity.org, even if the file lost it. Those tutorials do not say how to delete that record.</p>
+        <h2>When to choose None</h2>
+        <p>Content Credentials help show who made an image and how. Our suggestion: choose <strong>None</strong> when you do not want your name, connected accounts or edit activity attached to this particular export, for example a client draft or an anonymous post. If you only want to share less, adjust the settings and check the Preview tab instead.</p>
         <h2>Check the exported file</h2>
         <p>Inspect the result with Adobe's Content Credentials verify tool, and read the ordinary EXIF with a <a href="../../exif-viewer/">metadata viewer</a>. Content Credentials (C2PA) and EXIF are separate things: <a href="../../learn/ai-image-metadata-c2pa/">AI image metadata and C2PA</a>. To strip EXIF and GPS from the exported file on iPhone, use EXIF+; note that cleaning rewrites the file and this page does not claim to remove or preserve Content Credentials.</p>
         <p><small>Sources: <a href="https://www.adobe.com/learn/photoshop/web/apply-content-credentials-photoshop" rel="noopener">Adobe: apply Content Credentials in Photoshop</a>; <a href="https://www.adobe.com/learn/photoshop/web/secure-image-data-enable-content-credentials-photoshop" rel="noopener">Adobe: secure image data with Content Credentials</a>. Checked 19 Nov 2026.</small></p>
       </article>
-      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>Where do I preview Content Credentials in Photoshop?</summary><p>In Export As, check the Content Credentials options at the lower right; the panel's Preview tab shows what will be attached.</p></details><details><summary>How do I export without Content Credentials?</summary><p>Choose None in the Content Credentials option.</p></details><details><summary>What can Content Credentials include?</summary><p>Identity details, connected social accounts, edit history and image ingredients, depending on your settings.</p></details><details><summary>Are Content Credentials the same as EXIF?</summary><p>No. They are a separate signed record (C2PA) from the EXIF tags in the file.</p></details></section>
+      <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>Where do I preview Content Credentials in Photoshop?</summary><p>In Export As, check the Content Credentials options at the lower right; the panel's Preview tab shows what will be attached.</p></details><details><summary>How do I export without Content Credentials?</summary><p>Choose None in the Content Credentials option.</p></details><details><summary>Can I save Content Credentials settings as a preset in Photoshop?</summary><p>Adobe describes default settings under History &amp; Content Credentials, including Export As Options, rather than named presets.</p></details><details><summary>Can I remove Content Credentials from an already exported file?</summary><p>Adobe's tutorials do not describe this. Export your source file again with None and share that copy; cloud-published records can still be recoverable.</p></details><details><summary>Why would I choose None?</summary><p>To avoid attaching your name, accounts or edit activity to a particular export.</p></details><details><summary>What can Content Credentials include?</summary><p>Identity details, connected social accounts, edit history and image ingredients, depending on your settings.</p></details><details><summary>Are Content Credentials the same as EXIF?</summary><p>No. They are a separate signed record (C2PA) from the EXIF tags in the file.</p></details></section>
             <section class="section cta-band">
         <div class="section-head"><h2>Need this on iPhone?</h2></div>
         <p class="lead-sm">EXIF+ views, edits, and removes EXIF/IPTC metadata — including GPS — on-device. Single-photo clean and edit are available to start; Premium unlocks multi-select batch tools and share-without-metadata. Cleaned photos are saved as new Photo Library items (originals stay).</p>

@@ -99,7 +99,7 @@
   },
   "mainEntityOfPage": "https://emilsvetlichnyy.app/exif-plus/learn/heic-vs-jpeg-metadata/",
   "datePublished": "2026-11-19",
-  "dateModified": "2026-11-19"
+  "dateModified": "2026-11-27"
 }
   </script>
   <script type="application/ld+json">
@@ -161,7 +161,7 @@
         <section class="hero">
           <h1>HEIC vs JPEG metadata</h1>
           <p class="lead">Both formats store EXIF and GPS, so both can leak your location. The difference is the container, and which tools can read it.</p>
-          <p><small>Updated 2026-11-19</small></p>
+          <p><small>Updated 2026-11-27</small></p>
         </section>
         <p><strong>Direct answer:</strong> Yes. A HEIC photo from an iPhone carries EXIF, including GPS, just like a JPEG. JPEG keeps EXIF in an APP1 segment at the start of the file; HEIC (an HEIF file) keeps it as a separate metadata item inside the container. Many older tools read JPEG but not HEIC, which is why a tool can say a HEIC photo has no metadata when it does.</p>
         <table>
@@ -180,7 +180,7 @@
           <li>The <a href="../../exif-viewer/">browser viewer</a> and <a href="../../remove-exif/">browser remover</a> work best on JPEG, PNG and WebP; HEIC may be unsupported in some browsers. See <a href="../../heic-metadata/">HEIC metadata</a>.</li>
           <li>EXIF+ reads HEIC from the Photo Library and can keep HEIC or HEIF when it saves the cleaned copy.</li>
         </ul>
-        <p>Related: <a href="../what-is-exif/">what is EXIF</a>, <a href="../does-cleaning-reduce-quality/">does cleaning reduce quality</a>.</p>
+        <p>Related: <a href="../what-is-exif/">what is EXIF</a>, <a href="../does-cleaning-reduce-quality/">does cleaning reduce quality</a>, <a href="../../how-to/read-exif-data-from-image/">how to read EXIF data from a JPG</a>.</p>
         <p><small>Sources: <a href="https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format" rel="noopener">HEIF (Wikipedia)</a>; <a href="https://exiftool.org/TagNames/EXIF.html" rel="noopener">ExifTool tag names</a>. Checked 19 Nov 2026.</small></p>
       </article>
       <section class="section faq"><div class="section-head"><h2>FAQ</h2></div><details><summary>Does HEIC have EXIF data?</summary><p>Yes. HEIC photos carry EXIF, including GPS, stored as a metadata item in the HEIF container.</p></details><details><summary>Is HEIC safer for privacy than JPEG?</summary><p>No. Both record location when Location Services is on for the camera.</p></details><details><summary>Why can't my tool read HEIC metadata?</summary><p>Many older or browser-based tools do not parse the HEIF container, so they report nothing.</p></details><details><summary>Does converting HEIC to JPEG remove metadata?</summary><p>Not necessarily. Many converters copy the EXIF across, so check the result.</p></details></section>

@@ -97,11 +97,11 @@ def register_gsc(ns: dict) -> None:
     # 3 -------------------------------------------------------------
     article_page(
         "how-to/read-exif-data-from-image",
-        title="How to Read EXIF Data From an Image: 6 Ways | EXIF+",
+        title="How to Read EXIF Data From a JPG or Image: 6 Ways | EXIF+",
         description="How to read EXIF data from a photo on iPhone, Windows, Mac, Android, in a browser, and with ExifTool. Pick the way that fits your device.",
         h1="How to read EXIF data from an image",
         lead="Six ways to read the EXIF in a photo, from a right-click to a command line.",
-        updated=UPDATED,
+        updated="2026-11-27",
         prose=f"""        <p><strong>Direct answer:</strong> The fastest way on any device is to drop the file into a browser EXIF viewer. On a computer you can also use file properties (Windows) or Preview (Mac). On iPhone, use Photos for the basics or an app such as {NAME} for the full list. For every tag, use ExifTool.</p>
         <table>
           <thead><tr><th>Where</th><th>How</th><th>Shows</th></tr></thead>
@@ -114,11 +114,19 @@ def register_gsc(ns: dict) -> None:
             <tr><td>Command line</td><td><code>exiftool photo.jpg</code></td><td>All tags</td></tr>
           </tbody>
         </table>
+        <h2>How to read EXIF data from a JPG</h2>
+        <p>A JPG (JPEG) file usually keeps its EXIF inside the file itself, so you do not need any extra file.</p>
+        <ol>
+          <li>Use the original file if you can. A copy sent through a messenger or downloaded from a social network may have no EXIF left.</li>
+          <li>Add the .jpg to the <a href="../../exif-viewer/">EXIF viewer</a>. It is read in your browser tab and not uploaded.</li>
+          <li>Look for Make and Model (camera), DateTimeOriginal (when it was taken) and the GPS fields (where). What each tag means: <a href="../../learn/exif-tags-cheat-sheet/">EXIF tags cheat sheet</a>.</li>
+        </ol>
         <h2>If the tool shows nothing</h2>
         <p>The photo may have had metadata removed (messengers and many sites do this), or it is a screenshot, or the tool cannot read HEIC. See <a href="../../learn/heic-vs-jpeg-metadata/">HEIC vs JPEG metadata</a>.</p>
         <p>More: <a href="../find-exif-data/">find EXIF data</a>, <a href="../view-exif-on-iphone/">view EXIF on iPhone</a>, <a href="../check-if-photo-has-location/">check for location</a>.</p>""",
         faqs=[
             ("How do I read EXIF data from a photo?", "Use a browser EXIF viewer, your computer's file properties or Preview, an iPhone app, or ExifTool on the command line."),
+            ("How do I read EXIF data from a JPG?", "Add the original .jpg to a browser EXIF viewer, or open its properties on Windows or the Inspector in Preview on Mac."),
             ("How can I see EXIF data without installing anything?", "Use the browser viewer on this site; the file is read in your tab and not uploaded."),
             ("Why is the EXIF data empty?", "It was stripped by an app or site, the file is a screenshot, or the viewer does not support the format."),
             ("Which tool shows the most tags?", "ExifTool lists nearly every tag, including maker-specific ones."),
@@ -394,7 +402,7 @@ def register_gsc(ns: dict) -> None:
         <h2>How to view IPTC data in a photo</h2>
         <p>Open the photo in the <a href="../../exif-viewer/">online metadata viewer</a> and look for the Creator, Copyright and Description rows. On iPhone, {NAME} lists them in its Author &amp; Copyright and Description sections. Modern files may store the same fields in XMP rather than in the older IPTC block, so a good viewer reads both.</p>
         <h2>Why it matters</h2>
-        <p>IPTC can contain your name and location in words, not only in coordinates, so a GPS-only cleanup does not remove it. {NAME} reads EXIF, IPTC and GPS and can edit or remove them. See <a href="../exif-vs-iptc/">EXIF vs IPTC</a>, <a href="../../how-to/batch-edit-copyright/">batch edit copyright</a> and the <a href="../glossary/">glossary</a>.</p>
+        <p>IPTC can contain your name and location in words, not only in coordinates, so a GPS-only cleanup does not remove it. {NAME} reads EXIF, IPTC and GPS and can edit or remove them. See <a href="../exif-vs-iptc/">EXIF vs IPTC</a>, <a href="../../how-to/batch-edit-copyright/">batch edit copyright</a> and the <a href="../glossary/">glossary</a>. Exporting from Photoshop? See <a href="../../how-to/preview-content-credentials-photoshop/">what Content Credentials attach to an export</a>.</p>
         {src(("IPTC Photo Metadata Standard", "https://iptc.org/standards/photo-metadata/"))}""",
         faqs=[
             ("What does IPTC stand for?", "International Press Telecommunications Council."),
@@ -414,7 +422,7 @@ def register_gsc(ns: dict) -> None:
         description="Where to see what Content Credentials Photoshop will attach to an export, what they can include, and how to choose what to share.",
         h1="How to preview Content Credentials before exporting in Photoshop",
         lead="Photoshop shows a preview of what will be attached when you export. Here is where to look.",
-        updated=UPDATED,
+        updated="2026-11-27",
         prose=f"""        <p><strong>Direct answer:</strong> In Photoshop, open <strong>File → Export As</strong> and review the <strong>Content Credentials</strong> options in the lower-right of the dialog. The <strong>Preview</strong> tab of the Content Credentials panel lists what would be attached, such as identity details, connected social accounts, edit history and ingredients. Choose <strong>None</strong> to attach no Content Credentials. Menu names can differ by version, as Adobe still labels the feature Beta in places.</p>
         <h2>What can be included</h2>
         <table>
@@ -426,12 +434,21 @@ def register_gsc(ns: dict) -> None:
             <tr><td>Ingredients (source images)</td><td>Reflected in the Preview tab</td></tr>
           </tbody>
         </table>
+        <h2>Save your choice so you do not set it every time</h2>
+        <p>Adobe describes defaults, not named presets. Open <strong>History &amp; Content Credentials</strong> in Photoshop's Settings (called Preferences on some Adobe pages). <strong>Document Settings</strong> controls whether new and saved documents get Content Credentials. <strong>Export As Options</strong> sets what the Export As dialog starts with. An existing file without credentials may still need to be enabled in <strong>Window → Content Credentials</strong>.</p>
+        <h2>Remove Content Credentials from a file you already exported</h2>
+        <p>The Adobe tutorials we checked do not describe a way to strip them from an exported file. What you can do is open your source file, export it again with <strong>None</strong>, and share the new copy; Adobe says None adds no Content Credentials to that export. The old file does not change. If you published to the Content Credentials cloud, Adobe says the record is public and persistent and can be recovered by searching on verify.contentauthenticity.org, even if the file lost it. Those tutorials do not say how to delete that record.</p>
+        <h2>When to choose None</h2>
+        <p>Content Credentials help show who made an image and how. Our suggestion: choose <strong>None</strong> when you do not want your name, connected accounts or edit activity attached to this particular export, for example a client draft or an anonymous post. If you only want to share less, adjust the settings and check the Preview tab instead.</p>
         <h2>Check the exported file</h2>
         <p>Inspect the result with Adobe's Content Credentials verify tool, and read the ordinary EXIF with a <a href="../../exif-viewer/">metadata viewer</a>. Content Credentials (C2PA) and EXIF are separate things: <a href="../../learn/ai-image-metadata-c2pa/">AI image metadata and C2PA</a>. To strip EXIF and GPS from the exported file on iPhone, use {NAME}; note that cleaning rewrites the file and this page does not claim to remove or preserve Content Credentials.</p>
         {src(("Adobe: apply Content Credentials in Photoshop", "https://www.adobe.com/learn/photoshop/web/apply-content-credentials-photoshop"), ("Adobe: secure image data with Content Credentials", "https://www.adobe.com/learn/photoshop/web/secure-image-data-enable-content-credentials-photoshop"))}""",
         faqs=[
             ("Where do I preview Content Credentials in Photoshop?", "In Export As, check the Content Credentials options at the lower right; the panel's Preview tab shows what will be attached."),
             ("How do I export without Content Credentials?", "Choose None in the Content Credentials option."),
+            ("Can I save Content Credentials settings as a preset in Photoshop?", "Adobe describes default settings under History & Content Credentials, including Export As Options, rather than named presets."),
+            ("Can I remove Content Credentials from an already exported file?", "Adobe's tutorials do not describe this. Export your source file again with None and share that copy; cloud-published records can still be recoverable."),
+            ("Why would I choose None?", "To avoid attaching your name, accounts or edit activity to a particular export."),
             ("What can Content Credentials include?", "Identity details, connected social accounts, edit history and image ingredients, depending on your settings."),
             ("Are Content Credentials the same as EXIF?", "No. They are a separate signed record (C2PA) from the EXIF tags in the file."),
         ],
