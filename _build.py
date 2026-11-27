@@ -267,6 +267,7 @@ def footer_html(prefix: str) -> str:
         <a href="{prefix}compare/online-vs-iphone-app/">Online vs app</a>
         <a href="{prefix}app/history/">History</a>
       </nav>
+      <p>More from the same developer: <a href="https://emilsvetlichnyy.app/swipeo-guides/">Swipeo photo cleaner</a> · <a href="https://emilsvetlichnyy.app/chart-maker/">VIA chart maker</a> · <a href="https://emilsvetlichnyy.app/zipvid-guides/">Zipvid video compressor</a></p>
       <p>© {date.today().year} {esc(DEV_NAME)}. {esc(NAME)} — view, edit, and remove photo metadata on iPhone.</p>
     </footer>"""
 
